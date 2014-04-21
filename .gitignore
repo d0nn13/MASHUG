@@ -1,4 +1,6 @@
 *~
 \#*\#
+*.o
+/bin/
 .DS_Store
 .svn/
