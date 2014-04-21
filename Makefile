@@ -4,16 +4,16 @@ MKDIR		=	mkdir -p
 RM		=	rm -f
 ARCHIVE		=	tar -cjf
 SRCPATH		=	src/
-LIBPATH		=	lib/
+LIBPATH		=	
 OBJPATH		=	objs/
 BINPATH		=	bin/
 PACKPATH	=	dist/
 
 SRC		=	$(SRCPATH)game/spaceinvaders.c
-OBJ		=	$(SRC:$(SRCPATH)%.c=$(OBJPATH)%.o)
+OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	-W -Wall -Werror -ansi -pedantic
-LDFLAGS		=	-Wl,-rpath=$(LIBPATH) -L$(LIBPATH) -lsdl -lmy -lmy_my_printf
+CFLAGS		=	-W -Wall -Werror -pedantic
+LDFLAGS		=	-lSDL2 -lmy
 DBGFLAGS	=	-ggdb -DDEBUG
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders
@@ -22,37 +22,38 @@ BINARY		=	spaceinvaders
 		@printf "\x1b[0;37m:: Building $@ from $<\n\x1b[0;0m"
 		@$(CC) $(CFLAGS) -c -o $@ $<
 
-all:		
+all:		debug
 .PHONY:		all
 
 debug:		$(OBJ)
 		@printf "\x1b[1;33m:: Building Space Invasion (DEBUG). . .\n\x1b[0;0m"
-		$(MKDIR) $(BINPATH)
-		$(CC) $(DBGFLAGS) $(CFLAGS) -o $(BINPATH)$(BINARY)-dbg $(LDFLAGS)
+		@$(MKDIR) $(BINPATH)
+		@$(CC) $(DBGFLAGS) $(CFLAGS) -o $(BINPATH)$(BINARY)-dbg $(OBJ) $(LDFLAGS)
 .PHONY:		debug
 
-release:	fclean $(OBJ)
+release:	$(OBJ)
 		@printf "\x1b[1;33m:: Building Space Invasion. . .\n\x1b[0;0m"
-		$(MKDIR) $(BINPATH)
-		$(CC) $(CFLAGS) -o $(BINPATH)$(BINARY) $(LDFLAGS)
+		@$(MKDIR) $(BINPATH)
+		@$(CC) $(CFLAGS) -o $(BINPATH)$(BINARY) $(OBJ) $(LDFLAGS)
 .PHONY:		release
 
 dist:		release
 		@printf "\x1b[1;35m:: Packing everything. . .\n\x1b[0;0m"
-		$(MKDIR) $(PACKPATH)
-		$(ARCHIVE) $(PACKPATH)$(PACKAGE) $(SRCPATH) $(INCPATH) $(LIBPATH)
-		$(MAKE) clean
+		@$(MKDIR) $(PACKPATH)
+		@$(ARCHIVE) $(PACKPATH)$(PACKAGE) $(SRCPATH) $(INCPATH) $(LIBPATH)
+		@$(MAKE) clean
 .PHONY:		dist
 
 clean:
 		@printf "\x1b[1;36m:: Cleaning. . .\n\x1b[0;0m"
-		$(RM) $(OBJ)
+		@$(RM) $(OBJ)
 .PHONY:		clean
 
 fclean:
 		@printf "\x1b[1;31m:: W I P I N G ! ! ! !\n\x1b[0;0m"
-		$(RM) $(OBJ) $(BINPATH)$(BINARY)* $(PACKPATH)$(PACKAGE)
+		@$(RM) $(OBJ) $(BINPATH)$(BINARY)* $(PACKPATH)$(PACKAGE)
 .PHONY:		fclean
 
-re:		fclean all
+re:		fclean
+		$(MAKE) all
 .PHONY:		re
