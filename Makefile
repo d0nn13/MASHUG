@@ -9,7 +9,9 @@ OBJPATH		=	objs/
 BINPATH		=	bin/
 PACKPATH	=	dist/
 
-SRC		=	$(SRCPATH)game/spaceinvaders.c
+SRC		=	$(SRCPATH)core/gfx/window.c				\
+			$(SRCPATH)game/client/spaceinvaders.c
+
 OBJ		=	$(SRC:%.c=%.o)
 
 CFLAGS		=	-W -Wall -Werror -pedantic
