@@ -5,11 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat Oct 26 16:51:11 2013 AHAMADA Samir
-** Last update Thu Mar 27 22:05:52 2014 AHAMADA Samir
+** Last update Sun Apr 20 23:23:03 2014 AHAMADA Samir
 */
 
 #ifndef MY_H_
 # define MY_H_
+
+#include <stdlib.h>
 
 void    my_putchar(char c);
 int     my_isneg(int n);
@@ -44,6 +46,7 @@ int     my_showstr(char *str);
 char    *my_strcat(char *str1, char *str2);
 char    *my_strncat(char *str1, char *str2, int n);
 int     my_strlcat(char *str1, char *str2, int n);
+/* int	my_printf(char *fmt, ...); COMING SOON */
 
 /* List handling functions */
 typedef struct	s_list
@@ -52,23 +55,44 @@ typedef struct	s_list
   struct s_list	*next;
 }		t_list;
 
-t_list		*my_params_in_list(int ac, char **av);
-int		my_list_size(t_list *begin);
-int		my_rev_list(t_list **begin);
-int		my_apply_on_list(t_list *begin, int (*f)());
-int		my_apply_on_eq_in_list(t_list *begin, int (*f)(),
-				       void *data_ref, int (*cmp)());
-void		*my_find_elm_eq_in_list(t_list *begin, void *data_ref,
-					int (*cmp)());
-t_list		*my_find_node_eq_in_list(t_list *begin, void *data_ref,
-					 int (*cmp)());
-int		my_rm_all_eq_from_list(t_list **begin, void *data_ref,
-				       int (*cmp)());
-int		my_add_list_to_list(t_list **begin1,t_list *begin2);
-int		my_sort_list(t_list **begin,int (*cmp)());
-int		my_put_elem_in_sort_list(t_list **begin, void *data,
-					 int (*cmp)());
-int		my_add_sort_list_to_sort_list(t_list **begin1, t_list *begin2,
-					      int (*cmp)());
+t_list	*my_params_in_list(int ac, char **av);
+int	my_list_size(t_list *begin);
+int	my_rev_list(t_list **begin);
+int	my_apply_on_list(t_list *begin, int (*f)());
+int	my_apply_on_eq_in_list(t_list *begin, int (*f)(),
+			       void *data_ref, int (*cmp)());
+void	*my_find_elm_eq_in_list(t_list *begin, void *data_ref,
+				int (*cmp)());
+t_list	*my_find_node_eq_in_list(t_list *begin, void *data_ref,
+				 int (*cmp)());
+int	my_rm_all_eq_from_list(t_list **begin, void *data_ref,
+			       int (*cmp)());
+int	my_add_list_to_list(t_list **begin1,t_list *begin2);
+int	my_sort_list(t_list **begin,int (*cmp)());
+int	my_put_elem_in_sort_list(t_list **begin, void *data,
+				 int (*cmp)());
+int	my_add_sort_list_to_sort_list(t_list **begin1, t_list *begin2,
+				      int (*cmp)());
+
+/* --------------- Extra functions --------------- */
+
+/* Memory allocation */
+typedef enum	e_mem_error
+  {
+    E_MALLOC,
+    E_MMLEAK
+  }		mem_error;
+
+void	*mem_alloc(size_t size);
+void	mem_free(void *ptr);
+void	mem_leakchk();
+int	mem_count();
+int	mem_strerror(mem_error r);
+
+/* Extra list handling functions */
+t_list	*list_make_node();
+void	list_push(void *data, t_list **node);
+void	list_clear(t_list **head);
+
 
 #endif /* !MY_H */
