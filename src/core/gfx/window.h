@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Mon Apr 21 12:25:20 2014 AHAMADA Samir
+** Last update Mon Apr 21 15:21:46 2014 AHAMADA Samir
 */
 
 #ifndef WINDOW_H
@@ -18,7 +18,7 @@
 #define WIN_HEIGHT	600
 
 int		Win_init();
-int		Win_destroy();
+void		Win_destroy();
 SDL_Window	*Win_getWindow();
 SDL_Renderer	*Win_getRenderer();
 
