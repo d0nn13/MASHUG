@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Tue Apr 22 11:38:52 2014 AHAMADA Samir
+** Last update Tue Apr 22 14:27:57 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -22,8 +22,8 @@ static SDL_Renderer	*renderer = NULL;
 int	Dspl_init()
 {
   window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-", 100, 100,
-			    WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_OPENGL);
-  if (!window && SDL_GetError)
+  			    WIN_WIDTH, WIN_HEIGHT, 0);
+  if (!window)
     {
       SDL_LogError(VID_CAT, "Couldn't initialize window : %s",
 		   SDL_GetError());
@@ -31,7 +31,7 @@ int	Dspl_init()
     }
   SDL_LogInfo(VID_CAT, "Window initialization done");
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-  if (!renderer && SDL_GetError)
+  if (!renderer)
     {
       SDL_LogError(RDR_CAT, "Couldn't initialize renderer : %s",
 		   SDL_GetError());
