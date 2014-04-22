@@ -18,7 +18,7 @@ SRC		=	$(SRCPATH)core/core.c				\
 OBJ		=	$(SRC:%.c=%.o)
 
 CFLAGS		=	-W -Wall -Werror -pedantic
-LDFLAGS		=	-lSDL2 -lmy
+LDFLAGS		=	-lSDL2
 DBGFLAGS	=	-ggdb -DDEBUG
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders
