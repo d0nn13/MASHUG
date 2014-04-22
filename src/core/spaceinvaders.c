@@ -5,15 +5,14 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Apr 22 18:49:34 2014 AHAMADA Samir
+** Last update Wed Apr 23 01:43:09 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
-#include "../../core/core.h"
-#include "../../core/gfx/display.h"
-
-void	Game_loop();
+#include "core.h"
+#include "gfx/display.h"
+#include "spaceinvaders.h"
 
 int	main()
 {
@@ -27,12 +26,15 @@ int	main()
 
 void	Game_loop()
 {
+  uInt8	run;
   SDL_Event e;
-  while (1)
+
+  run = 1;
+  while (run)
     {
       if (SDL_PollEvent(&e))
 	if (e.type == SDL_QUIT)
-	  break;
+	  run = 0;;
 
       SDL_RenderCopy(Dspl_getRender(), Dspl_getTexture(), NULL, NULL);
       SDL_RenderPresent(Dspl_getRender());

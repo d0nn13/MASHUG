@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Tue Apr 22 17:51:50 2014 AHAMADA Samir
+** Last update Tue Apr 22 21:53:52 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -40,7 +40,7 @@ uInt32	Dspl_init()
       SDL_LogError(RDR_CAT, "Couldn't initialize renderer : %s", SDL_GetError());
       return (1);
     }
-  SDL_SetRenderDrawColor(renderer, 127, 127, 127, 255);
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer initialization done");
 
