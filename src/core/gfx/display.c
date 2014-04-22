@@ -27,38 +27,35 @@ uInt32	Dspl_init()
 
   window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-",
 			    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
- 			    WIN_WIDTH, WIN_HEIGHT, 0);
+ 			    WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_OPENGL);
   if (!window)
     {
-      SDL_LogError(VID_CAT, "Couldn't initialize window : %s",
-		   SDL_GetError());
+      SDL_LogError(VID_CAT, "Couldn't initialize window : %s", SDL_GetError());
       return (1);
     }
   SDL_LogInfo(VID_CAT, "Window initialization done");
-  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
   if (!renderer)
     {
-      SDL_LogError(RDR_CAT, "Couldn't initialize renderer : %s",
-		   SDL_GetError());
+      SDL_LogError(RDR_CAT, "Couldn't initialize renderer : %s", SDL_GetError());
       return (1);
     }
   SDL_SetRenderDrawColor(renderer, 127, 127, 127, 255);
   SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer initialization done");
 
-  sur = SDL_LoadBMP_RW(SDL_RWFromFile("../media/gfx/checker-tile-100px.bmp", "r"), 1);
+  sur = SDL_LoadBMP_RW(SDL_RWFromFile("media/gfx/checker-tile-100px.bmp", "r"), 1);
   texture = SDL_CreateTextureFromSurface(renderer, sur);
-  SDL_RenderCopy(renderer, texture, NULL, NULL);
 
   return (0);
 }
 
 void	Dspl_destroy()
 {
-  SDL_DestroyWindow(window);
-  SDL_LogInfo(VID_CAT, "Window destroyed");
   SDL_DestroyRenderer(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer destroyed");
+  SDL_DestroyWindow(window);
+  SDL_LogInfo(VID_CAT, "Window destroyed");
 }
 
 SDL_Window	*Dspl_getWindow()
@@ -69,4 +66,9 @@ SDL_Window	*Dspl_getWindow()
 SDL_Renderer	*Dspl_getRender()
 {
   return (renderer);
+}
+
+SDL_Texture	*Dspl_getTexture()
+{
+  return (texture);
 }

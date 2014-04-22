@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Tue Apr 22 17:40:10 2014 AHAMADA Samir
+** Last update Tue Apr 22 18:48:46 2014 AHAMADA Samir
 */
 
 #ifndef DISPLAY_H
@@ -22,5 +22,6 @@ uInt32		Dspl_init();
 void		Dspl_destroy();
 SDL_Window	*Dspl_getWindow();
 SDL_Renderer	*Dspl_getRender();
+SDL_Texture	*Dspl_getTexture();
 
 #endif /*! DISPLAY_H */
