@@ -5,12 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Tue Apr 22 14:27:57 2014 AHAMADA Samir
+** Last update Tue Apr 22 17:51:50 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
 #include <SDL2/SDL_log.h>
 #include <SDL2/SDL_error.h>
+#include <SDL2/SDL_rwops.h>
 #include "display.h"
 
 #define VID_CAT	SDL_LOG_CATEGORY_VIDEO
@@ -18,11 +19,15 @@
 
 static SDL_Window	*window = NULL;
 static SDL_Renderer	*renderer = NULL;
+static SDL_Texture	*texture = NULL;
 
-int	Dspl_init()
+uInt32	Dspl_init()
 {
-  window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-", 100, 100,
-  			    WIN_WIDTH, WIN_HEIGHT, 0);
+  SDL_Surface	*sur;
+
+  window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-",
+			    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+ 			    WIN_WIDTH, WIN_HEIGHT, 0);
   if (!window)
     {
       SDL_LogError(VID_CAT, "Couldn't initialize window : %s",
@@ -37,7 +42,14 @@ int	Dspl_init()
 		   SDL_GetError());
       return (1);
     }
+  SDL_SetRenderDrawColor(renderer, 127, 127, 127, 255);
+  SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer initialization done");
+
+  sur = SDL_LoadBMP_RW(SDL_RWFromFile("../media/gfx/checker-tile-100px.bmp", "r"), 1);
+  texture = SDL_CreateTextureFromSurface(renderer, sur);
+  SDL_RenderCopy(renderer, texture, NULL, NULL);
+
   return (0);
 }
 
@@ -54,7 +66,7 @@ SDL_Window	*Dspl_getWindow()
   return (window);
 }
 
-SDL_Renderer	*Dspl_getRenderer()
+SDL_Renderer	*Dspl_getRender()
 {
   return (renderer);
 }

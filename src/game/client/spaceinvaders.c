@@ -5,12 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Apr 22 02:08:40 2014 AHAMADA Samir
+** Last update Tue Apr 22 16:09:56 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include "../../core/core.h"
+#include "../../core/gfx/display.h"
 
 void	Game_loop();
 
@@ -32,6 +33,7 @@ void	Game_loop()
       if (SDL_PollEvent(&e))
 	if (e.type == SDL_QUIT)
 	  break;
+      SDL_RenderPresent(Dspl_getRender());
       SDL_Delay(10);
     }
 }
