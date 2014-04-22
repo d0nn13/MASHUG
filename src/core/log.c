@@ -5,16 +5,44 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Mon Apr 21 16:05:10 2014 AHAMADA Samir
+** Last update Tue Apr 22 11:53:39 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
 #include <time.h>
+#include <SDL2/SDL_log.h>
 #include "log.h"
 
-static char	timestr[9];
+enum {
+  SPACE_CATEGORY_CUSTOM1 = SDL_LOG_CATEGORY_CUSTOM,
+  SPACE_CATEGORY_CUSTOM2
+};
 
-static void		timestamp()
+static char	timestr[9];
+static char	*catstrings[SPACE_CATEGORY_CUSTOM2 + 1];
+static void	timestamp();
+static void	print_log(void *userdata, int cat, SDL_LogPriority p, const char *msg);
+
+/* Log priority settings are temporary */
+void	Log_init()
+{
+  SDL_LogSetOutputFunction(&print_log, NULL);
+  SDL_LogSetPriority(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO);
+  catstrings[SDL_LOG_CATEGORY_APPLICATION] = "Space Invaders";
+  catstrings[SDL_LOG_CATEGORY_ERROR] = "Error";
+  catstrings[SDL_LOG_CATEGORY_SYSTEM] = "System";
+  catstrings[SDL_LOG_CATEGORY_AUDIO] = "Audio";
+  catstrings[SDL_LOG_CATEGORY_VIDEO] = "Video";
+  catstrings[SDL_LOG_CATEGORY_RENDER] = "Render";
+  catstrings[SDL_LOG_CATEGORY_INPUT] = "Input";
+  catstrings[SPACE_CATEGORY_CUSTOM1] = "Custom One";
+  catstrings[SPACE_CATEGORY_CUSTOM2] = "Custom Two";
+}
+
+static void	timestamp()
 {
   time_t	t;
   time(&t);
@@ -24,26 +52,14 @@ static void		timestamp()
 	  localtime(&t)->tm_sec);
 }
 
-int	print_log(const char *sender, const char *msg1, const char* msg2)
+static void	print_log(void *userdata, int cat, SDL_LogPriority p, const char *msg)
 {
+  userdata = (void *)userdata;
   timestamp();
-  if (!msg2)
-    printf("\x1b[0;0;0m%s [\x1b[0;33;40m%s\x1b[0;0;0m] %s\n",
-	   timestr, sender, msg1);
+  if (p < SDL_LOG_PRIORITY_ERROR)
+    printf("\x1b[1;0m%s [\x1b[1;33m%s\x1b[1;0;0m] %s\x1b[0;0;0m\n",
+	   timestr, catstrings[cat], msg);
   else
-    printf("\x1b[0;0;0m%s [\x1b[0;33;40m%s\x1b[0;0;0m] %s : %s\n",
-	   timestr, sender, msg1, msg2);
-  return (0);
-}
-
-int	print_error(const char *sender, const char *msg1, const char* msg2)
-{
-  timestamp();
-  if (!msg2)
-  printf("\x1b[1;0;41m[\x1b[1;33;41m%s\x1b[1;0;41m] ERROR : %s\x1b[0;0;0m\n",
-	 sender, msg1);
-else
-  printf("\x1b[1;0;41m[\x1b[1;33;41m%s\x1b[1;0;41m] ERROR : %s : %s\x1b[0;0;0m\n",
-	 sender, msg1, msg2);
-  return (1);
+    printf("\x1b[1;0;41m%s [\x1b[1;33;41m%s\x1b[1;0;41m] %s\x1b[0;0;0m\n",
+	   timestr, catstrings[cat], msg);
 }
