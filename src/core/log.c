@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Tue Apr 22 11:53:39 2014 AHAMADA Samir
+** Last update Wed Apr 23 02:08:46 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -27,10 +27,14 @@ static void	print_log(void *userdata, int cat, SDL_LogPriority p, const char *ms
 void	Log_init()
 {
   SDL_LogSetOutputFunction(&print_log, NULL);
+#ifdef VERBOSE
+  SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
+#else
   SDL_LogSetPriority(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO);
+#endif
   catstrings[SDL_LOG_CATEGORY_APPLICATION] = "Space Invaders";
   catstrings[SDL_LOG_CATEGORY_ERROR] = "Error";
   catstrings[SDL_LOG_CATEGORY_SYSTEM] = "System";

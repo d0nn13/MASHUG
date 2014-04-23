@@ -17,30 +17,23 @@ SRC		=	$(SRCPATH)core/core.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	-W -Wall -Werror -pedantic
+CFLAGS		=	-ggdb -DDEBUG -W -Wall -Werror -pedantic
 LDFLAGS		=	-lSDL2
-DBGFLAGS	=	-ggdb -DDEBUG
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
-BINARY		=	spaceinvaders
+BINARY		=	spaceinvaders-dbg
 
 %.o:		%.c
 		@printf "\x1b[0;37m:: Building $@ from $<\n\x1b[0;0m"
 		@$(CC) $(CFLAGS) -c -o $@ $<
 
-all:		debug
+all:		$(BINARY)
 .PHONY:		all
 
-debug:		$(OBJ)
-		@printf "\x1b[1;33m:: Building Space Invasion (DEBUG). . .\n\x1b[0;0m"
-		@$(MKDIR) $(BINPATH)
-		@$(CC) $(DBGFLAGS) $(CFLAGS) -o $(BINPATH)$(BINARY)-dbg $(OBJ) $(LDFLAGS)
-.PHONY:		debug
-
-release:	$(OBJ)
+$(BINARY):	$(OBJ)
 		@printf "\x1b[1;33m:: Building Space Invasion. . .\n\x1b[0;0m"
 		@$(MKDIR) $(BINPATH)
 		@$(CC) $(CFLAGS) -o $(BINPATH)$(BINARY) $(OBJ) $(LDFLAGS)
-.PHONY:		release
+.PHONY:		$(BINARY)
 
 dist:		release
 		@printf "\x1b[1;35m:: Packing everything. . .\n\x1b[0;0m"
