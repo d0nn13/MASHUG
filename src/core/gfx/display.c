@@ -5,13 +5,14 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Tue Apr 22 21:53:52 2014 AHAMADA Samir
+** Last update Wed Apr 23 02:30:14 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
 #include <SDL2/SDL_log.h>
 #include <SDL2/SDL_error.h>
 #include <SDL2/SDL_rwops.h>
+#include <SDL2/SDL_image.h>
 #include "display.h"
 
 #define VID_CAT	SDL_LOG_CATEGORY_VIDEO
@@ -44,7 +45,7 @@ uInt32	Dspl_init()
   SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer initialization done");
 
-  sur = SDL_LoadBMP_RW(SDL_RWFromFile("media/gfx/checker-tile-100px.bmp", "r"), 1);
+  sur = IMG_LoadPNG_RW(SDL_RWFromFile("media/gfx/checker-tile-100px.png", "r"));
   texture = SDL_CreateTextureFromSurface(renderer, sur);
 
   return (0);
