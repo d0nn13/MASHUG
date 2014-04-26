@@ -17,8 +17,8 @@ SRC		=	$(SRCPATH)core/core.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	-ggdb -DDEBUG -W -Wall -Werror -pedantic
-LDFLAGS		=	-lSDL2 -lSDL_image
+CFLAGS		=	`sdl2-config --cflags` -ggdb -DDEBUG -W -Wall -Werror -pedantic
+LDFLAGS		=	`sdl2-config --libs` -lSDL2_image
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders-dbg
 
