@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Wed Apr 23 01:43:09 2014 AHAMADA Samir
+** Last update Fri Apr 25 23:11:23 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -34,10 +34,9 @@ void	Game_loop()
     {
       if (SDL_PollEvent(&e))
 	if (e.type == SDL_QUIT)
-	  run = 0;;
+	  run = 0;
 
-      SDL_RenderCopy(Dspl_getRender(), Dspl_getTexture(), NULL, NULL);
-      SDL_RenderPresent(Dspl_getRender());
+
       SDL_Delay(10);
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Wed Apr 23 02:30:14 2014 AHAMADA Samir
+** Last update Sat Apr 25 23:21:14 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -25,29 +25,43 @@ static SDL_Texture	*texture = NULL;
 uInt32	Dspl_init()
 {
   SDL_Surface	*sur;
+  SDL_Rect r = {.w = 100, .h = 100};
 
+  IMG_Init(IMG_INIT_PNG);
   window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-",
 			    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
- 			    WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_OPENGL);
+ 			    WIN_WIDTH, WIN_HEIGHT, 0);
   if (!window)
     {
       SDL_LogError(VID_CAT, "Couldn't initialize window : %s", SDL_GetError());
       return (1);
     }
   SDL_LogInfo(VID_CAT, "Window initialization done");
-  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+  renderer = SDL_CreateRenderer(window, -1, 0);
   if (!renderer)
     {
       SDL_LogError(RDR_CAT, "Couldn't initialize renderer : %s", SDL_GetError());
       return (1);
     }
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_SetRenderDrawColor(renderer, 255, 255, 127, 255);
   SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_CAT, "Renderer initialization done");
 
-  sur = IMG_LoadPNG_RW(SDL_RWFromFile("media/gfx/checker-tile-100px.png", "r"));
-  texture = SDL_CreateTextureFromSurface(renderer, sur);
-
+  SDL_LogInfo(RDR_CAT, "Loading PNG...");
+  sur = IMG_Load_RW(SDL_RWFromFile("media/gfx/checker-tile-100px.png", "r"), 1);
+  if (!sur)
+    SDL_LogError(RDR_CAT, IMG_GetError());
+  else
+    {
+      SDL_LogInfo(RDR_CAT, "PNG loaded");
+      texture = SDL_CreateTextureFromSurface(renderer, sur);
+      SDL_FreeSurface(sur);
+      SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+      for (r.y = 0; r.y < WIN_HEIGHT; r.y += 100)
+      	for (r.x = 0; r.x < WIN_WIDTH; r.x += 100)
+      	  SDL_RenderCopy(renderer, texture, NULL, &r);
+      SDL_RenderPresent(renderer);
+    }
   return (0);
 }
 
