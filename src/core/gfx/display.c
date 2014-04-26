@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Sat Apr 26 08:36:50 2014 AHAMADA Samir
+** Last update Sat Apr 26 08:38:50 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -22,8 +22,6 @@ static SDL_Texture	*texture = NULL;
 
 uInt32	Dspl_init()
 {
-  SDL_Surface	*sur;
-
   window = SDL_CreateWindow("-=  S P A C E  I N V A D E R S  =-",
 			    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
  			    WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_OPENGL);
