@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 01:03:17 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:29:36 2014 AHAMADA Samir
+** Last update Sun Apr 27 18:52:08 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_image.h>
@@ -25,14 +25,14 @@ SDL_Surface	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
   spritesheet = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
   s = (size == NULL) ? zone : size;
   if (!spritesheet)
-    SDL_LogError(RDR_LCAT, IMG_GetError());
+    SDL_LogError(SPR_LCAT, IMG_GetError());
   else
     {
       SDL_SetSurfaceBlendMode(spritesheet, SDL_BLENDMODE_NONE);
       sprite = SDL_CreateRGBSurface(0, s->w, s->h, 32,
 				    RMASK, GMASK, BMASK, AMASK);
       if (!sprite)
-	SDL_LogError(RDR_LCAT, SDL_GetError());
+	SDL_LogError(SPR_LCAT, SDL_GetError());
       else
 	SDL_BlitScaled(spritesheet, zone, sprite, NULL);
       SDL_FreeSurface(spritesheet);
@@ -47,7 +47,7 @@ void		load_sprites()
   Sprites[CABINET_SPR] = make_sprite(sheet, &(SDL_Rect){5, 993, 256, 224}, NULL);
   Sprites[TITLE_SPR] = make_sprite(sheet, &(SDL_Rect){17, 8, 588, 166},
 				   &(SDL_Rect){0, 0, 420, 119});
-  SDL_LogInfo(RDR_LCAT, "Sprites loaded.");
+  SDL_LogInfo(SPR_LCAT, "Sprites loaded.");
 }
 
 SDL_Surface	*get_sprite(t_sprite s)
@@ -66,5 +66,5 @@ void		free_sprites()
 
   for (i = 0; i < LAST_SPR; ++i)
     free(Sprites[i]);
-  SDL_LogInfo(RDR_LCAT, "Sprites destroyed.");
+  SDL_LogInfo(SPR_LCAT, "Sprites destroyed.");
 }

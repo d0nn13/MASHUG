@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:30:47 2014 AHAMADA Samir
+** Last update Sun Apr 27 18:51:23 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -18,7 +18,7 @@ void	draw_sprite(t_sprite s, SDL_Rect *zone)
   SDL_SetTextureBlendMode(get_texture(), SDL_BLENDMODE_BLEND);
   SDL_RenderCopy(get_renderer(), get_texture(), NULL, zone);
   SDL_RenderPresent(get_renderer());
-  SDL_LogInfo(RDR_LCAT, "Drawn sprite %d", s);
+  SDL_LogInfo(SPR_LCAT, "Drawn sprite %d", s);
 }
 
 void		draw_sprite_raw(t_sprite s, SDL_Point *orig)
