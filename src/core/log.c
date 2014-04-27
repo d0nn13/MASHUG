@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Tue Apr 22 11:53:39 2014 AHAMADA Samir
+** Last update Sun Apr 27 17:59:34 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -13,33 +13,31 @@
 #include <SDL2/SDL_log.h>
 #include "log.h"
 
-enum {
-  SPACE_CATEGORY_CUSTOM1 = SDL_LOG_CATEGORY_CUSTOM,
-  SPACE_CATEGORY_CUSTOM2
-};
-
 static char	timestr[9];
-static char	*catstrings[SPACE_CATEGORY_CUSTOM2 + 1];
+static char	*catstrings[LAST_LCAT];
 static void	timestamp();
-static void	print_log(void *userdata, int cat, SDL_LogPriority p, const char *msg);
+static void	log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
 
 /* Log priority settings are temporary */
-void	Log_init()
+void	log_init()
 {
-  SDL_LogSetOutputFunction(&print_log, NULL);
-  SDL_LogSetPriority(SDL_LOG_CATEGORY_AUDIO, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(SDL_LOG_CATEGORY_VIDEO, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(SDL_LOG_CATEGORY_RENDER, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(SDL_LOG_CATEGORY_INPUT, SDL_LOG_PRIORITY_INFO);
-  catstrings[SDL_LOG_CATEGORY_APPLICATION] = "Space Invaders";
-  catstrings[SDL_LOG_CATEGORY_ERROR] = "Error";
-  catstrings[SDL_LOG_CATEGORY_SYSTEM] = "System";
-  catstrings[SDL_LOG_CATEGORY_AUDIO] = "Audio";
-  catstrings[SDL_LOG_CATEGORY_VIDEO] = "Video";
-  catstrings[SDL_LOG_CATEGORY_RENDER] = "Render";
-  catstrings[SDL_LOG_CATEGORY_INPUT] = "Input";
-  catstrings[SPACE_CATEGORY_CUSTOM1] = "Custom One";
-  catstrings[SPACE_CATEGORY_CUSTOM2] = "Custom Two";
+  SDL_LogSetOutputFunction(&log_print, NULL);
+#ifdef VERBOSE
+  SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
+#else
+  SDL_LogSetPriority(AUD_LCAT, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(VID_LCAT, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(RDR_LCAT, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
+#endif
+  catstrings[APP_LCAT] = "Space Invaders";
+  catstrings[ERR_LCAT] = "Error";
+  catstrings[SYS_LCAT] = "System";
+  catstrings[AUD_LCAT] = "Audio";
+  catstrings[VID_LCAT] = "Video";
+  catstrings[RDR_LCAT] = "Render";
+  catstrings[INP_LCAT] = "Input";
+  catstrings[SPR_LCAT] = "Sprites";
 }
 
 static void	timestamp()
@@ -52,7 +50,7 @@ static void	timestamp()
 	  localtime(&t)->tm_sec);
 }
 
-static void	print_log(void *userdata, int cat, SDL_LogPriority p, const char *msg)
+static void	log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg)
 {
   userdata = (void *)userdata;
   timestamp();

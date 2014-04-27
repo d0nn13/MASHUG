@@ -9,11 +9,16 @@ OBJPATH		=	objs/
 BINPATH		=	bin/
 PACKPATH	=	dist/
 
-SRC		=	$(SRCPATH)core/core.c				\
+SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/version.c			\
 			$(SRCPATH)core/log.c				\
-			$(SRCPATH)core/gfx/display.c			\
-			$(SRCPATH)core/spaceinvaders.c
+			$(SRCPATH)core/window.c				\
+			$(SRCPATH)core/renderer.c			\
+			$(SRCPATH)core/audio.c				\
+			$(SRCPATH)core/spaceinvaders.c			\
+			$(SRCPATH)game/sprite_handler.c			\
+			$(SRCPATH)game/sprites.c			\
+			$(SRCPATH)game/gamecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
 
