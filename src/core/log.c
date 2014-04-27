@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:52:47 2014 AHAMADA Samir
+** Last update Mon Apr 28 01:26:00 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -23,7 +23,7 @@ void	log_init()
 {
   SDL_LogSetOutputFunction(&log_print, NULL);
 #ifdef VERBOSE
-  SDL_LogSetAllPriority(SDL_LOG_PRIORITY_VERBOSE);
+  SDL_LogSetAllPriority(0);
 #else
   SDL_LogSetPriority(AUD_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(VID_LCAT, SDL_LOG_PRIORITY_INFO);
