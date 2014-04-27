@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:40:27 2014 AHAMADA Samir
+** Last update Mon Apr 28 01:54:56 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -24,7 +24,8 @@ Sint32	window_init()
       return (-1);
     }
   window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED,
-			    SDL_WINDOWPOS_UNDEFINED, WIN_WIDTH, WIN_HEIGHT, 0);
+			    SDL_WINDOWPOS_UNDEFINED, WIN_WIDTH, WIN_HEIGHT,
+			    SDL_WINDOW_HIDDEN);
   if (!window)
     {
       SDL_LogError(VID_LCAT, "Couldn't initialize window : %s", SDL_GetError());

@@ -25,6 +25,7 @@ Sint32	renderer_init()
       SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
       return (-1);
     }
+  SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
   IMG_Init(IMG_INIT_PNG);
