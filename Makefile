@@ -16,21 +16,13 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/renderer.c			\
 			$(SRCPATH)core/audio.c				\
 			$(SRCPATH)core/spaceinvaders.c			\
-			$(SRCPATH)game/graphic_handler.c		\
 			$(SRCPATH)game/sprite_handler.c			\
-			$(SRCPATH)game/font_handler.c			\
-			$(SRCPATH)game/sound_handler.c			\
-			$(SRCPATH)game/graphics.c			\
 			$(SRCPATH)game/sprites.c			\
-			$(SRCPATH)game/fonts.c				\
-			$(SRCPATH)game/sfx.c				\
-			$(SRCPATH)game/menu.c				\
-			$(SRCPATH)game/hiscores.c				\
 			$(SRCPATH)game/gamecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -std=c99 -pedantic 
+CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -Werror -std=c99 -pedantic 
 LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders-dbg
@@ -66,5 +58,5 @@ fclean:
 .PHONY:		fclean
 
 re:		fclean
-		@$(MAKE) all
+		$(MAKE) all
 .PHONY:		re
