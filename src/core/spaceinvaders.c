@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:04:40 2014 AHAMADA Samir
+** Last update Mon Apr 28 18:00:25 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -19,7 +19,7 @@
 
 int	Core_init()
 {
-  printf("%s", "S P A C E  I N V A D E R S\n==========================\n");
+  printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
     {
       SDL_LogError(0, "Couldn't initialize SDL : %s",
@@ -30,7 +30,7 @@ int	Core_init()
   log_init();
   SDL_Log("Engine started, welcome aboard!");
   if (window_init() || renderer_init() || audio_init())
-    return (1);
+    return (-1);
   return (0);
 }
 
@@ -64,9 +64,9 @@ Sint32	main()
 {
   if (Core_init())
     return (-1);
-init_game();
+  init_game();
   Game_loop();
-destroy_game();
+  destroy_game();
   Core_destroy();
   atexit(SDL_Quit);
   return (0);
