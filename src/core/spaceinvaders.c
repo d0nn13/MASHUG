@@ -30,7 +30,7 @@ int	Core_init()
   log_init();
   SDL_Log("Engine started, welcome aboard!");
   if (window_init() || renderer_init() || audio_init())
-    return (1);
+    return (-1);
   return (0);
 }
 
@@ -64,9 +64,9 @@ Sint32	main()
 {
   if (Core_init())
     return (-1);
-init_game();
+  init_game();
   Game_loop();
-destroy_game();
+  destroy_game();
   Core_destroy();
   atexit(SDL_Quit);
   return (0);
