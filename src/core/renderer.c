@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Mon Apr 28 01:49:24 2014 AHAMADA Samir
+** Last update Mon Apr 28 21:16:07 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -37,7 +37,7 @@ Sint32	renderer_init()
       return (-1);
     }
   SDL_ShowWindow(get_window());
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer initialization done");
   return (0);
