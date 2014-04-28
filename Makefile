@@ -17,7 +17,9 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/audio.c				\
 			$(SRCPATH)core/spaceinvaders.c			\
 			$(SRCPATH)game/sprite_handler.c			\
+			$(SRCPATH)game/font_handler.c			\
 			$(SRCPATH)game/sprites.c			\
+			$(SRCPATH)game/fonts.c				\
 			$(SRCPATH)game/gamecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
