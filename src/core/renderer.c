@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:40:36 2014 AHAMADA Samir
+** Last update Mon Apr 28 01:49:24 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "log.h"
 #include "window.h"
 #include "renderer.h"
@@ -25,17 +26,27 @@ Sint32	renderer_init()
       SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
       return (-1);
     }
+  if (IMG_Init(IMG_INIT_PNG))
+    {
+      SDL_LogError(RDR_LCAT, SDL_GetError());
+      /* return (-1); */
+    }
+  if (TTF_Init())
+    {
+      SDL_LogError(RDR_LCAT, SDL_GetError());
+      return (-1);
+    }
   SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
-  IMG_Init(IMG_INIT_PNG);
   SDL_LogInfo(RDR_LCAT, "Renderer initialization done");
   return (0);
 }
 
 void	renderer_destroy()
 {
-  IMG_Quit();
+  TTF_Quit();
+  IMG_Quit(); 
   SDL_DestroyRenderer(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer destroyed");
 }
