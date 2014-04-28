@@ -20,7 +20,7 @@ Sint32	window_init()
 
   if (SDL_InitSubSystem(SDL_INIT_VIDEO))
     {
-      SDL_LogError(VID_LCAT, "Couldn't initialize Video : %s", SDL_GetError());
+      SDL_LogError(VID_LCAT, "Couldn't initialize video : %s", SDL_GetError());
       return (-1);
     }
   window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED,
