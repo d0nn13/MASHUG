@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Sun Apr 27 17:59:07 2014 AHAMADA Samir
+** Last update Mon Apr 28 16:08:18 2014 AHAMADA Samir
 */
 
 #ifndef LOG_H
@@ -26,6 +26,7 @@
 #define INP_LCAT	SDL_LOG_CATEGORY_INPUT
 enum {
   SPR_LCAT = SDL_LOG_CATEGORY_CUSTOM,
+  FNT_LCAT,
   LAST_LCAT
 };
 
