@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Sun Apr 27 23:21:46 2014 AHAMADA Samir
+** Last update Mon Apr 28 16:12:10 2014 AHAMADA Samir
 */
 
 /**
@@ -15,14 +15,33 @@
 #ifndef FONTS_H
 #define FONTS_H
 
-#include <SDL2/SDL_surface.h>
+#include <SDL2/SDL_ttf.h>
 
-SDL_Surface	*make_font(const char* file);
+/**
+ *	Sprite names enumeration
+ */
+typedef enum
+  {
+    ATARI24_FNT,
+    ATARI18_FNT,
+    COSMIC18_FNT,
+    COSMIC12_FNT,
+    LAST_FNT
+  } t_font;
 
+/**
+ *	Load game fonts in memory
+ */
 void		load_fonts();
 
-SDL_Surface	*get_font();
+/**
+ *	Font getter
+ */
+TTF_Font	*get_font(t_font t);
 
+/**
+ *	Frees allocated fonts
+ */
 void		free_fonts();
 
 #endif /* !FONTS_H */
