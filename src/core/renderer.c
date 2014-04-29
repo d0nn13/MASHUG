@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Mon Apr 28 21:16:07 2014 AHAMADA Samir
+** Last update Tue Apr 29 17:27:47 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -20,7 +20,7 @@ static SDL_Texture	*texture = NULL;
 
 Sint32	renderer_init()
 {
-  renderer = SDL_CreateRenderer(get_window(), -1, 0);
+  renderer = SDL_CreateRenderer(get_window(), -1, SDL_RENDERER_ACCELERATED);
   if (!renderer)
     {
       SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
@@ -39,6 +39,7 @@ Sint32	renderer_init()
   SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
+  SDL_RenderPresent(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer initialization done");
   return (0);
 }

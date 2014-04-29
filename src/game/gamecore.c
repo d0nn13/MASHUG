@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Mon Apr 28 21:41:29 2014 AHAMADA Samir
+** Last update Tue Apr 29 17:38:42 2014 AHAMADA Samir
 */
 
 #include "../base/math.h"
@@ -24,10 +24,6 @@ Sint32		init_game()
   draw_sprite(CABINET_SPR, NULL);
   spr = get_sprite(TITLE_SPR);
   draw_sprite_raw(TITLE_SPR, &(SDL_Point){ctr(spr->w, WIN_WIDTH), 112});
-  draw_text("START", &(SDL_Point){312, 295},
-	    ATARI24_FNT, &(SDL_Color){210, 210, 210, 255});
-  draw_text("HISCORES", &(SDL_Point){280, 355},
-	    ATARI24_FNT, &(SDL_Color){210, 210, 210, 255});
   return (0);
 }
 
