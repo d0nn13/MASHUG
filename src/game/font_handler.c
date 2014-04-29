@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Mon Apr 28 21:41:10 2014 AHAMADA Samir
+** Last update Wed Apr 30 01:29:09 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -35,5 +35,5 @@ void	draw_text(const char *text, SDL_Point *orig, t_font f, SDL_Color *c)
 		 &(SDL_Rect){orig->x, orig->y, s->w, s->h});
   SDL_RenderPresent(get_renderer());
   SDL_FreeSurface(s);
-  SDL_LogInfo(FNT_LCAT, "Drawn text \"%s\"", text);
+  SDL_LogDebug(FNT_LCAT, "Drawn text \"%s\"", text);
 }
