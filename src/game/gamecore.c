@@ -11,8 +11,8 @@
 #include "../base/math.h"
 #include "../core/log.h"
 #include "../core/window.h"
-#include "../game/sprite_handler.h"
-#include "../game/font_handler.h"
+#include "sprite_handler.h"
+#include "font_handler.h"
 #include "gamecore.h"
 
 Sint32		init_game()
