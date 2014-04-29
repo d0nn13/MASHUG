@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Sun Apr 27 17:50:54 2014 AHAMADA Samir
+** Last update Wed Apr 30 01:13:27 2014 AHAMADA Samir
 */
 
 #ifndef AUDIO_H
@@ -16,11 +16,18 @@
 /**
  *	Initializes Audio SubSystem
  */
-Uint32	audio_init();
+Sint32	audio_init();
 
 /**
  *	Destroys Audio SubSystem
  */
 void	audio_destroy();
 
+
+SDL_AudioSpec	*get_audio_conf();
+
+/**
+ *	Audio callback
+ */
+void	callback(void *userdata, Uint8 *stream, int len);
 #endif /* !AUDIO_H */

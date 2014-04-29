@@ -20,6 +20,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)game/font_handler.c			\
 			$(SRCPATH)game/sprites.c			\
 			$(SRCPATH)game/fonts.c				\
+			$(SRCPATH)game/sfx.c				\
 			$(SRCPATH)game/menu.c				\
 			$(SRCPATH)game/gamecore.c
 
