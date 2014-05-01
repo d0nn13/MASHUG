@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Thu May  1 12:26:06 2014 AHAMADA Samir
+** Last update Thu May  1 18:46:48 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -37,10 +37,10 @@ Sint32	renderer_init()
       SDL_LogError(RDR_LCAT, SDL_GetError());
       return (-1);
     }
-  SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
   SDL_RenderPresent(renderer);
+  SDL_ShowWindow(get_window());
   SDL_LogInfo(RDR_LCAT, "Renderer initialization done");
   return (0);
 }
@@ -49,6 +49,7 @@ void	renderer_destroy()
 {
   TTF_Quit();
   IMG_Quit(); 
+  SDL_DestroyTexture(texture);
   SDL_DestroyRenderer(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer destroyed");
 }
