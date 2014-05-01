@@ -5,15 +5,15 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:48:39 2014 AHAMADA Samir
-** Last update Sun Apr 27 23:33:17 2014 AHAMADA Samir
+** Last update Thu May  1 00:09:35 2014 AHAMADA Samir
 */
 
 /**
  *	Sprite handling interface
  */
 
-#ifndef SPRITE_HANLDER_H
-#define SPRITE_HANLDER_H
+#ifndef SPRITE_HANDLER_H
+#define SPRITE_HANDLER_H
 
 #include "sprites.h"
 
@@ -37,4 +37,4 @@ void	draw_sprite(t_sprite s, SDL_Rect *zone);
  */	
 void	draw_sprite_raw(t_sprite s, SDL_Point *orig);
 
-#endif /* !SPRITE_HANLDER_H */
+#endif /* !SPRITE_HANDLER_H */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Sun Apr 27 23:33:15 2014 AHAMADA Samir
+** Last update Thu May  1 14:15:35 2014 AHAMADA Samir
 */
 
 /**
@@ -22,9 +22,9 @@
  */
 typedef enum
   {
-    CABINET_SPR,
+    CABINET_SPR = 0,
     TITLE_SPR,
-    LAST_SPR
+    NB_SPR
   } t_sprite;
 
 /**

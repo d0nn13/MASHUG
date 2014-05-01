@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 01:03:17 2014 AHAMADA Samir
-** Last update Mon Apr 28 16:32:31 2014 AHAMADA Samir
+** Last update Thu May  1 14:16:46 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -39,7 +39,7 @@ void		free_sprites()
 {
   t_sprite i;
 
-  for (i = 0; i < LAST_SPR; ++i)
+  for (i = 0; i < NB_SPR; ++i)
     SDL_FreeSurface(Sprites[i]);
   SDL_LogInfo(SPR_LCAT, "Sprites destroyed.");
 }
