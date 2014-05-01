@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Mon Apr 28 16:32:15 2014 AHAMADA Samir
+** Last update Thu May  1 14:17:06 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -34,7 +34,7 @@ void		free_fonts()
 {
   Uint8	i;
 
-  for (i = 0; i < LAST_FNT; ++i)
+  for (i = 0; i < NB_FNT; ++i)
     TTF_CloseFont(Fonts[i]);
   SDL_LogInfo(FNT_LCAT, "Fonts destroyed.");
 }

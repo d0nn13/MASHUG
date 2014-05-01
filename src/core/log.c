@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Wed Apr 30 01:28:32 2014 AHAMADA Samir
+** Last update Thu May  1 14:45:50 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -14,8 +14,16 @@
 #include "log.h"
 
 static char	timestr[9];
-static char	*catstrings[LAST_LCAT];
+static char	*catstrings[NB_LCAT];
+
+/**
+ *	Writes a timestamp into 'timestr'
+ */
 static void	timestamp();
+
+/**
+ *	Prints the timestamp written in 'timestr'
+ */
 static void	log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
 
 /* Log priority settings are temporary */

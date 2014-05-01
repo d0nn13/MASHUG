@@ -18,6 +18,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/spaceinvaders.c			\
 			$(SRCPATH)game/sprite_handler.c			\
 			$(SRCPATH)game/font_handler.c			\
+			$(SRCPATH)game/sound_handler.c			\
 			$(SRCPATH)game/sprites.c			\
 			$(SRCPATH)game/fonts.c				\
 			$(SRCPATH)game/sfx.c				\
