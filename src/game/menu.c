@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Thu May  1 14:47:55 2014 AHAMADA Samir
+** Last update Fri May  2 13:34:01 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -49,9 +49,10 @@ Sint32			menu_game()
   SDL_Scancode		s;
 
   SDL_SetEventFilter(key_filter, NULL);
+  display_menu();
   while (1)
     {
-      if (SDL_PollEvent(&e))
+      if (SDL_WaitEvent(&e))
 	{
 	  if (e.type == SDL_QUIT)
 	    return (-1);
@@ -62,9 +63,8 @@ Sint32			menu_game()
 	      if (s == SDL_SCANCODE_RETURN || s == SDL_SCANCODE_KP_ENTER)
 		break ;
 	    }
+	  display_menu();
 	}
-      display_menu();
-      SDL_Delay(50);
     }
   return (item);
 }
