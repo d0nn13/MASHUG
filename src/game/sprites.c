@@ -5,15 +5,15 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 01:03:17 2014 AHAMADA Samir
-** Last update Thu May  1 14:16:46 2014 AHAMADA Samir
+** Last update Sat May  3 15:47:52 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
-#include "gamedefs.h"
+#include "graphic_handler.h"
 #include "sprite_handler.h"
 #include "sprites.h"
 
-static SDL_Surface	*Sprites[2];
+static t_texture	*Sprites[2];
 
 void		load_sprites()
 {
@@ -25,14 +25,14 @@ void		load_sprites()
   SDL_LogInfo(SPR_LCAT, "Sprites loaded.");
 }
 
-SDL_Surface	*get_sprite(t_sprite s)
+t_texture	*get_sprite(t_sprite s)
 {
   return (Sprites[s]);
 }
 
-void		set_sprite(t_sprite s, SDL_Surface *sur)
+void		set_sprite(t_sprite s, t_texture *tex)
 {
-  Sprites[s] = sur;
+  Sprites[s] = tex;
 }
 
 void		free_sprites()
@@ -40,6 +40,6 @@ void		free_sprites()
   t_sprite i;
 
   for (i = 0; i < NB_SPR; ++i)
-    SDL_FreeSurface(Sprites[i]);
+    free_texture(Sprites[i]);
   SDL_LogInfo(SPR_LCAT, "Sprites destroyed.");
 }

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Fri May  2 13:34:01 2014 AHAMADA Samir
+** Last update Sat May  3 16:27:01 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -15,9 +15,9 @@
 
 #define UP		SDL_SCANCODE_UP
 #define DN		SDL_SCANCODE_DOWN
-#define SEL		&(SDL_Color){255, 30, 30, 200}
-#define UNS		&(SDL_Color){255, 255, 255, 200}
-#define REDSEL(x)	((item == (x)) ? (SEL) : (UNS))
+#define SEL		&(SDL_Color){152, 128, 208, 0}
+#define UNS		&(SDL_Color){255, 255, 255, 0}
+#define ISSEL(x)	((item == (x)) ? (SEL) : (UNS))
 
 /**
  *	Menu item definition
@@ -29,11 +29,6 @@ typedef enum
   } t_menuitem;
 
 /**
- *	Selected item
- */
-static t_menuitem	item = START_MEN;
-
-/**
  *	
  */
 static void	process_input(const SDL_Scancode *s, t_menuitem *item);
@@ -41,7 +36,14 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item);
 /**
  *	
  */
+static void	display_menu();
+
+/**
+ *	
+ */
 static Sint32	key_filter(void *userdata, SDL_Event *event);
+
+static t_menuitem	item = START_MEN;
 
 Sint32			menu_game()
 {
@@ -63,16 +65,9 @@ Sint32			menu_game()
 	      if (s == SDL_SCANCODE_RETURN || s == SDL_SCANCODE_KP_ENTER)
 		break ;
 	    }
-	  display_menu();
 	}
     }
   return (item);
-}
-
-void	display_menu()
-{
-  draw_text("START", &(SDL_Point){312, 295}, ATARI24_FNT, REDSEL(START_MEN));
-  draw_text("HISCORES", &(SDL_Point){280, 355}, ATARI24_FNT, REDSEL(SCORE_MEN));
 }
 
 static void	process_input(const SDL_Scancode *s, t_menuitem *item)
@@ -83,7 +78,16 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   *item += (*s == UP && *item != START_MEN) ? -1 : 0;
   *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
   if (*item != old_item)
-    play_sfx(BLIP_SFX);
+    {
+      display_menu();
+      play_sfx(BLIP_SFX);
+    }
+}
+
+static void	display_menu()
+{
+  draw_text("START", &(SDL_Point){325, 298}, ATARI24_FNT, ISSEL(START_MEN));
+  draw_text("HISCORES", &(SDL_Point){289, 369}, ATARI24_FNT, ISSEL(SCORE_MEN));
 }
 
 static Sint32	key_filter(void *userdata, SDL_Event *event)

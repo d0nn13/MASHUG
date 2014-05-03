@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Apr 29 17:47:52 2014 AHAMADA Samir
+** Last update Sat May  3 15:13:02 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -49,8 +49,8 @@ void	Game_loop()
   SDL_Event e;
 
   run = 1;
-  SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//* Temporarily clearing display for menu test
-  SDL_RenderClear(get_renderer());			//*
+  /* SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//\* Temporarily clearing display for menu test */
+  /* SDL_RenderClear(get_renderer());			//\* */
   while (run)
     {
       if (SDL_PollEvent(&e))

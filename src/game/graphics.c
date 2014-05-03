@@ -5,26 +5,33 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Thu May  1 18:41:54 2014 AHAMADA Samir
+** Last update Sat May  3 15:55:20 2014 AHAMADA Samir
 */
 
-#include "graphics.h"
+#include "../core/log.h"
+#include "../core/window.h"
+#include "../core/renderer.h"
+#include "graphic_handler.h"
 
-static SDL_Texture	*game_texture;
+static	t_texture	*bg;
 
-Sint32	graphics_init()
+Sint32	init_graphics()
 {
-  SDL_CreateTexture(get_renderer(), SDL_PIXELFORMAT_RGBA8888,
-		    SDL_TEXTUREACCESS_STREAMING, 176, 154);
+  if (!(bg = make_texture(get_renderer(), SDL_TEXTUREACCESS_STATIC,
+			  WIN_W, WIN_H)))
+    {
+      SDL_LogError(RDR_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
+      return (-1);
+    }
   return (0);
 }
 
-SDL_Texture	*get_gtexture()
+t_texture	*get_bg()
 {
-  return (game_texture);
+  return (bg);
 }
 
-void	graphics_destroy()
+void	destroy_graphics()
 {
-  SDL_DestroyTexture(game_texture);
+  free_texture(bg);
 }

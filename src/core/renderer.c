@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Thu May  1 12:26:06 2014 AHAMADA Samir
+** Last update Sat May  3 13:35:14 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -16,7 +16,6 @@
 #include "renderer.h"
 
 static SDL_Renderer	*renderer = NULL;
-static SDL_Texture	*texture = NULL;
 
 Sint32	renderer_init()
 {
@@ -45,27 +44,15 @@ Sint32	renderer_init()
   return (0);
 }
 
+SDL_Renderer	*get_renderer()
+{
+  return (SDL_GetRenderer(get_window()));
+}
+
 void	renderer_destroy()
 {
   TTF_Quit();
   IMG_Quit(); 
-  SDL_DestroyTexture(texture);
   SDL_DestroyRenderer(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer destroyed");
 }
-
-SDL_Renderer	*get_renderer()
-{
-  return (renderer);
-}
-
-SDL_Texture	*get_texture()
-{
-  return (texture);
-}
-
-void	set_texture(SDL_Texture *t)
-{
-  texture = t;
-}
-

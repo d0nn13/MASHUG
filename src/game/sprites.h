@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Thu May  1 14:15:35 2014 AHAMADA Samir
+** Last update Sat May  3 14:49:24 2014 AHAMADA Samir
 */
 
 /**
@@ -15,7 +15,7 @@
 #ifndef GAME_SPRITES_H
 #define GAME_SPRITES_H
 
-#include <SDL2/SDL_surface.h>
+#include <SDL2/SDL_render.h>
 
 /**
  *	Sprite names enumeration
@@ -35,7 +35,7 @@ void		load_sprites();
 /**
  *	Sprite getter
  */
-SDL_Surface	*get_sprite(t_sprite s);
+t_texture	*get_sprite(t_sprite s);
 
 /**
  *	Frees allocated sprites

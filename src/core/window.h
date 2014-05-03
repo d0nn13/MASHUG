@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:39:53 2014 AHAMADA Samir
+** Last update Sat May  3 12:24:57 2014 AHAMADA Samir
 */
 
 #ifndef WINDOW_H
@@ -16,8 +16,8 @@
 /**
  *	Window size definition
  */
-#define WIN_WIDTH	768
-#define WIN_HEIGHT	672
+#define WIN_W	768
+#define WIN_H	672
 
 /**
  *	Initializes Window SubSystem
