@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Sat May  3 16:21:48 2014 AHAMADA Samir
+** Last update Sat May  3 20:00:03 2014 AHAMADA Samir
 */
 
 #include "../base/math.h"
@@ -21,7 +21,8 @@ Sint32		init_game()
 {
   t_texture	*tex;
 
-  init_graphics();
+  if (init_graphics())
+    return (-1);
   load_sprites();
   load_fonts();
   load_sounds();
