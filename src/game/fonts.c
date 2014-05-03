@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Sat May  3 15:35:26 2014 AHAMADA Samir
+** Last update Sat May  3 21:07:23 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -13,12 +13,14 @@
 
 #include "fonts.h"
 
-static TTF_Font	*Fonts[4];
+static TTF_Font	*Fonts[NB_FNT];
 
 void	load_fonts()
 {
   Fonts[ATARI24_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 24);
   Fonts[ATARI18_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 18);
+  Fonts[COSMIC48_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 48);
+  Fonts[COSMIC24_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 24);
   Fonts[COSMIC18_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 18);
   Fonts[COSMIC12_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 12);
   SDL_LogInfo(FNT_LCAT, "Fonts loaded.");
