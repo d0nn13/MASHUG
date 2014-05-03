@@ -49,8 +49,8 @@ void	Game_loop()
   SDL_Event e;
 
   run = 1;
-  /* SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//\* Temporarily clearing display for menu test */
-  /* SDL_RenderClear(get_renderer());			//\* */
+  SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//* Temporarily clearing display for menu test
+  SDL_RenderClear(get_renderer());			//*
   while (run)
     {
       if (SDL_PollEvent(&e))
