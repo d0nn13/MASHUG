@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Sat May  3 13:35:14 2014 AHAMADA Samir
+** Last update Sat May  3 17:19:52 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -28,7 +28,7 @@ Sint32	renderer_init()
     }
   if (IMG_Init(IMG_INIT_PNG))
     {
-      SDL_LogError(RDR_LCAT, SDL_GetError());
+      /* SDL_LogError(RDR_LCAT, SDL_GetError()); */
       /* return (-1); */
     }
   if (TTF_Init())
