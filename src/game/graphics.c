@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Sat May  3 15:55:20 2014 AHAMADA Samir
+** Last update Sat May  3 17:06:01 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -20,9 +20,10 @@ Sint32	init_graphics()
   if (!(bg = make_texture(get_renderer(), SDL_TEXTUREACCESS_STATIC,
 			  WIN_W, WIN_H)))
     {
-      SDL_LogError(RDR_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
+      SDL_LogError(GFX_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
       return (-1);
     }
+  SDL_LogInfo(GFX_LCAT, "Graphics initialization done");
   return (0);
 }
 
@@ -34,4 +35,5 @@ t_texture	*get_bg()
 void	destroy_graphics()
 {
   free_texture(bg);
+  SDL_LogInfo(GFX_LCAT, "Graphics destroyed");
 }
