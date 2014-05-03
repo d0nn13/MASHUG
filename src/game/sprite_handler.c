@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Sat May  3 15:36:05 2014 AHAMADA Samir
+** Last update Sat May  3 16:51:04 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_image.h>
@@ -18,29 +18,23 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
 {
   SDL_Surface	*sprite;
   SDL_Surface	*spritesheet;
-  t_texture	*out = NULL;
+  t_texture	*out;
   SDL_Rect	*s;
 
-  sprite = NULL;
   spritesheet = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
   s = (size == NULL) ? zone : size;
   if (!spritesheet)
-    SDL_LogError(SPR_LCAT, IMG_GetError());
-  else
     {
-      SDL_SetSurfaceBlendMode(spritesheet, SDL_BLENDMODE_NONE);
-      sprite = SDL_CreateRGBSurface(0, s->w, s->h, 32,
-				    RMASK, GMASK, BMASK, AMASK);
-      if (!sprite)
-	SDL_LogError(SPR_LCAT, SDL_GetError());
-      else
-	{
-	  SDL_BlitScaled(spritesheet, zone, sprite, NULL);
-	  out = make_texture_from_surface(get_renderer(), sprite);
-	}
-      SDL_FreeSurface(spritesheet);
-      SDL_FreeSurface(sprite);
+      SDL_LogError(SPR_LCAT, IMG_GetError());
+      return (NULL);
     }
+  SDL_SetSurfaceBlendMode(spritesheet, SDL_BLENDMODE_NONE);
+  sprite = SDL_CreateRGBSurface(0, s->w, s->h, 32,
+				RMASK, GMASK, BMASK, AMASK);
+  SDL_BlitScaled(spritesheet, zone, sprite, NULL);
+  SDL_FreeSurface(spritesheet);
+  out = make_texture_from_surface(get_renderer(), sprite);
+  SDL_FreeSurface(sprite);
   return (out);
 }
 
