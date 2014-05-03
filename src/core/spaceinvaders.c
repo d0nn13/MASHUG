@@ -17,7 +17,7 @@
 #include "audio.h"
 #include "../game/gamecore.h"
 
-int	Core_init()
+Sint32	init_core()
 {
   printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
@@ -34,16 +34,7 @@ int	Core_init()
   return (0);
 }
 
-int	Core_destroy()
-{
-  audio_destroy();
-  renderer_destroy();
-  window_destroy();
-  SDL_Log("Now everything is shut down, see ya!");
-  return (0);
-}
-
-void	Game_loop()
+void	game_loop()
 {
   Uint8	run;
   SDL_Event e;
@@ -62,15 +53,24 @@ void	Game_loop()
     }
 }
 
+Sint32	destroy_core()
+{
+  audio_destroy();
+  renderer_destroy();
+  window_destroy();
+  SDL_Log("Now everything is shut down, see ya!");
+  return (0);
+}
+
 Sint32	main()
 {
-  if (Core_init())
+  if (init_core())
     return (-1);
   init_game();
   if (menu_game() >= 0)
-    Game_loop();
+    game_loop(m);
   destroy_game();
-  Core_destroy();
+  destroy_core();
   atexit(SDL_Quit);
   return (0);
 }
