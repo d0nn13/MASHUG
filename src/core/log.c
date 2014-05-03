@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Thu May  1 14:45:50 2014 AHAMADA Samir
+** Last update Sat May  3 16:37:13 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -37,7 +37,6 @@ void	log_init()
   SDL_LogSetPriority(VID_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(RDR_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(SPR_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(FNT_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
 #endif
   catstrings[APP_LCAT] = "Space Invaders";
