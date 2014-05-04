@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Thu May  1 14:10:17 2014 AHAMADA Samir
+** Last update Sun May  4 20:36:24 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -13,14 +13,21 @@
 #include "sound_handler.h"
 #include "sfx.h"
 
+#define SELECT_WAV	"media/sfx/blip_select.wav"
+#define OK_WAV		"media/sfx/blip_ok.wav"
 static t_chunk	Sfx[NB_SFX];
 
 void	load_sounds()
 {
   t_sfx	i;
-
-  SDL_LoadWAV("media/sfx/blip_22k.wav", get_audio_conf(), &Sfx[BLIP_SFX].buf,
-	      &Sfx[BLIP_SFX].len);
+  if (!SDL_LoadWAV(SELECT_WAV, get_audio_conf(), &Sfx[BLIPSEL_SFX].buf,
+		   &Sfx[BLIPSEL_SFX].len) ||
+      !SDL_LoadWAV(OK_WAV, get_audio_conf(), &Sfx[BLIPOK_SFX].buf,
+		   &Sfx[BLIPOK_SFX].len))
+    {
+      SDL_LogError(AUD_LCAT, SDL_GetError());
+      return ;
+    }
   for (i = 0; i < NB_SFX; ++i)
     Sfx[i].pos = 0;
   SDL_LogInfo(AUD_LCAT, "Sounds loaded.");

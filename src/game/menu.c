@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Sun May  4 19:11:55 2014 AHAMADA Samir
+** Last update Sun May  4 20:39:23 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -89,11 +89,14 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   if (*s == SDL_SCANCODE_ESCAPE)
     g_launcher = NULL;
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
-    g_launcher = select[*item];
+    {
+      g_launcher = select[*item];
+      play_sfx(BLIPOK_SFX);
+    }
   if (*item != old_item)
     {
       display_menu();
-      play_sfx(BLIP_SFX);
+      play_sfx(BLIPSEL_SFX);
     }
 }
 
