@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Sun May  4 21:10:39 2014 AHAMADA Samir
+** Last update Mon May  5 00:52:22 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -29,7 +29,7 @@ void	load_sounds()
 		   &Sfx[BLIPCANCEL_SFX].len))
     SDL_LogError(AUD_LCAT, SDL_GetError());
   else
-    SDL_LogInfo(AUD_LCAT, "Sounds loaded.");
+    SDL_LogInfo(AUD_LCAT, "Sounds loaded");
   for (i = 0; i < NB_SFX; ++i)
     Sfx[i].pos = 0;
 }
@@ -45,5 +45,5 @@ void	free_sounds()
 
   for (i = 0; i < NB_SFX; ++i)
     SDL_FreeWAV(Sfx[i].buf);
-  SDL_LogInfo(AUD_LCAT, "Sounds destroyed.");
+  SDL_LogInfo(AUD_LCAT, "Sounds destroyed");
 }

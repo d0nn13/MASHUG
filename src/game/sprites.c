@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 01:03:17 2014 AHAMADA Samir
-** Last update Sat May  3 15:47:52 2014 AHAMADA Samir
+** Last update Mon May  5 00:52:23 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -22,7 +22,7 @@ void		load_sprites()
   Sprites[CABINET_SPR] = make_sprite(sheet, &(SDL_Rect){5, 993, 256, 224}, NULL);
   Sprites[TITLE_SPR] = make_sprite(sheet, &(SDL_Rect){17, 8, 588, 166},
 				   &(SDL_Rect){0, 0, 420, 119});
-  SDL_LogInfo(SPR_LCAT, "Sprites loaded.");
+  SDL_LogInfo(SPR_LCAT, "Sprites loaded");
 }
 
 t_texture	*get_sprite(t_sprite s)
@@ -41,5 +41,5 @@ void		free_sprites()
 
   for (i = 0; i < NB_SPR; ++i)
     free_texture(Sprites[i]);
-  SDL_LogInfo(SPR_LCAT, "Sprites destroyed.");
+  SDL_LogInfo(SPR_LCAT, "Sprites destroyed");
 }
