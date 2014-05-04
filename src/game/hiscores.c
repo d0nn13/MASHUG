@@ -5,10 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Sat May  3 21:23:52 2014 AHAMADA Samir
+** Last update Sun May  4 14:05:24 2014 AHAMADA Samir
 */
 
-#include "../core/log.h"
+#include <SDL2/SDL_render.h>
+#include "gamecore.h"
+#include "menu.h"
+#include "sprite_handler.h"
 #include "font_handler.h"
 
 #if defined __MACH__
@@ -19,11 +22,27 @@
 # define	SCOREFILE	"./.spaceinvaders.hiscores"
 #endif
 
-void	hiscores()
+void		hiscores()
 {
-  draw_text("HISCORES", &(SDL_Point){240,0}, COSMIC48_FNT,
+  SDL_Event	e;
+  SDL_Scancode	s;
+
+  draw_text("HISCORES", &(SDL_Point){240,120}, COSMIC48_FNT,
 	    &(SDL_Color){255, 255, 255, 255});
+  while (g_launcher == &hiscores)
+    {
+      if (SDL_WaitEvent(&e))
+	if (e.type == SDL_QUIT)
+	  g_launcher = NULL;
+      if (e.type == SDL_KEYDOWN)
+	{
+	  s = e.key.keysym.scancode;
+	  if (s == SDL_SCANCODE_ESCAPE)
+	    g_launcher = &menu_game;
+	}
+    }
 }
+
 Sint32	load_hiscores();
 Sint32	save_hiscores();
 

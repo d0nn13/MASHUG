@@ -5,11 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Sat May  3 21:03:54 2014 AHAMADA Samir
+** Last update Sun May  4 13:51:00 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
+#include "gamecore.h"
 #include "hiscores.h"
+#include "sprite_handler.h"
 #include "font_handler.h"
 #include "sound_handler.h"
 #include "menu.h"
@@ -29,48 +31,54 @@ typedef enum
     SCORE_MEN
   }		t_menuitem;
 
-mode	select[2] = {NULL, hiscores};
-
 /**
- *	
+ *	Menu callback initialization
  */
-static void	process_input(const SDL_Scancode *s, t_menuitem *item);
-
-/**
- *	
- */
-static void	display_menu();
-
-/**
- *	
- */
-static Sint32	key_filter(void *userdata, SDL_Event *event);
+static t_mode		select[2] =
+  {
+    game_loop,
+    hiscores
+  };
 
 static t_menuitem	item = START_MEN;
 
-mode	menu_game()
+/**
+ *	
+ */
+static void		process_input(const SDL_Scancode *s, t_menuitem *item);
+
+/**
+ *	
+ */
+static void		display_menu();
+
+/**
+ *	
+ */
+static Sint32		key_filter(void *userdata, SDL_Event *event);
+
+void	menu_game()
 {
   SDL_Event		e;
   SDL_Scancode		s;
 
   SDL_SetEventFilter(key_filter, NULL);
   display_menu();
-  while (1)
+  while (g_launcher == &menu_game)
     {
       if (SDL_WaitEvent(&e))
 	{
 	  if (e.type == SDL_QUIT)
-	    return (NULL);
+	    g_launcher = NULL;
 	  if (e.type == SDL_KEYDOWN)
 	    {
 	      s = e.key.keysym.scancode;
 	      process_input(&s, &item);
 	      if (s == SDL_SCANCODE_RETURN || s == SDL_SCANCODE_KP_ENTER)
-		break ;
+		g_launcher = select[item];
 	    }
 	}
     }
-  return (select[item]);
 }
 
 static void	process_input(const SDL_Scancode *s, t_menuitem *item)
@@ -89,6 +97,10 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
 
 static void	display_menu()
 {
+  t_texture	*tex;
+
+  tex = get_sprite(TITLE_SPR);
+  draw_sprite_raw(TITLE_SPR, &(SDL_Point){187, 122});
   draw_text("START", &(SDL_Point){325, 298}, ATARI24_FNT, ISSEL(START_MEN));
   draw_text("HISCORES", &(SDL_Point){289, 369}, ATARI24_FNT, ISSEL(SCORE_MEN));
 }

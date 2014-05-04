@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Sat May  3 22:15:26 2014 AHAMADA Samir
+** Last update Sun May  4 13:55:03 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -16,6 +16,8 @@
 #include "renderer.h"
 #include "audio.h"
 #include "../game/gamecore.h"
+#include "../game/menu.h"
+#include "spaceinvaders.h"
 
 Sint32	init_core()
 {
@@ -34,25 +36,6 @@ Sint32	init_core()
   return (0);
 }
 
-void	game_loop(void (*launch)())
-{
-  Uint8	run;
-  SDL_Event e;
-
-  run = 1;
-  SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//* Temporarily clearing display for menu test
-  SDL_RenderClear(get_renderer());			//*
-  while (run)
-    {
-      if (SDL_PollEvent(&e))
-	if (e.type == SDL_QUIT)
-	  run = 0;
-      launch();
-      SDL_RenderPresent(get_renderer());
-      SDL_Delay(10);
-    }
-}
-
 Sint32	destroy_core()
 {
   audio_destroy();
@@ -62,17 +45,16 @@ Sint32	destroy_core()
   return (0);
 }
 
-Sint32	main()
+Sint32		main()
 {
-  mode	m;
-
-  if (init_core())
+  if (init_core() || init_game())
     return (-1);
-  init_game();
-  if ((m = menu_game()))
-    game_loop(m);
-  else
-    SDL_LogError(0, "Null game mode callback !!!");
+  g_launcher = &menu_game;
+  while (g_launcher)
+    {
+      redraw_context(NULL);
+      g_launcher();
+    }
   destroy_game();
   destroy_core();
   atexit(SDL_Quit);
