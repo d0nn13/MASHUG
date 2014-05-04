@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Sat May  3 17:15:59 2014 AHAMADA Samir
+** Last update Sun May  4 21:17:15 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_image.h>
@@ -42,7 +42,7 @@ void	draw_sprite(t_sprite s, SDL_Rect *zone)
 {
   SDL_RenderCopy(get_renderer(), get_sprite(s)->tex, NULL, zone);
   SDL_RenderPresent(get_renderer());
-  SDL_LogInfo(SPR_LCAT, "Drawn sprite %d", s);
+  SDL_LogDebug(SPR_LCAT, "Drawn sprite %d", s);
 }
 
 void		draw_sprite_raw(t_sprite s, SDL_Point *orig)
