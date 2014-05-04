@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Sun May  4 13:51:00 2014 AHAMADA Samir
+** Last update Sun May  4 19:11:55 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -74,8 +74,6 @@ void	menu_game()
 	    {
 	      s = e.key.keysym.scancode;
 	      process_input(&s, &item);
-	      if (s == SDL_SCANCODE_RETURN || s == SDL_SCANCODE_KP_ENTER)
-		g_launcher = select[item];
 	    }
 	}
     }
@@ -88,6 +86,10 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   old_item = *item;
   *item += (*s == UP && *item != START_MEN) ? -1 : 0;
   *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
+  if (*s == SDL_SCANCODE_ESCAPE)
+    g_launcher = NULL;
+  else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
+    g_launcher = select[*item];
   if (*item != old_item)
     {
       display_menu();
