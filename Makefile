@@ -66,5 +66,5 @@ fclean:
 .PHONY:		fclean
 
 re:		fclean
-		$(MAKE) all
+		@$(MAKE) all
 .PHONY:		re
