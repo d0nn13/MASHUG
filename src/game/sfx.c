@@ -13,7 +13,7 @@
 #include "sound_handler.h"
 #include "sfx.h"
 
-static t_chunk	Sfx[1];
+static t_chunk	Sfx[NB_SFX];
 
 void	load_sounds()
 {
@@ -22,7 +22,7 @@ void	load_sounds()
   SDL_LoadWAV("media/sfx/blip_22k.wav", get_audio_conf(), &Sfx[BLIP_SFX].buf,
 	      &Sfx[BLIP_SFX].len);
   for (i = 0; i < NB_SFX; ++i)
-    Sfx[BLIP_SFX].pos = 0;
+    Sfx[i].pos = 0;
   SDL_LogInfo(AUD_LCAT, "Sounds loaded.");
 }
 
