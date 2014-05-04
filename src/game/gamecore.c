@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Sun May  4 14:05:19 2014 AHAMADA Samir
+** Last update Sun May  4 21:04:18 2014 AHAMADA Samir
 */
 
 #include "../core/renderer.h"
@@ -54,7 +54,10 @@ void	game_loop()
 	{
 	  s = e.key.keysym.scancode;
 	  if (s == SDL_SCANCODE_ESCAPE)
-	    g_launcher = &menu_game;
+	    {
+	      g_launcher = &menu_game;
+	      play_sfx(BLIPCANCEL_SFX);
+	    }
 	}
 
       SDL_RenderPresent(get_renderer());

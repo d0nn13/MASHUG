@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Sun May  4 14:05:24 2014 AHAMADA Samir
+** Last update Sun May  4 21:05:08 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_render.h>
@@ -13,6 +13,7 @@
 #include "menu.h"
 #include "sprite_handler.h"
 #include "font_handler.h"
+#include "sound_handler.h"
 
 #if defined __MACH__
 # define	SCOREFILE	"/Users/`whoami`/.spaceinvaders.hiscores"
@@ -38,7 +39,10 @@ void		hiscores()
 	{
 	  s = e.key.keysym.scancode;
 	  if (s == SDL_SCANCODE_ESCAPE)
-	    g_launcher = &menu_game;
+	    {
+	      g_launcher = &menu_game;
+	      play_sfx(BLIPCANCEL_SFX);
+	    }
 	}
     }
 }
