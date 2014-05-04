@@ -24,13 +24,11 @@ void	load_sounds()
 		   &Sfx[BLIPSEL_SFX].len) ||
       !SDL_LoadWAV(OK_WAV, get_audio_conf(), &Sfx[BLIPOK_SFX].buf,
 		   &Sfx[BLIPOK_SFX].len))
-    {
-      SDL_LogError(AUD_LCAT, SDL_GetError());
-      return ;
-    }
+    SDL_LogError(AUD_LCAT, SDL_GetError());
+  else
+    SDL_LogInfo(AUD_LCAT, "Sounds loaded.");
   for (i = 0; i < NB_SFX; ++i)
     Sfx[i].pos = 0;
-  SDL_LogInfo(AUD_LCAT, "Sounds loaded.");
 }
 
 t_chunk	*get_sfx(t_sfx t)
