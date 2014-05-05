@@ -30,7 +30,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -Werror -std=c99 -pedantic 
+CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -std=c99 -pedantic 
 LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders-dbg
