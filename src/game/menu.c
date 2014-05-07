@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Sun May  4 20:39:23 2014 AHAMADA Samir
+** Last update Mon May  5 10:42:52 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -102,9 +102,6 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
 
 static void	display_menu()
 {
-  t_texture	*tex;
-
-  tex = get_sprite(TITLE_SPR);
   draw_sprite_raw(TITLE_SPR, &(SDL_Point){187, 122});
   draw_text("START", &(SDL_Point){325, 298}, ATARI24_FNT, ISSEL(START_MEN));
   draw_text("HISCORES", &(SDL_Point){289, 369}, ATARI24_FNT, ISSEL(SCORE_MEN));
