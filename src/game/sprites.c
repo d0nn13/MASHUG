@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 01:03:17 2014 AHAMADA Samir
-** Last update Mon May  5 00:52:23 2014 AHAMADA Samir
+** Last update Wed May  7 10:33:02 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -13,7 +13,7 @@
 #include "sprite_handler.h"
 #include "sprites.h"
 
-static t_texture	*Sprites[2];
+static t_texture	*Sprites[NB_SPR];
 
 void		load_sprites()
 {
