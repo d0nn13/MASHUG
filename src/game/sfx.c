@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Thu May  1 14:10:17 2014 AHAMADA Samir
+** Last update Mon May  5 00:52:22 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
@@ -13,17 +13,25 @@
 #include "sound_handler.h"
 #include "sfx.h"
 
-static t_chunk	Sfx[1];
+#define SELECT_WAV	"media/sfx/blip_select.wav"
+#define OK_WAV		"media/sfx/blip_ok.wav"
+#define CANCEL_WAV	"media/sfx/blip_cancel.wav"
+static t_chunk	Sfx[NB_SFX];
 
 void	load_sounds()
 {
   t_sfx	i;
-
-  SDL_LoadWAV("media/sfx/blip_22k.wav", get_audio_conf(), &Sfx[BLIP_SFX].buf,
-	      &Sfx[BLIP_SFX].len);
+  if (!SDL_LoadWAV(SELECT_WAV, get_audio_conf(), &Sfx[BLIPSEL_SFX].buf,
+		   &Sfx[BLIPSEL_SFX].len) ||
+      !SDL_LoadWAV(OK_WAV, get_audio_conf(), &Sfx[BLIPOK_SFX].buf,
+		   &Sfx[BLIPOK_SFX].len) ||
+      !SDL_LoadWAV(CANCEL_WAV, get_audio_conf(), &Sfx[BLIPCANCEL_SFX].buf,
+		   &Sfx[BLIPCANCEL_SFX].len))
+    SDL_LogError(AUD_LCAT, SDL_GetError());
+  else
+    SDL_LogInfo(AUD_LCAT, "Sounds loaded");
   for (i = 0; i < NB_SFX; ++i)
-    Sfx[BLIP_SFX].pos = 0;
-  SDL_LogInfo(AUD_LCAT, "Sounds loaded.");
+    Sfx[i].pos = 0;
 }
 
 t_chunk	*get_sfx(t_sfx t)
@@ -37,5 +45,5 @@ void	free_sounds()
 
   for (i = 0; i < NB_SFX; ++i)
     SDL_FreeWAV(Sfx[i].buf);
-  SDL_LogInfo(AUD_LCAT, "Sounds destroyed.");
+  SDL_LogInfo(AUD_LCAT, "Sounds destroyed");
 }

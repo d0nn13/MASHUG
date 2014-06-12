@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Thu May  1 14:10:23 2014 AHAMADA Samir
+** Last update Sun May  4 21:01:37 2014 AHAMADA Samir
 */
 
 #ifndef SFX_H
@@ -16,7 +16,9 @@
 
 typedef enum
   {
-    BLIP_SFX = 0,
+    BLIPSEL_SFX = 0,
+    BLIPOK_SFX,
+    BLIPCANCEL_SFX,
     NB_SFX
   }		t_sfx;
 

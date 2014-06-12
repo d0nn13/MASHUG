@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Mon Apr 28 01:54:56 2014 AHAMADA Samir
+** Last update Sat May  3 13:43:18 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -24,7 +24,7 @@ Sint32	window_init()
       return (-1);
     }
   window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED,
-			    SDL_WINDOWPOS_UNDEFINED, WIN_WIDTH, WIN_HEIGHT,
+			    SDL_WINDOWPOS_UNDEFINED, WIN_W, WIN_H,
 			    SDL_WINDOW_HIDDEN);
   if (!window)
     {

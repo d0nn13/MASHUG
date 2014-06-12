@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Apr 29 17:47:52 2014 AHAMADA Samir
+** Last update Sun May  4 13:55:03 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -16,8 +16,10 @@
 #include "renderer.h"
 #include "audio.h"
 #include "../game/gamecore.h"
+#include "../game/menu.h"
+#include "spaceinvaders.h"
 
-int	Core_init()
+Sint32	init_core()
 {
   printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
@@ -34,7 +36,7 @@ int	Core_init()
   return (0);
 }
 
-int	Core_destroy()
+Sint32	destroy_core()
 {
   audio_destroy();
   renderer_destroy();
@@ -43,34 +45,18 @@ int	Core_destroy()
   return (0);
 }
 
-void	Game_loop()
+Sint32		main()
 {
-  Uint8	run;
-  SDL_Event e;
-
-  run = 1;
-  SDL_SetRenderDrawColor(get_renderer(), 0, 0, 0, 255);	//* Temporarily clearing display for menu test
-  SDL_RenderClear(get_renderer());			//*
-  while (run)
-    {
-      if (SDL_PollEvent(&e))
-	if (e.type == SDL_QUIT)
-	  run = 0;
-
-      SDL_RenderPresent(get_renderer());
-      SDL_Delay(10);
-    }
-}
-
-Sint32	main()
-{
-  if (Core_init())
+  if (init_core() || init_game())
     return (-1);
-  init_game();
-  if (menu_game() >= 0)
-    Game_loop();
+  g_launcher = &menu_game;
+  while (g_launcher)
+    {
+      redraw_context(NULL);
+      g_launcher();
+    }
   destroy_game();
-  Core_destroy();
+  destroy_core();
   atexit(SDL_Quit);
   return (0);
 }

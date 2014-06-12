@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:48:39 2014 AHAMADA Samir
-** Last update Thu May  1 00:09:35 2014 AHAMADA Samir
+** Last update Sat May  3 14:47:27 2014 AHAMADA Samir
 */
 
 /**
@@ -15,6 +15,7 @@
 #ifndef SPRITE_HANDLER_H
 #define SPRITE_HANDLER_H
 
+#include "graphics.h"
 #include "sprites.h"
 
 /**
@@ -23,7 +24,7 @@
  *	'zone' : zone in the sprites sheet to take
  *	'size' : wanted sprite size
  */
-SDL_Surface	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
+t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
 
 /**
  *	Draw a sprite 's' at a given rect in the texture,
