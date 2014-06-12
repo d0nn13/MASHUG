@@ -14,7 +14,23 @@
 #include "log.h"
 
 static char	timestr[9];
-static char	*catstrings[NB_LCAT];
+
+/**
+ * Beware of the order! See macro and enum in log.h
+ */
+static char	*catstrings[NB_LCAT] = 
+{
+  "Space Invaders",
+  "Error",
+  "System",
+  "Audio",
+  "Video",
+  "Render",
+  "Input",
+  "Graphics",
+  "Sprites",
+  "Fonts"
+};
 
 /**
  *	Writes a timestamp into 'timestr'
@@ -40,16 +56,6 @@ void	log_init()
   SDL_LogSetPriority(SPR_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
 #endif
-  catstrings[APP_LCAT] = "Space Invaders";
-  catstrings[ERR_LCAT] = "Error";
-  catstrings[SYS_LCAT] = "System";
-  catstrings[AUD_LCAT] = "Audio";
-  catstrings[VID_LCAT] = "Video";
-  catstrings[RDR_LCAT] = "Render";
-  catstrings[INP_LCAT] = "Input";
-  catstrings[GFX_LCAT] = "Graphics";
-  catstrings[SPR_LCAT] = "Sprites";
-  catstrings[FNT_LCAT] = "Fonts";
 }
 
 static void	timestamp()
