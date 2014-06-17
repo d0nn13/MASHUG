@@ -20,6 +20,7 @@ static char	timestr[9];
  */
 static char	*catstrings[NB_LCAT] = 
 {
+  "",
   "Space Invaders",
   "Error",
   "System",
