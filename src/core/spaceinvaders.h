@@ -1,9 +1,9 @@
 /*
 ** spaceinvaders.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Wed Apr 23 01:41:36 2014 AHAMADA Samir
 ** Last update Sun May  4 12:52:39 2014 AHAMADA Samir
 */
@@ -12,12 +12,17 @@
 #define SPACEINVADERS_H
 
 /**
- *	Initializes Core
+ * @fn Sint32 init_core()
+ * @return 0 if all initialization are succeded
+ * @brief Initializes Core
+ *
  */
 Sint32	init_core();
 
 /**
- *	Destroys Core
+ * @brief Destroys Core
+ * @return 0
+ * @fn Sint32 destroy_core()
  */
 Sint32	destroy_core();
 
