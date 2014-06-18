@@ -8,6 +8,7 @@
 ** Last update Sun May  4 21:04:18 2014 AHAMADA Samir
 */
 
+#include <string.h>
 #include "../core/renderer.h"
 #include "menu.h"
 #include "sprite_handler.h"
@@ -43,6 +44,7 @@ void	game_loop()
   SDL_Event e;
   SDL_Scancode	s;
 
+  memset(&e, 0, sizeof(e));
   draw_text("!!!!GAME!!!!", &(SDL_Point){190, 120}, COSMIC48_FNT,
 	    &(SDL_Color){255, 255, 255, 255});
   while (g_launcher == &game_loop)
