@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Mon May  5 10:42:52 2014 AHAMADA Samir
+** Last update Wed Jun 18 17:50:41 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -28,16 +28,17 @@
 typedef enum
   {
     START_MEN,
-    SCORE_MEN
+    SCORE_MEN,
+    NB_MEN
   }		t_menuitem;
 
 /**
  *	Menu callback initialization
  */
-static t_mode		select[2] =
+static t_mode		select[NB_MEN] =
   {
-    game_loop,
-    hiscores
+    &game_loop,
+    &hiscores
   };
 
 static t_menuitem	item = START_MEN;
