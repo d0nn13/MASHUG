@@ -10,6 +10,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
+#include <unistd.h>
+#include <libgen.h>
+#include <stdlib.h>
 #include "version.h"
 #include "log.h"
 #include "window.h"
@@ -45,10 +48,14 @@ Sint32	destroy_core()
   return (0);
 }
 
-Sint32		main()
+Sint32		main(int ac, char **av)
 {
+  (void)ac;
+  chdir(dirname(*av));
+  chdir("..");
+
   if (init_core() || init_game())
-    return (-1);
+    return (EXIT_FAILURE);
   g_launcher = &menu_game;
   while (g_launcher)
     {
@@ -58,6 +65,5 @@ Sint32		main()
   destroy_game();
   destroy_core();
   atexit(SDL_Quit);
-  return (0);
+  return (EXIT_SUCCESS);
 }
-
