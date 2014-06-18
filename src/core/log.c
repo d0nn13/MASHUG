@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Sat May  3 17:11:06 2014 AHAMADA Samir
+** Last update Wed Jun 18 12:04:02 2014 AHAMADA Samir
 */
 
 #include <stdio.h>
@@ -13,6 +13,9 @@
 #include <SDL2/SDL_log.h>
 #include "log.h"
 
+/**
+ *	String containing timestamp
+ */
 static char	timestr[9];
 
 /**

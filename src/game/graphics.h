@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Sat May  3 16:06:47 2014 AHAMADA Samir
+** Last update Wed Jun 18 15:50:31 2014 AHAMADA Samir
 */
 
 /**
@@ -32,6 +32,9 @@
 
 #define	PIX_FMT	SDL_PIXELFORMAT_RGBA8888
 
+/**
+ *	Texture wrapper structure
+ */
 typedef	struct	s_texture
 {
   SDL_Texture	*tex;
@@ -39,8 +42,19 @@ typedef	struct	s_texture
   Uint16	h;
 }		t_texture;
 
+/**
+ *	Initializes graphics
+ */
 Sint32		init_graphics();
+
+/**
+ *	Background texture getter
+ */
 t_texture	*get_bg();
+
+/**
+ *	Destroys graphics
+ */
 void		destroy_graphics();
 
 #endif /* !GRAPHICS_H */
