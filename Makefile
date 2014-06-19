@@ -1,5 +1,6 @@
 SHELL		=	/bin/bash
 CC		=	gcc
+DOXYGEN		=	doxygen
 MKDIR		=	mkdir -p
 RM		=	rm -f
 ARCHIVE		=	tar -cjf
@@ -68,3 +69,7 @@ fclean:
 re:		fclean
 		@$(MAKE) all
 .PHONY:		re
+
+doc:
+		@$(DOXYGEN)
+.PHONY:		doc

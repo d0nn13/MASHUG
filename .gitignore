@@ -3,5 +3,6 @@
 *.swp
 *.o
 /bin/
+/doc/
 .DS_Store
 .svn/
