@@ -1,20 +1,20 @@
 /*
-** menu.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
+** mainmenu.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
 ** 
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Wed Jun 18 17:50:41 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:35:55 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
 #include "gamecore.h"
 #include "hiscores.h"
-#include "sprite_handler.h"
-#include "font_handler.h"
-#include "sound_handler.h"
-#include "menu.h"
+#include "handlers/sprite_handler.h"
+#include "handlers/font_handler.h"
+#include "handlers/sound_handler.h"
+#include "mainmenu.h"
 
 #define UP		SDL_SCANCODE_UP
 #define DN		SDL_SCANCODE_DOWN

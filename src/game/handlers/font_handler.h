@@ -16,7 +16,7 @@
 #ifndef FONT_HANLDER_H
 #define FONT_HANLDER_H
 
-#include "fonts.h"
+#include "../common/fonts.h"
 
 /**
  *	@brief	Allocates a new surface with 'text' printed with given

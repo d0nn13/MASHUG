@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:19:56 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:12:31 2014 AHAMADA Samir
 */
 
 /**
@@ -17,7 +17,7 @@
 #define SFX_H
 
 #include <SDL2/SDL_audio.h>
-#include "../core/audio.h"
+#include "../../core/audio.h"
 
 /**
  *	Sound effects enumeration
