@@ -20,12 +20,24 @@
 
 /**
  *	Allocates a new surface with 'text' printed with given
- *	font 'f' and color 'c'
+ *	font 'f' and color 'c'.
+ *  @param text a constant character pointer.
+ *
+ *  @param f TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+ *
+ *  @param c a SDL_Color structure pointer.
+ *  @return A pointer to the surface allocated.
  */
 SDL_Surface	*get_text_surface(const char *text, t_font f, SDL_Color *c);
 
 /**
- *	Draws 'text' at a given 'orig' with font 'f' and color 'c'
+ *	Draws 'text' at a given 'orig' with font 'f' and color 'c'.
+ *  @param text a constant character pointer.
+ *  @param orig a SDL_Point structure pointer.
+ *
+ *  @param f TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+ *
+ *  @param c a SDL_Color structure pointer.
  */
 void		draw_text(const char *text, SDL_Point *orig, t_font f, SDL_Color *c);
 
