@@ -12,17 +12,15 @@
 #define SPACEINVADERS_H
 
 /**
- * @fn Sint32 init_core()
- * @return 0 if all initialization are succeded
- * @brief Initializes Core
+ *  @return 0 if all initialization are succeded
+ *  @brief  Initializes Core
  *
  */
 Sint32	init_core();
 
 /**
- * @brief Destroys Core
- * @return 0
- * @fn Sint32 destroy_core()
+ *  @brief  Destroys Core
+ *  @return 0
  */
 Sint32	destroy_core();
 

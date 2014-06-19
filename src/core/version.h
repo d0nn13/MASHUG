@@ -21,9 +21,8 @@
 #define SI_PATCH	0
 
 /**
- * @fn void print_versions()
- * @return void
- * @brief Displays version informations
+ *  @return void
+ *  @brief  Displays version informations
  */
 void	print_versions();
 

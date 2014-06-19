@@ -35,9 +35,8 @@ enum {
 };
 
 /**
- * @fn void log_init()
- * @return void
- * @brief Initializes Log System
+ *  @return void
+ *  @brief  Initializes Log System
  */
 void	log_init();
 

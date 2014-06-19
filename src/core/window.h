@@ -28,23 +28,20 @@
 #define WIN_H	672
 
 /**
- * @fn Sint32 window_init()
- * @return 0 if the audio initialization was succeeded
- * @brief Initializes Window SubSystem
+ *  @return 0 if the audio initialization was succeeded
+ *  @brief  Initializes Window SubSystem
  */
 Sint32		window_init();
 
 /**
- * @fn void window_destroy()
- * @return void
- * @brief Destroys Window SubSystem
+ *  @return void
+ *  @brief   Destroys Window SubSystem
  */
 void		window_destroy();
 
 /**
- * @fn SDL_Window *get_window()
- * @return a pointer on a SDL_Window struct
- * @brief Window getter
+ *  @return a pointer on a SDL_Window struct
+ *  @brief  Window getter
  */
 SDL_Window	*get_window();
 

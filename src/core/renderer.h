@@ -19,23 +19,20 @@
 #include <SDL2/SDL_render.h>
 
 /**
- * @fn Sint32 renderer_init()
- * @return 0 if the renderer initialization was succeeded
- * @brief Initializes Renderer SubSystem
+ *  @return 0 if the renderer initialization was succeeded
+ *  @brief  Initializes Renderer SubSystem
  */
 Sint32	renderer_init();
 
 /**
- * @fn void renderer_destroy()
- * @return void
- * @brief Destroys Rendering SubSystem
+ *  @return void
+ *  @brief  Destroys Rendering SubSystem
  */
 void	renderer_destroy();
 
 /**
- * @fn SDL_Renderer *get_renderer()
- * @return a pointer on a SDL_Renderer struct
- * @brief Renderer getter
+ *  @return a pointer on a SDL_Renderer struct
+ *  @brief  Renderer getter
  */
 SDL_Renderer	*get_renderer();
 
