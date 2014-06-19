@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Wed Jun 18 11:52:10 2014 AHAMADA Samir
+** Last update Thu Jun 19 20:58:35 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	audio.h
+ *	@brief	Audio engine module
+ */
 
 #ifndef AUDIO_H
 #define AUDIO_H

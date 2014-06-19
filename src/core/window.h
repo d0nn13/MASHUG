@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Sat May  3 12:24:57 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:12:15 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	window.h
+ *	@brief	Window handling engine
+ */
 
 #ifndef WINDOW_H
 #define WINDOW_H

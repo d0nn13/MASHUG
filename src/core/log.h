@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Sat May  3 17:15:38 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:05:12 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	log.h
+ *	@brief	Log engine
+ */
 
 #ifndef LOG_H
 #define LOG_H

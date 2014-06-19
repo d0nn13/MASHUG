@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Sat May  3 13:35:27 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:08:26 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	renderer.h
+ *	@brief	Rendering engine
+ */
 
 #ifndef RENDERER_H
 #define RENDERER_H

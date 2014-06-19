@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 20:52:34 2014 AHAMADA Samir
-** Last update Sun Apr 27 18:06:56 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:11:08 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	version.h
+ *	@brief	Versions defs
+ */
 
 #ifndef VERSION_H
 #define VERSION_H
