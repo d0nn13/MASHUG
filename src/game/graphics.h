@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Wed Jun 18 15:50:31 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:09:04 2014 AHAMADA Samir
 */
 
 /**
- *	Graphic definition and background texture management
+ *	@file	graphics.h
+ *	@brief	Graphics and texture definitions
  */
 
 #ifndef GRAPHICS_H

@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Sat May  3 21:06:24 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:23:22 2014 AHAMADA Samir
 */
 
 /**
- *	Game Fonts
+ *	@file	fonts.h
+ *	@brief	Game Fonts
  */
 
 #ifndef FONTS_H

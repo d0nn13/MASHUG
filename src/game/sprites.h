@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Sat May  3 14:49:24 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:44:54 2014 AHAMADA Samir
 */
 
 /**
- *	Game Sprites
+ *	@file	sprites.h
+ *	@brief	Game Sprites
  */
 
 #ifndef GAME_SPRITES_H

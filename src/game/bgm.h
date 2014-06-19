@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:38 2014 AHAMADA Samir
-** Last update Sun Apr 20 22:02:17 2014 AHAMADA Samir
+** Last update Thu Jun 19 21:43:52 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	bgm.h
+ *	@brief	Background music engine
+ */
 
 #ifndef BGM_H
 #define BGM_H

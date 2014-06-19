@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:21:45 2014 AHAMADA Samir
-** Last update Sun May  4 13:28:20 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:07:38 2014 AHAMADA Samir
 */
 
 /**
- *	Main menu
+ *	@file	menu.h
+ *	@brief	Main menu
  */
 
 #ifndef	MENU_H

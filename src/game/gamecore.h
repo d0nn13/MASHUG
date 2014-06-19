@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Sun May  4 13:03:08 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:22:08 2014 AHAMADA Samir
 */
 
 /**
- *	Game!!
+ *	@file	gamecore.h
+ *	@brief	Game!!
  */
 
 #ifndef GAMECORE_H

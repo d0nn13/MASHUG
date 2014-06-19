@@ -5,13 +5,19 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Apr 30 01:22:34 2014 AHAMADA Samir
-** Last update Wed Jun 18 16:01:15 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:24:37 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	sound_handler.h
+ *	@brief	Sound handling interface
+ */
 
 #ifndef SOUND_HANDLER
 #define SOUND_HANDLER
 
 #include "sfx.h"
+#include "bgm.h"
 
 /**
  *	Plays a sound effect

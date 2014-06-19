@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:48:39 2014 AHAMADA Samir
-** Last update Sat May  3 14:47:27 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:11:15 2014 AHAMADA Samir
 */
 
 /**
- *	Sprite handling interface
+ *	@file	sprite_handler.h
+ *	@brief	Sprite handling interface
  */
 
 #ifndef SPRITE_HANDLER_H

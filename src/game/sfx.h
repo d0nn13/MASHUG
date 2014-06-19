@@ -5,11 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Wed Jun 18 16:00:20 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:19:56 2014 AHAMADA Samir
 */
 
 /**
- *	Game sound effects
+ *	@file	sfx.h
+ *	@brief	Game sound effects
  */
 
 #ifndef SFX_H

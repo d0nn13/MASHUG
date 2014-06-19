@@ -5,9 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:36:58 2014 AHAMADA Samir
-** Last update Wed Jun 18 15:53:26 2014 AHAMADA Samir
+** Last update Thu Jun 19 22:21:41 2014 AHAMADA Samir
 */
 
+/**
+ *	@file	hiscores.h
+ *	@brief	Hi-Scores mode
+ */
 
 #ifndef HISCORES_H
 #define HISCORES_H
