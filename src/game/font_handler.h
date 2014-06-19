@@ -5,11 +5,11 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 28 15:34:14 2014 AHAMADA Samir
-** Last update Sat Jun 21 02:19:45 2014 ENNEBATI Yassine
+** Last update Sat Jun 21 02:21:54 2014 ENNEBATI Yassine
 */
 
 /**
- *	@file	font_handler.h
+ *	@file	font_handler.c
  *	@brief	Font handling interface
  */
 
