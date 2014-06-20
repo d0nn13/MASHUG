@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:23:22 2014 AHAMADA Samir
+** Last update Fri Jun 20 20:50:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -39,6 +39,8 @@ void		load_fonts();
 
 /**
  *	Font getter
+ *	@param t The enum of the font returned.
+ *	@return The font wanted.
  */
 TTF_Font	*get_font(t_font t);
 
