@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Thu Jun 19 20:58:35 2014 AHAMADA Samir
+** Last update Mon Jun 23 00:11:38 2014 FOFANA Ibrahim
 */
 
 /**
@@ -70,7 +70,6 @@ SDL_AudioDeviceID	*get_audio_device();
 SDL_AudioSpec	*get_audio_conf();
 
 /**
- *  @return void
  *  @brief  Destroys Audio SubSystem
  */
 void	audio_destroy();
@@ -79,7 +78,6 @@ void	audio_destroy();
  *  @params void *userdata
  *  @params Uint8 *stream
  *  @params int len
- *  @return void
  *  @brief  Audio callback
  *
  */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:08:26 2014 AHAMADA Samir
+** Last update Mon Jun 23 00:12:15 2014 FOFANA Ibrahim
 */
 
 /**
@@ -25,7 +25,6 @@
 Sint32	renderer_init();
 
 /**
- *  @return void
  *  @brief  Destroys Rendering SubSystem
  */
 void	renderer_destroy();

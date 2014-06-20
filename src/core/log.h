@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:05:12 2014 AHAMADA Samir
+** Last update Mon Jun 23 00:11:57 2014 FOFANA Ibrahim
 */
 
 /**
@@ -35,7 +35,6 @@ enum {
 };
 
 /**
- *  @return void
  *  @brief  Initializes Log System
  */
 void	log_init();

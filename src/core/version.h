@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 20:52:34 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:11:08 2014 AHAMADA Samir
+** Last update Mon Jun 23 00:13:02 2014 FOFANA Ibrahim
 */
 
 /**
@@ -21,7 +21,6 @@
 #define SI_PATCH	0
 
 /**
- *  @return void
  *  @brief  Displays version informations
  */
 void	print_versions();
