@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:22:08 2014 AHAMADA Samir
+** Last update Sat Jun 21 01:05:10 2014 ENNEBATI Yassine
 */
 
 /**
@@ -29,11 +29,13 @@ extern	t_mode	g_launcher;
 
 /**
  *	Initializes Game (load sprites, draw UI etc...)
+ *	@return 0 on success, -1 on any error 
  */
 Sint32	init_game();
 
 /**
  *	Clears screen with color 'c' and renders cabinet
+ *	@param c The color to clear the screen with
  */
 void	redraw_context(SDL_Color *c);
 
@@ -43,7 +45,7 @@ void	redraw_context(SDL_Color *c);
 void	game_loop();
 
 /**
- *	Destroys Game
+ *	Destroys Game (free all stuff was allocated...)
  */
 void	destroy_game();
 
