@@ -9,7 +9,7 @@
 */
 
 /**
- *	@file	font_handler.c
+ *	@file	font_handler.h
  *	@brief	Font handling interface
  */
 
