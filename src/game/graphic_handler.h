@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Sat Jun 21 01:59:49 2014 ENNEBATI Yassine
+** Last update Sat Jun 21 15:27:19 2014 ENNEBATI Yassine
 */
 
 /**
@@ -21,7 +21,7 @@
 #include "graphics.h"
 
 /**
- *	Create a texture for a rendering context
+ *	@brief Create a texture for a rendering context
  *	@param r The rendering context
  *	@param a An enumeration of texture access patterns
  *	@param w The width of the texture in pixels
@@ -31,15 +31,15 @@
 t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
 
 /**
- *	Create a texture from an existing surface
- *	@param r The rendering context
- *	@param s The structure containing pixel data used to fill the texture
- *	@return A pointer to the created texture
+ *	@brief	Create a texture from an existing surface
+ *	@param	r The rendering context
+ *	@param	s The structure containing pixel data used to fill the texture
+ *	@return	A pointer to the created texture
  */
 t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s);
 
 /**
- *	Free all allocated ressources
+ *	@brief	Free all allocated ressources
  */
 void		free_texture(t_texture *t);
 

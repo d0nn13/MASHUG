@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Sat Jun 21 01:21:26 2014 ENNEBATI Yassine
+** Last update Sat Jun 21 15:26:03 2014 ENNEBATI Yassine
 */
 
 /**
@@ -19,7 +19,7 @@
 #include <SDL2/SDL_ttf.h>
 
 /**
- *	Sprite names enumeration
+ *	@brief	Sprite names enumeration
  */
 typedef enum
   {
@@ -33,14 +33,14 @@ typedef enum
   } t_font;
 
 /**
- *	Load game fonts in memory
+ *	@brief	Load game fonts in memory
  */
 void		load_fonts();
 
 /**
- *	Font getter
- *	@param t The desired font in the t_font enumeration
- *	@return A pointer to the desired font
+ *	@brief	Font getter
+ *	@param	t The desired font in the t_font enumeration
+ *	@return	A pointer to the desired font
  */
 TTF_Font	*get_font(t_font t);
 
