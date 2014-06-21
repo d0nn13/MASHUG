@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 28 15:34:14 2014 AHAMADA Samir
-** Last update Sat Jun 21 02:21:54 2014 ENNEBATI Yassine
+** Last update Sat Jun 21 02:48:35 2014 ENNEBATI Yassine
 */
 
 /**
@@ -31,7 +31,7 @@ SDL_Surface	*get_text_surface(const char *text, t_font f, SDL_Color *c);
 /**
  *	Draws 'text' at a given 'orig' with font 'f' and color 'c'.
  *	@param text The string to be drawn on the surface.
- *	@param orig The structures that defines the x and y location of the text's upper left corner.
+ *	@param orig A SDL_Point that defines the x and y coordinates of the origin of the text to be drawn.
  *	@param f Font to render the text with.
  *	@param c The color to render the text in.
  */
