@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Mon Jun 23 00:12:15 2014 FOFANA Ibrahim
+** Last update Mon Jun 23 00:14:43 2014 FOFANA Ibrahim
 */
 
 /**
@@ -19,19 +19,19 @@
 #include <SDL2/SDL_render.h>
 
 /**
- *  @return 0 if the renderer initialization was succeeded
- *  @brief  Initializes Renderer SubSystem
+ *	@return	0 if the renderer initialization was succeeded
+ *	@brief	Initializes Renderer SubSystem
  */
 Sint32	renderer_init();
 
 /**
- *  @brief  Destroys Rendering SubSystem
+ *	@brief	Destroys Rendering SubSystem
  */
 void	renderer_destroy();
 
 /**
- *  @return a pointer on a SDL_Renderer struct
- *  @brief  Renderer getter
+ *	@return	a pointer on a SDL_Renderer struct
+ *	@brief	Renderer getter
  */
 SDL_Renderer	*get_renderer();
 
