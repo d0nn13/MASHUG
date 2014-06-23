@@ -57,7 +57,7 @@ Sint32	audio_init();
 void	set_audio_buffer(t_chunk *c, t_slot t);
 
 /**
- *	@return	a pointer on a SDL_AudioDeviceID struct
+ *	@return	a pointer to the engine's SDL_AudioDeviceID struct
  *	@brief	Audio device getter
  */
 SDL_AudioDeviceID	*get_audio_device();
