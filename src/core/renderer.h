@@ -20,18 +20,18 @@
 
 /**
  *	@return	0 if the renderer initialization was succeeded
- *	@return -1 if the renderer initialization fail
+ *	@return -1 if the renderer initialization failed
  *	@brief	Initializes Renderer SubSystem
  */
 Sint32	renderer_init();
 
 /**
- *	@brief	Destroys Rendering SubSystem
+ *	@brief	Destroys the engine's Rendering SubSystem
  */
 void	renderer_destroy();
 
 /**
- *	@return	a pointer on a SDL_Renderer struct
+ *	@return	a pointer to the engine's SDL_Renderer struct
  *	@brief	Renderer getter
  */
 SDL_Renderer	*get_renderer();
