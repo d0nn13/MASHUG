@@ -1,4 +1,3 @@
-
 /*
 ** spaceinvaders.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
 **
@@ -13,15 +12,15 @@
 #define SPACEINVADERS_H
 
 /**
- *	@return	0 if all initialization are succeded
- *	@return -1 if all initialization fail
- *	@brief	Initializes Core
+ *	@return	0 if all initializations are succeded
+ *	@return -1 if a module initialization failed
+ *	@brief	Initializes the engine's modules
  *
  */
 Sint32	init_core();
 
 /**
- *	@brief	Destroys Core
+ *	@brief	Destroys the engine's modules
  *	@return	0
  */
 Sint32	destroy_core();
