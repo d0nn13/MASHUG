@@ -45,13 +45,13 @@ typedef	struct	s_texture
 
 /**
  *	@return 0 if the graphics initialization was succeeded
- *	@return -1 if the graphics initialization fail
+ *	@return -1 if the graphics initialization failed
  *	@brief	Initializes graphics
  */
 Sint32		init_graphics();
 
 /**
- *	@return a pointer on a t_texture
+ *	@return a pointer to the background t_texture
  *	@brief	Background texture getter
  */
 t_texture	*get_bg();
