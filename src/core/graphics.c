@@ -5,13 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Sat May  3 17:06:01 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:30:39 2014 AHAMADA Samir
 */
 
 #include "../core/log.h"
 #include "../core/window.h"
 #include "../core/renderer.h"
-#include "graphic_handler.h"
+#include "../game/handlers/graphic_handler.h"
 
 static	t_texture	*bg;
 

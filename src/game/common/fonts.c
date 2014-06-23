@@ -5,11 +5,11 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Sat May  3 21:07:23 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:16:11 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_ttf.h>
-#include "../core/log.h"
+#include "../../core/log.h"
 
 #include "fonts.h"
 

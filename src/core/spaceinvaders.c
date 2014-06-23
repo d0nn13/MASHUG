@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Sun May  4 13:55:03 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:19:00 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -19,7 +19,7 @@
 #include "renderer.h"
 #include "audio.h"
 #include "../game/gamecore.h"
-#include "../game/menu.h"
+#include "../game/mainmenu.h"
 #include "spaceinvaders.h"
 
 Sint32	init_core()

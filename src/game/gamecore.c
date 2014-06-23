@@ -10,10 +10,10 @@
 
 #include <string.h>
 #include "../core/renderer.h"
-#include "menu.h"
-#include "sprite_handler.h"
-#include "font_handler.h"
-#include "sound_handler.h"
+#include "mainmenu.h"
+#include "handlers/sprite_handler.h"
+#include "handlers/font_handler.h"
+#include "handlers/sound_handler.h"
 #include "gamecore.h"
 
 t_mode		g_launcher;

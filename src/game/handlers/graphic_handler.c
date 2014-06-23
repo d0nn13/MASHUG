@@ -5,11 +5,11 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Sat May  3 17:18:00 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:33:14 2014 AHAMADA Samir
 */
 
-#include "../core/log.h"
-#include "../core/renderer.h"
+#include "../../core/log.h"
+#include "../../core/renderer.h"
 #include "graphic_handler.h"
 
 t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Apr 30 01:22:34 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:24:37 2014 AHAMADA Samir
+** Last update Mon Jun 23 14:57:27 2014 AHAMADA Samir
 */
 
 /**
@@ -16,8 +16,8 @@
 #ifndef SOUND_HANDLER
 #define SOUND_HANDLER
 
-#include "sfx.h"
-#include "bgm.h"
+#include "../common/sfx.h"
+#include "../common/bgm.h"
 
 /**
  *	@param One of the sound effects enumeration

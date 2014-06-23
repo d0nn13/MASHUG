@@ -18,7 +18,7 @@
 
 #include <SDL2/SDL_stdinc.h>
 #include <SDL2/SDL_render.h>
-#include "graphics.h"
+#include "../../core/graphics.h"
 
 /**
  *	@param r The rendering context

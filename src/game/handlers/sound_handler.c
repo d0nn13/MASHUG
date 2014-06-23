@@ -5,12 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Apr 30 01:24:06 2014 AHAMADA Samir
-** Last update Thu May  1 12:13:47 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:33:19 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_audio.h>
-#include "../core/log.h"
-#include "../core/audio.h"
+#include "../../core/log.h"
+#include "../../core/audio.h"
 #include "sound_handler.h"
 
 void	play_sfx(t_sfx s)

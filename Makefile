@@ -15,18 +15,18 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/log.c				\
 			$(SRCPATH)core/window.c				\
 			$(SRCPATH)core/renderer.c			\
+			$(SRCPATH)core/graphics.c			\
 			$(SRCPATH)core/audio.c				\
 			$(SRCPATH)core/spaceinvaders.c			\
-			$(SRCPATH)game/graphic_handler.c		\
-			$(SRCPATH)game/sprite_handler.c			\
-			$(SRCPATH)game/font_handler.c			\
-			$(SRCPATH)game/sound_handler.c			\
-			$(SRCPATH)game/graphics.c			\
-			$(SRCPATH)game/sprites.c			\
-			$(SRCPATH)game/fonts.c				\
-			$(SRCPATH)game/sfx.c				\
-			$(SRCPATH)game/menu.c				\
-			$(SRCPATH)game/hiscores.c				\
+			$(SRCPATH)game/handlers/graphic_handler.c	\
+			$(SRCPATH)game/handlers/sprite_handler.c	\
+			$(SRCPATH)game/handlers/font_handler.c		\
+			$(SRCPATH)game/handlers/sound_handler.c		\
+			$(SRCPATH)game/common/sprites.c			\
+			$(SRCPATH)game/common/fonts.c			\
+			$(SRCPATH)game/common/sfx.c			\
+			$(SRCPATH)game/mainmenu.c			\
+			$(SRCPATH)game/hiscores.c			\
 			$(SRCPATH)game/gamecore.c
 
 OBJ		=	$(SRC:%.c=%.o)

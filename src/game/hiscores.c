@@ -5,15 +5,15 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Sun May  4 21:05:08 2014 AHAMADA Samir
+** Last update Thu Jun 19 23:36:12 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_render.h>
 #include "gamecore.h"
-#include "menu.h"
-#include "sprite_handler.h"
-#include "font_handler.h"
-#include "sound_handler.h"
+#include "mainmenu.h"
+#include "handlers/sprite_handler.h"
+#include "handlers/font_handler.h"
+#include "handlers/sound_handler.h"
 
 #if defined __MACH__
 # define	SCOREFILE	"/Users/`whoami`/.spaceinvaders.hiscores"
