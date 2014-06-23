@@ -20,10 +20,12 @@
 #include "sprites.h"
 
 /**
- *	Allocates a new sprite from a sprites sheet,
- *	the function applies scaling
- *	'zone' : zone in the sprites sheet to take
- *	'size' : wanted sprite size
+ *	@param	file The sprites sheet to load
+ *	@param	zone The zone in the sprites sheet to take
+ *	@param	size The wanted sprite size
+ *	@return	A pointer to a newly heap allocated texture
+ *	@brief	Allocates a new sprite from a sprites sheet,
+ *			the function applies scaling
  */
 t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
 
