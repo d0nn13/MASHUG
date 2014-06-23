@@ -1,9 +1,9 @@
 /*
 ** log.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
 ** Last update Wed Jun 18 12:04:02 2014 AHAMADA Samir
 */
@@ -16,18 +16,25 @@
 /**
  *	String containing timestamp
  */
+
 static char	timestr[9];
 static char	*catstrings[NB_LCAT];
 
 /**
- *	Writes a timestamp into 'timestr'
+ * @fn static void timestamp()
+ * @return void
+ * @brief Writes a timestamp into 'timestr'
  */
-static void	timestamp();
+static void timestamp();
 
 /**
- *	Prints the timestamp written in 'timestr'
+ * @fn static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg)
+ * @return void
+ * @brief Print a message with some property
+ * Prints the timestamp written in 'timestr'
  */
-static void	log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
+static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
+
 
 /* Log priority settings are temporary */
 void	log_init()

@@ -1,11 +1,11 @@
 /*
 ** audio.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Thu Jun 19 20:58:35 2014 AHAMADA Samir
+** Last update Mon Jun 23 00:13:53 2014 FOFANA Ibrahim
 */
 
 /**
@@ -19,7 +19,8 @@
 #include <SDL2/SDL_audio.h>
 
 /**
- *	Audio chunk declaration
+ *	@struct	 t_chunk
+ *	@brief   Audio chunk declaration
  */
 typedef struct	s_chunk
 {
@@ -29,6 +30,8 @@ typedef struct	s_chunk
 }		t_chunk;
 
 /**
+ *	@enum	t_slot
+ *	@brief	Slot constants
  *	Audio slot definition
  */
 typedef enum
@@ -41,32 +44,42 @@ typedef enum
   }		t_slot;
 
 /**
- *	Initializes Audio SubSystem
+ *	@return	0 if the audio initialization was succeeded
+ *	@brief	Initializes Audio SubSystem
  */
 Sint32	audio_init();
 
 /**
- *	Load an audio chunk 'c', in a audio slot 't' 
+ *	@params	t_chunk *c
+ *	@params	t_slot *t
+ *	@return	void
+ *	@brief	Load an audio chunk 'c', in a audio slot 't'
  */
 void	set_audio_buffer(t_chunk *c, t_slot t);
 
 /**
- *	Audio device getter
+ *	@return	a pointer on a SDL_AudioDeviceID struct
+ *	@brief	Audio device getter
  */
 SDL_AudioDeviceID	*get_audio_device();
 
 /**
- *	Returns audio conf
+ *	@return	a pointer on a SDL_AudioSpec struct
+ *	@brief	Returns audio conf
  */
 SDL_AudioSpec	*get_audio_conf();
 
 /**
- *	Destroys Audio SubSystem
+ *	@brief	Destroys Audio SubSystem
  */
 void	audio_destroy();
 
 /**
- *	Audio callback
+ *	@params	void *userdata
+ *	@params	Uint8 *stream
+ *	@params	int len
+ *	@brief	Audio callback
+ *
  */
 void	fill_audio_buffer(void *userdata, Uint8 *stream, int len);
 
