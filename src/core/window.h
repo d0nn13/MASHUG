@@ -29,7 +29,7 @@
 
 /**
  *	@return	0 if the audio initialization was succeeded
- *	@return -1 if the audio initialization fail
+ *	@return -1 if the audio initialization failed
  *	@brief	Initializes Window SubSystem
  */
 Sint32		window_init();
@@ -40,7 +40,7 @@ Sint32		window_init();
 void		window_destroy();
 
 /**
- *	@return	a pointer on a SDL_Window struct
+ *	@return	a pointer to the engine's SDL_Window struct
  *	@brief	Window getter
  */
 SDL_Window	*get_window();
