@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Mon Jun 23 00:13:53 2014 FOFANA Ibrahim
+** Last update Mon Jun 23 17:05:02 2014 FOFANA Ibrahim
 */
 
 /**
@@ -31,8 +31,7 @@ typedef struct	s_chunk
 
 /**
  *	@enum	t_slot
- *	@brief	Slot constants
- *	Audio slot definition
+ *	@brief	Audio slot constants definition
  */
 typedef enum
   {
@@ -45,6 +44,7 @@ typedef enum
 
 /**
  *	@return	0 if the audio initialization was succeeded
+ *	@return -1 if the audio initialization failed
  *	@brief	Initializes Audio SubSystem
  */
 Sint32	audio_init();
@@ -52,13 +52,12 @@ Sint32	audio_init();
 /**
  *	@params	t_chunk *c
  *	@params	t_slot *t
- *	@return	void
- *	@brief	Load an audio chunk 'c', in a audio slot 't'
+ *	@brief	Loads an audio chunk 'c', in a audio slot 't'
  */
 void	set_audio_buffer(t_chunk *c, t_slot t);
 
 /**
- *	@return	a pointer on a SDL_AudioDeviceID struct
+ *	@return	a pointer to the engine's SDL_AudioDeviceID struct
  *	@brief	Audio device getter
  */
 SDL_AudioDeviceID	*get_audio_device();
@@ -70,7 +69,7 @@ SDL_AudioDeviceID	*get_audio_device();
 SDL_AudioSpec	*get_audio_conf();
 
 /**
- *	@brief	Destroys Audio SubSystem
+ *	@brief	Destroys the Audio SubSystem
  */
 void	audio_destroy();
 
