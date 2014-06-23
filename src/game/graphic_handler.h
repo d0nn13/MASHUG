@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Sat Jun 21 15:27:19 2014 ENNEBATI Yassine
+** Last update Mon Jun 23 15:15:21 2014 AHAMADA Samir
 */
 
 /**
@@ -39,7 +39,7 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
 t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s);
 
 /**
- *	@param	t The texture will be freed
+ *	@param	t The texture to free
  *	@brief	Free one allocated texture
  */
 void		free_texture(t_texture *t);
