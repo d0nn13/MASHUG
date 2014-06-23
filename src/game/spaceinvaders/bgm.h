@@ -5,11 +5,11 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:38 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:43:52 2014 AHAMADA Samir
+** Last update Mon Jun 23 18:24:02 2014 AHAMADA Samir
 */
 
 /**
- *	@file	bgm.h
+ *	@file	spaceinvaders/bgm.h
  *	@brief	Background music engine
  */
 
