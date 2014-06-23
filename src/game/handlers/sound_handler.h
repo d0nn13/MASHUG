@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Apr 30 01:22:34 2014 AHAMADA Samir
-** Last update Mon Jun 23 14:57:27 2014 AHAMADA Samir
+** Last update Mon Jun 23 19:31:02 2014 AHAMADA Samir
 */
 
 /**
@@ -20,8 +20,9 @@
 #include "../common/bgm.h"
 
 /**
- *	@param One of the sound effects enumeration
- *	@brief Plays a sound effect
+ *	@brief Plays a sound effect.
+ *
+ *	@param The desired sound effect in t_sfx enumeration
  */
 void	play_sfx(t_sfx s);
 
