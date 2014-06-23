@@ -14,20 +14,22 @@
 #include "log.h"
 
 /**
- *	String containing timestamp
+ *	@brief String containing timestamp (Internal)
  */
-
 static char	timestr[9];
+
+/**
+ *	@brief Log categories string array (Internal)
+ */
 static char	*catstrings[NB_LCAT];
 
 /**
- * @brief Writes a timestamp into 'timestr'
+ *	@brief Writes a timestamp into 'timestr' (Internal)
  */
 static void timestamp();
 
 /**
- * @brief Print a message with some property
- * Prints the timestamp written in 'timestr'
+ *	@brief Log printing callback (Internal)
  */
 static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
 
@@ -61,6 +63,7 @@ void	log_init()
 static void	timestamp()
 {
   time_t	t;
+  
   time(&t);
   sprintf(timestr, "%02d:%02d:%02d",
 	  localtime(&t)->tm_hour,
