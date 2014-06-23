@@ -20,7 +20,8 @@
 #include "bgm.h"
 
 /**
- *	Plays a sound effect
+ *	@param One of the sound effects enumeration
+ *	@brief Plays a sound effect
  */
 void	play_sfx(t_sfx s);
 
