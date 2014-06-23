@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Wed Jun 18 12:04:02 2014 AHAMADA Samir
+** Last update Mon Jun 23 17:03:39 2014 FOFANA Ibrahim
 */
 
 #include <stdio.h>
@@ -21,15 +21,11 @@ static char	timestr[9];
 static char	*catstrings[NB_LCAT];
 
 /**
- * @fn static void timestamp()
- * @return void
  * @brief Writes a timestamp into 'timestr'
  */
 static void timestamp();
 
 /**
- * @fn static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg)
- * @return void
  * @brief Print a message with some property
  * Prints the timestamp written in 'timestr'
  */

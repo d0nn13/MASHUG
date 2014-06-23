@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Mon Jun 23 00:17:44 2014 FOFANA Ibrahim
+** Last update Mon Jun 23 17:01:59 2014 FOFANA Ibrahim
 */
 
 /**
@@ -29,6 +29,7 @@
 
 /**
  *	@return	0 if the audio initialization was succeeded
+ *	@return -1 if the audio initialization fail
  *	@brief	Initializes Window SubSystem
  */
 Sint32		window_init();

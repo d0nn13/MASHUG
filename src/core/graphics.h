@@ -1,11 +1,11 @@
 /*
 ** graphics.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:09:04 2014 AHAMADA Samir
+** Last update Mon Jun 23 16:59:28 2014 FOFANA Ibrahim
 */
 
 /**
@@ -44,17 +44,20 @@ typedef	struct	s_texture
 }		t_texture;
 
 /**
- *	Initializes graphics
+ *	@return 0 if the graphics initialization was succeeded
+ *	@return -1 if the graphics initialization fail
+ *	@brief	Initializes graphics
  */
 Sint32		init_graphics();
 
 /**
- *	Background texture getter
+ *	@return a pointer on a t_texture
+ *	@brief	Background texture getter
  */
 t_texture	*get_bg();
 
 /**
- *	Destroys graphics
+ *	@brief Destroys graphics
  */
 void		destroy_graphics();
 
