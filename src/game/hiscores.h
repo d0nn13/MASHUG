@@ -17,17 +17,17 @@
 #define HISCORES_H
 
 /**
- *	Main HiScores-mode routine
+ *	@brief Main HiScores-mode routine
  */
 void	hiscores();
 
 /**
- *	Load HiScores from system
+ *	@brief Load HiScores from system
  */
 Sint32	load_hiscores();
 
 /**
- *	Save HiScores to system
+ *	@brief Save HiScores to system
  */
 Sint32	save_hiscore();
 
