@@ -5,15 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:36:12 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:10:08 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_render.h>
+#include "../core/handlers.h"
+#include "common/sprites.h"
+#include "common/fonts.h"
+#include "common/sfx.h"
 #include "gamecore.h"
 #include "mainmenu.h"
-#include "handlers/sprite_handler.h"
-#include "handlers/font_handler.h"
-#include "handlers/sound_handler.h"
 
 #if defined __MACH__
 # define	SCOREFILE	"/Users/`whoami`/.spaceinvaders.hiscores"
@@ -28,7 +29,7 @@ void		hiscores()
   SDL_Event	e;
   SDL_Scancode	s;
 
-  draw_text("HISCORES", &(SDL_Point){240,120}, COSMIC48_FNT,
+  draw_text("HISCORES", &(SDL_Point){240,120}, get_font(COSMIC48_FNT),
 	    &(SDL_Color){255, 255, 255, 255});
   while (g_launcher == &hiscores)
     {
@@ -41,7 +42,7 @@ void		hiscores()
 	  if (s == SDL_SCANCODE_ESCAPE)
 	    {
 	      g_launcher = &menu_game;
-	      play_sfx(BLIPCANCEL_SFX);
+	      play_sfx(get_sfx(BLIPCANCEL_SFX));
 	    }
 	}
     }

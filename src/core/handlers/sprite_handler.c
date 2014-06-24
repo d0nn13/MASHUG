@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:21:54 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:01:43 2014 AHAMADA Samir
 */
 
 /**
@@ -14,10 +14,9 @@
  */
 
 #include <SDL2/SDL_image.h>
-#include "../../core/log.h"
-#include "../../core/renderer.h"
-#include "graphic_handler.h"
-#include "sprite_handler.h"
+#include "../log.h"
+#include "../renderer.h"
+#include "../handlers.h"
 
 t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
 {
@@ -43,14 +42,14 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
   return (out);
 }
 
-void	draw_sprite(t_sprite s, SDL_Rect *zone)
+void	draw_sprite(t_texture *s, SDL_Rect *zone)
 {
-  SDL_RenderCopy(get_renderer(), get_sprite(s)->tex, NULL, zone);
+  SDL_RenderCopy(get_renderer(), s->tex, NULL, zone);
   SDL_RenderPresent(get_renderer());
-  SDL_LogDebug(SPR_LCAT, "Drawn sprite %d", s);
+  SDL_LogDebug(SPR_LCAT, "Drawn sprite");
 }
 
-void	draw_sprite_raw(t_sprite s, SDL_Point *orig)
+void		draw_sprite_raw(t_texture *s, SDL_Point *orig)
 {
   if (!orig)
     {
@@ -58,5 +57,5 @@ void	draw_sprite_raw(t_sprite s, SDL_Point *orig)
       return ;
     }
   draw_sprite(s, &(SDL_Rect){orig->x, orig->y,
-	get_sprite(s)->w, get_sprite(s)->h});
+	s->w, s->h});
 }

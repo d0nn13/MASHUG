@@ -5,15 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:35:55 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:09:53 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
+#include "../core/handlers.h"
+#include "common/sprites.h"
+#include "common/fonts.h"
+#include "common/sfx.h"
 #include "gamecore.h"
 #include "hiscores.h"
-#include "handlers/sprite_handler.h"
-#include "handlers/font_handler.h"
-#include "handlers/sound_handler.h"
 #include "mainmenu.h"
 
 #define UP		SDL_SCANCODE_UP
@@ -92,20 +93,22 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
     {
       g_launcher = select[*item];
-      play_sfx(BLIPOK_SFX);
+      play_sfx(get_sfx(BLIPOK_SFX));
     }
   if (*item != old_item)
     {
       display_menu();
-      play_sfx(BLIPSEL_SFX);
+      play_sfx(get_sfx(BLIPSEL_SFX));
     }
 }
 
 static void	display_menu()
 {
-  draw_sprite_raw(TITLE_SPR, &(SDL_Point){187, 122});
-  draw_text("START", &(SDL_Point){325, 298}, ATARI24_FNT, ISSEL(START_MEN));
-  draw_text("HISCORES", &(SDL_Point){289, 369}, ATARI24_FNT, ISSEL(SCORE_MEN));
+  draw_sprite_raw(get_sprite(TITLE_SPR), &(SDL_Point){187, 122});
+  draw_text("START", &(SDL_Point){325, 298}, get_font(ATARI24_FNT),
+	    ISSEL(START_MEN));
+  draw_text("HISCORES", &(SDL_Point){289, 369}, get_font(ATARI24_FNT),
+	    ISSEL(SCORE_MEN));
 }
 
 static Sint32	key_filter(void *userdata, SDL_Event *event)
