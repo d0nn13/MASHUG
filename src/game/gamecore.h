@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Sat Jun 21 15:26:54 2014 ENNEBATI Yassine
+** Last update Tue Jun 24 18:29:35 2014 AHAMADA Samir
 */
 
 /**
@@ -31,7 +31,7 @@ extern	t_mode	g_launcher;
  *	@brief	Initializes Game (load sprites, draw UI etc...)
  *	@return	0 on success, -1 on any error 
  */
-Sint32	init_game();
+Sint32	game_init();
 
 /**
  *	@brief	Clears screen with color 'c' and renders cabinet
@@ -47,6 +47,6 @@ void	game_loop();
 /**
  *	@brief	Destroys Game (free all stuff was allocated...)
  */
-void	destroy_game();
+void	game_destroy();
 
 #endif /* !GAMECORE_H */

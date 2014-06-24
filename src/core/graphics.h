@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:05:14 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:30:37 2014 AHAMADA Samir
 */
 
 /**
@@ -55,7 +55,7 @@ typedef	struct	s_texture
  *	@return 0 if the graphics initialization was succeeded
  *	@return -1 if the graphics initialization failed
  */
-Sint32		init_graphics();
+Sint32		graphics_init();
 
 /**
  *	@brief	Background texture getter
@@ -67,6 +67,6 @@ t_texture	*get_bg();
 /**
  *	@brief Destroys graphics
  */
-void		destroy_graphics();
+void		graphics_destroy();
 
 #endif /* !GRAPHICS_H */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Sat Jun 21 01:05:37 2014 ENNEBATI Yassine
+** Last update Tue Jun 24 18:33:21 2014 AHAMADA Samir
 */
 
 #include <string.h>
@@ -18,10 +18,8 @@
 
 t_mode		g_launcher;
 
-Sint32		init_game()
+Sint32		game_init()
 {
-  if (init_graphics())
-    return (-1);
   load_sprites();
   load_fonts();
   load_sounds();
@@ -67,10 +65,9 @@ void	game_loop()
     }
 }
 
-void	destroy_game()
+void	game_destroy()
 {
   free_sounds();
   free_fonts();
   free_sprites();
-  destroy_graphics();
 }
