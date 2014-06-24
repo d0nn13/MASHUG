@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:04:38 2014 AHAMADA Samir
+** Last update Wed Jun 25 00:18:27 2014 AHAMADA Samir
 */
 
 /**
@@ -77,9 +77,9 @@ void		free_texture(t_texture *t);
 
 
 /**
- *	@brief Plays a sound effect.
+ *	@brief	Plays a sound effect.
  *
- *	@param The audio chunk to play
+ *	@param	s The audio chunk to play
  */
 void	play_sfx(t_chunk *s);
 
