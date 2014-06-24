@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:30:39 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:05:10 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	graphics.c
+ *	@brief	Graphics and texture definitions
+ */
 
 #include "../core/log.h"
 #include "../core/window.h"

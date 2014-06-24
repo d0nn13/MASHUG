@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 21:10:45 2014 AHAMADA Samir
-** Last update Mon Apr 21 21:20:09 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:13:18 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	version.h
+ *	@brief	Versions defs
+ */
 
 #include <stdio.h>
 #include <SDL2/SDL_version.h>

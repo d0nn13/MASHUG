@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Mon Jun 23 17:01:59 2014 FOFANA Ibrahim
+** Last update Tue Jun 24 18:14:42 2014 AHAMADA Samir
 */
 
 /**
@@ -28,9 +28,10 @@
 #define WIN_H	672
 
 /**
+ *	@brief	Initializes Window SubSystem
+ *
  *	@return	0 if the audio initialization was succeeded
  *	@return -1 if the audio initialization failed
- *	@brief	Initializes Window SubSystem
  */
 Sint32		window_init();
 
@@ -40,8 +41,9 @@ Sint32		window_init();
 void		window_destroy();
 
 /**
- *	@return	a pointer to the engine's SDL_Window struct
  *	@brief	Window getter
+ *
+ *	@return	a pointer to the engine's SDL_Window struct
  */
 SDL_Window	*get_window();
 

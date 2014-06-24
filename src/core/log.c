@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Mon Jun 23 17:03:39 2014 FOFANA Ibrahim
+** Last update Tue Jun 24 18:07:08 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	log.c
+ *	@brief	Log engine
+ */
 
 #include <stdio.h>
 #include <time.h>
@@ -14,22 +19,22 @@
 #include "log.h"
 
 /**
- *	@brief String containing timestamp (Internal)
+ *	@brief String containing timestamp (internal)
  */
 static char	timestr[9];
 
 /**
- *	@brief Log categories string array (Internal)
+ *	@brief Log categories string array (internal)
  */
 static char	*catstrings[NB_LCAT];
 
 /**
- *	@brief Writes a timestamp into 'timestr' (Internal)
+ *	@brief Writes a timestamp into 'timestr' (internal)
  */
 static void timestamp();
 
 /**
- *	@brief Log printing callback (Internal)
+ *	@brief Log printing callback (internal)
  */
 static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
 

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Mon Jun 23 17:00:53 2014 FOFANA Ibrahim
+** Last update Tue Jun 24 18:09:02 2014 AHAMADA Samir
 */
 
 /**
@@ -19,21 +19,23 @@
 #include <SDL2/SDL_render.h>
 
 /**
+ *	@brief	Initializes Rendering engine
+ *
  *	@return	0 if the renderer initialization was succeeded
  *	@return -1 if the renderer initialization failed
- *	@brief	Initializes Renderer SubSystem
  */
 Sint32	renderer_init();
 
 /**
- *	@brief	Destroys the engine's Rendering SubSystem
- */
-void	renderer_destroy();
-
-/**
- *	@return	a pointer to the engine's SDL_Renderer struct
  *	@brief	Renderer getter
+ *
+ *	@return	a pointer to the engine's SDL_Renderer struct
  */
 SDL_Renderer	*get_renderer();
+
+/**
+ *	@brief	Destroys the Rendering engine
+ */
+void	renderer_destroy();
 
 #endif /* !RENDERER_H */

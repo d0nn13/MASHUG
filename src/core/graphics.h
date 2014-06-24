@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Mon Jun 23 16:59:28 2014 FOFANA Ibrahim
+** Last update Tue Jun 24 18:05:14 2014 AHAMADA Samir
 */
 
 /**
@@ -19,6 +19,9 @@
 #include <SDL2/SDL_stdinc.h>
 #include <SDL2/SDL_render.h>
 
+/**
+ *	@cond
+ */
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
   #define RMASK	0xff000000
   #define GMASK	0x00ff0000
@@ -32,6 +35,9 @@
 #endif
 
 #define	PIX_FMT	SDL_PIXELFORMAT_RGBA8888
+/**
+ *	@endcond
+ */
 
 /**
  *	Texture wrapper structure
@@ -44,15 +50,17 @@ typedef	struct	s_texture
 }		t_texture;
 
 /**
+ *	@brief	Initializes graphics
+ *
  *	@return 0 if the graphics initialization was succeeded
  *	@return -1 if the graphics initialization failed
- *	@brief	Initializes graphics
  */
 Sint32		init_graphics();
 
 /**
- *	@return a pointer to the background t_texture
  *	@brief	Background texture getter
+ *
+ *	@return a pointer to the background t_texture
  */
 t_texture	*get_bg();
 
