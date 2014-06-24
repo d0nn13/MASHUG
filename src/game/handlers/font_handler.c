@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:34:02 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:21:15 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	font_handler.c
+ *	@brief	Font handling interface
+ */
 
 #include <SDL2/SDL_ttf.h>
 #include "../../core/log.h"
