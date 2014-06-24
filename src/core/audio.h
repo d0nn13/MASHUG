@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Tue Jun 24 17:56:21 2014 AHAMADA Samir
+** Last update Tue Jun 24 21:12:52 2014 AHAMADA Samir
 */
 
 /**
@@ -55,8 +55,8 @@ Sint32	audio_init();
 /**
  *	@brief	Loads an audio chunk into an audio slot
  *
- *	@param	t_chunk *c
- *	@param	t_slot *t
+ *	@param	c The audio chunk to load
+ *	@param	t The slot to load into
  */
 void	set_audio_buffer(t_chunk *c, t_slot t);
 
