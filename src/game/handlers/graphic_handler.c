@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:33:14 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:20:12 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	graphic_handler.c
+ *	@brief	Graphic handling interface
+ */
 
 #include "../../core/log.h"
 #include "../../core/renderer.h"

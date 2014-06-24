@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Apr 30 01:24:06 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:33:19 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:19:04 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	sound_handler.c
+ *	@brief	Sound handling interface
+ */
 
 #include <SDL2/SDL_audio.h>
 #include "../../core/log.h"

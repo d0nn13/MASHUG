@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:19:00 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:12:26 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	spaceinvaders.c
+ *	@brief	Main game file
+ */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
@@ -48,7 +53,7 @@ Sint32	destroy_core()
   return (0);
 }
 
-Sint32		main(int ac, char **av)
+Sint32	main(int ac, char **av)
 {
   (void)ac;
   chdir(dirname(*av));

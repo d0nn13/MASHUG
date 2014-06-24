@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Sat May  3 13:43:18 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:14:37 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	window.c
+ *	@brief	Window handling engine
+ */
 
 #include <SDL2/SDL.h>
 #include "log.h"

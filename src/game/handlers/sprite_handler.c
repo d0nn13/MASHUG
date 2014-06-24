@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:33:04 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:21:54 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	sprite_handler.c
+ *	@brief	Sprite handling interface
+ */
 
 #include <SDL2/SDL_image.h>
 #include "../../core/log.h"
@@ -45,7 +50,7 @@ void	draw_sprite(t_sprite s, SDL_Rect *zone)
   SDL_LogDebug(SPR_LCAT, "Drawn sprite %d", s);
 }
 
-void		draw_sprite_raw(t_sprite s, SDL_Point *orig)
+void	draw_sprite_raw(t_sprite s, SDL_Point *orig)
 {
   if (!orig)
     {

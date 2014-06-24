@@ -5,8 +5,14 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Sun May  4 14:19:20 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:08:51 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	renderer.c
+ *	@brief	Rendering engine
+ */
+
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>

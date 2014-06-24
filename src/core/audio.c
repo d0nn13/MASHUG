@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 12:10:05 2014 AHAMADA Samir
-** Last update Thu May  1 14:01:20 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:03:07 2014 AHAMADA Samir
 */
+
+/**
+ *	@file	audio.c
+ *	@brief	Audio engine module
+ */
 
 #include <string.h>
 #include <SDL2/SDL.h>
@@ -17,10 +22,23 @@ static SDL_AudioDeviceID	dev;
 static SDL_AudioSpec		conf;
 static t_chunk			*slot[SLOT_NB];
 
-Sint32	audio_init()
+/**
+ *	@brief	Audio callback (internal)
+ *
+ *	Internal function repeatedly called by SDL to fill its audio buffer
+ *
+ *	@param	void *userdata
+ *	@param	Uint8 *stream
+ *	@param	int len
+ *	@todo	C89 : Remove designated initializers
+ */
+static void	fill_audio_buffer(void *userdata, Uint8 *stream, int len);
+
+Sint32		audio_init()
 {
   SDL_AudioSpec	try;
-  int i;
+  int		i;
+
   if (SDL_InitSubSystem(SDL_INIT_AUDIO))
     {
       SDL_LogError(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
@@ -73,7 +91,7 @@ void	audio_destroy()
   SDL_LogInfo(AUD_LCAT, "Audio destroyed");
 }
 
-void	fill_audio_buffer(void *userdata, Uint8 *stream, int len)
+static void		fill_audio_buffer(void *userdata, Uint8 *stream, int len)
 {
   Sint32	rem;
   Uint8		s;
