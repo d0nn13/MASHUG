@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:20:12 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:01:47 2014 AHAMADA Samir
 */
 
 /**
@@ -13,9 +13,9 @@
  *	@brief	Graphic handling interface
  */
 
-#include "../../core/log.h"
-#include "../../core/renderer.h"
-#include "graphic_handler.h"
+#include "../log.h"
+#include "../renderer.h"
+#include "../handlers.h"
 
 t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
 {

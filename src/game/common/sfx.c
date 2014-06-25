@@ -5,12 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:35:17 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:03:58 2014 AHAMADA Samir
 */
 
 #include "../../core/log.h"
 #include "../../core/audio.h"
-#include "../handlers/sound_handler.h"
+#include "../../core/handlers.h"
 #include "sfx.h"
 
 #define SELECT_WAV	"media/sfx/blip_select.wav"

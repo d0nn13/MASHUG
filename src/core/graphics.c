@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:05:10 2014 AHAMADA Samir
+** Last update Tue Jun 24 23:11:56 2014 AHAMADA Samir
 */
 
 /**
@@ -16,11 +16,11 @@
 #include "../core/log.h"
 #include "../core/window.h"
 #include "../core/renderer.h"
-#include "../game/handlers/graphic_handler.h"
+#include "handlers.h"
 
 static	t_texture	*bg;
 
-Sint32	init_graphics()
+Sint32	graphics_init()
 {
   if (!(bg = make_texture(get_renderer(), SDL_TEXTUREACCESS_STATIC,
 			  WIN_W, WIN_H)))
@@ -37,7 +37,7 @@ t_texture	*get_bg()
   return (bg);
 }
 
-void	destroy_graphics()
+void	graphics_destroy()
 {
   free_texture(bg);
   SDL_LogInfo(GFX_LCAT, "Graphics destroyed");

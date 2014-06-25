@@ -17,11 +17,11 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/renderer.c			\
 			$(SRCPATH)core/graphics.c			\
 			$(SRCPATH)core/audio.c				\
+			$(SRCPATH)core/handlers/graphic_handler.c	\
+			$(SRCPATH)core/handlers/sprite_handler.c	\
+			$(SRCPATH)core/handlers/font_handler.c		\
+			$(SRCPATH)core/handlers/sound_handler.c		\
 			$(SRCPATH)core/spaceinvaders.c			\
-			$(SRCPATH)game/handlers/graphic_handler.c	\
-			$(SRCPATH)game/handlers/sprite_handler.c	\
-			$(SRCPATH)game/handlers/font_handler.c		\
-			$(SRCPATH)game/handlers/sound_handler.c		\
 			$(SRCPATH)game/common/sprites.c			\
 			$(SRCPATH)game/common/fonts.c			\
 			$(SRCPATH)game/common/sfx.c			\

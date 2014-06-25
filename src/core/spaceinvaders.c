@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:12:26 2014 AHAMADA Samir
+** Last update Tue Jun 24 18:33:06 2014 AHAMADA Samir
 */
 
 /**
@@ -22,12 +22,13 @@
 #include "log.h"
 #include "window.h"
 #include "renderer.h"
+#include "graphics.h"
 #include "audio.h"
 #include "../game/gamecore.h"
 #include "../game/mainmenu.h"
 #include "spaceinvaders.h"
 
-Sint32	init_core()
+Sint32	core_init()
 {
   printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
@@ -39,14 +40,15 @@ Sint32	init_core()
   print_versions();
   log_init();
   SDL_Log("Engine started, welcome aboard!");
-  if (window_init() || renderer_init() || audio_init())
+  if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-1);
   return (0);
 }
 
-Sint32	destroy_core()
+Sint32	core_destroy()
 {
   audio_destroy();
+  graphics_destroy();
   renderer_destroy();
   window_destroy();
   SDL_Log("Now everything is shut down, see ya!");
@@ -59,7 +61,7 @@ Sint32	main(int ac, char **av)
   chdir(dirname(*av));
   chdir("..");
 
-  if (init_core() || init_game())
+  if (core_init() || game_init())
     return (EXIT_FAILURE);
   g_launcher = &menu_game;
   while (g_launcher)
@@ -67,8 +69,8 @@ Sint32	main(int ac, char **av)
       redraw_context(NULL);
       g_launcher();
     }
-  destroy_game();
-  destroy_core();
+  game_destroy();
+  core_destroy();
   atexit(SDL_Quit);
   return (EXIT_SUCCESS);
 }
