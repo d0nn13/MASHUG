@@ -1,9 +1,9 @@
 /*
 ** window.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
 ** Last update Tue Jun 24 18:14:37 2014 AHAMADA Samir
 */
@@ -15,6 +15,7 @@
 
 #include <SDL2/SDL.h>
 #include "log.h"
+
 #include "window.h"
 
 static SDL_Window	*window = NULL;

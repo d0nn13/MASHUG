@@ -1,9 +1,9 @@
 /*
 ** audio.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 12:10:05 2014 AHAMADA Samir
 ** Last update Tue Jun 24 18:03:07 2014 AHAMADA Samir
 */
@@ -16,6 +16,7 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 #include "log.h"
+
 #include "audio.h"
 
 static SDL_AudioDeviceID	dev;

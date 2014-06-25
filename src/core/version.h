@@ -13,8 +13,8 @@
  *	@brief	Versions defs
  */
 
-#ifndef VERSION_H
-#define VERSION_H
+#ifndef CORE_VERSION_H
+#define CORE_VERSION_H
 
 /**
  *	@cond
@@ -31,4 +31,4 @@
  */
 void	print_versions();
 
-#endif /* !VERSION_H */
+#endif /* !CORE_VERSION_H */

@@ -13,8 +13,8 @@
  *	@brief	Log engine
  */
 
-#ifndef LOG_H
-#define LOG_H
+#ifndef CORE_LOG_H
+#define CORE_LOG_H
 
 #include <SDL2/SDL_error.h>
 #include <SDL2/SDL_log.h>
@@ -44,4 +44,4 @@ enum {
  */
 void	log_init();
 
-#endif /* !LOG_H */
+#endif /* !CORE_LOG_H */

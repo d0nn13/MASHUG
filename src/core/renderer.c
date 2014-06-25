@@ -1,9 +1,9 @@
 /*
 ** renderer.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
 ** Last update Tue Jun 24 18:08:51 2014 AHAMADA Samir
 */
@@ -13,12 +13,12 @@
  *	@brief	Rendering engine
  */
 
-
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "log.h"
 #include "window.h"
+
 #include "renderer.h"
 
 static SDL_Renderer	*renderer = NULL;
@@ -57,7 +57,7 @@ SDL_Renderer	*get_renderer()
 void	renderer_destroy()
 {
   TTF_Quit();
-  IMG_Quit(); 
+  IMG_Quit();
   SDL_DestroyRenderer(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer destroyed");
 }

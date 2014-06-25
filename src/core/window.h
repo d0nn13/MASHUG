@@ -13,8 +13,8 @@
  *	@brief	Window handling engine
  */
 
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef CORE_WINDOW_H
+#define CORE_WINDOW_H
 
 #include <SDL2/SDL_video.h>
 
@@ -47,4 +47,4 @@ void		window_destroy();
  */
 SDL_Window	*get_window();
 
-#endif /*! WINDOW_H */
+#endif /* !CORE_WINDOW_H */

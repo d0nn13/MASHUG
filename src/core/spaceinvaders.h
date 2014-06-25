@@ -13,8 +13,8 @@
  *	@brief	Main game file
  */
 
-#ifndef SPACEINVADERS_H
-#define SPACEINVADERS_H
+#ifndef CORE_SPACEINVADERS_H
+#define CORE_SPACEINVADERS_H
 
 /**
  *	@brief	Initializes engine modules
@@ -31,4 +31,4 @@ Sint32	core_init();
  */
 Sint32	core_destroy();
 
-#endif /* !SPACEINVADERS_H */
+#endif /* !CORE_SPACEINVADERS_H */

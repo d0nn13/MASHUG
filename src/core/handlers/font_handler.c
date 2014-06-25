@@ -1,9 +1,9 @@
 /*
 ** font_handler.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
 ** Last update Tue Jun 24 23:02:00 2014 AHAMADA Samir
 */
@@ -17,6 +17,7 @@
 #include "../log.h"
 #include "../renderer.h"
 #include "../graphics.h"
+
 #include "../handlers.h"
 
 SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c)

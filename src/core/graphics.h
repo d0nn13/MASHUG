@@ -13,8 +13,8 @@
  *	@brief	Graphics and texture definitions
  */
 
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
+#ifndef CORE_GRAPHICS_H
+#define CORE_GRAPHICS_H
 
 #include <SDL2/SDL_stdinc.h>
 #include <SDL2/SDL_render.h>
@@ -69,4 +69,4 @@ t_texture	*get_bg();
  */
 void		graphics_destroy();
 
-#endif /* !GRAPHICS_H */
+#endif /* !CORE_GRAPHICS_H */

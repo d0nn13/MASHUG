@@ -1,9 +1,9 @@
 /*
 ** handlers.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
 ** Last update Wed Jun 25 00:18:27 2014 AHAMADA Samir
 */
@@ -13,8 +13,8 @@
  *	@brief	Handlers protoypes
  */
 
-#ifndef HANLDERS_H
-#define HANLDERS_H
+#ifndef CORE_HANLDERS_H
+#define CORE_HANLDERS_H
 
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_stdinc.h>
@@ -102,7 +102,7 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
  *	Passing NULL to 'zone' implies scaling to fit texture size
  *
  *	@param	s The desired sprite in t_sprite enumeration
- *	@param	zone The zone to fill with the desired sprite 
+ *	@param	zone The zone to fill with the desired sprite
  */
 void	draw_sprite(t_texture *s, SDL_Rect *zone);
 
@@ -111,8 +111,8 @@ void	draw_sprite(t_texture *s, SDL_Rect *zone);
  *
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
- */	
+ */
 void	draw_sprite_raw(t_texture *s, SDL_Point *orig);
 
 
-#endif /* !HANDLERS */
+#endif /* !CORE_HANDLERS */

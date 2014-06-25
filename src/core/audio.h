@@ -13,8 +13,8 @@
  *	@brief	Audio engine module
  */
 
-#ifndef AUDIO_H
-#define AUDIO_H
+#ifndef CORE_AUDIO_H
+#define CORE_AUDIO_H
 
 #include <SDL2/SDL_audio.h>
 
@@ -79,4 +79,4 @@ SDL_AudioSpec	*get_audio_conf();
  */
 void	audio_destroy();
 
-#endif /* !AUDIO_H */
+#endif /* !CORE_AUDIO_H */

@@ -13,8 +13,8 @@
  *	@brief	Rendering engine
  */
 
-#ifndef RENDERER_H
-#define RENDERER_H
+#ifndef CORE_RENDERER_H
+#define CORE_RENDERER_H
 
 #include <SDL2/SDL_render.h>
 
@@ -38,4 +38,4 @@ SDL_Renderer	*get_renderer();
  */
 void	renderer_destroy();
 
-#endif /* !RENDERER_H */
+#endif /* !CORE_RENDERER_H */
