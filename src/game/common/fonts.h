@@ -1,9 +1,9 @@
 /*
 ** fonts.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
 ** Last update Sat Jun 21 15:26:03 2014 ENNEBATI Yassine
 */
@@ -13,8 +13,8 @@
  *	@brief	Game Fonts
  */
 
-#ifndef FONTS_H
-#define FONTS_H
+#ifndef GAME_COMMON_FONTS_H
+#define GAME_COMMON_FONTS_H
 
 #include <SDL2/SDL_ttf.h>
 
@@ -49,4 +49,4 @@ TTF_Font	*get_font(t_font t);
  */
 void		free_fonts();
 
-#endif /* !FONTS_H */
+#endif /* !GAME_COMMON_FONTS_H */

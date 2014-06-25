@@ -1,9 +1,9 @@
 /*
 ** sfx.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders/src
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
 ** Last update Thu Jun 19 23:12:31 2014 AHAMADA Samir
 */
@@ -13,8 +13,8 @@
  *	@brief	Game sound effects
  */
 
-#ifndef SFX_H
-#define SFX_H
+#ifndef GAME_COMMON_SFX_H
+#define GAME_COMMON_SFX_H
 
 #include <SDL2/SDL_audio.h>
 #include "../../core/audio.h"
@@ -45,4 +45,4 @@ t_chunk	*get_sfx(t_sfx t);
  */
 void	free_sounds();
 
-#endif /* !SFX_H */
+#endif /* !GAME_COMMON_SFX_H */
