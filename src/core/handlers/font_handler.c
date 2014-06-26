@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:02:00 2014 AHAMADA Samir
+** Last update Thu Jun 26 18:30:15 2014 AHAMADA Samir
 */
 
 /**
@@ -25,9 +25,17 @@ SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c)
   SDL_Surface	*t;
   SDL_Surface	*s;
 
+  if (!text)
+    SDL_LogError(FNT_LCAT, "get_text_surface: text is NULL");
+  if (!f)
+    SDL_LogError(FNT_LCAT, "get_text_surface: f is NULL");
+  if (!c)
+    SDL_LogError(FNT_LCAT, "get_text_surface: c is NULL");
+  if (!text || !f || !c)
+    return (0);
   t = TTF_RenderUTF8_Blended(f, text, *c);
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
-    SDL_LogError(FNT_LCAT, SDL_GetError());
+    SDL_LogError(FNT_LCAT, "get_text_surface: ", SDL_GetError());
   SDL_SetSurfaceAlphaMod(s, c->a);
   return (s);
 }
@@ -40,13 +48,13 @@ void	draw_text(const char *text, SDL_Point *o, TTF_Font *f, SDL_Color *c)
 
   if (!(t = TTF_RenderUTF8_Solid(f, text, *c)))
     {
-      SDL_LogError(FNT_LCAT, TTF_GetError());
+      SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
       return ;
     }
   z = (SDL_Rect){o->x, o->y, t->w, t->h};
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
     {
-      SDL_LogError(FNT_LCAT, SDL_GetError());
+      SDL_LogError(FNT_LCAT, "draw_text: ", SDL_GetError());
       return ;
     }
   SDL_FreeSurface(t);

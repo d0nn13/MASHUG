@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Wed Apr 30 01:24:06 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:01:51 2014 AHAMADA Samir
+** Last update Thu Jun 26 18:43:11 2014 AHAMADA Samir
 */
 
 /**
@@ -20,6 +20,11 @@
 
 void	play_sfx(t_chunk *s)
 {
+  if (!s)
+    {
+      SDL_LogError(AUD_LCAT, "play_sfx: s is NULL");
+      return ;
+    }
   s->pos = 0;
   set_audio_buffer(s, SLOT_0);
   if (SDL_GetAudioDeviceStatus(*get_audio_device()) == SDL_AUDIO_PAUSED)
