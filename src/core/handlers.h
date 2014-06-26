@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jun 25 00:18:27 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:14:57 2014 AHAMADA Samir
 */
 
 /**
@@ -14,13 +14,13 @@
  */
 
 #ifndef CORE_HANLDERS_H
-#define CORE_HANLDERS_H
+# define CORE_HANLDERS_H
 
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_stdinc.h>
-#include <SDL2/SDL_render.h>
-#include "graphics.h"
-#include "audio.h"
+# include <SDL2/SDL_ttf.h>
+# include <SDL2/SDL_stdinc.h>
+# include <SDL2/SDL_render.h>
+# include "graphics.h"
+# include "audio.h"
 
 /**
  *	@brief	Allocates a new surface with 'text' printed with given

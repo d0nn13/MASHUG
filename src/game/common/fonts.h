@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Sat Jun 21 15:26:03 2014 ENNEBATI Yassine
+** Last update Thu Jun 26 17:17:28 2014 AHAMADA Samir
 */
 
 /**
@@ -14,9 +14,9 @@
  */
 
 #ifndef GAME_COMMON_FONTS_H
-#define GAME_COMMON_FONTS_H
+# define GAME_COMMON_FONTS_H
 
-#include <SDL2/SDL_ttf.h>
+# include <SDL2/SDL_ttf.h>
 
 /**
  *	@brief	Sprite names enumeration

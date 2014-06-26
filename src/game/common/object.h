@@ -5,11 +5,11 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Jun 15 00:37:16 2014 AHAMADA Samir
-** Last update Sun Jun 15 00:57:34 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:17:38 2014 AHAMADA Samir
 */
 
 #ifndef GAME_COMMON_OBJECT_H
-#define GAME_COMMON_OBJECT_H
+# define GAME_COMMON_OBJECT_H
 
 /**
  * Object types enum

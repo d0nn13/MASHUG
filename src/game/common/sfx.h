@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Thu Jun 19 23:12:31 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:17:57 2014 AHAMADA Samir
 */
 
 /**
@@ -14,10 +14,10 @@
  */
 
 #ifndef GAME_COMMON_SFX_H
-#define GAME_COMMON_SFX_H
+# define GAME_COMMON_SFX_H
 
-#include <SDL2/SDL_audio.h>
-#include "../../core/audio.h"
+# include <SDL2/SDL_audio.h>
+# include "../../core/audio.h"
 
 /**
  *	Sound effects enumeration

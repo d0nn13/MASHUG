@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Tue Jun 24 21:12:52 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:11:46 2014 AHAMADA Samir
 */
 
 /**
@@ -14,9 +14,9 @@
  */
 
 #ifndef CORE_AUDIO_H
-#define CORE_AUDIO_H
+# define CORE_AUDIO_H
 
-#include <SDL2/SDL_audio.h>
+# include <SDL2/SDL_audio.h>
 
 /**
  *	@brief   Audio chunk declaration

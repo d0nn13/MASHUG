@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:09:02 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:15:55 2014 AHAMADA Samir
 */
 
 /**
@@ -14,9 +14,9 @@
  */
 
 #ifndef CORE_RENDERER_H
-#define CORE_RENDERER_H
+# define CORE_RENDERER_H
 
-#include <SDL2/SDL_render.h>
+# include <SDL2/SDL_render.h>
 
 /**
  *	@brief	Initializes Rendering engine

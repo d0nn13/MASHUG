@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Wed Apr 23 01:41:36 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:27:50 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:16:11 2014 AHAMADA Samir
 */
 
 /**
@@ -14,7 +14,7 @@
  */
 
 #ifndef CORE_SPACEINVADERS_H
-#define CORE_SPACEINVADERS_H
+# define CORE_SPACEINVADERS_H
 
 /**
  *	@brief	Initializes engine modules

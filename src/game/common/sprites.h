@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:44:54 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:18:10 2014 AHAMADA Samir
 */
 
 /**
@@ -14,9 +14,9 @@
  */
 
 #ifndef GAME_COMMON_SPRITES_H
-#define GAME_COMMON_SPRITES_H
+# define GAME_COMMON_SPRITES_H
 
-#include <SDL2/SDL_render.h>
+# include <SDL2/SDL_render.h>
 
 /**
  *	Sprite names enumeration
