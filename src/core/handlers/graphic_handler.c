@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Thu Jun 26 18:54:10 2014 AHAMADA Samir
+** Last update Fri Jun 27 16:03:37 2014 AHAMADA Samir
 */
 
 /**
@@ -23,9 +23,9 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
 {
   t_texture	*t;
 
-  t = mem_alloc(sizeof(t_texture));
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture"))
     return (NULL);
+  t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTexture(r, PIX_FMT, a, w, h)))
     {
       SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
@@ -41,10 +41,10 @@ t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
 {
   t_texture	*t;
 
-  t = mem_alloc(sizeof(t_texture));
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture") ||
       !ptr_chk(s, "surface", GFX_LCAT, "make_texture"))
     return (NULL);
+  t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTextureFromSurface(r, s)))
     {
       SDL_LogError(GFX_LCAT, "make_texture_from_surface: ", SDL_GetError());
