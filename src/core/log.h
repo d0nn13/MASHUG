@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:15:33 2014 AHAMADA Samir
+** Last update Fri Jun 27 15:30:21 2014 AHAMADA Samir
 */
 
 /**
@@ -43,5 +43,19 @@ enum {
  *	@brief	Initializes Log engine
  */
 void	log_init();
+
+/**
+ *	@brief	Checks if a pointer is NULL
+ *
+ *	Convinience function that checks a pointer and outputs log error
+ *	with caller function and symbol names when a NULL pointer is given
+ *
+ *	@param	p The pointer to check
+ *	@param	s The pointer symbol used in code as a NULL-terminated string
+ *	@param	c The log category to be used for the log output
+ *	@param	f The function symbol used in code as a NULL-terminated string
+ *	@return 0 if the pointer is NULL, -1 otherwise
+ */
+Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym);
 
 #endif /* !CORE_LOG_H */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Thu Jun 26 18:28:03 2014 AHAMADA Samir
+** Last update Fri Jun 27 15:29:49 2014 AHAMADA Samir
 */
 
 /**
@@ -22,11 +22,8 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
 {
   t_texture	*t;
 
-  if (!r)
-    {
-      SDL_LogError(GFX_LCAT, "make_texture: r is NULL");
-      return (NULL);
-    }
+  if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture"))
+    return (NULL);
   t = malloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTexture(r, PIX_FMT, a, w, h)))
     {
@@ -43,6 +40,9 @@ t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
 {
   t_texture	*t;
 
+  if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture") ||
+      !ptr_chk(s, "surface", GFX_LCAT, "make_texture"))
+    return (NULL);
   t = malloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTextureFromSurface(r, s)))
     {
@@ -57,6 +57,8 @@ t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
 
 void		free_texture(t_texture *t)
 {
+  if (!ptr_chk(t, "texture", GFX_LCAT, "free_texture"))
+    return ;
   SDL_DestroyTexture(t->tex);
   free(t);
 }

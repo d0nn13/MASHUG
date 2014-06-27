@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:07:08 2014 AHAMADA Samir
+** Last update Fri Jun 27 15:30:29 2014 AHAMADA Samir
 */
 
 /**
@@ -64,6 +64,16 @@ void	log_init()
   catstrings[GFX_LCAT] = "Graphics";
   catstrings[SPR_LCAT] = "Sprites";
   catstrings[FNT_LCAT] = "Fonts";
+}
+
+Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym)
+{
+  if (!p)
+    {
+      SDL_LogError(cat, "%s: NULL pointer detected > %s <", fsym, psym);
+      return (0);
+    }
+  return (1);
 }
 
 static void	timestamp()
