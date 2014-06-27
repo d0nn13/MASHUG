@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:36:58 2014 AHAMADA Samir
-** Last update Thu Jun 19 22:21:41 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:19:38 2014 AHAMADA Samir
 */
 
 /**
@@ -14,7 +14,7 @@
  */
 
 #ifndef HISCORES_H
-#define HISCORES_H
+# define HISCORES_H
 
 /**
  *	Main HiScores-mode routine

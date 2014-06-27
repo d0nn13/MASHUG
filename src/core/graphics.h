@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:30:37 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:12:42 2014 AHAMADA Samir
 */
 
 /**
@@ -13,28 +13,28 @@
  *	@brief	Graphics and texture definitions
  */
 
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
+#ifndef CORE_GRAPHICS_H
+# define CORE_GRAPHICS_H
 
-#include <SDL2/SDL_stdinc.h>
-#include <SDL2/SDL_render.h>
+# include <SDL2/SDL_stdinc.h>
+# include <SDL2/SDL_render.h>
 
 /**
  *	@cond
  */
-#if SDL_BYTEORDER == SDL_BIG_ENDIAN
-  #define RMASK	0xff000000
-  #define GMASK	0x00ff0000
-  #define BMASK	0x0000ff00
-  #define AMASK	0x000000ff
-#else
-  #define RMASK	0x000000ff
-  #define GMASK	0x0000ff00
-  #define BMASK	0x00ff0000
-  #define AMASK	0xff000000
-#endif
+# if SDL_BYTEORDER == SDL_BIG_ENDIAN
+#  define RMASK	0xff000000
+#  define GMASK	0x00ff0000
+#  define BMASK	0x0000ff00
+#  define AMASK	0x000000ff
+# else
+#  define RMASK	0x000000ff
+#  define GMASK	0x0000ff00
+#  define BMASK	0x00ff0000
+#  define AMASK	0xff000000
+# endif
 
-#define	PIX_FMT	SDL_PIXELFORMAT_RGBA8888
+# define	PIX_FMT	SDL_PIXELFORMAT_RGBA8888
 /**
  *	@endcond
  */
@@ -69,4 +69,4 @@ t_texture	*get_bg();
  */
 void		graphics_destroy();
 
-#endif /* !GRAPHICS_H */
+#endif /* !CORE_GRAPHICS_H */

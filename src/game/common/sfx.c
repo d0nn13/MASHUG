@@ -1,9 +1,9 @@
 /*
 ** sfx.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders/src
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
 ** Last update Tue Jun 24 23:03:58 2014 AHAMADA Samir
 */
@@ -11,11 +11,13 @@
 #include "../../core/log.h"
 #include "../../core/audio.h"
 #include "../../core/handlers.h"
+
 #include "sfx.h"
 
 #define SELECT_WAV	"media/sfx/blip_select.wav"
 #define OK_WAV		"media/sfx/blip_ok.wav"
 #define CANCEL_WAV	"media/sfx/blip_cancel.wav"
+
 static t_chunk	Sfx[NB_SFX];
 
 void	load_sounds()

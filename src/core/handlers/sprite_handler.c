@@ -1,9 +1,9 @@
 /*
 ** sprite_handler.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
 ** Last update Tue Jun 24 23:01:43 2014 AHAMADA Samir
 */
@@ -16,6 +16,7 @@
 #include <SDL2/SDL_image.h>
 #include "../log.h"
 #include "../renderer.h"
+
 #include "../handlers.h"
 
 t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)

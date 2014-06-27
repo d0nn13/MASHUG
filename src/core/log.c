@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <SDL2/SDL_log.h>
+
 #include "log.h"
 
 /**
@@ -68,7 +69,7 @@ void	log_init()
 static void	timestamp()
 {
   time_t	t;
-  
+
   time(&t);
   sprintf(timestr, "%02d:%02d:%02d",
 	  localtime(&t)->tm_hour,

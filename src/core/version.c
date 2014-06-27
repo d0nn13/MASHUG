@@ -1,9 +1,9 @@
 /*
 ** version.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Apr 21 21:10:45 2014 AHAMADA Samir
 ** Last update Tue Jun 24 18:13:18 2014 AHAMADA Samir
 */
@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <SDL2/SDL_version.h>
+
 #include "version.h"
 
 static SDL_version v;

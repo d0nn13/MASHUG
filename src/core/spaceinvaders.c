@@ -1,9 +1,9 @@
 /*
 ** spaceinvaders.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
 ** Last update Tue Jun 24 18:33:06 2014 AHAMADA Samir
 */
@@ -26,6 +26,7 @@
 #include "audio.h"
 #include "../game/gamecore.h"
 #include "../game/mainmenu.h"
+
 #include "spaceinvaders.h"
 
 Sint32	core_init()

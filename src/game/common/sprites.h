@@ -1,11 +1,11 @@
 /*
 ** sprites.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Thu Jun 19 21:44:54 2014 AHAMADA Samir
+** Last update Thu Jun 26 17:18:10 2014 AHAMADA Samir
 */
 
 /**
@@ -13,10 +13,10 @@
  *	@brief	Game Sprites
  */
 
-#ifndef GAME_SPRITES_H
-#define GAME_SPRITES_H
+#ifndef GAME_COMMON_SPRITES_H
+# define GAME_COMMON_SPRITES_H
 
-#include <SDL2/SDL_render.h>
+# include <SDL2/SDL_render.h>
 
 /**
  *	Sprite names enumeration
@@ -43,4 +43,4 @@ t_texture	*get_sprite(t_sprite s);
  */
 void		free_sprites();
 
-#endif /* !GAME_SPRITES_H */
+#endif /* !GAME_COMMON_SPRITES_H */
