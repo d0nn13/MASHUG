@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:03:58 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:26:27 2014 AHAMADA Samir
 */
 
 #include "../../core/log.h"
@@ -23,6 +23,7 @@ static t_chunk	Sfx[NB_SFX];
 void	load_sounds()
 {
   t_sfx	i;
+
   if (!SDL_LoadWAV(SELECT_WAV, get_audio_conf(), &Sfx[BLIPSEL_SFX].buf,
 		   &Sfx[BLIPSEL_SFX].len) ||
       !SDL_LoadWAV(OK_WAV, get_audio_conf(), &Sfx[BLIPOK_SFX].buf,

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:14:57 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:11:46 2014 AHAMADA Samir
 */
 
 /**
@@ -22,6 +22,7 @@
 # include "graphics.h"
 # include "audio.h"
 
+/* ==================== F O N T S ==================== */
 /**
  *	@brief	Allocates a new surface with 'text' printed with given
  *		font 'f' and color 'c'.
@@ -46,7 +47,7 @@ SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c);
 void		draw_text(const char *text, SDL_Point *orig, TTF_Font *f, SDL_Color *c);
 
 
-
+/* ==================== G R A P H I C S ==================== */
 /**
  *	@brief	Create a texture for a rendering context.
  *
@@ -81,10 +82,10 @@ void		free_texture(t_texture *t);
  *
  *	@param	s The audio chunk to play
  */
-void	play_sfx(t_chunk *s);
+void		play_sfx(t_chunk *s);
 
 
-
+/* ==================== S P R I T E S ==================== */
 /**
  *	@brief	Allocates a new scaled sprite from a sprites sheet file.
  *
@@ -104,7 +105,7 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	zone The zone to fill with the desired sprite
  */
-void	draw_sprite(t_texture *s, SDL_Rect *zone);
+void		draw_sprite(t_texture *s, SDL_Rect *zone);
 
 /**
  *	@brief	Draws a sprite at a given point in the texture without applying scaling.
@@ -112,7 +113,7 @@ void	draw_sprite(t_texture *s, SDL_Rect *zone);
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
  */
-void	draw_sprite_raw(t_texture *s, SDL_Point *orig);
+void		draw_sprite_raw(t_texture *s, SDL_Point *orig);
 
 
 #endif /* !CORE_HANDLERS */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:09:53 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:46:38 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL.h>
@@ -15,6 +15,7 @@
 #include "common/sfx.h"
 #include "gamecore.h"
 #include "hiscores.h"
+
 #include "mainmenu.h"
 
 #define UP		SDL_SCANCODE_UP
@@ -59,7 +60,7 @@ static void		display_menu();
  */
 static Sint32		key_filter(void *userdata, SDL_Event *event);
 
-void	menu_game()
+void			menu_game()
 {
   SDL_Event		e;
   SDL_Scancode		s;

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:10:08 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:43:09 2014 AHAMADA Samir
 */
 
 #include <SDL2/SDL_render.h>
@@ -16,12 +16,14 @@
 #include "gamecore.h"
 #include "mainmenu.h"
 
+#include "hiscores.h"
+
 #if defined __MACH__
-# define	SCOREFILE	"/Users/`whoami`/.spaceinvaders.hiscores"
+# define	SCOREFILE	"/Users/`whoami`/.si_hiscores.xml"
 #elif defined __linux__
-# define	SCOREFILE	"/home/`whoami`/.spaceinvaders.hiscores"
+# define	SCOREFILE	"/home/`whoami`/.si_hiscores.xml"
 #else
-# define	SCOREFILE	"./.spaceinvaders.hiscores"
+# define	SCOREFILE	"./.si_hiscores.xml"
 #endif
 
 void		hiscores()
