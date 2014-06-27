@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:01:43 2014 AHAMADA Samir
+** Last update Fri Jun 27 15:21:40 2014 AHAMADA Samir
 */
 
 /**
@@ -19,6 +19,7 @@
 
 #include "../handlers.h"
 
+/* TODO (ahamad_s): Split in 2 functions(?) */
 t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
 {
   SDL_Surface	*sprite;
@@ -26,11 +27,14 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
   t_texture	*out;
   SDL_Rect	*s;
 
+  if (!ptr_chk(file, "file", SPR_LCAT, "make_sprite") ||
+      !ptr_chk(zone, "zone", SPR_LCAT, "make_sprite"))
+    return (NULL);
   spritesheet = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
   s = (size == NULL) ? zone : size;
   if (!spritesheet)
     {
-      SDL_LogError(SPR_LCAT, IMG_GetError());
+      SDL_LogError(SPR_LCAT, "make_sprite: ", IMG_GetError());
       return (NULL);
     }
   SDL_SetSurfaceBlendMode(spritesheet, SDL_BLENDMODE_NONE);
@@ -45,6 +49,8 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
 
 void	draw_sprite(t_texture *s, SDL_Rect *zone)
 {
+  if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite"))
+    return ;
   SDL_RenderCopy(get_renderer(), s->tex, NULL, zone);
   SDL_RenderPresent(get_renderer());
   SDL_LogDebug(SPR_LCAT, "Drawn sprite");
@@ -52,11 +58,8 @@ void	draw_sprite(t_texture *s, SDL_Rect *zone)
 
 void		draw_sprite_raw(t_texture *s, SDL_Point *orig)
 {
-  if (!orig)
-    {
-      SDL_LogError(SPR_LCAT, "Passed NULL origin point");
-      return ;
-    }
-  draw_sprite(s, &(SDL_Rect){orig->x, orig->y,
-	s->w, s->h});
+  if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
+      !ptr_chk(orig, "origin", SPR_LCAT, "draw_sprite_raw"))
+    return ;
+  draw_sprite(s, &(SDL_Rect){orig->x, orig->y, s->w, s->h});
 }
