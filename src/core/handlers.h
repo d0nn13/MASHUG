@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Fri Jun 27 17:11:46 2014 AHAMADA Samir
+** Last update Sat Jun 28 11:40:46 2014 AHAMADA Samir
 */
 
 /**
@@ -22,7 +22,9 @@
 # include "graphics.h"
 # include "audio.h"
 
-/* ==================== F O N T S ==================== */
+/*
+** ==================== F O N T S ====================
+*/
 /**
  *	@brief	Allocates a new surface with 'text' printed with given
  *		font 'f' and color 'c'.
@@ -47,7 +49,9 @@ SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c);
 void		draw_text(const char *text, SDL_Point *orig, TTF_Font *f, SDL_Color *c);
 
 
-/* ==================== G R A P H I C S ==================== */
+/*
+** ==================== G R A P H I C S ====================
+*/
 /**
  *	@brief	Create a texture for a rendering context.
  *
@@ -85,7 +89,9 @@ void		free_texture(t_texture *t);
 void		play_sfx(t_chunk *s);
 
 
-/* ==================== S P R I T E S ==================== */
+/*
+** ==================== S P R I T E S ====================
+*/
 /**
  *	@brief	Allocates a new scaled sprite from a sprites sheet file.
  *
