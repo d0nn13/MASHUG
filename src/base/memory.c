@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu Jun 26 01:31:07 2014 AHAMADA Samir
-** Last update Thu Jun 26 18:02:11 2014 AHAMADA Samir
+** Last update Sat Jun 28 16:33:20 2014 AHAMADA Samir
 */
 
 /*
@@ -47,7 +47,7 @@ void	mem_free(void *ptr)
     }
 }
 
-Uint16	get_nb_allocs()
+Uint16	mem_get_nb_allocs()
 {
   return (nb_allocs);
 }

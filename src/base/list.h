@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Jun 25 19:03:19 2014 AHAMADA Samir
-** Last update Thu Jun 26 01:25:33 2014 AHAMADA Samir
+** Last update Sat Jun 28 17:06:17 2014 AHAMADA Samir
 */
 
 /*
@@ -20,10 +20,8 @@ typedef struct		s_singlelist
   Sint16		index;
 }			t_singlelist;
 
-typedef struct		s_doublelist
-{
-  void			*data;
-  struct s_doublelist	*prev;
-  struct s_doublelist	*next;
-  Sint16		index;
-}			t_doublelist
+t_singlelist	*list_make_node();
+void		list_push(void *data, t_singlelist **node);
+void		*list_get(t_singlelist *head, Uint16 index);
+Uint16		my_list_size(t_singlelist *begin);
+void		list_clear(t_singlelist **head);

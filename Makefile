@@ -12,6 +12,7 @@ PACKPATH	=	dist/
 
 SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)base/memory.c				\
+			$(SRCPATH)base/list.c				\
 			$(SRCPATH)core/version.c			\
 			$(SRCPATH)core/log.c				\
 			$(SRCPATH)core/options.c			\
