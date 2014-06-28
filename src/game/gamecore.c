@@ -1,9 +1,9 @@
 /*
 ** gamecore.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
 ** Last update Fri Jun 27 17:33:36 2014 AHAMADA Samir
 */
@@ -22,9 +22,9 @@ t_mode		g_launcher;
 
 Sint32		game_init()
 {
-  load_sprites();
-  load_fonts();
-  load_sounds();
+  load_common_sprites();
+  load_common_fonts();
+  load_common_sfx();
   redraw_context(&(SDL_Color){0, 0, 0, 255});
   return (0);
 }
@@ -36,7 +36,7 @@ void		redraw_context(SDL_Color *c)
   col = !c ? (SDL_Color){0, 0, 0, 255} : *c;
   SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
   SDL_RenderClear(get_renderer());
-  draw_sprite(get_sprite(CABINET_SPR), NULL);
+  draw_sprite(get_common_sprite(CABINET_SPR), NULL);
 }
 
 void		game_loop()
@@ -45,7 +45,7 @@ void		game_loop()
   SDL_Scancode	s;
 
   memset(&e, 0, sizeof(e));
-  draw_text("!!!!GAME!!!!", &(SDL_Point){190, 120}, get_font(COSMIC48_FNT),
+  draw_text("!!!!GAME!!!!", &(SDL_Point){190, 120}, get_common_font(COSMIC48_FNT),
 	    &(SDL_Color){255, 255, 255, 255});
   while (g_launcher == &game_loop)
     {
@@ -58,7 +58,7 @@ void		game_loop()
 	  if (s == SDL_SCANCODE_ESCAPE)
 	    {
 	      g_launcher = &menu_game;
-	      play_sfx(get_sfx(BLIPCANCEL_SFX));
+	      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
 	    }
 	}
       SDL_RenderPresent(get_renderer());
@@ -68,7 +68,7 @@ void		game_loop()
 
 void	game_destroy()
 {
-  free_sounds();
-  free_fonts();
-  free_sprites();
+  free_common_sfx();
+  free_common_fonts();
+  free_common_sprites();
 }

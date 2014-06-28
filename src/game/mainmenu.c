@@ -1,9 +1,9 @@
 /*
 ** mainmenu.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
 ** Last update Fri Jun 27 17:46:38 2014 AHAMADA Samir
 */
@@ -46,17 +46,17 @@ static t_mode		select[NB_MEN] =
 static t_menuitem	item = START_MEN;
 
 /**
- *	
+ *
  */
 static void		process_input(const SDL_Scancode *s, t_menuitem *item);
 
 /**
- *	
+ *
  */
 static void		display_menu();
 
 /**
- *	
+ *
  */
 static Sint32		key_filter(void *userdata, SDL_Event *event);
 
@@ -94,21 +94,21 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
     {
       g_launcher = select[*item];
-      play_sfx(get_sfx(BLIPOK_SFX));
+      play_sfx(get_common_sfx(BLIPOK_SFX));
     }
   if (*item != old_item)
     {
       display_menu();
-      play_sfx(get_sfx(BLIPSEL_SFX));
+      play_sfx(get_common_sfx(BLIPSEL_SFX));
     }
 }
 
 static void	display_menu()
 {
-  draw_sprite_raw(get_sprite(TITLE_SPR), &(SDL_Point){187, 122});
-  draw_text("START", &(SDL_Point){325, 298}, get_font(ATARI24_FNT),
+  draw_sprite_raw(get_common_sprite(TITLE_SPR), &(SDL_Point){187, 122});
+  draw_text("START", &(SDL_Point){325, 298}, get_common_font(ATARI24_FNT),
 	    ISSEL(START_MEN));
-  draw_text("HISCORES", &(SDL_Point){289, 369}, get_font(ATARI24_FNT),
+  draw_text("HISCORES", &(SDL_Point){289, 369}, get_common_font(ATARI24_FNT),
 	    ISSEL(SCORE_MEN));
 }
 
@@ -125,4 +125,3 @@ static Sint32	key_filter(void *userdata, SDL_Event *event)
       return (0);
   return (1);
 }
-
