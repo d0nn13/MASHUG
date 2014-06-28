@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:10:21 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:33:36 2014 AHAMADA Samir
 */
 
 #include <string.h>
@@ -15,6 +15,7 @@
 #include "common/fonts.h"
 #include "common/sfx.h"
 #include "mainmenu.h"
+
 #include "gamecore.h"
 
 t_mode		g_launcher;
@@ -60,7 +61,6 @@ void		game_loop()
 	      play_sfx(get_sfx(BLIPCANCEL_SFX));
 	    }
 	}
-
       SDL_RenderPresent(get_renderer());
       SDL_Delay(10);
     }

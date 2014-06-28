@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:10:05 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:03:07 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:04:31 2014 AHAMADA Samir
 */
 
 /**
@@ -92,7 +92,7 @@ void	audio_destroy()
   SDL_LogInfo(AUD_LCAT, "Audio destroyed");
 }
 
-static void		fill_audio_buffer(void *userdata, Uint8 *stream, int len)
+static void	fill_audio_buffer(void *userdata, Uint8 *stream, int len)
 {
   Sint32	rem;
   Uint8		s;
@@ -109,7 +109,8 @@ static void		fill_audio_buffer(void *userdata, Uint8 *stream, int len)
 	      return ;
 	    }
 	  len = rem < len ? rem : len;
-	  SDL_MixAudioFormat(stream, &slot[s]->buf[slot[s]->pos], conf.format, len, SDL_MIX_MAXVOLUME / 2);
+	  SDL_MixAudioFormat(stream, &slot[s]->buf[slot[s]->pos],
+			     conf.format, len, SDL_MIX_MAXVOLUME / 2);
 	  slot[s]->pos += len;
 	}
     }

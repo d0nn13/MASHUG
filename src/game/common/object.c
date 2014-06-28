@@ -1,3 +1,12 @@
+/*
+** object.c for SpaceInvaders in /home/sahamada/dev/SpaceInvaders
+** 
+** Made by AHAMADA Samir
+** Login   <ahamad_s@etna-alternance.net>
+** 
+** Started on  Fri Jun 27 17:24:35 2014 AHAMADA Samir
+** Last update Fri Jun 27 17:24:37 2014 AHAMADA Samir
+*/
 
 #include "object.h"
 
