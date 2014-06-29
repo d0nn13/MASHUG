@@ -5,12 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:17:28 2014 AHAMADA Samir
+** Last update Sat Jun 28 17:37:35 2014 AHAMADA Samir
 */
 
 /**
  *	@file	fonts.h
- *	@brief	Game Fonts
+ *	@brief	Common game fonts
  */
 
 #ifndef GAME_COMMON_FONTS_H
@@ -19,7 +19,7 @@
 # include <SDL2/SDL_ttf.h>
 
 /**
- *	@brief	Sprite names enumeration
+ *	@brief	Common fonts enumeration
  */
 typedef enum
   {
@@ -30,23 +30,23 @@ typedef enum
     COSMIC18_FNT,
     COSMIC12_FNT,
     NB_FNT
-  } t_font;
+  } t_common_font;
 
 /**
  *	@brief	Load game fonts in memory
  */
-void		load_fonts();
+void		load_common_fonts();
 
 /**
  *	@brief	Font getter
  *	@param	t The desired font in the t_font enumeration
  *	@return	A pointer to the desired font
  */
-TTF_Font	*get_font(t_font t);
+TTF_Font	*get_common_font(t_common_font t);
 
 /**
  *	Frees allocated fonts
  */
-void		free_fonts();
+void		free_common_fonts();
 
 #endif /* !GAME_COMMON_FONTS_H */

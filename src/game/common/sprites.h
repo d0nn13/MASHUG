@@ -5,12 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:18:10 2014 AHAMADA Samir
+** Last update Sat Jun 28 17:38:13 2014 AHAMADA Samir
 */
 
 /**
  *	@file	sprites.h
- *	@brief	Game Sprites
+ *	@brief	Common game sprites
  */
 
 #ifndef GAME_COMMON_SPRITES_H
@@ -19,28 +19,28 @@
 # include <SDL2/SDL_render.h>
 
 /**
- *	Sprite names enumeration
+ *	Common sprites enumeration
  */
 typedef enum
   {
     CABINET_SPR = 0,
     TITLE_SPR,
     NB_SPR
-  } t_sprite;
+  } t_common_sprite;
 
 /**
  *	Load game sprites in memory
  */
-void		load_sprites();
+void		load_common_sprites();
 
 /**
  *	Sprite getter
  */
-t_texture	*get_sprite(t_sprite s);
+t_texture	*get_common_sprite(t_common_sprite s);
 
 /**
  *	Frees allocated sprites
  */
-void		free_sprites();
+void		free_common_sprites();
 
 #endif /* !GAME_COMMON_SPRITES_H */

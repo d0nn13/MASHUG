@@ -5,12 +5,12 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:17:57 2014 AHAMADA Samir
+** Last update Sat Jun 28 17:37:02 2014 AHAMADA Samir
 */
 
 /**
  *	@file	sfx.h
- *	@brief	Game sound effects
+ *	@brief	Common game sound sffects
  */
 
 #ifndef GAME_COMMON_SFX_H
@@ -20,7 +20,7 @@
 # include "../../core/audio.h"
 
 /**
- *	Sound effects enumeration
+ *	Common sound effects enumeration
  */
 typedef enum
   {
@@ -28,21 +28,21 @@ typedef enum
     BLIPOK_SFX,
     BLIPCANCEL_SFX,
     NB_SFX
-  }		t_sfx;
+  }		t_common_sfx;
 
 /**
  *	Loads sound effects in memory
  */
-void	load_sounds();
+void	load_common_sfx();
 
 /**
  *	Sound effect getter
  */
-t_chunk	*get_sfx(t_sfx t);
+t_chunk	*get_common_sfx(t_common_sfx t);
 
 /**
  *	Frees sound effects
  */
-void	free_sounds();
+void	free_common_sfx();
 
 #endif /* !GAME_COMMON_SFX_H */

@@ -1,9 +1,9 @@
 /*
 ** hiscores.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
 ** Last update Fri Jun 27 17:43:09 2014 AHAMADA Samir
 */
@@ -31,7 +31,7 @@ void		hiscores()
   SDL_Event	e;
   SDL_Scancode	s;
 
-  draw_text("HISCORES", &(SDL_Point){240,120}, get_font(COSMIC48_FNT),
+  draw_text("HISCORES", &(SDL_Point){240,120}, get_common_font(COSMIC48_FNT),
 	    &(SDL_Color){255, 255, 255, 255});
   while (g_launcher == &hiscores)
     {
@@ -44,7 +44,7 @@ void		hiscores()
 	  if (s == SDL_SCANCODE_ESCAPE)
 	    {
 	      g_launcher = &menu_game;
-	      play_sfx(get_sfx(BLIPCANCEL_SFX));
+	      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
 	    }
 	}
     }
@@ -52,5 +52,3 @@ void		hiscores()
 
 Sint32	load_hiscores();
 Sint32	save_hiscores();
-
-
