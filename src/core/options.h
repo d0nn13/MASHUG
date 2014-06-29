@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
-** Last update Sat Jun 28 20:53:07 2014 AHAMADA Samir
+** Last update Sun Jun 29 12:46:56 2014 AHAMADA Samir
 */
 
 /**
@@ -22,7 +22,7 @@
 
 typedef struct	s_optionholder
 {
-  char		key[KEY_MAX_LEN];
+  char		key[KEY_MAX_LEN + 1];
   Sint16	value;
 }		t_optionholder;
 

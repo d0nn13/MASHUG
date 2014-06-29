@@ -19,7 +19,7 @@
 #include <libgen.h>
 #include <stdlib.h>
 #include "version.h"
-#include "options.h"
+#include "optionscli.h"
 #include "log.h"
 #include "window.h"
 #include "renderer.h"
@@ -34,7 +34,7 @@
  *	@return	0 if all initializations are succeded
  *	@return -1 if a module initialization failed
  */
-static Sint32	core_init();
+static Sint32	core_init(Sint32 argc, char **argv);
 
 /**
  *	@brief	Destroys all engine modules
@@ -43,7 +43,7 @@ static Sint32	core_init();
  */
 static Sint32	core_destroy();
 
-static Sint32	core_init()
+static Sint32	core_init(Sint32 argc, char **argv)
 {
   printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
@@ -53,8 +53,8 @@ static Sint32	core_init()
       return (1);
     }
   print_versions();
-  options_init();
   log_init();
+  set_options_from_cli(argc, argv);
   SDL_Log("Engine started, welcome aboard!");
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-1);
@@ -71,13 +71,13 @@ static Sint32	core_destroy()
   return (0);
 }
 
-Sint32	main(int ac, char **av)
+Sint32	main(int argc, char **argv)
 {
-  (void)ac;
-  chdir(dirname(*av));
+  (void)argc;
+  chdir(dirname(*argv));
   chdir("..");
 
-  if (core_init() || game_init())
+  if (core_init(argc, argv) || game_init())
     return (EXIT_FAILURE);
   g_launcher = &menu_game;
   while (g_launcher)
