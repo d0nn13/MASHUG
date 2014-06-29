@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:33:06 2014 AHAMADA Samir
+** Last update Sun Jun 29 14:44:03 2014 AHAMADA Samir
 */
 
 /**
@@ -27,9 +27,22 @@
 #include "../game/gamecore.h"
 #include "../game/mainmenu.h"
 
-#include "spaceinvaders.h"
+/**
+ *	@brief	Initializes all engine modules
+ *
+ *	@return	0 if all initializations are succeded
+ *	@return -1 if a module initialization failed
+ */
+static Sint32	core_init();
 
-Sint32	core_init()
+/**
+ *	@brief	Destroys all engine modules
+ *
+ *	@return	0
+ */
+static Sint32	core_destroy();
+
+static Sint32	core_init()
 {
   printf("\nS P A C E  I N V A D E R S\n==========================\n");
   if ((SDL_Init(0) != 0))
@@ -46,7 +59,7 @@ Sint32	core_init()
   return (0);
 }
 
-Sint32	core_destroy()
+static Sint32	core_destroy()
 {
   audio_destroy();
   graphics_destroy();
