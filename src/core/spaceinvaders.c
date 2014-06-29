@@ -19,6 +19,7 @@
 #include <libgen.h>
 #include <stdlib.h>
 #include "version.h"
+#include "options.h"
 #include "log.h"
 #include "window.h"
 #include "renderer.h"
@@ -52,6 +53,7 @@ static Sint32	core_init()
       return (1);
     }
   print_versions();
+  options_init();
   log_init();
   SDL_Log("Engine started, welcome aboard!");
   if (window_init() || renderer_init() || graphics_init() || audio_init())
