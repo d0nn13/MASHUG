@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Mon Jun 30 01:32:26 2014 AHAMADA Samir
+** Last update Mon Jun 30 13:13:55 2014 AHAMADA Samir
 */
 
 /**
@@ -19,7 +19,7 @@
 #include <libgen.h>
 #include <stdlib.h>
 #include "version.h"
-#include "optionscli.h"
+#include "clioptions.h"
 #include "log.h"
 #include "window.h"
 #include "renderer.h"

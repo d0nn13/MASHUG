@@ -1,15 +1,15 @@
 /*
-** optionscli.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
+** clioptions.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
 ** 
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Mon Jun 30 01:30:56 2014 AHAMADA Samir
+** Last update Mon Jun 30 13:09:57 2014 AHAMADA Samir
 */
 
 /**
- *	@file	optionscli.c
+ *	@file	clioptions.c
  *	@brief	CLI options handling
  */
 
@@ -19,9 +19,9 @@
 #include "log.h"
 #include "options.h"
 
-#include "optionscli.h"
+#include "clioptions.h"
 
-static struct option optionscli[NB_OPT + 1] = {
+static struct option clioptions[NB_OPT + 1] = {
   {"log-priority", required_argument, NULL, LOG_PRIO_OPT},
   {"log-category", required_argument, NULL, LOG_CAT_OPT},
   {"framerate", required_argument, NULL, GAME_FPS_OPT},
@@ -34,7 +34,7 @@ void		set_options_from_cli(int argc, char **argv)
   Sint16	v;
 
   opterr = 0;
-  while ((o = getopt_long(argc, argv, "", optionscli, NULL)) != -1)
+  while ((o = getopt_long(argc, argv, "", clioptions, NULL)) != -1)
     {
       if (o == '?')
 	SDL_LogError(OPT_LCAT, "Unrecognized option '%s'", argv[optind - 1]);

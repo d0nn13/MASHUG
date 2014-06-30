@@ -12,9 +12,9 @@ PACKPATH	=	dist/
 
 SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/version.c			\
-			$(SRCPATH)core/options.c			\
-			$(SRCPATH)core/optionscli.c			\
 			$(SRCPATH)core/log.c				\
+			$(SRCPATH)core/options.c			\
+			$(SRCPATH)core/clioptions.c			\
 			$(SRCPATH)core/window.c				\
 			$(SRCPATH)core/renderer.c			\
 			$(SRCPATH)core/graphics.c			\
