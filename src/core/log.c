@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Fri Jun 27 15:30:29 2014 AHAMADA Samir
+** Last update Mon Jun 30 01:25:22 2014 AHAMADA Samir
 */
 
 /**
@@ -53,6 +53,7 @@ void	log_init()
   SDL_LogSetPriority(GFX_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(SPR_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetPriority(OPT_LCAT, SDL_LOG_PRIORITY_INFO);
 #endif
   catstrings[APP_LCAT] = "Space Invaders";
   catstrings[ERR_LCAT] = "Error";
@@ -64,6 +65,7 @@ void	log_init()
   catstrings[GFX_LCAT] = "Graphics";
   catstrings[SPR_LCAT] = "Sprites";
   catstrings[FNT_LCAT] = "Fonts";
+  catstrings[OPT_LCAT] = "Options";
 }
 
 Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym)

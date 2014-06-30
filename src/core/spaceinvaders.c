@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Sun Jun 29 14:44:03 2014 AHAMADA Samir
+** Last update Mon Jun 30 01:32:26 2014 AHAMADA Samir
 */
 
 /**
@@ -54,8 +54,8 @@ static Sint32	core_init(Sint32 argc, char **argv)
     }
   print_versions();
   log_init();
-  set_options_from_cli(argc, argv);
   SDL_Log("Engine started, welcome aboard!");
+  set_options_from_cli(argc, argv);
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-1);
   return (0);

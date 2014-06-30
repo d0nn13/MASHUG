@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Sun Jun 29 23:44:49 2014 AHAMADA Samir
+** Last update Mon Jun 30 01:30:56 2014 AHAMADA Samir
 */
 
 /**
@@ -15,29 +15,41 @@
 
 #include <stdlib.h>
 #include <getopt.h>
+#include <errno.h>
 #include "log.h"
 #include "options.h"
 
 #include "optionscli.h"
 
 static struct option optionscli[NB_OPT + 1] = {
-  {"log-priority", required_argument, NULL, LOG_PRIO_OPT},	/* short : none */
-  {"log-category", required_argument, NULL, LOG_CAT_OPT},	/* short : none */
-  {"framerate", required_argument, NULL, GAME_FPS_OPT},		/* short : -f   */
+  {"log-priority", required_argument, NULL, LOG_PRIO_OPT},
+  {"log-category", required_argument, NULL, LOG_CAT_OPT},
+  {"framerate", required_argument, NULL, GAME_FPS_OPT},
   {NULL, 0, NULL, 0}
 };
 
-Uint8	set_options_from_cli(int argc, char **argv)
+void		set_options_from_cli(int argc, char **argv)
 {
-  Sint8	o;
+  Sint8		o;
+  Sint16	v;
 
-  while ((o = getopt_long(argc, argv, "f:", optionscli, NULL)) != -1)
+  opterr = 0;
+  while ((o = getopt_long(argc, argv, "", optionscli, NULL)) != -1)
     {
-      if (o != '?')
+      if (o == '?')
+	SDL_LogError(OPT_LCAT, "Unrecognized option '%s'", argv[optind - 1]);
+      else
 	{
-	  SDL_Log("set_options_from_cli: [%d] <- %s\n", o, optarg ? optarg : "NONE");
-	  set_option_value(o, atoi(optarg));
+	  v = optarg ? strtol(optarg, NULL, 10) : 1;
+	  if (optarg && (errno == EINVAL || errno == ERANGE))
+	    {
+	      SDL_LogError(OPT_LCAT, "Uncorrect value '%s' for option '%s'", optarg,
+			   get_option_key(o));
+	      errno = 0;
+	      continue ;
+	    }
+	  SDL_LogInfo(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
+	  set_option_value(o, v);
 	}
     }
-  return (0);
 }

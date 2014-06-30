@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jun 29 12:47:56 2014 AHAMADA Samir
-** Last update Sun Jun 29 14:19:07 2014 AHAMADA Samir
+** Last update Mon Jun 30 00:47:45 2014 AHAMADA Samir
 */
 
 /**
@@ -16,6 +16,6 @@
 #ifndef CORE_OPTIONSCLI_H
 # define CORE_OPTIONSCLI_H
 
-Uint8	set_options_from_cli(int argc, char **argv);
+void	set_options_from_cli(int argc, char **argv);
 
 #endif
