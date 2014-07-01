@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Fri Jun 27 15:30:21 2014 AHAMADA Samir
+** Last update Mon Jun 30 01:18:40 2014 AHAMADA Samir
 */
 
 /**
@@ -33,6 +33,7 @@ enum {
   GFX_LCAT = SDL_LOG_CATEGORY_CUSTOM,
   SPR_LCAT,
   FNT_LCAT,
+  OPT_LCAT,
   NB_LCAT
 };
 /**
