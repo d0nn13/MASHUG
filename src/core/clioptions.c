@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Mon Jun 30 13:09:57 2014 AHAMADA Samir
+** Last update Tue Jul  1 10:19:04 2014 AHAMADA Samir
 */
 
 /**
@@ -20,6 +20,8 @@
 #include "options.h"
 
 #include "clioptions.h"
+
+#define	ENABLE_OPTION	1
 
 static struct option clioptions[NB_OPT + 1] = {
   {"log-priority", required_argument, NULL, LOG_PRIO_OPT},
@@ -40,7 +42,7 @@ void		set_options_from_cli(int argc, char **argv)
 	SDL_LogError(OPT_LCAT, "Unrecognized option '%s'", argv[optind - 1]);
       else
 	{
-	  v = optarg ? strtol(optarg, NULL, 10) : 1;
+	  v = optarg ? strtol(optarg, NULL, 10) : ENABLE_OPTION;
 	  if (optarg && (errno == EINVAL || errno == ERANGE))
 	    {
 	      SDL_LogError(OPT_LCAT, "Uncorrect value '%s' for option '%s'", optarg,
@@ -48,7 +50,7 @@ void		set_options_from_cli(int argc, char **argv)
 	      errno = 0;
 	      continue ;
 	    }
-	  SDL_LogInfo(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
+	  SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
 	  set_option_value(o, v);
 	}
     }
