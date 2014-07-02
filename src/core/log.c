@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Mon Jun 30 01:25:22 2014 AHAMADA Samir
+** Last update Wed Jul  2 14:47:02 2014 AHAMADA Samir
 */
 
 /**
@@ -27,7 +27,21 @@ static char	timestr[9];
 /**
  *	@brief Log categories string array (internal)
  */
-static char	*catstrings[NB_LCAT];
+static char	*catstrings[NB_LCAT] = {
+  "Space Invaders",
+  "Error",
+  NULL,
+  "System",
+  "Audio",
+  "Video",
+  "Render",
+  "Input",
+  NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+  "Graphics",
+  "Sprites",
+  "Fonts",
+  "Options"
+};
 
 /**
  *	@brief Writes a timestamp into 'timestr' (internal)
@@ -55,17 +69,6 @@ void	log_init()
   SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
   SDL_LogSetPriority(OPT_LCAT, SDL_LOG_PRIORITY_INFO);
 #endif
-  catstrings[APP_LCAT] = "Space Invaders";
-  catstrings[ERR_LCAT] = "Error";
-  catstrings[SYS_LCAT] = "System";
-  catstrings[AUD_LCAT] = "Audio";
-  catstrings[VID_LCAT] = "Video";
-  catstrings[RDR_LCAT] = "Render";
-  catstrings[INP_LCAT] = "Input";
-  catstrings[GFX_LCAT] = "Graphics";
-  catstrings[SPR_LCAT] = "Sprites";
-  catstrings[FNT_LCAT] = "Fonts";
-  catstrings[OPT_LCAT] = "Options";
 }
 
 Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym)
