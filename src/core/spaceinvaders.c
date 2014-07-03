@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Mon Jun 30 13:13:55 2014 AHAMADA Samir
+** Last update Thu Jul  3 13:43:08 2014 AHAMADA Samir
 */
 
 /**
@@ -19,6 +19,7 @@
 #include <libgen.h>
 #include <stdlib.h>
 #include "version.h"
+#include "options.h"
 #include "clioptions.h"
 #include "log.h"
 #include "window.h"
@@ -56,6 +57,7 @@ static Sint32	core_init(Sint32 argc, char **argv)
   log_init();
   SDL_Log("Engine started, welcome aboard!");
   set_options_from_cli(argc, argv);
+  debug_options();
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-1);
   return (0);

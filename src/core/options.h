@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
-** Last update Sun Jun 29 12:46:56 2014 AHAMADA Samir
+** Last update Thu Jul  3 13:42:55 2014 AHAMADA Samir
 */
 
 /**
@@ -42,5 +42,7 @@ Sint16	get_option_value(t_options o);
 void	set_option_value(t_options o, Sint16 v);
 
 char	*get_option_key(t_options o);
+
+void	debug_options();
 
 #endif
