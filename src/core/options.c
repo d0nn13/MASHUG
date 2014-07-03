@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sat Jun 28 20:14:00 2014 AHAMADA Samir
-** Last update Thu Jul  3 13:42:34 2014 AHAMADA Samir
+** Last update Thu Jul  3 14:14:52 2014 AHAMADA Samir
 */
 
 /**
@@ -13,7 +13,6 @@
  *	@brief	Options handling
  */
 
-#include <stdio.h>
 #include "log.h"
 
 #include "options.h"
