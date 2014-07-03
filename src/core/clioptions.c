@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Tue Jul  1 10:19:04 2014 AHAMADA Samir
+** Last update Thu Jul  3 14:18:50 2014 AHAMADA Samir
 */
 
 /**
@@ -54,4 +54,5 @@ void		set_options_from_cli(int argc, char **argv)
 	  set_option_value(o, v);
 	}
     }
+  options_debug();
 }
