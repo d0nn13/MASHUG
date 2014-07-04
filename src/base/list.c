@@ -5,13 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu Jun 26 01:46:35 2014 AHAMADA Samir
-** Last update Fri Jul  4 19:46:19 2014 AHAMADA Samir
+** Last update Fri Jul  4 20:48:54 2014 AHAMADA Samir
 */
 
-/*
-**
-**
-*/
+/**
+ *	@file	base/list.c
+ *	@brief	Linked lists
+ */
 
 #include <stdio.h>
 #include "memory.h"

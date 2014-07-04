@@ -5,13 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Wed Jun 25 19:03:19 2014 AHAMADA Samir
-** Last update Fri Jul  4 19:38:41 2014 AHAMADA Samir
+** Last update Fri Jul  4 20:46:36 2014 AHAMADA Samir
 */
 
-/*
-**	@file	base/list.h
-**	@brief	Linked lists
-*/
+/**
+ *	@file	base/list.h
+ *	@brief	Linked lists
+ */
 
 typedef struct		s_singlelist
 {

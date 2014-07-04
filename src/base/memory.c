@@ -5,13 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu Jun 26 01:31:07 2014 AHAMADA Samir
-** Last update Sat Jun 28 16:33:20 2014 AHAMADA Samir
+** Last update Fri Jul  4 20:45:48 2014 AHAMADA Samir
 */
 
-/*
-**	@file	base/memory.c
-**	@brief	Memory handling
-*/
+/**
+ *	@file	base/memory.c
+ *	@brief	Memory handling
+ */
 
 #include <stdlib.h>
 #include <SDL2/SDL_stdinc.h>
