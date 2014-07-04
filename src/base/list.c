@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Thu Jun 26 01:46:35 2014 AHAMADA Samir
-** Last update Sat Jun 28 17:08:15 2014 AHAMADA Samir
+** Last update Fri Jul  4 19:46:19 2014 AHAMADA Samir
 */
 
 /*
@@ -29,29 +29,29 @@ t_singlelist	*list_make_node()
   return (node);
 }
 
-void		list_push(void *data, t_singlelist **node)
+void		list_push(void *data, t_singlelist **tail)
 {
-  if (!node)
+  if (!tail)
     {
       printf("FATAL ERROR: NULL list node\n");
       return ;
     }
-  (*node)->next = list_make_node();
-  (*node)->next->index = (*node)->index + 1;
-  *node = (*node)->next;
-  (*node)->data = data;
+  (*tail)->next = list_make_node();
+  (*tail)->next->index = (*tail)->index + 1;
+  *tail = (*tail)->next;
+  (*tail)->data = data;
 }
 
-void		*list_get(t_singlelist *head, Uint16 index)
+void		*list_get(t_singlelist *root, Uint16 index)
 {
   t_singlelist	*read;
 
-  if (!head)
+  if (!root)
     {
       printf("FATAL ERROR: NULL list node\n");
       return (NULL);
     }
-  read = head;
+  read = root;
   while (read)
     {
       if (read->index == index)
@@ -61,17 +61,17 @@ void		*list_get(t_singlelist *head, Uint16 index)
   return (0);
 }
 
-Uint16		my_list_size(t_singlelist *begin)
+Uint16		my_list_size(t_singlelist *root)
 {
   t_singlelist	*read;
   Uint16	count;
 
-  if (!begin)
+  if (!root)
     {
       printf("FATAL ERROR: NULL list node\n");
       return (0);
     }
-  read = begin;
+  read = root;
   count = 0;
   while (read)
     {
@@ -81,23 +81,23 @@ Uint16		my_list_size(t_singlelist *begin)
   return (count);
 }
 
-void		list_clear(t_singlelist **head)
+void		list_clear(t_singlelist **root)
 {
   t_singlelist	*read;
   t_singlelist	*next;
 
-  if (!head)
+  if (!root)
     {
       printf("FATAL ERROR: NULL list node\n");
       return ;
     }
-  read = *head;
+  read = *root;
   while (read)
     {
       next = read->next;
       mem_free(read);
       read = next;
     }
-  *head = NULL;
+  *root = NULL;
 }
 
