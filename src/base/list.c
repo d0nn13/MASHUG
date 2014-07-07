@@ -33,7 +33,7 @@ void		list_push(void *data, t_singlelist **tail)
 {
   if (!tail)
     {
-      printf("FATAL ERROR: NULL list node\n");
+      fprintf(stderr, "FATAL ERROR: NULL list node\n");
       return ;
     }
   (*tail)->next = list_make_node();
@@ -48,7 +48,7 @@ void		*list_get(t_singlelist *root, Uint16 index)
 
   if (!root)
     {
-      printf("FATAL ERROR: NULL list node\n");
+      fprintf(stderr, "FATAL ERROR: NULL list node\n");
       return (NULL);
     }
   read = root;
@@ -68,7 +68,7 @@ Uint16		my_list_size(t_singlelist *root)
 
   if (!root)
     {
-      printf("FATAL ERROR: NULL list node\n");
+      fprintf(stderr, "FATAL ERROR: NULL list node\n");
       return (0);
     }
   read = root;
@@ -88,7 +88,7 @@ void		list_clear(t_singlelist **root)
 
   if (!root)
     {
-      printf("FATAL ERROR: NULL list node\n");
+      fprintf(stderr, "FATAL ERROR: NULL list node\n");
       return ;
     }
   read = *root;

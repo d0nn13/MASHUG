@@ -29,7 +29,7 @@ void	*mem_alloc(size_t size)
     ++nb_allocs;
   else
     {
-      printf("FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",
+      fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",
 	     (Uint32)size);
       exit(EXIT_FAILURE);
     }
@@ -39,7 +39,7 @@ void	*mem_alloc(size_t size)
 void	mem_free(void *ptr)
 {
   if (!ptr)
-    printf("FATAL ERROR : Tried to free NULL pointer\n");
+    fprintf(stderr, "FATAL ERROR : Tried to free NULL pointer\n");
   else
     {
       free(ptr);
