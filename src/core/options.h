@@ -1,9 +1,9 @@
 /*
 ** options.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
 ** Last update Thu Jul  3 14:19:06 2014 AHAMADA Samir
 */

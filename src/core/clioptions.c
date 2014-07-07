@@ -1,9 +1,9 @@
 /*
 ** clioptions.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
 ** Last update Thu Jul  3 14:18:50 2014 AHAMADA Samir
 */

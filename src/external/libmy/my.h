@@ -1,9 +1,9 @@
 /*
 ** my.h for libmy in /Users/ahamad_s/informatique/ETNA/Piscine/TCM-PIS1/Jour_05/libmy
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat Oct 26 16:51:11 2013 AHAMADA Samir
 ** Last update Sun Apr 20 23:23:03 2014 AHAMADA Samir
 */
