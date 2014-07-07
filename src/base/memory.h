@@ -30,7 +30,7 @@ void	*mem_alloc(size_t size);
 /**
  *	@brief	Frees allocated heap memory and decrements allocation counter
  *
- *	@param	size A pointer to the heap-allocated memory to free
+ *	@param	ptr A pointer to the heap-allocated memory to free
  */
 void	mem_free(void *ptr);
 
@@ -38,7 +38,7 @@ void	mem_free(void *ptr);
  *	@brief	Returns the difference between the amount of allocations
  *		and the amount of frees
  *
- *	@return	The the difference between the amount of allocations
+ *	@return	The difference between the amount of allocations
  *		and the amount of frees as an integer
  */
 Uint16	mem_get_nb_allocs();

@@ -39,7 +39,7 @@ void		list_push(void *data, t_singlelist **tail);
 /**
  *	@brief	Get a pointer to a specific node in a singly-linked list
  *
- *	@param	head The root of a singly-linked list
+ *	@param	root The root of a singly-linked list
  *	@param	index The index of the wanted node in the singly-linked list
  * 
  *	@return	A pointer to the data at in the specified node
@@ -49,7 +49,7 @@ void		*list_get(t_singlelist *root, Uint16 index);
 /**
  *	@brief	Get a signly-linked list size value
  *
- *	@param	head The root of a singly-linked list
+ *	@param	root The root of a singly-linked list
  *	@return	The size of a singly-linked list as an integer
  */
 Uint16		my_list_size(t_singlelist *root);
