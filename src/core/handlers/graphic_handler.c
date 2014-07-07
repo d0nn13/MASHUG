@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Fri Jun 27 15:29:49 2014 AHAMADA Samir
+** Last update Fri Jun 27 16:03:37 2014 AHAMADA Samir
 */
 
 /**
@@ -13,6 +13,7 @@
  *	@brief	Graphic handling interface
  */
 
+#include "../../base/memory.h"
 #include "../log.h"
 #include "../renderer.h"
 
@@ -24,7 +25,7 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
 
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture"))
     return (NULL);
-  t = malloc(sizeof(t_texture));
+  t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTexture(r, PIX_FMT, a, w, h)))
     {
       SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
@@ -43,7 +44,7 @@ t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture") ||
       !ptr_chk(s, "surface", GFX_LCAT, "make_texture"))
     return (NULL);
-  t = malloc(sizeof(t_texture));
+  t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTextureFromSurface(r, s)))
     {
       SDL_LogError(GFX_LCAT, "make_texture_from_surface: ", SDL_GetError());
@@ -60,5 +61,5 @@ void		free_texture(t_texture *t)
   if (!ptr_chk(t, "texture", GFX_LCAT, "free_texture"))
     return ;
   SDL_DestroyTexture(t->tex);
-  free(t);
+  mem_free(t);
 }

@@ -5,12 +5,14 @@ MKDIR		=	mkdir -p
 RM		=	rm -f
 ARCHIVE		=	tar -cjf
 SRCPATH		=	src/
-LIBPATH		=	
+LIBPATH		=
 OBJPATH		=	objs/
 BINPATH		=	bin/
 PACKPATH	=	dist/
 
 SRC		=	$(SRCPATH)base/math.c				\
+			$(SRCPATH)base/memory.c				\
+			$(SRCPATH)base/list.c				\
 			$(SRCPATH)core/version.c			\
 			$(SRCPATH)core/log.c				\
 			$(SRCPATH)core/options.c			\
@@ -33,7 +35,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -std=c99 -pedantic 
+CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -std=c99 -pedantic
 LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders-dbg

@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <libgen.h>
 #include <stdlib.h>
+#include "../base/memory.h"
 #include "version.h"
 #include "clioptions.h"
 #include "log.h"
@@ -87,6 +88,7 @@ Sint32	main(int argc, char **argv)
     }
   game_destroy();
   core_destroy();
+  SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());
   atexit(SDL_Quit);
   return (EXIT_SUCCESS);
 }
