@@ -1,9 +1,9 @@
 /*
 ** list.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Wed Jun 25 19:03:19 2014 AHAMADA Samir
 ** Last update Fri Jul  4 20:46:36 2014 AHAMADA Samir
 */
@@ -41,7 +41,7 @@ void		list_push(void *data, t_singlelist **tail);
  *
  *	@param	root The root of a singly-linked list
  *	@param	index The index of the wanted node in the singly-linked list
- * 
+ *
  *	@return	A pointer to the data at in the specified node
  */
 void		*list_get(t_singlelist *root, Uint16 index);

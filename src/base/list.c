@@ -1,9 +1,9 @@
 /*
 ** list.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Thu Jun 26 01:46:35 2014 AHAMADA Samir
 ** Last update Fri Jul  4 20:48:54 2014 AHAMADA Samir
 */
