@@ -1,9 +1,9 @@
 /*
 ** hiscores.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-** 
+**
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat May  3 20:36:58 2014 AHAMADA Samir
 ** Last update Thu Jun 26 17:19:38 2014 AHAMADA Samir
 */
