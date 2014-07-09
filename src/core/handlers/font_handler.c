@@ -20,7 +20,7 @@
 
 #include "../handlers.h"
 
-SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c)
+SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Color *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;
@@ -29,20 +29,20 @@ SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c)
      !ptr_chk(f, "font", FNT_LCAT, "get_text_surface") ||
      !ptr_chk(c, "color", FNT_LCAT, "get_text_surface"))
     return (NULL);
-  t = TTF_RenderUTF8_Blended(f, text, *c);
+  t = TTF_RenderUTF8_Blended((TTF_Font *)f, text, *c);
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
     SDL_LogError(FNT_LCAT, "get_text_surface: ", SDL_GetError());
   SDL_SetSurfaceAlphaMod(s, c->a);
   return (s);
 }
 
-void	draw_text(const char *text, SDL_Point *o, TTF_Font *f, SDL_Color *c)
+void	draw_text(const char *text, const SDL_Point *o, const TTF_Font *f, const SDL_Color *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;
   SDL_Rect	z;
 
-  if (!(t = TTF_RenderUTF8_Solid(f, text, *c)))
+  if (!(t = TTF_RenderUTF8_Solid((TTF_Font *)f, text, *c)))
     {
       SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
       return ;

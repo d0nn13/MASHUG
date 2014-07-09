@@ -35,7 +35,7 @@
  *	@return	A pointer to the surface allocated with "text" printed
  *		with given font "f"and color "c"
  */
-SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c);
+SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Color *c);
 
 /**
  *	@brief	Draws some text at a given origin point, font and color.
@@ -46,7 +46,7 @@ SDL_Surface	*get_text_surface(const char *text, TTF_Font *f, SDL_Color *c);
  *	@param	f A poiner to the font to render the text with
  *	@param	c The color to render the text in
  */
-void		draw_text(const char *text, SDL_Point *orig, TTF_Font *f, SDL_Color *c);
+void		draw_text(const char *text, const SDL_Point *orig, const TTF_Font *f, const SDL_Color *c);
 
 
 /*
