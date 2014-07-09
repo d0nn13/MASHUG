@@ -1,113 +1,103 @@
 /*
-** mainmenu.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Fri Jun 27 17:46:38 2014 AHAMADA Samir
+** mainmenu.c for SpaceInvaders in /Users/Yassine/Code/ETNA/projet/c/spaceinvaders/src/game
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
+** Last update Wed Jul  9 23:57:51 2014 ENNEBATI Yassine
 */
 
-#include <SDL2/SDL.h>
-#include "../core/handlers.h"
-#include "../core/helpers.h"
-#include "common/sprites.h"
-#include "common/fonts.h"
-#include "common/sfx.h"
-#include "gamecore.h"
-#include "hiscores.h"
+#include		"../core/renderer.h"
+#include		"../core/handlers.h"
+#include		"../core/helpers.h"
+#include		"common/fonts.h"
+#include		"common/sfx.h"
+#include		"spaceinvaders/menu.h"
+#include		"spaceinvaders/gamecore.h"
 
-#include "mainmenu.h"
+#include		"mainmenu.h"
 
 #define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
-/**
- *	Menu item definition
- */
 typedef enum
-  {
-    START_MEN,
-    SCORE_MEN,
-    NB_MEN
-  }		t_menuitem;
+{
+  SPACE_GAME,
+  GALAGA_GAME,
+  NB_GAME
+}	t_gameitem;
 
-/**
- *	Menu callback initialization
- */
-static t_mode		select[NB_MEN] =
+static t_gameitem	item = SPACE_GAME;
+
+static t_mode		select[NB_GAME] =
   {
-    &game_loop,
-    &hiscores
+    &menu_game,
+    &main_menu
   };
 
-static t_menuitem	item = START_MEN;
-
-/**
- *
- */
-static void		process_input(const SDL_Scancode *s, t_menuitem *item);
-
-/**
- *
- */
-static void		display_menu();
-
-
-void			menu_game()
+static void		display_main_menu()
 {
-  SDL_Event		e;
-  SDL_Scancode		s;
-
-  SDL_SetEventFilter(key_filter, NULL);
-  display_menu();
-  while (g_launcher == &menu_game)
-    {
-      if (SDL_WaitEvent(&e))
-	{
-	  if (e.type == SDL_QUIT)
-	    g_launcher = NULL;
-	  if (e.type == SDL_KEYDOWN)
-	    {
-	      s = e.key.keysym.scancode;
-	      process_input(&s, &item);
-	    }
-	}
-    }
+  const SDL_Color	sel = {152, 128, 208, 0};
+  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Point		orig;
+  
+  orig = point_factory(200, 300);
+  draw_text("Space Invaders", &orig, get_common_font(PRSTARTK24_FNT),
+            ISSEL(SPACE_GAME, &sel, &uns));
+  orig = point_factory(200, 400);
+  draw_text("Galaga", &orig, get_common_font(PRSTARTK24_FNT),
+	    ISSEL(GALAGA_GAME, &sel, &uns));
 }
 
-static void	process_input(const SDL_Scancode *s, t_menuitem *item)
+static void	process_input(const SDL_Scancode *s, t_gameitem *item)
 {
-  t_menuitem	old_item;
+  t_gameitem	old_item;
 
   old_item = *item;
-  *item += (*s == UP && *item != START_MEN) ? -1 : 0;
-  *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
+  *item += (*s == UP && *item != SPACE_GAME) ? -1 : 0;
+  *item += (*s == DN && *item != GALAGA_GAME) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
     g_launcher = NULL;
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
     {
       g_launcher = select[*item];
-      play_sfx(get_common_sfx(BLIPOK_SFX));
+      if (*item != GALAGA_GAME)
+	play_sfx(get_common_sfx(BLIPOK_SFX));
     }
   if (*item != old_item)
     {
-      display_menu();
+      display_main_menu();
       play_sfx(get_common_sfx(BLIPSEL_SFX));
     }
 }
 
-static void		display_menu()
+static void		draw_background_menu()
 {
-  const SDL_Color	sel = {152, 128, 208, 0};
-  const SDL_Color	uns = {255, 255, 255, 0};
-  SDL_Point	orig;
+  const SDL_Color	col = {0, 0, 0, 255};
+  
+  SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
+  SDL_RenderClear(get_renderer());
+}
 
-  orig = point_factory(187, 122);
-  draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
-  orig = point_factory(325, 298);
-  draw_text("START", &orig, get_common_font(ATARI24_FNT),
-      ISSEL(START_MEN, &sel, &uns));
-  orig = point_factory(289, 369);
-  draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
-      ISSEL(SCORE_MEN, &sel, &uns));
+void			main_menu()
+{
+  SDL_Event		e;
+  SDL_Scancode		s;
+
+  draw_background_menu();
+  SDL_SetEventFilter(key_filter, NULL);
+  display_main_menu();
+  while (g_launcher == &main_menu)
+    {
+      if (SDL_WaitEvent(&e))
+  	{
+  	  if (e.type == SDL_QUIT)
+  	    g_launcher = NULL;
+  	  if (e.type == SDL_KEYDOWN)
+  	    {
+  	      s = e.key.keysym.scancode;
+  	      process_input(&s, &item);
+  	    }
+  	}
+    }
 }

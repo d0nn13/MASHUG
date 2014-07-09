@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Wed Jul  9 13:25:56 2014 ENNEBATI Yassine
+** Last update Wed Jul  9 13:28:18 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -20,14 +20,11 @@
 
 t_mode		g_launcher;
 
-Sint32			game_init()
+Sint32		game_init()
 {
-  const SDL_Color	black = {0, 0, 0, 255};
-
   load_common_sprites();
   load_common_fonts();
   load_common_sfx();
-  redraw_context(&black);
   return (0);
 }
 

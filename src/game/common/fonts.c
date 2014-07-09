@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Sat Jun 28 18:04:15 2014 AHAMADA Samir
+** Last update Wed Jul  9 20:52:14 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -22,7 +22,7 @@ void	load_common_fonts()
   common_fonts[COSMIC48_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 48);
   common_fonts[COSMIC24_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 24);
   common_fonts[COSMIC18_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 18);
-  common_fonts[COSMIC12_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 12);
+  common_fonts[PRSTARTK24_FNT] = TTF_OpenFont("media/fonts/prstartk.ttf", 24);
   SDL_LogInfo(FNT_LCAT, "Fonts loaded.");
 }
 

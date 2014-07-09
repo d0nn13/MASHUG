@@ -5,24 +5,22 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Wed Jul  9 12:28:39 2014 ENNEBATI Yassine
+** Last update Thu Jul 10 19:43:19 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 #include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
+#include "../mainmenu.h"
 #include "gamecore.h"
 #include "hiscores.h"
 
 #include "menu.h"
 
-#define UP		SDL_SCANCODE_UP
-#define DN		SDL_SCANCODE_DOWN
-#define SEL		&(SDL_Color){152, 128, 208, 0}
-#define UNS		&(SDL_Color){255, 255, 255, 0}
-#define ISSEL(x)	((item == (x)) ? (SEL) : (UNS))
+#define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
 /**
  *	Menu item definition
@@ -55,10 +53,6 @@ static void		process_input(const SDL_Scancode *s, t_menuitem *item);
  */
 static void		display_menu();
 
-/**
- *
- */
-static Sint32		key_filter(void *userdata, SDL_Event *event);
 
 void			menu_game()
 {
@@ -66,6 +60,7 @@ void			menu_game()
   SDL_Scancode		s;
 
   SDL_SetEventFilter(key_filter, NULL);
+  redraw_context(NULL);
   display_menu();
   while (g_launcher == &menu_game)
     {
@@ -90,11 +85,15 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
   *item += (*s == UP && *item != START_MEN) ? -1 : 0;
   *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
-    g_launcher = NULL;
+    {
+      g_launcher = &main_menu;
+      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    }
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
     {
       g_launcher = select[*item];
       play_sfx(get_common_sfx(BLIPOK_SFX));
+      redraw_context(NULL);
     }
   if (*item != old_item)
     {
@@ -105,23 +104,16 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
 
 static void	display_menu()
 {
-  draw_sprite_raw(get_common_sprite(TITLE_SPR), &(SDL_Point){187, 122});
-  draw_text("START", &(SDL_Point){325, 298}, get_common_font(ATARI24_FNT),
-	    ISSEL(START_MEN));
-  draw_text("HISCORES", &(SDL_Point){289, 369}, get_common_font(ATARI24_FNT),
-	    ISSEL(SCORE_MEN));
-}
-
-static Sint32	key_filter(void *userdata, SDL_Event *event)
-{
-  userdata = (void *)userdata;
-  if (event->type != SDL_KEYDOWN && event->type != SDL_QUIT)
-    return (0);
-  if (event->type == SDL_KEYDOWN)
-    if (event->key.keysym.scancode != UP && event->key.keysym.scancode != DN &&
-  	event->key.keysym.scancode != SDL_SCANCODE_ESCAPE &&
-  	event->key.keysym.scancode != SDL_SCANCODE_RETURN &&
-  	event->key.keysym.scancode != SDL_SCANCODE_KP_ENTER)
-      return (0);
-  return (1);
+  const SDL_Color	sel = {152, 128, 208, 0};
+  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Point		orig;
+  
+  orig = point_factory(187, 122);
+  draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
+  orig = point_factory(325, 298);
+  draw_text("START", &orig, get_common_font(ATARI24_FNT),
+            ISSEL(START_MEN, &sel, &uns));
+  orig = point_factory(289, 369);
+  draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
+            ISSEL(SCORE_MEN, &sel, &uns));
 }

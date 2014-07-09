@@ -23,7 +23,6 @@
 
 SDL_Rect	rect_factory(const int x, const int y, const int w, const int h);
 SDL_Point	point_factory(const int x, const int y);
-SDL_Color	color_factory(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 
 Sint32		key_filter(void *userdata, SDL_Event *event);
 

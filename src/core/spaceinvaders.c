@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Wed Jul  9 13:15:02 2014 ENNEBATI Yassine
+** Last update Wed Jul  9 23:53:50 2014 ENNEBATI Yassine
 */
 
 /**
@@ -26,6 +26,7 @@
 #include "renderer.h"
 #include "graphics.h"
 #include "audio.h"
+#include "../game/mainmenu.h"
 #include "../game/spaceinvaders/gamecore.h"
 #include "../game/spaceinvaders/menu.h"
 
@@ -80,10 +81,9 @@ Sint32	main(int argc, char **argv)
 
   if (core_init(argc, argv) || game_init())
     return (EXIT_FAILURE);
-  g_launcher = &menu_game;
+  g_launcher = &main_menu;
   while (g_launcher)
     {
-      redraw_context(NULL);
       g_launcher();
     }
   game_destroy();
