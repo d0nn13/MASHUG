@@ -31,4 +31,4 @@ Sint32	load_hiscores();
  */
 Sint32	save_hiscore();
 
-#endif /* !GAME_HI_SCORES */
+#endif /* !GAME_HISCORES_H */
