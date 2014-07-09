@@ -20,33 +20,39 @@
 
 t_mode		g_launcher;
 
-Sint32		game_init()
+Sint32			game_init()
 {
+  const SDL_Color	black = {0, 0, 0, 255};
+
   load_common_sprites();
   load_common_fonts();
   load_common_sfx();
-  redraw_context(&(SDL_Color){0, 0, 0, 255});
+  redraw_context(&black);
   return (0);
 }
 
-void		redraw_context(SDL_Color *c)
+/* TODO: ptr_chk() on c */
+void		redraw_context(const SDL_Color *c)
 {
-  SDL_Color	col;
+  const SDL_Color	black = {0, 0, 0, 255};
+  SDL_Color		col;
 
-  col = !c ? (SDL_Color){0, 0, 0, 255} : *c;
+  col = !c ? black : *c;
   SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
   SDL_RenderClear(get_renderer());
   draw_sprite(get_common_sprite(CABINET_SPR), NULL);
 }
 
-void		game_loop()
+void			game_loop()
 {
-  SDL_Event	e;
-  SDL_Scancode	s;
+  const SDL_Color	white = {255, 255, 255, 255};
+  const SDL_Point	orig = {190, 120};
+  SDL_Event		e;
+  SDL_Scancode		s;
 
   memset(&e, 0, sizeof(e));
-  draw_text("!!!!GAME!!!!", &(SDL_Point){190, 120}, get_common_font(COSMIC48_FNT),
-	    &(SDL_Color){255, 255, 255, 255});
+  draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
+	    &white);
   while (g_launcher == &game_loop)
     {
       if (SDL_PollEvent(&e))

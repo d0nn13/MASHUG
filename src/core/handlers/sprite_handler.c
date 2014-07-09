@@ -58,8 +58,14 @@ void	draw_sprite(const t_texture *s, const SDL_Rect *zone)
 
 void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig)
 {
+  SDL_Rect	rect;
+
   if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
       !ptr_chk(orig, "origin", SPR_LCAT, "draw_sprite_raw"))
     return ;
-  draw_sprite(s, &(SDL_Rect){orig->x, orig->y, s->w, s->h});
+  rect.x = orig->x;
+  rect.y = orig->y;
+  rect.w = s->w;
+  rect.h = s->h;
+  draw_sprite(s, &rect);
 }

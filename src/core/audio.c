@@ -35,18 +35,17 @@ static t_chunk			*slot[SLOT_NB];
  */
 static void	fill_audio_buffer(void *userdata, Uint8 *stream, int len);
 
-Sint32		audio_init()
+Sint32			audio_init()
 {
-  SDL_AudioSpec	try;
-  int		i;
+  int			i;
+  const SDL_AudioSpec	try = {
+    22050, AUDIO_S16LSB, 2, 0, 1024, 0, 0, &fill_audio_buffer, NULL};
 
   if (SDL_InitSubSystem(SDL_INIT_AUDIO))
     {
       SDL_LogError(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
       return (-1);
     }
-  try = (SDL_AudioSpec){.freq = 22050, .format = AUDIO_S16LSB, .channels = 2,
-			.samples = 1024, .callback = fill_audio_buffer};
   dev = SDL_OpenAudioDevice(NULL, 0, &try, &conf, 0);
   if (!dev)
     {

@@ -47,7 +47,10 @@ void	draw_text(const char *text, const SDL_Point *o, const TTF_Font *f, const SD
       SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
       return ;
     }
-  z = (SDL_Rect){o->x, o->y, t->w, t->h};
+  z.x = o->x;
+  z.y = o->y;
+  z.w = t->w;
+  z.h = t->h;
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
     {
       SDL_LogError(FNT_LCAT, "draw_text: ", SDL_GetError());

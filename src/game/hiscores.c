@@ -26,13 +26,15 @@
 # define	SCOREFILE	"./.si_hiscores.xml"
 #endif
 
-void		hiscores()
+void			hiscores()
 {
-  SDL_Event	e;
-  SDL_Scancode	s;
+  SDL_Event		e;
+  SDL_Scancode		s;
+  const SDL_Point	orig = {240, 120};
+  const SDL_Color	white = {255, 255, 255, 255};
 
-  draw_text("HISCORES", &(SDL_Point){240,120}, get_common_font(COSMIC48_FNT),
-	    &(SDL_Color){255, 255, 255, 255});
+  draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
+      &white);
   while (g_launcher == &hiscores)
     {
       if (SDL_WaitEvent(&e))

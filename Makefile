@@ -21,6 +21,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/renderer.c			\
 			$(SRCPATH)core/graphics.c			\
 			$(SRCPATH)core/audio.c				\
+			$(SRCPATH)core/helpers.c			\
 			$(SRCPATH)core/handlers/graphic_handler.c	\
 			$(SRCPATH)core/handlers/sprite_handler.c	\
 			$(SRCPATH)core/handlers/font_handler.c		\
@@ -35,7 +36,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -Wextra -Wfatal-errors -std=c99 -pedantic
+CFLAGS		=	`sdl2-config --cflags` -ggdb -W -Wall -Wextra -Wfatal-errors -ansi -pedantic
 LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
 BINARY		=	spaceinvaders-dbg

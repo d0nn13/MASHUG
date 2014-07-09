@@ -10,6 +10,7 @@
 
 #include "../../core/log.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 
 #include "sprites.h"
 
@@ -17,12 +18,15 @@ static t_texture	*common_sprites[NB_SPR];
 
 void		load_common_sprites()
 {
-  const char* sheet = "media/gfx/sprites_sheet_alpha.png";
+  const char	*sheet = "media/gfx/sprites_sheet_alpha.png";
+  SDL_Rect	rect1;
+  SDL_Rect	rect2;
 
-  common_sprites[CABINET_SPR] = make_sprite(sheet,
-					    &(SDL_Rect){5, 993, 256, 224}, NULL);
-  common_sprites[TITLE_SPR] = make_sprite(sheet, &(SDL_Rect){17, 8, 588, 166},
-					  &(SDL_Rect){0, 0, 420, 119});
+  rect1 = rect_factory(5, 993, 256, 224);
+  common_sprites[CABINET_SPR] = make_sprite(sheet, &rect1, NULL);
+  rect1 = rect_factory(17, 8, 588, 166);
+  rect2 = rect_factory(0, 0, 420, 119);
+  common_sprites[TITLE_SPR] = make_sprite(sheet, &rect1, &rect2);
   SDL_LogInfo(SPR_LCAT, "Sprites loaded");
 }
 
