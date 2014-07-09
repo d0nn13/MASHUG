@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Thu Jul  3 14:17:14 2014 AHAMADA Samir
+** Last update Wed Jul  9 13:15:02 2014 ENNEBATI Yassine
 */
 
 /**
@@ -26,8 +26,8 @@
 #include "renderer.h"
 #include "graphics.h"
 #include "audio.h"
-#include "../game/gamecore.h"
-#include "../game/mainmenu.h"
+#include "../game/spaceinvaders/gamecore.h"
+#include "../game/spaceinvaders/menu.h"
 
 /**
  *	@brief	Initializes all engine modules

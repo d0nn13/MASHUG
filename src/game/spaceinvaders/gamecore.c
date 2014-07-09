@@ -5,16 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Fri Jun 27 17:33:36 2014 AHAMADA Samir
+** Last update Wed Jul  9 13:25:56 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
-#include "../core/renderer.h"
-#include "../core/handlers.h"
-#include "common/sprites.h"
-#include "common/fonts.h"
-#include "common/sfx.h"
-#include "mainmenu.h"
+#include "../../core/renderer.h"
+#include "../../core/handlers.h"
+#include "../common/sprites.h"
+#include "../common/fonts.h"
+#include "../common/sfx.h"
+#include "menu.h"
 
 #include "gamecore.h"
 
