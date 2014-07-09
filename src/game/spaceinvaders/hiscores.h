@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat May  3 20:36:58 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:19:38 2014 AHAMADA Samir
+** Last update Wed Jul  9 12:10:28 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Hi-Scores mode
  */
 
-#ifndef HISCORES_H
-# define HISCORES_H
+#ifndef GAME_HISCORES_H
+# define GAME_HISCORES_H
 
 /**
  *	Main HiScores-mode routine
@@ -31,4 +31,4 @@ Sint32	load_hiscores();
  */
 Sint32	save_hiscore();
 
-#endif /* !HI_SCORES */
+#endif /* !GAME_HI_SCORES */

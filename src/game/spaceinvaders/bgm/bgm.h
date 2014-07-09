@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:01:38 2014 AHAMADA Samir
-** Last update Mon Jun 23 18:24:02 2014 AHAMADA Samir
+** Last update Wed Jul  9 12:11:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Background music engine
  */
 
-#ifndef BGM_H
-#define BGM_H
+#ifndef GAME_SPACEINVADERS_BGM_H
+#define GAME_SPACEINVADERS_BGM_H
 
-#endif /* !BGM_H */
+#endif /* !GAME_SPACEINVADERS_BGM_H */
 
