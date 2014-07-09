@@ -61,7 +61,7 @@ void		draw_text(const char *text, const SDL_Point *orig, const TTF_Font *f, cons
  *	@param	h The height of the texture in pixels
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
+t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
 
 /**
  *	@brief	Create a texture from an existing surface.
@@ -70,7 +70,7 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
  *	@param	s The structure containing pixel data used to fill the texture
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s);
+t_texture	*make_texture_from_surface(const SDL_Renderer *r, const SDL_Surface *s);
 
 /**
  *	@brief	Deallocates a texture.
