@@ -75,7 +75,6 @@ static Sint32	core_destroy()
 
 Sint32	main(int argc, char **argv)
 {
-  (void)argc;
   chdir(dirname(*argv));
   chdir("..");
 
