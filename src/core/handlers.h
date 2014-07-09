@@ -22,9 +22,9 @@
 # include "graphics.h"
 # include "audio.h"
 
-/*
-** ==================== F O N T S ====================
-*/
+/**
+ * ==================== F O N T S ====================
+ */
 /**
  *	@brief	Allocates a new surface with 'text' printed with given
  *		font 'f' and color 'c'.
@@ -49,9 +49,9 @@ SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Col
 void		draw_text(const char *text, const SDL_Point *orig, const TTF_Font *f, const SDL_Color *c);
 
 
-/*
-** ==================== G R A P H I C S ====================
-*/
+/**
+ * ==================== G R A P H I C S ====================
+ */
 /**
  *	@brief	Create a texture for a rendering context.
  *
@@ -82,6 +82,9 @@ void		free_texture(t_texture *t);
 
 
 /**
+ * ==================== S O U N D  F X ====================
+ */
+/**
  *	@brief	Plays a sound effect.
  *
  *	@param	s The audio chunk to play
@@ -89,9 +92,9 @@ void		free_texture(t_texture *t);
 void		play_sfx(t_chunk *s);
 
 
-/*
-** ==================== S P R I T E S ====================
-*/
+/**
+ * ==================== S P R I T E S ====================
+ */
 /**
  *	@brief	Allocates a new scaled sprite from a sprites sheet file.
  *
@@ -100,7 +103,7 @@ void		play_sfx(t_chunk *s);
  *	@param	size The desired sprite size
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
+t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *size);
 
 /**
  *	@brief	Draws a sprite at a given zone in the texture.
@@ -111,7 +114,7 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size);
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	zone The zone to fill with the desired sprite
  */
-void		draw_sprite(t_texture *s, SDL_Rect *zone);
+void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
 
 /**
  *	@brief	Draws a sprite at a given point in the texture without applying scaling.
@@ -119,7 +122,7 @@ void		draw_sprite(t_texture *s, SDL_Rect *zone);
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
  */
-void		draw_sprite_raw(t_texture *s, SDL_Point *orig);
+void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig);
 
 
 #endif /* !CORE_HANDLERS */
