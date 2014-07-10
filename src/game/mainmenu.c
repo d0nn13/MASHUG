@@ -10,6 +10,7 @@
 
 #include <SDL2/SDL.h>
 #include "../core/handlers.h"
+#include "../core/helpers.h"
 #include "common/sprites.h"
 #include "common/fonts.h"
 #include "common/sfx.h"
@@ -20,9 +21,7 @@
 
 #define UP		SDL_SCANCODE_UP
 #define DN		SDL_SCANCODE_DOWN
-#define SEL		&(SDL_Color){152, 128, 208, 0}
-#define UNS		&(SDL_Color){255, 255, 255, 0}
-#define ISSEL(x)	((item == (x)) ? (SEL) : (UNS))
+#define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
 /**
  *	Menu item definition
@@ -103,13 +102,20 @@ static void	process_input(const SDL_Scancode *s, t_menuitem *item)
     }
 }
 
-static void	display_menu()
+static void		display_menu()
 {
-  draw_sprite_raw(get_common_sprite(TITLE_SPR), &(SDL_Point){187, 122});
-  draw_text("START", &(SDL_Point){325, 298}, get_common_font(ATARI24_FNT),
-	    ISSEL(START_MEN));
-  draw_text("HISCORES", &(SDL_Point){289, 369}, get_common_font(ATARI24_FNT),
-	    ISSEL(SCORE_MEN));
+  const SDL_Color	sel = {152, 128, 208, 0};
+  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Point	orig;
+
+  orig = point_factory(187, 122);
+  draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
+  orig = point_factory(325, 298);
+  draw_text("START", &orig, get_common_font(ATARI24_FNT),
+      ISSEL(START_MEN, &sel, &uns));
+  orig = point_factory(289, 369);
+  draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
+      ISSEL(SCORE_MEN, &sel, &uns));
 }
 
 static Sint32	key_filter(void *userdata, SDL_Event *event)
