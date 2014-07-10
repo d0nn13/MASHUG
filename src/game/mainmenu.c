@@ -10,6 +10,7 @@
 
 #include <SDL2/SDL.h>
 #include "../core/handlers.h"
+#include "../core/helpers.h"
 #include "common/sprites.h"
 #include "common/fonts.h"
 #include "common/sfx.h"
@@ -107,15 +108,12 @@ static void		display_menu()
   const SDL_Color	uns = {255, 255, 255, 0};
   SDL_Point	orig;
 
-  orig.x = 187;
-  orig.y = 122;
+  orig = point_factory(187, 122);
   draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
-  orig.x = 325;
-  orig.y = 298;
+  orig = point_factory(325, 298);
   draw_text("START", &orig, get_common_font(ATARI24_FNT),
       ISSEL(START_MEN, &sel, &uns));
-  orig.x = 289;
-  orig.y = 369;
+  orig = point_factory(289, 369);
   draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
       ISSEL(SCORE_MEN, &sel, &uns));
 }

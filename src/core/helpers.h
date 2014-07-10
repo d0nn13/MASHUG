@@ -19,5 +19,6 @@
 #include <SDL2/SDL.h>
 
 SDL_Rect	rect_factory(const int x, const int y, const int w, const int h);
+SDL_Point	point_factory(const int x, const int y);
 
 #endif /* CORE_HELPERS_H */

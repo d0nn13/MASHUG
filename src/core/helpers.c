@@ -25,3 +25,12 @@ SDL_Rect	rect_factory(const int x, const int y, const int w, const int h)
   newrect.h = h;
   return (newrect);
 }
+
+SDL_Point	point_factory(const int x, const int y)
+{
+  SDL_Point	newpoint;
+
+  newpoint.x = x;
+  newpoint.y = y;
+  return (newpoint);
+}
