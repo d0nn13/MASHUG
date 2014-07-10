@@ -19,14 +19,14 @@
 
 #include "../handlers.h"
 
-t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
+t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
 {
   t_texture	*t;
 
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture"))
     return (NULL);
   t = mem_alloc(sizeof(t_texture));
-  if (!(t->tex = SDL_CreateTexture(r, PIX_FMT, a, w, h)))
+  if (!(t->tex = SDL_CreateTexture((SDL_Renderer *)r, PIX_FMT, a, w, h)))
     {
       SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
       return (NULL);
@@ -37,7 +37,7 @@ t_texture	*make_texture(SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
   return (t);
 }
 
-t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
+t_texture	*make_texture_from_surface(const SDL_Renderer *r, const SDL_Surface *s)
 {
   t_texture	*t;
 
@@ -45,7 +45,8 @@ t_texture	*make_texture_from_surface(SDL_Renderer *r, SDL_Surface *s)
       !ptr_chk(s, "surface", GFX_LCAT, "make_texture"))
     return (NULL);
   t = mem_alloc(sizeof(t_texture));
-  if (!(t->tex = SDL_CreateTextureFromSurface(r, s)))
+  if (!(t->tex = SDL_CreateTextureFromSurface((SDL_Renderer *)r,
+	  (SDL_Surface *)s)))
     {
       SDL_LogError(GFX_LCAT, "make_texture_from_surface: ", SDL_GetError());
       return (NULL);

@@ -20,7 +20,7 @@
 #include "../handlers.h"
 
 /* TODO (ahamad_s): Split in 2 functions(?) */
-t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
+t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *size)
 {
   SDL_Surface	*sprite;
   SDL_Surface	*spritesheet;
@@ -31,7 +31,7 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
       !ptr_chk(zone, "zone", SPR_LCAT, "make_sprite"))
     return (NULL);
   spritesheet = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
-  s = (size == NULL) ? zone : size;
+  s = ((SDL_Rect *)size == NULL) ? (SDL_Rect *)zone : (SDL_Rect *)size;
   if (!spritesheet)
     {
       SDL_LogError(SPR_LCAT, "make_sprite: ", IMG_GetError());
@@ -47,7 +47,7 @@ t_texture	*make_sprite(const char *file, SDL_Rect *zone, SDL_Rect *size)
   return (out);
 }
 
-void	draw_sprite(t_texture *s, SDL_Rect *zone)
+void	draw_sprite(const t_texture *s, const SDL_Rect *zone)
 {
   if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite"))
     return ;
@@ -56,7 +56,7 @@ void	draw_sprite(t_texture *s, SDL_Rect *zone)
   SDL_LogDebug(SPR_LCAT, "Drawn sprite");
 }
 
-void		draw_sprite_raw(t_texture *s, SDL_Point *orig)
+void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig)
 {
   if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
       !ptr_chk(orig, "origin", SPR_LCAT, "draw_sprite_raw"))
