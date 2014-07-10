@@ -16,6 +16,7 @@
 #include <SDL2/SDL_image.h>
 #include "../log.h"
 #include "../renderer.h"
+#include "../helpers.h"
 
 #include "../handlers.h"
 
@@ -63,9 +64,6 @@ void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig)
   if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
       !ptr_chk(orig, "origin", SPR_LCAT, "draw_sprite_raw"))
     return ;
-  rect.x = orig->x;
-  rect.y = orig->y;
-  rect.w = s->w;
-  rect.h = s->h;
+  rect = rect_factory(orig->x, orig->y, s->w, s->h);
   draw_sprite(s, &rect);
 }
