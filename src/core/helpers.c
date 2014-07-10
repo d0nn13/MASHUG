@@ -8,6 +8,11 @@
 ** Last update Wed Jul 09 21:50:17 2014 Samir Ahamada
 */
 
+/**
+ *	@file	helpers.h
+ *	@brief	Convinient helping functions
+ */
+
 #include "helpers.h"
 
 SDL_Rect	rect_factory(const int x, const int y, const int w, const int h)
