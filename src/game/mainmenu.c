@@ -19,8 +19,6 @@
 
 #include "mainmenu.h"
 
-#define UP		SDL_SCANCODE_UP
-#define DN		SDL_SCANCODE_DOWN
 #define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
 /**
@@ -54,10 +52,6 @@ static void		process_input(const SDL_Scancode *s, t_menuitem *item);
  */
 static void		display_menu();
 
-/**
- *
- */
-static Sint32		key_filter(void *userdata, SDL_Event *event);
 
 void			menu_game()
 {
@@ -116,18 +110,4 @@ static void		display_menu()
   orig = point_factory(289, 369);
   draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
       ISSEL(SCORE_MEN, &sel, &uns));
-}
-
-static Sint32	key_filter(void *userdata, SDL_Event *event)
-{
-  userdata = (void *)userdata;
-  if (event->type != SDL_KEYDOWN && event->type != SDL_QUIT)
-    return (0);
-  if (event->type == SDL_KEYDOWN)
-    if (event->key.keysym.scancode != UP && event->key.keysym.scancode != DN &&
-  	event->key.keysym.scancode != SDL_SCANCODE_ESCAPE &&
-  	event->key.keysym.scancode != SDL_SCANCODE_RETURN &&
-  	event->key.keysym.scancode != SDL_SCANCODE_KP_ENTER)
-      return (0);
-  return (1);
 }
