@@ -35,6 +35,15 @@ static t_mode		select[NB_GAME] =
     &main_menu
   };
 
+static void		display_main_menu();
+
+static Sint32		key_filter(void *userdata, SDL_Event *event);
+
+static void		process_input(const SDL_Scancode *s, t_gameitem *item);
+
+static void		draw_background_menu();
+
+
 static void		display_main_menu()
 {
   const SDL_Color	sel = {152, 128, 208, 0};
