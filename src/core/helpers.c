@@ -45,3 +45,17 @@ SDL_Color	color_factory(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8
   newcolor.a = a;
   return (newcolor);
 }
+
+Sint32	key_filter(void *userdata, SDL_Event *event)
+{
+  userdata = (void *)userdata;
+  if (event->type != SDL_KEYDOWN && event->type != SDL_QUIT)
+    return (0);
+  if (event->type == SDL_KEYDOWN)
+    if (event->key.keysym.scancode != UP && event->key.keysym.scancode != DN &&
+  	event->key.keysym.scancode != SDL_SCANCODE_ESCAPE &&
+  	event->key.keysym.scancode != SDL_SCANCODE_RETURN &&
+  	event->key.keysym.scancode != SDL_SCANCODE_KP_ENTER)
+      return (0);
+  return (1);
+}
