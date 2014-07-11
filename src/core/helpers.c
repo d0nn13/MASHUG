@@ -34,7 +34,17 @@ SDL_Point	point_factory(const int x, const int y)
   newpoint.y = y;
   return (newpoint);
 }
+ 
+SDL_Color	color_factory(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a)
+{
+  SDL_Color	newcolor;
 
+  newcolor.r = r;
+  newcolor.g = g;
+  newcolor.b = b;
+  newcolor.a = a;
+  return (newcolor);
+}
 
 Sint32	key_filter(void *userdata, SDL_Event *event)
 {

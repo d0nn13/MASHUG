@@ -37,8 +37,6 @@ static t_mode		select[NB_GAME] =
 
 static void		display_main_menu();
 
-static Sint32		key_filter(void *userdata, SDL_Event *event);
-
 static void		process_input(const SDL_Scancode *s, t_gameitem *item);
 
 static void		draw_background_menu();
