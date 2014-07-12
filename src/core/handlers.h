@@ -19,6 +19,7 @@
 # include <SDL2/SDL_ttf.h>
 # include <SDL2/SDL_stdinc.h>
 # include <SDL2/SDL_render.h>
+# include <libxml/parser.h>
 # include "graphics.h"
 # include "audio.h"
 
@@ -124,5 +125,31 @@ void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
  */
 void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig);
 
+
+
+/*
+** ==================== X M L ====================
+*/
+typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
+
+/**
+ *	@brief	Parses or counts parsed elements in a XML file
+ *	@return	Number of counted elements
+ */
+Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container);
+
+/*
+** ==================== H I S C O R E S ====================
+*/
+# define HISCORE_NICKNAME_LENGTH	16
+
+typedef struct	_hiscoreholder
+{
+  char		nickname[HISCORE_NICKNAME_LENGTH];
+  Uint32	score;
+  Uint32	date;
+}		t_hiscoreholder;
+
+Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
 
 #endif /* !CORE_HANDLERS */

@@ -40,7 +40,8 @@ static char	*catstrings[NB_LCAT] = {
   "Graphics",
   "Sprites",
   "Fonts",
-  "Options"
+  "Options",
+  "XML"
 };
 
 /**

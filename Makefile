@@ -26,6 +26,8 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/handlers/sprite_handler.c	\
 			$(SRCPATH)core/handlers/font_handler.c		\
 			$(SRCPATH)core/handlers/sound_handler.c		\
+			$(SRCPATH)core/handlers/xml_handler.c		\
+			$(SRCPATH)core/handlers/xml_hiscore_handler.c	\
 			$(SRCPATH)core/mashug.c				\
 			$(SRCPATH)games/mainmenu.c			\
 			$(SRCPATH)games/common/sprites.c		\
@@ -37,8 +39,8 @@ SRC		=	$(SRCPATH)base/math.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		+=	`sdl2-config --cflags` -W -Wall -Wextra -Wfatal-errors -std=c89 -pedantic
-LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
+CFLAGS		+=	`sdl2-config --cflags` `xml2-config --cflags` -W -Wall -Wextra -Wfatal-errors -ansi -pedantic
+LDFLAGS		=	`sdl2-config --libs` `xml2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	mashug-`uname -m`-`uname -s`.tar.gz
 BINARY		=	mashug-dbg
 
