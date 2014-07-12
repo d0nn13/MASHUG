@@ -80,5 +80,5 @@ doc:
 .PHONY:		doc
 
 printcmd:
-		@echo $(CC) $(CFLAGS) $(LDFLAGS)
+		@echo $(CC) $(CFLAGS) " <source> " $(LDFLAGS)
 .PHONY:		test
