@@ -12,6 +12,7 @@
  *	@file	mashug.c
  *	@brief	Main game file
  */
+/* TODO: Remove XML tests before merge */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
@@ -28,6 +29,9 @@
 #include "audio.h"
 #include "../games/mainmenu.h"
 #include "../games/spaceinvaders/spacecore.h"
+#ifdef XML_TESTS
+# include "handlers.h"
+#endif
 
 /**
  *	@brief	Initializes all engine modules
@@ -43,6 +47,34 @@ static Sint32	core_init(Sint32 argc, char **argv);
  *	@return	0
  */
 static Sint32	core_destroy();
+
+#ifdef XML_TESTS
+void xml_tests()
+{
+  t_hiscoreholder *hiscores = 0;
+  Uint8 count, i;
+  SDL_Log("XML Tests");
+  count = xml_parse("media/hiscores.xml", &xml_hiscore_callback, NULL);
+  if (!count)
+  {
+    SDL_LogError(XML_LCAT, "XML Parse failed");
+    return ;
+  }
+  SDL_LogInfo(XML_LCAT, "Count = %d", count);
+  hiscores = mem_alloc(count * sizeof(t_hiscoreholder));
+  memset(hiscores, 0, count * sizeof(t_hiscoreholder));
+  if (!hiscores)
+    return ;
+  xml_parse("media/hiscores.xml", &xml_hiscore_callback, hiscores);
+  for (i = 0; i < count; ++i)
+  {
+    SDL_LogInfo(XML_LCAT, "Nickname[%d]: %s", i, hiscores[i].nickname);
+    SDL_LogInfo(XML_LCAT, "Score[%d]: %d", i, hiscores[i].score);
+    SDL_LogInfo(XML_LCAT, "Date[%d]: %d", i, hiscores[i].date);
+  }
+  mem_free(hiscores);
+}
+#endif
 
 static Sint32	core_init(Sint32 argc, char **argv)
 {
@@ -60,6 +92,9 @@ static Sint32	core_init(Sint32 argc, char **argv)
   set_options_from_cli(argc, argv);
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-1);
+#ifdef XML_TESTS
+  xml_tests();
+#endif
   return (0);
 }
 
