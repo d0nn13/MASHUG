@@ -1,13 +1,16 @@
-SPACE INVADERS
-==============
-A well known arcade game...
+MASHUG
+======
+Multiple Arcade SHoot'em'Up Games
 
 Requirements :
 --------------
 SDL2, SDL2_image, SDL2_ttf :
 
 ```
-brew install sdl2 sdl2_image, sdl2_ttf -v
+# On OSX:
+brew install -v sdl2 sdl2_image sdl2_ttf
+# On Linux Debian-ish distros (not tested)
+apt-get install sdl2 sdl2_image sdl2_ttf
 ```
 Building :
 ----------
@@ -17,5 +20,5 @@ make
 Launching :
 -----------
 ```
-./bin/spaceinvaders-dbg
+./bin/mashug-dbg
 ```
