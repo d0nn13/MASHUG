@@ -54,10 +54,13 @@ void xml_tests()
   t_hiscoreholder *hiscores = 0;
   Uint8 count, i;
   SDL_Log("XML Tests");
+#ifdef GAME_FILTER
+  xml_hiscore_set_game_name(GAME_FILTER);
+#endif
   count = xml_parse("media/hiscores.xml", &xml_hiscore_callback, NULL);
   if (!count)
   {
-    SDL_LogError(XML_LCAT, "XML Parse failed");
+    SDL_LogDebug(XML_LCAT, "Zero element retrieved from XML");
     return ;
   }
   SDL_LogInfo(XML_LCAT, "Count = %d", count);
