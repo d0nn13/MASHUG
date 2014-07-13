@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu Jun 26 01:31:07 2014 AHAMADA Samir
-** Last update Fri Jul  4 20:45:48 2014 AHAMADA Samir
+** Last update Mon Jul 14 01:57:49 2014 ENNEBATI Yassine
 */
 
 /**
@@ -28,11 +28,11 @@ void	*mem_alloc(size_t size)
   if (try)
     ++nb_allocs;
   else
-    {
-      fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",
-	     (Uint32)size);
-      exit(EXIT_FAILURE);
-    }
+  {
+    fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",
+	    (Uint32)size);
+    exit(EXIT_FAILURE);
+  }
   return (try);
 }
 
@@ -41,10 +41,10 @@ void	mem_free(void *ptr)
   if (!ptr)
     fprintf(stderr, "FATAL ERROR : Tried to free NULL pointer\n");
   else
-    {
-      free(ptr);
-      --nb_allocs;
-    }
+  {
+    free(ptr);
+    --nb_allocs;
+  }
 }
 
 Uint16	mem_get_nb_allocs()
