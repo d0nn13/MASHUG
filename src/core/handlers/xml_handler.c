@@ -18,17 +18,32 @@
 
 #include "../handlers.h"
 
+static void	silent_xml(void *, const char*, ...);
+
 Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container)
 {
   xmlDocPtr	doc;
   xmlNodePtr	node;
 
+  xmlSetGenericErrorFunc(NULL, &silent_xml);
   if (!ptr_chk(path, "xml path", XML_LCAT, "xml_parse") ||
       !ptr_chk(&callback, "callback", XML_LCAT, "xml_parse"))
     return (0);
   if (!(doc = xmlParseFile(path)))
-    return (1);
+  {
+    SDL_LogError(XML_LCAT, "Couldn't parse XML file");
+    return (0);
+  }
   if (!(node = xmlDocGetRootElement(doc)))
-    return (1);
+  {
+    SDL_LogError(XML_LCAT, "Couldn't get XML root element");
+    return (0);
+  }
   return (callback(node, container));
+}
+
+static void	silent_xml(void *ctx, const char* msg, ...)
+{
+  (void)ctx;
+  (void)msg;
 }

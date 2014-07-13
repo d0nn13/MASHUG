@@ -34,7 +34,10 @@ Uint8	xml_hiscore_callback(xmlNodePtr node, void *container)
 
   count = 0;
   if (xmlStrcmp(node->name, (const xmlChar *)"hiscores"))
+  {
+    SDL_LogError(XML_LCAT, "Wrong hiscores file");
     return (0);
+  }
   node = node->children ? node->children : NULL;
   while (node)
   {
