@@ -63,7 +63,7 @@ void xml_tests()
   SDL_LogInfo(XML_LCAT, "Count = %d", count);
   hiscores = mem_alloc(count * sizeof(t_hiscoreholder));
   memset(hiscores, 0, count * sizeof(t_hiscoreholder));
-  if (!hiscores)
+  if (!ptr_chk(hiscores, "hiscores", APP_LCAT, "xml_tests"))
     return ;
   xml_parse("media/hiscores.xml", &xml_hiscore_callback, hiscores);
   for (i = 0; i < count; ++i)

@@ -21,10 +21,13 @@
 
 #include "../handlers.h"
 
-static void	xml_hiscore_entries(xmlNodePtr, t_hiscoreholder *, Uint8 *);
+#define GAME_NAME_LENGTH	15
+
+static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uint8 *count);
 static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
-static xmlChar	game_name[15] = "";
+static xmlChar	game[GAME_NAME_LENGTH] = "";
+
 
 Uint8	xml_hiscore_callback(xmlNodePtr node, void *container)
 {
@@ -44,7 +47,7 @@ Uint8	xml_hiscore_callback(xmlNodePtr node, void *container)
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (!xmlStrcmp(att->children->content, game_name) || !xmlStrlen(game_name))
+      if (!xmlStrcmp(att->children->content, game) || !xmlStrlen(game))
       {
 	entry = node->children->next;
 	xml_hiscore_entries(entry, (t_hiscoreholder *)container, &count);
@@ -94,5 +97,5 @@ void	xml_hiscore_set_game_name(const char *name)
 {
   if (!ptr_chk(name, "game name", XML_LCAT, "xml_hiscore_set_game_name"))
     return ;
-  strcpy((char *)game_name, name);
+  strncpy((char *)game, name, GAME_NAME_LENGTH);
 }
