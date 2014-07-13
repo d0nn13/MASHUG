@@ -26,7 +26,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/handlers/sprite_handler.c	\
 			$(SRCPATH)core/handlers/font_handler.c		\
 			$(SRCPATH)core/handlers/sound_handler.c		\
-			$(SRCPATH)core/spaceinvaders.c			\
+			$(SRCPATH)core/mashug.c				\
 			$(SRCPATH)game/mainmenu.c			\
 			$(SRCPATH)game/common/sprites.c			\
 			$(SRCPATH)game/common/fonts.c			\

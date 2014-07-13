@@ -1,15 +1,15 @@
 /*
-** spaceinvaders.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-**
-** Made by AHAMADA Samir
+** mashug.c for core in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
+** 
+** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Sun Apr 20 21:52:48 2014 AHAMADA Samir
-** Last update Wed Jul  9 23:53:50 2014 ENNEBATI Yassine
+** 
+** Started on  Sun Jul 13 10:41:09 2014 Samir Ahamada
+** Last update Sun Jul 13 10:41:09 2014 Samir Ahamada
 */
 
 /**
- *	@file	spaceinvaders.c
+ *	@file	mashug.c
  *	@brief	Main game file
  */
 
@@ -47,7 +47,8 @@ static Sint32	core_destroy();
 
 static Sint32	core_init(Sint32 argc, char **argv)
 {
-  printf("\nS P A C E  I N V A D E R S\n==========================\n");
+  printf("\nM A S H U G: Multiple Arcade SHoot'em Up Games\n");
+  printf("==============================================\n");
   if ((SDL_Init(0) != 0))
     {
       SDL_LogError(0, "Couldn't initialize SDL : %s",
