@@ -8,6 +8,7 @@
 ** Last update Wed Jul  9 23:57:51 2014 ENNEBATI Yassine
 */
 
+#include		"../base/math.h"
 #include		"../core/renderer.h"
 #include		"../core/handlers.h"
 #include		"../core/helpers.h"
@@ -17,8 +18,6 @@
 #include		"spaceinvaders/gamecore.h"
 
 #include		"mainmenu.h"
-
-#define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
 typedef enum
 {
@@ -50,10 +49,10 @@ static void		display_main_menu()
   
   orig = point_factory(200, 300);
   draw_text("Space Invaders", &orig, get_common_font(PRSTARTK24_FNT),
-            ISSEL(SPACE_GAME, &sel, &uns));
+            T_EQ(item, SPACE_GAME, &sel, &uns));
   orig = point_factory(200, 400);
   draw_text("Galaga", &orig, get_common_font(PRSTARTK24_FNT),
-	    ISSEL(GALAGA_GAME, &sel, &uns));
+	    T_EQ(item, GALAGA_GAME, &sel, &uns));
 }
 
 static void	process_input(const SDL_Scancode *s, t_gameitem *item)

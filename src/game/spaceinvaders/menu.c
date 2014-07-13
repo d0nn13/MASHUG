@@ -9,6 +9,7 @@
 */
 
 #include <SDL2/SDL.h>
+#include "../../base/math.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
 #include "../common/sprites.h"
@@ -19,8 +20,6 @@
 #include "hiscores.h"
 
 #include "menu.h"
-
-#define ISSEL(x, s, u)	((item == (x)) ? (s) : (u))
 
 /**
  *	Menu item definition
@@ -112,8 +111,8 @@ static void	display_menu()
   draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
   orig = point_factory(325, 298);
   draw_text("START", &orig, get_common_font(ATARI24_FNT),
-            ISSEL(START_MEN, &sel, &uns));
+            T_EQ(item, START_MEN, &sel, &uns));
   orig = point_factory(289, 369);
   draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
-            ISSEL(SCORE_MEN, &sel, &uns));
+            T_EQ(item, SCORE_MEN, &sel, &uns));
 }
