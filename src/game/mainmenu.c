@@ -1,5 +1,5 @@
 /*
-** mainmenu.c for SpaceInvaders in /Users/Yassine/Code/ETNA/projet/c/spaceinvaders/src/game
+** mainmenu.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/MASHUG
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>

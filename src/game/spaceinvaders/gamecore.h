@@ -1,5 +1,5 @@
 /*
-** gamecore.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
+** gamecore.h for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
 **
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>

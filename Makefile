@@ -26,7 +26,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/handlers/sprite_handler.c	\
 			$(SRCPATH)core/handlers/font_handler.c		\
 			$(SRCPATH)core/handlers/sound_handler.c		\
-			$(SRCPATH)core/spaceinvaders.c			\
+			$(SRCPATH)core/mashug.c				\
 			$(SRCPATH)game/mainmenu.c			\
 			$(SRCPATH)game/common/sprites.c			\
 			$(SRCPATH)game/common/fonts.c			\
@@ -39,8 +39,8 @@ OBJ		=	$(SRC:%.c=%.o)
 
 CFLAGS		+=	`sdl2-config --cflags` -W -Wall -Wextra -Wfatal-errors -std=c89 -pedantic
 LDFLAGS		=	`sdl2-config --libs` -lSDL2_image -lSDL2_ttf
-PACKAGE		=	SpaceInvaders-`uname -m`-`uname -s`.tar.gz
-BINARY		=	spaceinvaders-dbg
+PACKAGE		=	mashug-`uname -m`-`uname -s`.tar.gz
+BINARY		=	mashug-dbg
 
 %.o:		%.c
 		@printf "\x1b[0;37m:: Building $@ from $<\n\x1b[0;0m"
@@ -50,7 +50,7 @@ all:		$(BINARY)
 .PHONY:		all
 
 $(BINARY):	$(OBJ)
-		@printf "\x1b[1;33m:: Building Space Invasion. . .\n\x1b[0;0m"
+		@printf "\x1b[1;33m:: Building application. . .\n\x1b[0;0m"
 		@$(MKDIR) $(BINPATH)
 		@$(CC) $(CFLAGS) -o $(BINPATH)$(BINARY) $(OBJ) $(LDFLAGS)
 .PHONY:		$(BINARY)

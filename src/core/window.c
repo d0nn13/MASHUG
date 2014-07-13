@@ -1,5 +1,5 @@
 /*
-** window.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
+** window.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
 **
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
@@ -22,7 +22,7 @@ static SDL_Window	*window = NULL;
 
 Sint32	window_init()
 {
-  const char	*window_title = "-=  S P A C E  I N V A D E R S  =-";
+  const char	*window_title = "-=  M A S H U G  =-";
 
   if (SDL_InitSubSystem(SDL_INIT_VIDEO))
     {

@@ -1,5 +1,5 @@
 /*
-** audio.c for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
+** audio.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
 **
 ** Made by AHAMADA Samir
 ** Login   <ahamad_s@etna-alternance.net>
