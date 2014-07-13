@@ -1,5 +1,5 @@
 /*
-** helpers.c for core in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders/src/core
+** helpers.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
 ** 
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
