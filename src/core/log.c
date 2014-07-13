@@ -28,7 +28,7 @@ static char	timestr[9];
  *	@brief Log categories string array (internal)
  */
 static char	*catstrings[NB_LCAT] = {
-  "Space Invaders",
+  "MASHUG",
   "Error",
   NULL,
   "System",
