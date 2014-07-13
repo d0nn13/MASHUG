@@ -5,16 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Fri Jun 27 17:43:09 2014 AHAMADA Samir
+** Last update Wed Jul  9 12:28:53 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_render.h>
-#include "../core/handlers.h"
-#include "common/sprites.h"
-#include "common/fonts.h"
-#include "common/sfx.h"
+#include "../../core/handlers.h"
+#include "../common/sprites.h"
+#include "../common/fonts.h"
+#include "../common/sfx.h"
 #include "gamecore.h"
-#include "mainmenu.h"
+#include "menu.h"
 
 #include "hiscores.h"
 

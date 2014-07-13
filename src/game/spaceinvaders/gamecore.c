@@ -5,29 +5,26 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Fri Jun 27 17:33:36 2014 AHAMADA Samir
+** Last update Wed Jul  9 13:28:18 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
-#include "../core/renderer.h"
-#include "../core/handlers.h"
-#include "common/sprites.h"
-#include "common/fonts.h"
-#include "common/sfx.h"
-#include "mainmenu.h"
+#include "../../core/renderer.h"
+#include "../../core/handlers.h"
+#include "../common/sprites.h"
+#include "../common/fonts.h"
+#include "../common/sfx.h"
+#include "menu.h"
 
 #include "gamecore.h"
 
 t_mode		g_launcher;
 
-Sint32			game_init()
+Sint32		game_init()
 {
-  const SDL_Color	black = {0, 0, 0, 255};
-
   load_common_sprites();
   load_common_fonts();
   load_common_sfx();
-  redraw_context(&black);
   return (0);
 }
 

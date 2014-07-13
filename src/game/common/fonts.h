@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Sat Jun 28 17:37:35 2014 AHAMADA Samir
+** Last update Wed Jul  9 20:52:23 2014 ENNEBATI Yassine
 */
 
 /**
@@ -28,7 +28,7 @@ typedef enum
     COSMIC48_FNT,
     COSMIC24_FNT,
     COSMIC18_FNT,
-    COSMIC12_FNT,
+    PRSTARTK24_FNT,
     NB_FNT
   } t_common_font;
 

@@ -1,11 +1,11 @@
 /*
-** mainmenu.h for SpaceInvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Tue Apr 29 14:21:45 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:19:46 2014 AHAMADA Samir
+** mainmenu.h for SpaceInvaders in /Users/Yassine/Code/ETNA/projet/c/spaceinvaders/src/game
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Wed Jul  9 12:31:10 2014 ENNEBATI Yassine
+** Last update Wed Jul  9 19:03:33 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,12 +13,9 @@
  *	@brief	Main menu
  */
 
-#ifndef	MENU_H
-# define MENU_H
+#ifndef	GAME_MAINMENU_H
+# define GAME_MAINMENU_H
 
-/**
- *	Main menu routine
- */
-void	menu_game();
+void	main_menu();
 
-#endif /* !MENU_H */
+#endif	/* !GAME_MAINMENU_H */
