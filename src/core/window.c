@@ -22,7 +22,7 @@ static SDL_Window	*window = NULL;
 
 Sint32	window_init()
 {
-  const char	*window_title = "-=  S P A C E  I N V A D E R S  =-";
+  const char	*window_title = "-=  M A S H U G  =-";
 
   if (SDL_InitSubSystem(SDL_INIT_VIDEO))
     {
