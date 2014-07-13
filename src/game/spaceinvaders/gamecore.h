@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:19:28 2014 AHAMADA Samir
+** Last update Wed Jul  9 12:10:02 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Game!!
  */
 
-#ifndef GAMECORE_H
-# define GAMECORE_H
+#ifndef GAME_GAMECORE_H
+# define GAME_GAMECORE_H
 
 /**
  *	@brief	Game mode callback definition
@@ -49,4 +49,4 @@ void	game_loop();
  */
 void	game_destroy();
 
-#endif /* !GAMECORE_H */
+#endif /* !GAME_GAMECORE_H */

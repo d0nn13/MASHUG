@@ -13,8 +13,11 @@
 
 # include <SDL2/SDL_stdinc.h>
 
-# define max(a, b)	(((a) > (b)) ? (a) : (b))
-# define min(a, b)	(((a) < (b)) ? (a) : (b))
+# define MAX(a, b)		( ((a) > (b)) ? (a) : (b) )
+# define MIN(a, b)		( ((a) < (b)) ? (a) : (b) )
+# define T_LT(a, b, c, d)	( ((a) < (b)) ? (c) : (d) )
+# define T_GT(a, b, c, d)	( ((a) > (b)) ? (c) : (d) )
+# define T_EQ(a, b, c, d)	( ((a) == (b)) ? (c) : (d) )
 
 /**
  *	Centering algorithm
