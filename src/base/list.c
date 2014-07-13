@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu Jun 26 01:46:35 2014 AHAMADA Samir
-** Last update Fri Jul  4 20:48:54 2014 AHAMADA Samir
+** Last update Mon Jul 14 01:48:21 2014 ENNEBATI Yassine
 */
 
 /**
@@ -32,10 +32,10 @@ t_singlelist	*list_make_node()
 void		list_push(void *data, t_singlelist **tail)
 {
   if (!tail)
-    {
-      fprintf(stderr, "FATAL ERROR: NULL list node\n");
-      return ;
-    }
+  {
+    fprintf(stderr, "FATAL ERROR: NULL list node\n");
+    return ;
+  }
   (*tail)->next = list_make_node();
   (*tail)->next->index = (*tail)->index + 1;
   *tail = (*tail)->next;
@@ -47,17 +47,17 @@ void		*list_get(t_singlelist *root, Uint16 index)
   t_singlelist	*read;
 
   if (!root)
-    {
-      fprintf(stderr, "FATAL ERROR: NULL list node\n");
-      return (NULL);
-    }
+  {
+    fprintf(stderr, "FATAL ERROR: NULL list node\n");
+    return (NULL);
+  }
   read = root;
   while (read)
-    {
-      if (read->index == index)
-	return (read->data);
-      read = read->next;
-    }
+  {
+    if (read->index == index)
+      return (read->data);
+    read = read->next;
+  }
   return (0);
 }
 
@@ -67,17 +67,17 @@ Uint16		my_list_size(t_singlelist *root)
   Uint16	count;
 
   if (!root)
-    {
-      fprintf(stderr, "FATAL ERROR: NULL list node\n");
-      return (0);
-    }
+  {
+    fprintf(stderr, "FATAL ERROR: NULL list node\n");
+    return (0);
+  }
   read = root;
   count = 0;
   while (read)
-    {
-      read = read->next;
-      ++count;
-    }
+  {
+    read = read->next;
+    ++count;
+  }
   return (count);
 }
 
@@ -87,17 +87,17 @@ void		list_clear(t_singlelist **root)
   t_singlelist	*next;
 
   if (!root)
-    {
-      fprintf(stderr, "FATAL ERROR: NULL list node\n");
-      return ;
-    }
+  {
+    fprintf(stderr, "FATAL ERROR: NULL list node\n");
+    return ;
+  }
   read = *root;
   while (read)
-    {
-      next = read->next;
-      mem_free(read);
-      read = next;
-    }
+  {
+    next = read->next;
+    mem_free(read);
+    read = next;
+  }
   *root = NULL;
 }
 
