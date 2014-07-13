@@ -151,5 +151,6 @@ typedef struct	_hiscoreholder
 }		t_hiscoreholder;
 
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
+void		xml_hiscore_set_game_name(const char *name);
 
 #endif /* !CORE_HANDLERS */
