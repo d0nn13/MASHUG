@@ -12,13 +12,15 @@ brew install -v sdl2 sdl2_image sdl2_ttf
 # On Linux Debian-ish distros (not tested)
 apt-get install sdl2 sdl2_image sdl2_ttf
 ```
+
 Building :
 ----------
-```
+```bash
 make
 ```
+
 Launching :
 -----------
-```
+```bash
 ./bin/mashug-dbg
 ```
