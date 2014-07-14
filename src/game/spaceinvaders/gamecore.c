@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Wed Jul  9 13:28:18 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 02:17:36 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -51,22 +51,22 @@ void			game_loop()
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
   while (g_launcher == &game_loop)
+  {
+    if (SDL_PollEvent(&e))
+      if (e.type == SDL_QUIT)
+	g_launcher = NULL;
+    if (e.type == SDL_KEYDOWN)
     {
-      if (SDL_PollEvent(&e))
-	if (e.type == SDL_QUIT)
-	  g_launcher = NULL;
-      if (e.type == SDL_KEYDOWN)
-	{
-	  s = e.key.keysym.scancode;
-	  if (s == SDL_SCANCODE_ESCAPE)
-	    {
-	      g_launcher = &menu_game;
-	      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-	    }
-	}
-      SDL_RenderPresent(get_renderer());
-      SDL_Delay(10);
+      s = e.key.keysym.scancode;
+      if (s == SDL_SCANCODE_ESCAPE)
+      {
+	g_launcher = &menu_game;
+	play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+      }
     }
+    SDL_RenderPresent(get_renderer());
+    SDL_Delay(10);
+  }
 }
 
 void	game_destroy()

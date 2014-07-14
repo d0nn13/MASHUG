@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Fri Jun 27 16:03:37 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:13:04 2014 ENNEBATI Yassine
 */
 
 /**
@@ -27,10 +27,10 @@ t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
     return (NULL);
   t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTexture((SDL_Renderer *)r, PIX_FMT, a, w, h)))
-    {
-      SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
-      return (NULL);
-    }
+  {
+    SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
+    return (NULL);
+  }
   SDL_SetTextureBlendMode(t->tex, SDL_BLENDMODE_BLEND);
   t->w = w;
   t->h = h;
@@ -46,11 +46,11 @@ t_texture	*make_texture_from_surface(const SDL_Renderer *r, const SDL_Surface *s
     return (NULL);
   t = mem_alloc(sizeof(t_texture));
   if (!(t->tex = SDL_CreateTextureFromSurface((SDL_Renderer *)r,
-	  (SDL_Surface *)s)))
-    {
-      SDL_LogError(GFX_LCAT, "make_texture_from_surface: ", SDL_GetError());
-      return (NULL);
-    }
+					      (SDL_Surface *)s)))
+  {
+    SDL_LogError(GFX_LCAT, "make_texture_from_surface: ", SDL_GetError());
+    return (NULL);
+  }
   SDL_SetTextureBlendMode(t->tex, SDL_BLENDMODE_BLEND);
   t->w = s->w;
   t->h = s->h;

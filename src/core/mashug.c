@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jul 13 10:41:09 2014 Samir Ahamada
-** Last update Sun Jul 13 10:41:09 2014 Samir Ahamada
+** Last update Mon Jul 14 02:07:15 2014 ENNEBATI Yassine
 */
 
 /**
@@ -50,11 +50,11 @@ static Sint32	core_init(Sint32 argc, char **argv)
   printf("\nM A S H U G: Multiple Arcade SHoot'em Up Games\n");
   printf("==============================================\n");
   if ((SDL_Init(0) != 0))
-    {
-      SDL_LogError(0, "Couldn't initialize SDL : %s",
-		   SDL_GetError());
-      return (1);
-    }
+  {
+    SDL_LogError(0, "Couldn't initialize SDL : %s",
+		 SDL_GetError());
+    return (1);
+  }
   print_versions();
   log_init();
   SDL_Log("Engine started, welcome aboard!");
@@ -83,9 +83,9 @@ Sint32	main(int argc, char **argv)
     return (EXIT_FAILURE);
   g_launcher = &main_menu;
   while (g_launcher)
-    {
-      g_launcher();
-    }
+  {
+    g_launcher();
+  }
   game_destroy();
   core_destroy();
   SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());

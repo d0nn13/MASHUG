@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:08:51 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:10:08 2014 ENNEBATI Yassine
 */
 
 /**
@@ -27,20 +27,20 @@ Sint32	renderer_init()
 {
   renderer = SDL_CreateRenderer(get_window(), -1, SDL_RENDERER_SOFTWARE);
   if (!renderer)
-    {
-      SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
-      return (-1);
-    }
+  {
+    SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
+    return (-1);
+  }
   if (IMG_Init(IMG_INIT_PNG))
-    {
-      /* SDL_LogError(RDR_LCAT, SDL_GetError()); */
-      /* return (-1); */
-    }
+  {
+    /* SDL_LogError(RDR_LCAT, SDL_GetError()); */
+    /* return (-1); */
+  }
   if (TTF_Init())
-    {
-      SDL_LogError(RDR_LCAT, SDL_GetError());
-      return (-1);
-    }
+  {
+    SDL_LogError(RDR_LCAT, SDL_GetError());
+    return (-1);
+  }
   SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
