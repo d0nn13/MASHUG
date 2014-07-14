@@ -27,13 +27,13 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/handlers/font_handler.c		\
 			$(SRCPATH)core/handlers/sound_handler.c		\
 			$(SRCPATH)core/mashug.c				\
-			$(SRCPATH)game/mainmenu.c			\
-			$(SRCPATH)game/common/sprites.c			\
-			$(SRCPATH)game/common/fonts.c			\
-			$(SRCPATH)game/common/sfx.c			\
-			$(SRCPATH)game/spaceinvaders/menu.c		\
-			$(SRCPATH)game/spaceinvaders/hiscores.c		\
-			$(SRCPATH)game/spaceinvaders/gamecore.c
+			$(SRCPATH)games/mainmenu.c			\
+			$(SRCPATH)games/common/sprites.c		\
+			$(SRCPATH)games/common/fonts.c			\
+			$(SRCPATH)games/common/sfx.c			\
+			$(SRCPATH)games/spaceinvaders/menu.c		\
+			$(SRCPATH)games/spaceinvaders/hiscores.c	\
+			$(SRCPATH)games/spaceinvaders/gamecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
 
