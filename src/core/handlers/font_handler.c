@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Fri Jun 27 15:37:54 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:12:44 2014 ENNEBATI Yassine
 */
 
 /**
@@ -44,16 +44,16 @@ void	draw_text(const char *text, const SDL_Point *o, const TTF_Font *f, const SD
   SDL_Rect	z;
 
   if (!(t = TTF_RenderUTF8_Solid((TTF_Font *)f, text, *c)))
-    {
-      SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
-      return ;
-    }
+  {
+    SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
+    return ;
+  }
   z = rect_factory(o->x, o->y, t->w, t->h);
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
-    {
-      SDL_LogError(FNT_LCAT, "draw_text: ", SDL_GetError());
-      return ;
-    }
+  {
+    SDL_LogError(FNT_LCAT, "draw_text: ", SDL_GetError());
+    return ;
+  }
   SDL_FreeSurface(t);
   SDL_UpdateTexture(get_bg()->tex, &z, s->pixels, s->pitch);
   SDL_RenderCopy(get_renderer(), get_bg()->tex, &z, &z);

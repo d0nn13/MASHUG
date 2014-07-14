@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Fri Jun 27 15:21:40 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:13:25 2014 ENNEBATI Yassine
 */
 
 /**
@@ -34,10 +34,10 @@ t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *s
   spritesheet = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
   s = ((SDL_Rect *)size == NULL) ? (SDL_Rect *)zone : (SDL_Rect *)size;
   if (!spritesheet)
-    {
-      SDL_LogError(SPR_LCAT, "make_sprite: ", IMG_GetError());
-      return (NULL);
-    }
+  {
+    SDL_LogError(SPR_LCAT, "make_sprite: ", IMG_GetError());
+    return (NULL);
+  }
   SDL_SetSurfaceBlendMode(spritesheet, SDL_BLENDMODE_NONE);
   sprite = SDL_CreateRGBSurface(0, s->w, s->h, 32,
 				RMASK, GMASK, BMASK, AMASK);
