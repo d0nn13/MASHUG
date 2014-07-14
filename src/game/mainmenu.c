@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Wed Jul  9 23:57:51 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 02:16:30 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -29,10 +29,10 @@ typedef enum
 static t_gameitem	item = SPACE_GAME;
 
 static t_mode		select[NB_GAME] =
-  {
-    &menu_game,
-    &main_menu
-  };
+{
+  &menu_game,
+  &main_menu
+};
 
 static void		display_main_menu();
 
@@ -65,16 +65,16 @@ static void	process_input(const SDL_Scancode *s, t_gameitem *item)
   if (*s == SDL_SCANCODE_ESCAPE)
     g_launcher = NULL;
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
-    {
-      g_launcher = select[*item];
-      if (*item != GALAGA_GAME)
-	play_sfx(get_common_sfx(BLIPOK_SFX));
-    }
+  {
+    g_launcher = select[*item];
+    if (*item != GALAGA_GAME)
+      play_sfx(get_common_sfx(BLIPOK_SFX));
+  }
   if (*item != old_item)
-    {
-      display_main_menu();
-      play_sfx(get_common_sfx(BLIPSEL_SFX));
-    }
+  {
+    display_main_menu();
+    play_sfx(get_common_sfx(BLIPSEL_SFX));
+  }
 }
 
 static void		draw_background_menu()
@@ -94,16 +94,16 @@ void			main_menu()
   SDL_SetEventFilter(key_filter, NULL);
   display_main_menu();
   while (g_launcher == &main_menu)
+  {
+    if (SDL_WaitEvent(&e))
     {
-      if (SDL_WaitEvent(&e))
-  	{
-  	  if (e.type == SDL_QUIT)
-  	    g_launcher = NULL;
-  	  if (e.type == SDL_KEYDOWN)
-  	    {
-  	      s = e.key.keysym.scancode;
-  	      process_input(&s, &item);
-  	    }
-  	}
+      if (e.type == SDL_QUIT)
+	g_launcher = NULL;
+      if (e.type == SDL_KEYDOWN)
+      {
+	s = e.key.keysym.scancode;
+	process_input(&s, &item);
+      }
     }
+  }
 }
