@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Tue Jun 24 18:14:37 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:10:23 2014 ENNEBATI Yassine
 */
 
 /**
@@ -25,18 +25,18 @@ Sint32	window_init()
   const char	*window_title = "-=  M A S H U G  =-";
 
   if (SDL_InitSubSystem(SDL_INIT_VIDEO))
-    {
-      SDL_LogError(VID_LCAT, "Couldn't initialize video : %s", SDL_GetError());
-      return (-1);
-    }
+  {
+    SDL_LogError(VID_LCAT, "Couldn't initialize video : %s", SDL_GetError());
+    return (-1);
+  }
   window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED,
 			    SDL_WINDOWPOS_UNDEFINED, WIN_W, WIN_H,
 			    SDL_WINDOW_HIDDEN);
   if (!window)
-    {
-      SDL_LogError(VID_LCAT, "Couldn't initialize window : %s", SDL_GetError());
-      return (-1);
-    }
+  {
+    SDL_LogError(VID_LCAT, "Couldn't initialize window : %s", SDL_GetError());
+    return (-1);
+  }
   SDL_LogInfo(VID_LCAT, "Window initialization done");
   return (0);
 }
