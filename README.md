@@ -14,11 +14,11 @@ apt-get install sdl2 sdl2_image sdl2_ttf
 ```
 Building :
 ----------
-```
+```bash
 make
 ```
 Launching :
 -----------
-```
+```bash
 ./bin/mashug-dbg
 ```
