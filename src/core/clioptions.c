@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Thu Jul  3 14:18:50 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:00:38 2014 ENNEBATI Yassine
 */
 
 /**
@@ -37,22 +37,22 @@ void		set_options_from_cli(int argc, char **argv)
 
   opterr = 0;
   while ((o = getopt_long(argc, argv, "", clioptions, NULL)) != -1)
+  {
+    if (o == '?')
+      SDL_LogError(OPT_LCAT, "Unrecognized option '%s'", argv[optind - 1]);
+    else
     {
-      if (o == '?')
-	SDL_LogError(OPT_LCAT, "Unrecognized option '%s'", argv[optind - 1]);
-      else
-	{
-	  v = optarg ? strtol(optarg, NULL, 10) : ENABLE_OPTION;
-	  if (optarg && (errno == EINVAL || errno == ERANGE))
-	    {
-	      SDL_LogError(OPT_LCAT, "Uncorrect value '%s' for option '%s'", optarg,
-			   get_option_key(o));
-	      errno = 0;
-	      continue ;
-	    }
-	  SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
-	  set_option_value(o, v);
-	}
+      v = optarg ? strtol(optarg, NULL, 10) : ENABLE_OPTION;
+      if (optarg && (errno == EINVAL || errno == ERANGE))
+      {
+	SDL_LogError(OPT_LCAT, "Uncorrect value '%s' for option '%s'", optarg,
+		     get_option_key(o));
+	errno = 0;
+	continue ;
+      }
+      SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
+      set_option_value(o, v);
     }
+  }
   options_debug();
 }
