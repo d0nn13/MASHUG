@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 13:37:30 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 16:08:05 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -14,7 +14,7 @@
 #include		"../core/helpers.h"
 #include		"common/fonts.h"
 #include		"common/sfx.h"
-#include		"spaceinvaders/menu.h"
+#include		"spaceinvaders/spacemenu.h"
 #include		"spaceinvaders/spacecore.h"
 
 #include		"mainmenu.h"
@@ -30,7 +30,7 @@ static t_gameitem	item = SPACE_GAME;
 
 static t_mode		select[NB_GAME] =
 {
-  &menu_game,
+  &space_menu,
   &main_menu
 };
 

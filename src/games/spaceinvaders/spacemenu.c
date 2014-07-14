@@ -1,11 +1,11 @@
 /*
-** mainmenu.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Mon Jul 14 13:38:03 2014 ENNEBATI Yassine
+** spacemenu.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 16:33:32 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -17,9 +17,9 @@
 #include "../common/sfx.h"
 #include "../mainmenu.h"
 #include "spacecore.h"
-#include "hiscores.h"
+#include "spacehiscores.h"
 
-#include "menu.h"
+#include "spacemenu.h"
 
 /**
  *	Menu item definition
@@ -29,7 +29,7 @@ typedef enum
   START_MEN,
   SCORE_MEN,
   NB_MEN
-}		t_menuitem;
+}		t_spaceitem;
 
 /**
  *	Menu callback initialization
@@ -40,12 +40,12 @@ static t_mode		select[NB_MEN] =
   &hiscores
 };
 
-static t_menuitem	item = START_MEN;
+static t_spaceitem	item = START_MEN;
 
 /**
  *
  */
-static void		process_input(const SDL_Scancode *s, t_menuitem *item);
+static void		process_input(const SDL_Scancode *s, t_spaceitem *item);
 
 /**
  *
@@ -53,7 +53,7 @@ static void		process_input(const SDL_Scancode *s, t_menuitem *item);
 static void		display_menu();
 
 
-void			menu_game()
+void			space_menu()
 {
   SDL_Event		e;
   SDL_Scancode		s;
@@ -61,7 +61,7 @@ void			menu_game()
   SDL_SetEventFilter(key_filter, NULL);
   redraw_context(NULL);
   display_menu();
-  while (g_launcher == &menu_game)
+  while (g_launcher == &space_menu)
   {
     if (SDL_WaitEvent(&e))
     {
@@ -76,9 +76,9 @@ void			menu_game()
   }
 }
 
-static void	process_input(const SDL_Scancode *s, t_menuitem *item)
+static void	process_input(const SDL_Scancode *s, t_spaceitem *item)
 {
-  t_menuitem	old_item;
+  t_spaceitem	old_item;
 
   old_item = *item;
   *item += (*s == UP && *item != START_MEN) ? -1 : 0;

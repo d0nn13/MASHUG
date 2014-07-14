@@ -1,11 +1,11 @@
 /*
-** gamecore.h for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Mon Jul 14 13:35:26 2014 ENNEBATI Yassine
+** spacecore.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
 */
 
 /**

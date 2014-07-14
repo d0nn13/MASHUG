@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jul 13 10:41:09 2014 Samir Ahamada
-** Last update Mon Jul 14 13:37:15 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 16:07:11 2014 ENNEBATI Yassine
 */
 
 /**
@@ -28,7 +28,7 @@
 #include "audio.h"
 #include "../games/mainmenu.h"
 #include "../games/spaceinvaders/spacecore.h"
-#include "../games/spaceinvaders/menu.h"
+#include "../games/spaceinvaders/spacemenu.h"
 
 /**
  *	@brief	Initializes all engine modules
