@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Wed Jul  2 14:47:02 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:06:44 2014 ENNEBATI Yassine
 */
 
 /**
@@ -74,10 +74,10 @@ void	log_init()
 Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym)
 {
   if (!p)
-    {
-      SDL_LogError(cat, "%s: NULL pointer detected > %s <", fsym, psym);
-      return (0);
-    }
+  {
+    SDL_LogError(cat, "%s: NULL pointer detected > %s <", fsym, psym);
+    return (0);
+  }
   return (1);
 }
 
