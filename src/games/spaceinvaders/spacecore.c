@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:03:00 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:17:36 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:34:29 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -16,11 +16,11 @@
 #include "../common/sfx.h"
 #include "menu.h"
 
-#include "gamecore.h"
+#include "spacecore.h"
 
 t_mode		g_launcher;
 
-Sint32		game_init()
+Sint32		space_init()
 {
   load_common_sprites();
   load_common_fonts();
@@ -40,7 +40,7 @@ void		redraw_context(const SDL_Color *c)
   draw_sprite(get_common_sprite(CABINET_SPR), NULL);
 }
 
-void			game_loop()
+void			space_loop()
 {
   const SDL_Color	white = {255, 255, 255, 255};
   const SDL_Point	orig = {190, 120};
@@ -50,7 +50,7 @@ void			game_loop()
   memset(&e, 0, sizeof(e));
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
-  while (g_launcher == &game_loop)
+  while (g_launcher == &space_loop)
   {
     if (SDL_PollEvent(&e))
       if (e.type == SDL_QUIT)
@@ -69,7 +69,7 @@ void			game_loop()
   }
 }
 
-void	game_destroy()
+void	space_destroy()
 {
   free_common_sfx();
   free_common_fonts();

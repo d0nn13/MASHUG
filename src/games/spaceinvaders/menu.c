@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Apr 29 14:26:54 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:18:05 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:38:03 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -16,7 +16,7 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "../mainmenu.h"
-#include "gamecore.h"
+#include "spacecore.h"
 #include "hiscores.h"
 
 #include "menu.h"
@@ -36,7 +36,7 @@ typedef enum
  */
 static t_mode		select[NB_MEN] =
 {
-  &game_loop,
+  &space_loop,
   &hiscores
 };
 

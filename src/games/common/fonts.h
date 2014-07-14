@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Wed Jul  9 20:52:23 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:26:12 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Common game fonts
  */
 
-#ifndef GAME_COMMON_FONTS_H
-# define GAME_COMMON_FONTS_H
+#ifndef GAMES_COMMON_FONTS_H
+# define GAMES_COMMON_FONTS_H
 
 # include <SDL2/SDL_ttf.h>
 
@@ -49,4 +49,4 @@ TTF_Font	*get_common_font(t_common_font t);
  */
 void		free_common_fonts();
 
-#endif /* !GAME_COMMON_FONTS_H */
+#endif /* !GAMES_COMMON_FONTS_H */

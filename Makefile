@@ -33,7 +33,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)games/common/sfx.c			\
 			$(SRCPATH)games/spaceinvaders/menu.c		\
 			$(SRCPATH)games/spaceinvaders/hiscores.c	\
-			$(SRCPATH)games/spaceinvaders/gamecore.c
+			$(SRCPATH)games/spaceinvaders/spacecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
 

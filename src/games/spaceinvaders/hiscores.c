@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:17:48 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:38:19 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_render.h>
@@ -13,7 +13,7 @@
 #include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
-#include "gamecore.h"
+#include "spacecore.h"
 #include "menu.h"
 
 #include "hiscores.h"

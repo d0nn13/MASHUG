@@ -5,16 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 16:01:40 2014 AHAMADA Samir
-** Last update Wed Jul  9 12:10:02 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:35:26 2014 ENNEBATI Yassine
 */
 
 /**
- *	@file	gamecore.h
- *	@brief	Game!!
+ *	@file	spacecore.h
+ *	@brief	Space Invaders Game!!
  */
 
-#ifndef GAME_GAMECORE_H
-# define GAME_GAMECORE_H
+#ifndef GAMES_SPACEINVADERS_SPACECORE_H
+# define GAMES_SPACEINVADERS_SPACECORE_H
 
 /**
  *	@brief	Game mode callback definition
@@ -28,10 +28,10 @@ extern	t_mode	g_launcher;
 
 
 /**
- *	@brief	Initializes Game (load sprites, draw UI etc...)
+ *	@brief	Initializes Space Invaders game (load sprites, draw UI etc...)
  *	@return	0 on success, -1 on any error
  */
-Sint32	game_init();
+Sint32	space_init();
 
 /**
  *	@brief	Clears screen with color 'c' and renders cabinet
@@ -42,11 +42,11 @@ void	redraw_context(const SDL_Color *c);
 /**
  *	@brief	Main loop
  */
-void	game_loop();
+void	space_loop();
 
 /**
- *	@brief	Destroys Game (free all stuff was allocated...)
+ *	@brief	Destroys Space Invaders game (free all stuff was allocated...)
  */
-void	game_destroy();
+void	space_destroy();
 
-#endif /* !GAME_GAMECORE_H */
+#endif /* !GAMES_SPACEINVADERS_SPACECORE_H */

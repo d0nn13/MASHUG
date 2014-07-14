@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Sun Jul 13 10:41:09 2014 Samir Ahamada
-** Last update Mon Jul 14 13:21:08 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 13:37:15 2014 ENNEBATI Yassine
 */
 
 /**
@@ -27,7 +27,7 @@
 #include "graphics.h"
 #include "audio.h"
 #include "../games/mainmenu.h"
-#include "../games/spaceinvaders/gamecore.h"
+#include "../games/spaceinvaders/spacecore.h"
 #include "../games/spaceinvaders/menu.h"
 
 /**
@@ -79,14 +79,14 @@ Sint32	main(int argc, char **argv)
   chdir(dirname(*argv));
   chdir("..");
 
-  if (core_init(argc, argv) || game_init())
+  if (core_init(argc, argv) || space_init())
     return (EXIT_FAILURE);
   g_launcher = &main_menu;
   while (g_launcher)
   {
     g_launcher();
   }
-  game_destroy();
+  space_destroy();
   core_destroy();
   SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());
   atexit(SDL_Quit);
