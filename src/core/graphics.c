@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Tue Jun 24 23:11:56 2014 AHAMADA Samir
+** Last update Mon Jul 14 02:00:51 2014 ENNEBATI Yassine
 */
 
 /**
@@ -25,10 +25,10 @@ Sint32	graphics_init()
 {
   if (!(bg = make_texture(get_renderer(), SDL_TEXTUREACCESS_STATIC,
 			  WIN_W, WIN_H)))
-    {
-      SDL_LogError(GFX_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
-      return (-1);
-    }
+  {
+    SDL_LogError(GFX_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
+    return (-1);
+  }
   SDL_LogInfo(GFX_LCAT, "Graphics initialization done");
   return (0);
 }
