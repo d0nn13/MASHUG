@@ -1,11 +1,11 @@
 /*
-** hiscores.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Sat May  3 20:33:34 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:17:48 2014 ENNEBATI Yassine
+** spacehiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
+** Last update Mon Jul 14 16:33:50 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_render.h>
@@ -13,10 +13,10 @@
 #include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
-#include "gamecore.h"
-#include "menu.h"
+#include "spacecore.h"
+#include "spacemenu.h"
 
-#include "hiscores.h"
+#include "spacehiscores.h"
 
 #if defined __MACH__
 # define	SCOREFILE	"/Users/`whoami`/.si_hiscores.xml"
@@ -45,7 +45,7 @@ void			hiscores()
       s = e.key.keysym.scancode;
       if (s == SDL_SCANCODE_ESCAPE)
       {
-	g_launcher = &menu_game;
+	g_launcher = &space_menu;
 	play_sfx(get_common_sfx(BLIPCANCEL_SFX));
       }
     }

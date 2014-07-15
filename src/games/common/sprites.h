@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Sat Jun 28 17:38:13 2014 AHAMADA Samir
+** Last update Mon Jul 14 13:26:52 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Common game sprites
  */
 
-#ifndef GAME_COMMON_SPRITES_H
-# define GAME_COMMON_SPRITES_H
+#ifndef GAMES_COMMON_SPRITES_H
+# define GAMES_COMMON_SPRITES_H
 
 # include <SDL2/SDL_render.h>
 
@@ -43,4 +43,4 @@ t_texture	*get_common_sprite(t_common_sprite s);
  */
 void		free_common_sprites();
 
-#endif /* !GAME_COMMON_SPRITES_H */
+#endif /* !GAMES_COMMON_SPRITES_H */

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 21:59:36 2014 AHAMADA Samir
-** Last update Sat Jun 28 17:37:02 2014 AHAMADA Samir
+** Last update Mon Jul 14 13:26:33 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Common game sound sffects
  */
 
-#ifndef GAME_COMMON_SFX_H
-# define GAME_COMMON_SFX_H
+#ifndef GAMES_COMMON_SFX_H
+# define GAMES_COMMON_SFX_H
 
 # include <SDL2/SDL_audio.h>
 # include "../../core/audio.h"
@@ -45,4 +45,4 @@ t_chunk	*get_common_sfx(t_common_sfx t);
  */
 void	free_common_sfx();
 
-#endif /* !GAME_COMMON_SFX_H */
+#endif /* !GAMES_COMMON_SFX_H */
