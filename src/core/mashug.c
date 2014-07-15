@@ -28,7 +28,6 @@
 #include "audio.h"
 #include "../games/mainmenu.h"
 #include "../games/spaceinvaders/spacecore.h"
-#include "../games/spaceinvaders/spacemenu.h"
 
 /**
  *	@brief	Initializes all engine modules
