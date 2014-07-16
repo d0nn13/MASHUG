@@ -96,6 +96,14 @@ void		play_sfx(t_chunk *s);
 /**
  * ==================== S P R I T E S ====================
  */
+typedef struct	_spriteholder
+{
+  char		*name;
+  SDL_Rect	rect;
+}		t_spriteholder;
+
+Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
+
 /**
  *	@brief	Allocates a new scaled sprite from a sprites sheet file.
  *
@@ -143,6 +151,7 @@ Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container);
 */
 # define HISCORE_NICKNAME_LENGTH	16
 
+/* TODO: Use proper date type for "date" member */
 typedef struct	_hiscoreholder
 {
   char		nickname[HISCORE_NICKNAME_LENGTH];
@@ -151,6 +160,6 @@ typedef struct	_hiscoreholder
 }		t_hiscoreholder;
 
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
-void		xml_hiscore_set_game_name(const char *name);
+void		xml_hiscore_set_game_filter(const char *name);
 
 #endif /* !CORE_HANDLERS */

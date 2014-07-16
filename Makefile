@@ -39,7 +39,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 
 OBJ		=	$(SRC:%.c=%.o)
 
-CFLAGS		+=	`sdl2-config --cflags` `xml2-config --cflags` -W -Wall -Wextra -Wfatal-errors -ansi -pedantic
+CFLAGS		+=	`sdl2-config --cflags` `xml2-config --cflags` -W -Wall -Wextra -Wfatal-errors -std=c89 -pedantic
 LDFLAGS		=	`sdl2-config --libs` `xml2-config --libs` -lSDL2_image -lSDL2_ttf
 PACKAGE		=	mashug-`uname -m`-`uname -s`.tar.gz
 BINARY		=	mashug-dbg

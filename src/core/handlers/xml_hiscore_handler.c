@@ -93,9 +93,9 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *holder)
     holder->date = atoi((char *)att->children->content);
 }
 
-void	xml_hiscore_set_game_name(const char *name)
+void	xml_hiscore_set_game_filter(const char *name)
 {
-  if (!ptr_chk(name, "game name", XML_LCAT, "xml_hiscore_set_game_name"))
+  if (!ptr_chk(name, "game filter", XML_LCAT, "xml_hiscore_set_game_filter"))
     return ;
   strncpy((char *)game, name, GAME_NAME_LENGTH);
 }
