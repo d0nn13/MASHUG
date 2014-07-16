@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Tue Jul 15 12:19:02 2014 ENNEBATI Yassine
+** Last update Wed Jul 16 12:45:16 2014 Emmanuel Atse
 */
 
 /**
@@ -48,6 +48,24 @@ typedef	struct	s_texture
   Uint16	w;
   Uint16	h;
 }		t_texture;
+
+/**
+ *	Sprite wrapper structure
+ */
+typedef struct		s_spriteholder
+{
+  char			*name;
+  SDL_Rect		rect;
+}			t_spriteholder;
+
+/**
+ *	Spritesheet wrapper structure
+ */
+typedef struct		s_spritesheet
+{
+  t_texture		*tex;
+  t_spriteholder	**sprites;
+}			t_spritesheet;
 
 /**
  *	@brief	Initializes graphics

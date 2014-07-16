@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:33:51 2014 ENNEBATI Yassine
+** Last update Wed Jul 16 12:52:45 2014 Emmanuel Atse
 */
 
 /**
@@ -68,4 +68,22 @@ void		draw_sprite_raw(t_texture const *s, SDL_Point const *orig)
     return ;
   rect = rect_factory(orig->x, orig->y, s->w, s->h);
   draw_sprite(s, &rect);
+}
+
+t_spriteholder		*get_sprite(t_spritesheet const *ss, char const *name)
+{
+  t_spriteholder	**sprites;
+
+  if (!ptr_chk(ss, "spritesheet", GFX_LCAT, "get_sprite") ||
+      !ptr_chk(name, "name", GFX_LCAT, "get_sprite") ||
+      !ptr_chk(ss->sprites, "spritesheet->sprites", GFX_LCAT, "get_sprite"))
+    return (NULL);
+  sprites = ss->sprites;
+  while (*sprites)
+    {
+      if (strcmp(name, (*sprites)->name) == 0)
+	return (*sprites);
+      ++sprites;
+    }
+  return (NULL);
 }

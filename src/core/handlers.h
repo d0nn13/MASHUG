@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jul 23 17:07:27 2014 ENNEBATI Yassine
+** Last update Wed Jul 16 12:23:07 2014 Emmanuel Atse
 */
 
 /**
@@ -155,6 +155,16 @@ void		draw_sprite(t_texture const *s, SDL_Rect const *zone);
  */
 void		draw_sprite_raw(t_texture const *s, SDL_Point const *orig);
 
+/**
+ *	@brief Get a sprite within a spritesheet with a given name
+ *
+ *	@param spritesheet The spritesheet
+ *	@param name The name of the sprite to find
+ *
+ *	@return a pointer to the found sprite
+ *	@return NULL if not found
+ */
+t_spriteholder	*get_sprite(t_spritesheet const *sprites, char const *name);
 /*
 ** ==================== H I S C O R E S ====================
 */
