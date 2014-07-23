@@ -80,9 +80,10 @@ static void	xml_hiscore_entries(xmlNodePtr node,
       while (att)
       {
 	if (h)
-	  xml_hiscore_fill_container(att, &h[(*count)++]);
+	  xml_hiscore_fill_container(att, &h[*count]);
 	att = att->next;
       }
+      (*count)++;
     }
     node = node->next;
   }
