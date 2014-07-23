@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 15:58:13 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -17,9 +17,9 @@
 #include "spacemenu.h"
 #include "spacecore.h"
 
-t_mode		g_launcher;
+t_mode 	g_launcher;
 
-Sint32		space_init()
+Sint32 	space_init()
 {
   load_common_sprites();
   load_common_fonts();
