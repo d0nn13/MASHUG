@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:32:53 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:02:45 2014 ENNEBATI Yassine
 */
 
 /**
@@ -28,7 +28,7 @@ SDL_Surface	*get_text_surface(const char *text,
   SDL_Surface	*t;
   SDL_Surface	*s;
 
-  if(!ptr_chk(text, "text", FNT_LCAT, "get_text_surface") ||
+  if (!ptr_chk(text, "text", FNT_LCAT, "get_text_surface") ||
      !ptr_chk(f, "font", FNT_LCAT, "get_text_surface") ||
      !ptr_chk(c, "color", FNT_LCAT, "get_text_surface"))
     return (NULL);
