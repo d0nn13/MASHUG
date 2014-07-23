@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:31:55 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 15:16:45 2014 ENNEBATI Yassine
 */
 
 /**
@@ -47,15 +47,15 @@ static char	*catstrings[NB_LCAT] = {
 /**
  *	@brief Writes a timestamp into 'timestr' (internal)
  */
-static void timestamp();
+static void	timestamp();
 
 /**
  *	@brief Log printing callback (internal)
  */
-static void log_print(void *userdata,
-		      int cat,
-		      SDL_LogPriority p,
-		      const char *msg);
+static void	log_print(void *userdata,
+			  int cat,
+			  SDL_LogPriority p,
+			  const char *msg);
 
 /* Log priority settings are temporary */
 void	log_init()

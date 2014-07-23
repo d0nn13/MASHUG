@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 21:10:45 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:16:57 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:45:02 2014 ENNEBATI Yassine
 */
 
 /**
@@ -18,7 +18,7 @@
 
 #include "version.h"
 
-static SDL_version v;
+static SDL_version	v;
 
 void	print_versions()
 {
