@@ -16,7 +16,7 @@
 #ifndef CORE_HELPERS_H_
 # define CORE_HELPERS_H_
 
-#include <SDL2/SDL.h>
+# include <SDL2/SDL.h>
 
 #define UP		SDL_SCANCODE_UP
 #define DN		SDL_SCANCODE_DOWN

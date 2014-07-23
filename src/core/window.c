@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 11:38:31 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:10:23 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:18:15 2014 ENNEBATI Yassine
 */
 
 /**
@@ -20,9 +20,9 @@
 
 static SDL_Window	*window = NULL;
 
-Sint32	window_init()
+Sint32		window_init()
 {
-  const char	*window_title = "-=  M A S H U G  =-";
+  const char   	*window_title = "-=  M A S H U G  =-";
 
   if (SDL_InitSubSystem(SDL_INIT_VIDEO))
   {

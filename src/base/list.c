@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu Jun 26 01:46:35 2014 AHAMADA Samir
-** Last update Mon Jul 14 01:48:21 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 12:37:31 2014 ENNEBATI Yassine
 */
 
 /**
@@ -29,7 +29,7 @@ t_singlelist	*list_make_node()
   return (node);
 }
 
-void		list_push(void *data, t_singlelist **tail)
+void	list_push(void *data, t_singlelist **tail)
 {
   if (!tail)
   {
@@ -100,4 +100,3 @@ void		list_clear(t_singlelist **root)
   }
   *root = NULL;
 }
-
