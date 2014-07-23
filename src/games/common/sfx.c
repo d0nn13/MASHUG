@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:01:07 2014 AHAMADA Samir
-** Last update Sat Jun 28 18:05:01 2014 AHAMADA Samir
+** Last update Wed Jul 23 17:05:01 2014 ENNEBATI Yassine
 */
 
 #include "../../core/log.h"
@@ -28,8 +28,8 @@ void		load_common_sfx()
 		   &common_sfx[BLIPSEL_SFX].len) ||
       !SDL_LoadWAV(OK_WAV, get_audio_conf(), &common_sfx[BLIPOK_SFX].buf,
 		   &common_sfx[BLIPOK_SFX].len) ||
-      !SDL_LoadWAV(CANCEL_WAV, get_audio_conf(), &common_sfx[BLIPCANCEL_SFX].buf,
-		   &common_sfx[BLIPCANCEL_SFX].len))
+      !SDL_LoadWAV(CANCEL_WAV, get_audio_conf(),
+		   &common_sfx[BLIPCANCEL_SFX].buf, &common_sfx[BLIPCANCEL_SFX].len))
     SDL_LogError(AUD_LCAT, SDL_GetError());
   else
     SDL_LogInfo(AUD_LCAT, "Sounds loaded");

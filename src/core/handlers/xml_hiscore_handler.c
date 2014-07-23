@@ -59,7 +59,9 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
   return (count);
 }
 
-static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uint8 *count)
+static void	xml_hiscore_entries(xmlNodePtr node,
+				    t_hiscoreholder *container,
+				    Uint8 *count)
 {
   xmlAttrPtr	att;
 
