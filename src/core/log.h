@@ -34,6 +34,7 @@ enum {
   SPR_LCAT,
   FNT_LCAT,
   OPT_LCAT,
+  XML_LCAT,
   NB_LCAT
 };
 /**

@@ -1,0 +1,7 @@
+<!ELEMENT hiscores (game, game, game)>
+<!ELEMENT game (entry+)>
+<!ATTLIST game name (spaceinvaders|galaga|rtype) #REQUIRED>
+<!ELEMENT entry EMPTY>
+<!ATTLIST entry nickname CDATA #REQUIRED>
+<!ATTLIST entry score CDATA #REQUIRED>
+<!ATTLIST entry date CDATA #REQUIRED>

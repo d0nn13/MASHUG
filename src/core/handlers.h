@@ -19,6 +19,7 @@
 # include <SDL2/SDL_ttf.h>
 # include <SDL2/SDL_stdinc.h>
 # include <SDL2/SDL_render.h>
+# include <libxml/parser.h>
 # include "graphics.h"
 # include "audio.h"
 
@@ -95,6 +96,32 @@ void		play_sfx(t_chunk *s);
 /**
  * ==================== S P R I T E S ====================
  */
+typedef struct	s_spriteholder
+{
+  char		*name;
+  SDL_Rect	rect;
+}		t_spriteholder;
+
+/**
+ *	@brief	XML Spritesheet parsing callback
+ *	
+ *	Pass a reference to this function to 'xml_parse()' function to parse a Spritesheet XML file
+ *	You should NOT call this function yourself!
+ *
+ *	@return	Number of counted elements
+ */
+Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
+
+/**
+ *	@brief	XML Animation parsing callback
+ *	
+ *	Pass a reference to this function to 'xml_parse()' function to parse an Animation XML file
+ *	You should NOT call this function yourself!
+ *
+ *	@return	Number of counted elements
+ */
+Uint8	xml_animation_callback(xmlNodePtr node, void *container);
+
 /**
  *	@brief	Allocates a new scaled sprite from a sprites sheet file.
  *
@@ -124,5 +151,86 @@ void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
  */
 void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig);
 
+
+/*
+** ==================== H I S C O R E S ====================
+*/
+# define HISCORE_NICKNAME_LENGTH	16
+
+/**
+ *	@brief	Hiscore holder structure
+ *	@todo	Use proper date type for "date" member
+ */
+typedef struct	s_hiscoreholder
+{
+  char		nickname[HISCORE_NICKNAME_LENGTH];
+  Uint32	score;
+  Uint32	date;
+}		t_hiscoreholder;
+
+/**
+ *	@brief	XML Hiscore parsing callback
+ *	
+ *	Pass a reference to this function to 'xml_parse()' function to parse a Hiscore XML file
+ *	You should NOT call this function yourself!
+ *
+ *	@return	Number of counted elements
+ */
+Uint8		xml_hiscore_callback(xmlNodePtr, void *);
+
+/**
+ *	@brief	Game filter setter
+ *
+ *	Use this function if you need to retrieve Hiscores of a specific game
+ *
+ *	@param	name Name of the 'game' XML element to filter
+ */
+void		xml_hiscore_set_game_filter(const char *name);
+
+
+/*
+** ==================== X M L ====================
+*/
+/**
+ *	@brief	XML Callback signature
+ */
+typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
+
+/**
+ *	@brief	Parses or counts parsed elements in a XML file
+ *
+ *	This function parses an XML file and fill a container with parsed values
+ *
+ *	Each type of XML file have a callback function dedicated.
+ *
+ *	Container should be NULL, so you can use the function return value
+ *	to allocate the right amount of memory dynamically :
+ *
+ *	@code
+ *	t_hiscoreholder *my_hiscores_pointer;
+ *	int count;
+ *
+ *	count = xml_parse("media/hiscores.xml", &xml_hiscore_callback, NULL);
+ *	if (count <= 0)
+ *	  SDL_LogDebug(XML_LCAT, "No values !!");
+ *	else
+ *	{
+ *	  my_hiscores_pointer = malloc(count * sizeof(t_hiscoreholder));
+ *	  if (!my_hiscore_pointer)
+ *	  {
+ *	    printf("out of memory\n");
+ *	    exit(EXIT_FAILURE);
+ *	  }
+ *	  xml_parse("media/hiscores.xml", &xml_hiscore_callback, my_hiscores_pointer);
+ *	  display_hiscores(my_hiscores_pointer);
+ *	}
+ *	@endcode
+ *
+ *	@param	path The path to the XML file
+ *	@param	callback The XML parsing callback
+ *	@param	container A pointer to a container where to save parsed values or NULL
+ *	@return	Number of counted elements
+ */
+Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container);
 
 #endif /* !CORE_HANDLERS */
