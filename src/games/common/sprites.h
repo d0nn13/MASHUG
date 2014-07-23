@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 00:59:08 2014 AHAMADA Samir
-** Last update Mon Jul 14 13:26:52 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 10:49:30 2014 Emmanuel Atse
 */
 
 /**
@@ -19,28 +19,10 @@
 # include <SDL2/SDL_render.h>
 
 /**
- *	Common sprites enumeration
+ *	Common sprites names
  */
-typedef enum
-  {
-    CABINET_SPR = 0,
-    TITLE_SPR,
-    NB_SPR
-  } t_common_sprite;
-
-/**
- *	Load game sprites in memory
- */
-void		load_common_sprites();
-
-/**
- *	Sprite getter
- */
-t_texture	*get_common_sprite(t_common_sprite s);
-
-/**
- *	Frees allocated sprites
- */
-void		free_common_sprites();
+# define CABINET_SPR	"cabinet"
+# define TITLE_SPR	"title"
+# define NB_SPR		"nb"
 
 #endif /* !GAMES_COMMON_SPRITES_H */
