@@ -23,9 +23,16 @@
 
 #define GAME_NAME_LENGTH	15
 
+/**
+ *	@brief	Parse entries in hiscore tree (internal)
+ */
 static void	xml_hiscore_entries(xmlNodePtr node,
 				    t_hiscoreholder *container,
 				    Uint8 *count);
+
+/**
+ *	@brief	Copy entry value to container (internal)
+ */
 static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
 static xmlChar	game[GAME_NAME_LENGTH] = "";
@@ -69,7 +76,6 @@ static void	xml_hiscore_entries(xmlNodePtr node,
   {
     if (node->type == XML_ELEMENT_NODE)
     {
-      att = node->properties;
       if (xmlStrcmp(node->name, (xmlChar const *)"entry"))
 	return ;
       att = node->properties;
