@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Sat Jun 28 11:40:46 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:43:50 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Handlers protoypes
  */
 
-#ifndef CORE_HANLDERS_H
-# define CORE_HANLDERS_H
+#ifndef CORE_HANLDERS_H_
+# define CORE_HANLDERS_H_
 
 # include <SDL2/SDL_ttf.h>
 # include <SDL2/SDL_stdinc.h>
@@ -233,4 +233,4 @@ typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
  */
 Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container);
 
-#endif /* !CORE_HANDLERS */
+#endif /* !CORE_HANDLERS_ */

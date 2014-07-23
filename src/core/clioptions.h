@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Jun 29 12:47:56 2014 AHAMADA Samir
-** Last update Mon Jun 30 13:10:14 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:14:13 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,9 +13,9 @@
  *	@brief	CLI options handling
  */
 
-#ifndef CORE_CLIOPTIONS_H
-# define CORE_CLIOPTIONS_H
+#ifndef CORE_CLIOPTIONS_H_
+# define CORE_CLIOPTIONS_H_
 
 void	set_options_from_cli(int argc, char **argv);
 
-#endif
+#endif /* !CORE_CLIOPTIONS_H_ */

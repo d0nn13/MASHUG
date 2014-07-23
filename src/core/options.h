@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
-** Last update Thu Jul  3 14:19:06 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:34:04 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Options handling
  */
 
-#ifndef CORE_OPTIONS_H
-# define CORE_OPTIONS_H
+#ifndef CORE_OPTIONS_H_
+# define CORE_OPTIONS_H_
 
 # include <SDL2/SDL_stdinc.h>
 
@@ -45,4 +45,4 @@ char	*get_option_key(t_options o);
 
 void	options_debug();
 
-#endif
+#endif /* !CORE_OPTIONS_H_ */
