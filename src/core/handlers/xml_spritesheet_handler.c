@@ -22,10 +22,16 @@
 
 #include "../handlers.h"
 
-static void	xml_spritesheet_entries(xmlNodePtr node,
+/**
+ *	@brief	Parse sprites in spritesheet tree (internal)
+ */
+static void	xml_spritesheet_sprites(xmlNodePtr node,
 					t_spriteholder **s,
 					Uint8 *count);
 
+/**
+ *	@brief	Copy sprite values to container (internal)
+ */
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s);
 
@@ -49,11 +55,11 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
       node = node->children;
   }
   if(node)
-    xml_spritesheet_entries(node, (t_spriteholder **)container, &count);
+    xml_spritesheet_sprites(node, (t_spriteholder **)container, &count);
   return (count);
 }
 
-static void	xml_spritesheet_entries(xmlNodePtr node,
+static void	xml_spritesheet_sprites(xmlNodePtr node,
 					t_spriteholder **s,
 					Uint8 *count)
 {
@@ -69,10 +75,9 @@ static void	xml_spritesheet_entries(xmlNodePtr node,
       while (att)
       {
 	if (s)
-	  xml_spritesheet_fill_container(att, s[*count]);
+	  xml_spritesheet_fill_container(att, s[(*count)++]);
 	att = att->next;
       }
-      (*count)++;
     }
     node = node->next;
   }
