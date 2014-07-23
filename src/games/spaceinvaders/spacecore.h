@@ -1,11 +1,11 @@
 /*
 ** spacecore.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 13:14:35 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Space Invaders Game!!
  */
 
-#ifndef GAMES_SPACEINVADERS_SPACECORE_H
-# define GAMES_SPACEINVADERS_SPACECORE_H
+#ifndef GAMES_SPACEINVADERS_SPACECORE_H_
+# define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
  *	@brief	Game mode callback definition
@@ -25,7 +25,6 @@ typedef void	(*t_mode)();
  *	@brief	Global callback
  */
 extern	t_mode	g_launcher;
-
 
 /**
  *	@brief	Initializes Space Invaders game (load sprites, draw UI etc...)
@@ -49,4 +48,4 @@ void	space_loop();
  */
 void	space_destroy();
 
-#endif /* !GAMES_SPACEINVADERS_SPACECORE_H */
+#endif /* !GAMES_SPACEINVADERS_SPACECORE_H_ */
