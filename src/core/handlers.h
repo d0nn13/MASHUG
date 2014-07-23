@@ -85,8 +85,6 @@ t_texture	*make_texture_from_surface(const SDL_Renderer *r,
  */
 void		free_texture(t_texture *t);
 
-
-
 /**
  * ==================== S O U N D  F X ====================
  */
@@ -96,7 +94,6 @@ void		free_texture(t_texture *t);
  *	@param	s The audio chunk to play
  */
 void		play_sfx(t_chunk *s);
-
 
 /**
  * ==================== S P R I T E S ====================
