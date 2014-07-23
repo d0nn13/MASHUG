@@ -10,31 +10,33 @@ OBJPATH		=	objs/
 BINPATH		=	bin/
 PACKPATH	=	dist/
 
-SRC		=	$(SRCPATH)base/math.c				\
-			$(SRCPATH)base/memory.c				\
-			$(SRCPATH)base/list.c				\
-			$(SRCPATH)core/version.c			\
-			$(SRCPATH)core/log.c				\
-			$(SRCPATH)core/options.c			\
-			$(SRCPATH)core/clioptions.c			\
-			$(SRCPATH)core/window.c				\
-			$(SRCPATH)core/renderer.c			\
-			$(SRCPATH)core/graphics.c			\
-			$(SRCPATH)core/audio.c				\
-			$(SRCPATH)core/helpers.c			\
-			$(SRCPATH)core/handlers/graphic_handler.c	\
-			$(SRCPATH)core/handlers/sprite_handler.c	\
-			$(SRCPATH)core/handlers/font_handler.c		\
-			$(SRCPATH)core/handlers/sound_handler.c		\
-			$(SRCPATH)core/handlers/xml_handler.c		\
-			$(SRCPATH)core/handlers/xml_hiscore_handler.c	\
-			$(SRCPATH)core/mashug.c				\
-			$(SRCPATH)games/mainmenu.c			\
-			$(SRCPATH)games/common/fonts.c			\
-			$(SRCPATH)games/common/sfx.c			\
+SRC		=	$(SRCPATH)base/math.c					\
+			$(SRCPATH)base/memory.c					\
+			$(SRCPATH)base/list.c					\
+			$(SRCPATH)core/version.c				\
+			$(SRCPATH)core/log.c					\
+			$(SRCPATH)core/options.c				\
+			$(SRCPATH)core/clioptions.c				\
+			$(SRCPATH)core/window.c					\
+			$(SRCPATH)core/renderer.c				\
+			$(SRCPATH)core/graphics.c				\
+			$(SRCPATH)core/audio.c					\
+			$(SRCPATH)core/helpers.c				\
+			$(SRCPATH)core/handlers/graphic_handler.c		\
+			$(SRCPATH)core/handlers/sprite_handler.c		\
+			$(SRCPATH)core/handlers/font_handler.c			\
+			$(SRCPATH)core/handlers/sound_handler.c			\
+			$(SRCPATH)core/handlers/xml_handler.c			\
+			$(SRCPATH)core/handlers/xml_hiscore_handler.c		\
+			$(SRCPATH)core/handlers/xml_spritesheet_handler.c	\
+			$(SRCPATH)core/mashug.c					\
+			$(SRCPATH)games/mainmenu.c				\
+			$(SRCPATH)games/common/sprites.c			\
+			$(SRCPATH)games/common/fonts.c				\
+			$(SRCPATH)games/common/sfx.c				\
 			$(SRCPATH)games/common/common.c			\
-			$(SRCPATH)games/spaceinvaders/spacemenu.c	\
-			$(SRCPATH)games/spaceinvaders/spacehiscores.c	\
+			$(SRCPATH)games/spaceinvaders/spacemenu.c		\
+			$(SRCPATH)games/spaceinvaders/spacehiscores.c		\
 			$(SRCPATH)games/spaceinvaders/spacespritesheet.c\
 			$(SRCPATH)games/spaceinvaders/spacecore.c
 
