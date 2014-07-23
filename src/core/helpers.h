@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Wed Jul 09 21:56:05 2014 Samir Ahamada
-** Last update Tue Jul 15 12:27:55 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:28:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -23,8 +23,10 @@
 
 SDL_Rect	rect_factory(const int x, const int y, const int w, const int h);
 SDL_Point	point_factory(const int x, const int y);
-SDL_Color	color_factory(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
-
+SDL_Color	color_factory(const Uint8 r,
+			      const Uint8 g,
+			      const Uint8 b,
+			      const Uint8 a);
 Sint32		key_filter(void *userdata, SDL_Event *event);
 
 #endif /* CORE_HELPERS_H_ */

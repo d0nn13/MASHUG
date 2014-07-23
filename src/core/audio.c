@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:10:05 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:00:23 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 12:13:07 2014 ENNEBATI Yassine
 */
 
 /**
@@ -56,7 +56,8 @@ Sint32			audio_init()
   {
     for (i = 0; i < SLOT_NB; ++i)
       slot[i] = NULL;
-    SDL_LogInfo(AUD_LCAT, "Audio initialization done : %d channels @%d Hz, fmt=%d",
+    SDL_LogInfo(AUD_LCAT,
+		"Audio initialization done : %d channels @%d Hz, fmt=%d",
 		conf.channels, conf.freq, conf.format);
   }
   return (0);

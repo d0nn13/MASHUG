@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:06:14 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:06:44 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:31:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -52,8 +52,10 @@ static void timestamp();
 /**
  *	@brief Log printing callback (internal)
  */
-static void log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg);
-
+static void log_print(void *userdata,
+		      int cat,
+		      SDL_LogPriority p,
+		      const char *msg);
 
 /* Log priority settings are temporary */
 void	log_init()
@@ -94,7 +96,10 @@ static void	timestamp()
 	  localtime(&t)->tm_sec);
 }
 
-static void	log_print(void *userdata, int cat, SDL_LogPriority p, const char *msg)
+static void	log_print(void *userdata,
+			  int cat,
+			  SDL_LogPriority p,
+			  const char *msg)
 {
   userdata = (void *)userdata;
   timestamp();

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Tue Jul 15 12:43:50 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:25:48 2014 ENNEBATI Yassine
 */
 
 /**
@@ -36,7 +36,9 @@
  *	@return	A pointer to the surface allocated with "text" printed
  *		with given font "f"and color "c"
  */
-SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Color *c);
+SDL_Surface	*get_text_surface(const char *text,
+				  const TTF_Font *f,
+				  const SDL_Color *c);
 
 /**
  *	@brief	Draws some text at a given origin point, font and color.
@@ -47,8 +49,10 @@ SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Col
  *	@param	f A poiner to the font to render the text with
  *	@param	c The color to render the text in
  */
-void		draw_text(const char *text, const SDL_Point *orig, const TTF_Font *f, const SDL_Color *c);
-
+void		draw_text(const char *text,
+			  const SDL_Point *orig,
+			  const TTF_Font *f,
+			  const SDL_Color *c);
 
 /**
  * ==================== G R A P H I C S ====================
@@ -71,7 +75,8 @@ t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
  *	@param	s The structure containing pixel data used to fill the texture
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_texture_from_surface(const SDL_Renderer *r, const SDL_Surface *s);
+t_texture	*make_texture_from_surface(const SDL_Renderer *r,
+					   const SDL_Surface *s);
 
 /**
  *	@brief	Deallocates a texture.
@@ -130,7 +135,9 @@ Uint8	xml_animation_callback(xmlNodePtr node, void *container);
  *	@param	size The desired sprite size
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *size);
+t_texture	*make_sprite(const char *file,
+			     const SDL_Rect *zone,
+			     const SDL_Rect *size);
 
 /**
  *	@brief	Draws a sprite at a given zone in the texture.
