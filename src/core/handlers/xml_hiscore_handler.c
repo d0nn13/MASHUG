@@ -23,7 +23,9 @@
 
 #define GAME_NAME_LENGTH	15
 
-static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uint8 *count);
+static void	xml_hiscore_entries(xmlNodePtr node,
+				    t_hiscoreholder *container,
+				    Uint8 *count);
 static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
 static xmlChar	game[GAME_NAME_LENGTH] = "";
