@@ -84,6 +84,8 @@ static void	xml_spritesheet_entries(xmlNodePtr node,
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s)
 {
+  if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
+    return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
     strncpy(s->name, (char *)att->children->content, sizeof(s->name));
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))
