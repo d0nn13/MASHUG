@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 20:52:34 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:16:28 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:38:38 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Versions defs
  */
 
-#ifndef CORE_VERSION_H
-# define CORE_VERSION_H
+#ifndef CORE_VERSION_H_
+# define CORE_VERSION_H_
 
 /**
  *	@cond
@@ -31,4 +31,4 @@
  */
 void	print_versions();
 
-#endif /* !CORE_VERSION_H */
+#endif /* !CORE_VERSION_H_ */

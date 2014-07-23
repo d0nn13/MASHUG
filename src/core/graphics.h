@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:21:08 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:12:42 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:19:02 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Graphics and texture definitions
  */
 
-#ifndef CORE_GRAPHICS_H
-# define CORE_GRAPHICS_H
+#ifndef CORE_GRAPHICS_H_
+# define CORE_GRAPHICS_H_
 
 # include <SDL2/SDL_stdinc.h>
 # include <SDL2/SDL_render.h>
@@ -69,4 +69,4 @@ t_texture	*get_bg();
  */
 void		graphics_destroy();
 
-#endif /* !CORE_GRAPHICS_H */
+#endif /* !CORE_GRAPHICS_H_ */

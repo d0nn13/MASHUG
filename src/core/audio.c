@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:10:05 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:00:23 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 16:21:02 2014 ENNEBATI Yassine
 */
 
 /**
@@ -38,7 +38,7 @@ static void	fill_audio_buffer(void *userdata, Uint8 *stream, int len);
 Sint32			audio_init()
 {
   int			i;
-  const SDL_AudioSpec	try = {
+  SDL_AudioSpec const	try = {
     22050, AUDIO_S16LSB, 2, 0, 1024, 0, 0, &fill_audio_buffer, NULL};
 
   if (SDL_InitSubSystem(SDL_INIT_AUDIO))
@@ -56,7 +56,8 @@ Sint32			audio_init()
   {
     for (i = 0; i < SLOT_NB; ++i)
       slot[i] = NULL;
-    SDL_LogInfo(AUD_LCAT, "Audio initialization done : %d channels @%d Hz, fmt=%d",
+    SDL_LogInfo(AUD_LCAT,
+		"Audio initialization done : %d channels @%d Hz, fmt=%d",
 		conf.channels, conf.freq, conf.format);
   }
   return (0);

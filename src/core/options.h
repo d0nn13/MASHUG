@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
-** Last update Thu Jul  3 14:19:06 2014 AHAMADA Samir
+** Last update Wed Jul 23 13:13:38 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,12 +13,12 @@
  *	@brief	Options handling
  */
 
-#ifndef CORE_OPTIONS_H
-# define CORE_OPTIONS_H
+#ifndef CORE_OPTIONS_H_
+# define CORE_OPTIONS_H_
 
 # include <SDL2/SDL_stdinc.h>
 
-# define	KEY_MAX_LEN	16
+# define KEY_MAX_LEN	16
 
 typedef struct	s_optionholder
 {
@@ -27,12 +27,12 @@ typedef struct	s_optionholder
 }		t_optionholder;
 
 typedef enum
-  {
-    LOG_PRIO_OPT = 0,
-    LOG_CAT_OPT,
-    GAME_FPS_OPT,
-    NB_OPT
-  }		t_options;
+{
+  LOG_PRIO_OPT = 0,
+  LOG_CAT_OPT,
+  GAME_FPS_OPT,
+  NB_OPT
+}	t_options;
 
 
 void	options_init();
@@ -45,4 +45,4 @@ char	*get_option_key(t_options o);
 
 void	options_debug();
 
-#endif
+#endif /* !CORE_OPTIONS_H_ */

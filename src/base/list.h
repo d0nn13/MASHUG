@@ -5,13 +5,16 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Wed Jun 25 19:03:19 2014 AHAMADA Samir
-** Last update Fri Jul  4 20:46:36 2014 AHAMADA Samir
+** Last update Tue Jul 15 11:48:46 2014 ENNEBATI Yassine
 */
 
 /**
  *	@file	base/list.h
  *	@brief	Linked lists
  */
+
+#ifndef BASE_LIST_H_
+# define BASE_LIST_H_
 
 typedef struct		s_singlelist
 {
@@ -62,3 +65,5 @@ Uint16		my_list_size(t_singlelist *root);
  *	@param	root The root of a singly-linked list
  */
 void		list_clear(t_singlelist **root);
+
+#endif /* !BASE_LIST_H_ */

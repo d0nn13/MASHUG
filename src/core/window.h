@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 20 22:08:12 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:16:55 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:40:16 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Window handling engine
  */
 
-#ifndef CORE_WINDOW_H
-# define CORE_WINDOW_H
+#ifndef CORE_WINDOW_H_
+# define CORE_WINDOW_H_
 
 # include <SDL2/SDL_video.h>
 
@@ -47,4 +47,4 @@ void		window_destroy();
  */
 SDL_Window	*get_window();
 
-#endif /* !CORE_WINDOW_H */
+#endif /* !CORE_WINDOW_H_ */

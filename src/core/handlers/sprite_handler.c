@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:13:25 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:33:51 2014 ENNEBATI Yassine
 */
 
 /**
@@ -21,7 +21,9 @@
 #include "../handlers.h"
 
 /* TODO (ahamad_s): Split in 2 functions(?) */
-t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *size)
+t_texture	*make_sprite(const char *file,
+			     const SDL_Rect *zone,
+			     const SDL_Rect *size)
 {
   SDL_Surface	*sprite;
   SDL_Surface	*spritesheet;

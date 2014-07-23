@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Mon Jul 14 16:05:49 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:05:52 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 13:14:57 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,12 +13,12 @@
  *	@brief	Main menu for space invaders game
  */
 
-#ifndef	GAMES_SPACEINVADERS_MENU_H
-# define GAMES_SPACEINVADERS_MENU_H
+#ifndef	GAMES_SPACEINVADERS_MENU_H_
+# define GAMES_SPACEINVADERS_MENU_H_
 
 /**
  *	Main menu routine
  */
 void	space_menu();
 
-#endif /* !GAMES_SPACEINVADERS_MENU_H */
+#endif /* !GAMES_SPACEINVADERS_MENU_H_ */

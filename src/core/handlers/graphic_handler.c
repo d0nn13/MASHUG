@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:13:04 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 12:45:37 2014 ENNEBATI Yassine
 */
 
 /**
@@ -37,7 +37,8 @@ t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
   return (t);
 }
 
-t_texture	*make_texture_from_surface(const SDL_Renderer *r, const SDL_Surface *s)
+t_texture	*make_texture_from_surface(const SDL_Renderer *r,
+					   const SDL_Surface *s)
 {
   t_texture	*t;
 

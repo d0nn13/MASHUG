@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:08:05 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 16:27:57 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -43,8 +43,8 @@ static void		draw_background_menu();
 
 static void		display_main_menu()
 {
-  const SDL_Color	sel = {152, 128, 208, 0};
-  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Color const	sel = {152, 128, 208, 0};
+  SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
   
   orig = point_factory(200, 300);
@@ -79,7 +79,7 @@ static void	process_input(const SDL_Scancode *s, t_gameitem *item)
 
 static void		draw_background_menu()
 {
-  const SDL_Color	col = {0, 0, 0, 255};
+  SDL_Color const	col = {0, 0, 0, 255};
   
   SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
   SDL_RenderClear(get_renderer());

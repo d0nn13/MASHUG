@@ -18,7 +18,7 @@ static t_texture	*common_sprites[NB_SPR];
 
 void		load_common_sprites()
 {
-  const char	*sheet = "media/gfx/sprites_sheet_alpha.png";
+  char const	*sheet = "media/gfx/sprites_sheet_alpha.png";
   SDL_Rect	rect1;
   SDL_Rect	rect2;
 

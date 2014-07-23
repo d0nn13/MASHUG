@@ -1,11 +1,11 @@
 /*
 ** mashug.c for core in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sun Jul 13 10:41:09 2014 Samir Ahamada
-** Last update Mon Jul 14 16:07:11 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 12:32:09 2014 ENNEBATI Yassine
 */
 
 /**
@@ -77,14 +77,11 @@ Sint32	main(int argc, char **argv)
 {
   chdir(dirname(*argv));
   chdir("..");
-
   if (core_init(argc, argv) || space_init())
     return (EXIT_FAILURE);
   g_launcher = &main_menu;
   while (g_launcher)
-  {
     g_launcher();
-  }
   space_destroy();
   core_destroy();
   SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());

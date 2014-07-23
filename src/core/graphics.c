@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu May  1 18:22:44 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:00:51 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 14:50:44 2014 ENNEBATI Yassine
 */
 
 /**
@@ -19,7 +19,7 @@
 
 #include "handlers.h"
 
-static	t_texture	*bg;
+static t_texture	*bg;
 
 Sint32	graphics_init()
 {
