@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hiscores SYSTEM "hiscores.dtd">
+<!DOCTYPE hiscores SYSTEM "dtd/hiscores.dtd">
 <hiscores>
   <game name="spaceinvaders">
     <entry nickname="manu" score="5230" date="20140321"/>
