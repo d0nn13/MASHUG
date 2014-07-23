@@ -95,29 +95,36 @@ void		free_texture(t_texture *t);
  */
 void		play_sfx(t_chunk *s);
 
+/*
+** ==================== S P R I T E S ====================
+*/
 /**
- * ==================== S P R I T E S ====================
+ *	@brief	Sprite Holder
  */
 
 /**
  *	@brief	XML Spritesheet parsing callback
  *
- *	Pass a reference to this function to 'xml_parse()' function to parse a Spritesheet XML file
+ *	Pass a reference to this function to 'xml_parse()' function
+ *	to parse a Spritesheet XML file
+ *	
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
  */
-Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
+Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	XML Animation parsing callback
  *
- *	Pass a reference to this function to 'xml_parse()' function to parse an Animation XML file
+ *	Pass a reference to this function to 'xml_parse()' function
+ *	to parse an Animation XML file
+ *	
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
  */
-Uint8	xml_animation_callback(xmlNodePtr node, void *container);
+Uint8		xml_animation_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	Allocates a new spritesheet wrapper from a spritesheet file.
