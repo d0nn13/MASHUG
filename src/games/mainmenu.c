@@ -1,11 +1,11 @@
 /*
 ** mainmenu.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/MASHUG
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 16:27:57 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:11:58 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -40,13 +40,12 @@ static void		process_input(const SDL_Scancode *s, t_gameitem *item);
 
 static void		draw_background_menu();
 
-
 static void		display_main_menu()
 {
   SDL_Color const	sel = {152, 128, 208, 0};
   SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
-  
+
   orig = point_factory(200, 300);
   draw_text("Space Invaders", &orig, get_common_font(PRSTARTK24_FNT),
             T_EQ(item, SPACE_GAME, &sel, &uns));
@@ -80,7 +79,7 @@ static void	process_input(const SDL_Scancode *s, t_gameitem *item)
 static void		draw_background_menu()
 {
   SDL_Color const	col = {0, 0, 0, 255};
-  
+
   SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
   SDL_RenderClear(get_renderer());
 }

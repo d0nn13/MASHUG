@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jul 12 17:43:36 2014 Samir Ahamada
-** Last update Wed Jul 23 16:34:04 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:08:36 2014 ENNEBATI Yassine
 */
 
 /**
@@ -29,7 +29,6 @@ static void	xml_hiscore_entries(xmlNodePtr node,
 static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
 static xmlChar	game[GAME_NAME_LENGTH] = "";
-
 
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 {

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 15:53:40 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:02:10 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -51,7 +51,6 @@ static void    	process_input(const SDL_Scancode *s, t_spaceitem *item);
  *
  */
 static void    	display_menu();
-
 
 void   		space_menu()
 {

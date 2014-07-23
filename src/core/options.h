@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jun 28 20:01:00 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:13:38 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 16:57:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -33,7 +33,6 @@ typedef enum
   GAME_FPS_OPT,
   NB_OPT
 }	t_options;
-
 
 void	options_init();
 

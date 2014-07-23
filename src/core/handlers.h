@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jul 23 13:25:48 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:07:27 2014 ENNEBATI Yassine
 */
 
 /**
@@ -106,7 +106,7 @@ typedef struct	s_spriteholder
 
 /**
  *	@brief	XML Spritesheet parsing callback
- *	
+ *
  *	Pass a reference to this function to 'xml_parse()' function to parse a Spritesheet XML file
  *	You should NOT call this function yourself!
  *
@@ -116,7 +116,7 @@ Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	XML Animation parsing callback
- *	
+ *
  *	Pass a reference to this function to 'xml_parse()' function to parse an Animation XML file
  *	You should NOT call this function yourself!
  *
@@ -155,7 +155,6 @@ void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
  */
 void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig);
 
-
 /*
 ** ==================== H I S C O R E S ====================
 */
@@ -174,7 +173,7 @@ typedef struct	s_hiscoreholder
 
 /**
  *	@brief	XML Hiscore parsing callback
- *	
+ *
  *	Pass a reference to this function to 'xml_parse()' function to parse a Hiscore XML file
  *	You should NOT call this function yourself!
  *
@@ -190,7 +189,6 @@ Uint8		xml_hiscore_callback(xmlNodePtr, void *);
  *	@param	name Name of the 'game' XML element to filter
  */
 void		xml_hiscore_set_game_filter(const char *name);
-
 
 /*
 ** ==================== X M L ====================
