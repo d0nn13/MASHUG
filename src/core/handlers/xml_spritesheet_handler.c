@@ -91,6 +91,8 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 {
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
+  SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saving value '%s' as '%s'",
+		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
     strncpy(s->name, (char *)att->children->content, sizeof(s->name));
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))

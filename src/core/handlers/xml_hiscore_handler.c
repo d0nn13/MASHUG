@@ -92,6 +92,8 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
 {
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;
+  SDL_LogVerbose(XML_LCAT, "xml_hiscore: saving value '%s' as '%s'",
+		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
     strncpy(h->nickname, (char *)att->children->content,
 	    sizeof(h->nickname));
