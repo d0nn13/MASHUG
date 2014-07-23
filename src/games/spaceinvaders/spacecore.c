@@ -1,9 +1,9 @@
 /*
 ** spacecore.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
 ** Last update Wed Jul 23 15:58:13 2014 ENNEBATI Yassine
 */
@@ -29,7 +29,7 @@ Sint32 	space_init()
 
 void			redraw_context(const SDL_Color *c)
 {
-  const SDL_Color	black = {0, 0, 0, 255};
+  SDL_Color const	black = {0, 0, 0, 255};
   SDL_Color		col;
 
   col = !c ? black : *c;
@@ -40,8 +40,8 @@ void			redraw_context(const SDL_Color *c)
 
 void			space_loop()
 {
-  const SDL_Color	white = {255, 255, 255, 255};
-  const SDL_Point	orig = {190, 120};
+  SDL_Color const	white = {255, 255, 255, 255};
+  SDL_Point const	orig = {190, 120};
   SDL_Event		e;
   SDL_Scancode		s;
 

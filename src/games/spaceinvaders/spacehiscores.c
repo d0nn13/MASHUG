@@ -30,8 +30,8 @@ void			hiscores()
 {
   SDL_Event		e;
   SDL_Scancode		s;
-  const SDL_Point	orig = {240, 120};
-  const SDL_Color	white = {255, 255, 255, 255};
+  SDL_Point const	orig = {240, 120};
+  SDL_Color const	white = {255, 255, 255, 255};
 
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);

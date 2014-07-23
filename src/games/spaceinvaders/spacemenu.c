@@ -103,8 +103,8 @@ static void	process_input(const SDL_Scancode *s, t_spaceitem *item)
 
 static void		display_menu()
 {
-  const SDL_Color	sel = {152, 128, 208, 0};
-  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Color const	sel = {152, 128, 208, 0};
+  SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
 
   orig = point_factory(187, 122);

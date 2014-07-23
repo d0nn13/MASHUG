@@ -15,7 +15,7 @@ t_object	*make_ship(void)
 {
   t_object	*ship;
   SDL_Texture	*tex;
-  const char	*sheet = SPRITESHEET;
+  char const	*sheet = SPRITESHEET;
 
   ship = malloc(sizeof(t_object));
   ship->pos = {0, 0};
@@ -24,4 +24,3 @@ t_object	*make_ship(void)
 
   return (ship);
 }
-
