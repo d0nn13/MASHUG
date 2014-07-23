@@ -1,11 +1,11 @@
 /*
 ** spacehiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:33:50 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 15:51:34 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_render.h>
@@ -19,11 +19,11 @@
 #include "spacehiscores.h"
 
 #if defined __MACH__
-# define	SCOREFILE	"/Users/`whoami`/.si_hiscores.xml"
+# define SCOREFILE	"/Users/`whoami`/.si_hiscores.xml"
 #elif defined __linux__
-# define	SCOREFILE	"/home/`whoami`/.si_hiscores.xml"
+# define SCOREFILE	"/home/`whoami`/.si_hiscores.xml"
 #else
-# define	SCOREFILE	"./.si_hiscores.xml"
+# define SCOREFILE	"./.si_hiscores.xml"
 #endif
 
 void			hiscores()

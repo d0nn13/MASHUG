@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 12:08:32 2014 AHAMADA Samir
-** Last update Tue Jul 15 12:03:26 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 13:03:03 2014 ENNEBATI Yassine
 */
 
 /**
@@ -36,13 +36,13 @@ typedef struct	s_chunk
  *	@enum	t_slot
  */
 typedef enum
-  {
-    SLOT_0 = 0,
-    SLOT_1,
-    SLOT_2,
-    SLOT_3,
-    SLOT_NB
-  }		t_slot;
+{
+  SLOT_0 = 0,
+  SLOT_1,
+  SLOT_2,
+  SLOT_3,
+  SLOT_NB
+}	t_slot;
 
 /**
  *	@brief	Initializes engine's Audio module

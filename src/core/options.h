@@ -32,7 +32,7 @@ typedef enum
   LOG_CAT_OPT,
   GAME_FPS_OPT,
   NB_OPT
-}		t_options;
+}	t_options;
 
 
 void	options_init();
