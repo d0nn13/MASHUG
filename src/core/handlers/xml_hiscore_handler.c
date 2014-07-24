@@ -61,6 +61,8 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
     }
     node = node->next;
   }
+  if (container)
+    SDL_LogVerbose(XML_LCAT, "xml_hiscores: %d elements saved", count);
   return (count);
 }
 
@@ -93,7 +95,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
 {
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;
-  SDL_LogVerbose(XML_LCAT, "xml_hiscore: saving value '%s' as '%s'",
+  SDL_LogVerbose(XML_LCAT, "xml_hiscores: saving value '%s' as '%s'",
 		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
     strncpy(h->nickname, (char *)att->children->content,

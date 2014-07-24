@@ -56,6 +56,8 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
   }
   if(node)
     xml_spritesheet_sprites(node, (t_spriteholder **)container, &count);
+  if (container)
+    SDL_LogVerbose(XML_LCAT, "xml_spritesheet: %d elements saved", count);
   return (count);
 }
 
