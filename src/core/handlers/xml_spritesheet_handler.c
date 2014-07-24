@@ -88,7 +88,6 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
     s[*count] = NULL;
 }
 
-
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s)
 {
