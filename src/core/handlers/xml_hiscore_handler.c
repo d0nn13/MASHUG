@@ -76,8 +76,6 @@ static void	xml_hiscore_entries(xmlNodePtr node,
   {
     if (node->type == XML_ELEMENT_NODE)
     {
-      if (xmlStrcmp(node->name, (xmlChar const *)"entry"))
-	return ;
       att = node->properties;
       while (att)
       {
