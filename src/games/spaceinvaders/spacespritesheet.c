@@ -27,7 +27,7 @@ void			load_space_spritesheet()
   spacespritesheet = make_spritesheet("media/gfx/sprites_sheet_alpha.png");
   sprite_count = 2;
   ss = spacespritesheet;
-  ss->sprites = mem_alloc(sizeof(t_spriteholder) * (sprite_count + 1));
+  ss->sprites = mem_alloc(sizeof(t_spriteholder *) * (sprite_count + 1));
   ss->sprites[sprite_count] = NULL;
   ss->sprites[0] = mem_alloc(sizeof(t_spriteholder));
   ss->sprites[0]->name = TITLE_SPR;
