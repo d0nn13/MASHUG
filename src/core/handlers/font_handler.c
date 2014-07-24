@@ -21,9 +21,9 @@
 
 #include "../handlers.h"
 
-SDL_Surface	*get_text_surface(const char *text,
-				  const TTF_Font *f,
-				  const SDL_Color *c)
+SDL_Surface	*get_text_surface(char const *text,
+				  TTF_Font const *f,
+				  SDL_Color const *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;
@@ -39,10 +39,10 @@ SDL_Surface	*get_text_surface(const char *text,
   return (s);
 }
 
-void		draw_text(const char *text,
-			  const SDL_Point *o,
-			  const TTF_Font *f,
-			  const SDL_Color *c)
+void		draw_text(char const *text,
+			  SDL_Point const *o,
+			  TTF_Font const *f,
+			  SDL_Color const *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;

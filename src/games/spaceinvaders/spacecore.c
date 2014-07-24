@@ -27,7 +27,7 @@ Sint32 	space_init()
   return (0);
 }
 
-void			redraw_context(const SDL_Color *c)
+void			redraw_context(SDL_Color const *c)
 {
   SDL_Color const	black = {0, 0, 0, 255};
   SDL_Color		col;

@@ -36,7 +36,7 @@ Sint32	space_init();
  *	@brief	Clears screen with color 'c' and renders cabinet
  *	@param	c The color to clear the screen with
  */
-void	redraw_context(const SDL_Color *c);
+void	redraw_context(SDL_Color const *c);
 
 /**
  *	@brief	Main loop

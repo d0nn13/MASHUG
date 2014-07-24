@@ -36,7 +36,7 @@ static t_mode		select[NB_GAME] =
 
 static void		display_main_menu();
 
-static void		process_input(const SDL_Scancode *s, t_gameitem *item);
+static void		process_input(SDL_Scancode const *s, t_gameitem *item);
 
 static void		draw_background_menu();
 
@@ -54,7 +54,7 @@ static void		display_main_menu()
 	    T_EQ(item, GALAGA_GAME, &sel, &uns));
 }
 
-static void	process_input(const SDL_Scancode *s, t_gameitem *item)
+static void	process_input(SDL_Scancode const *s, t_gameitem *item)
 {
   t_gameitem	old_item;
 

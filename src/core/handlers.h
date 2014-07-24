@@ -36,9 +36,9 @@
  *	@return	A pointer to the surface allocated with "text" printed
  *		with given font "f"and color "c"
  */
-SDL_Surface	*get_text_surface(const char *text,
-				  const TTF_Font *f,
-				  const SDL_Color *c);
+SDL_Surface	*get_text_surface(char const *text,
+				  TTF_Font const *f,
+				  SDL_Color const *c);
 
 /**
  *	@brief	Draws some text at a given origin point, font and color.
@@ -49,10 +49,10 @@ SDL_Surface	*get_text_surface(const char *text,
  *	@param	f A poiner to the font to render the text with
  *	@param	c The color to render the text in
  */
-void		draw_text(const char *text,
-			  const SDL_Point *orig,
-			  const TTF_Font *f,
-			  const SDL_Color *c);
+void		draw_text(char const *text,
+			  SDL_Point const *orig,
+			  TTF_Font const *f,
+			  SDL_Color const *c);
 
 /**
  * ==================== G R A P H I C S ====================
@@ -66,7 +66,7 @@ void		draw_text(const char *text,
  *	@param	h The height of the texture in pixels
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
+t_texture	*make_texture(SDL_Renderer const *r, Sint32 a, Sint32 w, Sint32 h);
 
 /**
  *	@brief	Create a texture from an existing surface.
@@ -75,8 +75,8 @@ t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h);
  *	@param	s The structure containing pixel data used to fill the texture
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_texture_from_surface(const SDL_Renderer *r,
-					   const SDL_Surface *s);
+t_texture	*make_texture_from_surface(SDL_Renderer const *r,
+					   SDL_Surface const *s);
 
 /**
  *	@brief	Deallocates a texture.
@@ -132,9 +132,9 @@ Uint8	xml_animation_callback(xmlNodePtr node, void *container);
  *	@param	size The desired sprite size
  *	@return	A pointer to a newly heap allocated texture
  */
-t_texture	*make_sprite(const char *file,
-			     const SDL_Rect *zone,
-			     const SDL_Rect *size);
+t_texture	*make_sprite(char const *file,
+			     SDL_Rect const *zone,
+			     SDL_Rect const *size);
 
 /**
  *	@brief	Draws a sprite at a given zone in the texture.
@@ -145,7 +145,7 @@ t_texture	*make_sprite(const char *file,
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	zone The zone to fill with the desired sprite
  */
-void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
+void		draw_sprite(t_texture const *s, SDL_Rect const *zone);
 
 /**
  *	@brief	Draws a sprite at a given point in the texture without applying scaling.
@@ -153,7 +153,7 @@ void		draw_sprite(const t_texture *s, const SDL_Rect *zone);
  *	@param	s The desired sprite in t_sprite enumeration
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
  */
-void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig);
+void		draw_sprite_raw(t_texture const *s, SDL_Point const *orig);
 
 /*
 ** ==================== H I S C O R E S ====================
@@ -188,7 +188,7 @@ Uint8		xml_hiscore_callback(xmlNodePtr, void *);
  *
  *	@param	name Name of the 'game' XML element to filter
  */
-void		xml_hiscore_set_game_filter(const char *name);
+void		xml_hiscore_set_game_filter(char const *name);
 
 /*
 ** ==================== X M L ====================
@@ -233,6 +233,6 @@ typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
  *	@param	container A pointer to a container where to save parsed values or NULL
  *	@return	Number of counted elements
  */
-Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container);
+Uint8		xml_parse(char const *path, t_xmlcallback callback, void *container);
 
 #endif /* !CORE_HANDLERS_ */

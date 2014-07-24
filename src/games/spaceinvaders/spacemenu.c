@@ -45,7 +45,7 @@ static t_spaceitem	item = START_MEN;
 /**
  *
  */
-static void    	process_input(const SDL_Scancode *s, t_spaceitem *item);
+static void    	process_input(SDL_Scancode const *s, t_spaceitem *item);
 
 /**
  *
@@ -75,7 +75,7 @@ void   		space_menu()
   }
 }
 
-static void	process_input(const SDL_Scancode *s, t_spaceitem *item)
+static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
 {
   t_spaceitem	old_item;
 

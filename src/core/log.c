@@ -55,7 +55,7 @@ static void	timestamp();
 static void	log_print(void *userdata,
 			  int cat,
 			  SDL_LogPriority p,
-			  const char *msg);
+			  char const *msg);
 
 /* Log priority settings are temporary */
 void	log_init()
@@ -75,7 +75,7 @@ void	log_init()
 #endif
 }
 
-Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym)
+Uint8	ptr_chk(void const *p, char const *psym, Uint32 cat, char const *fsym)
 {
   if (!p)
   {
@@ -99,7 +99,7 @@ static void	timestamp()
 static void	log_print(void *userdata,
 			  int cat,
 			  SDL_LogPriority p,
-			  const char *msg)
+			  char const *msg)
 {
   userdata = (void *)userdata;
   timestamp();

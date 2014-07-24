@@ -19,7 +19,7 @@
 
 #include "../handlers.h"
 
-t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
+t_texture	*make_texture(SDL_Renderer const *r, Sint32 a, Sint32 w, Sint32 h)
 {
   t_texture	*t;
 
@@ -37,8 +37,8 @@ t_texture	*make_texture(const SDL_Renderer *r, Sint32 a, Sint32 w, Sint32 h)
   return (t);
 }
 
-t_texture	*make_texture_from_surface(const SDL_Renderer *r,
-					   const SDL_Surface *s)
+t_texture	*make_texture_from_surface(SDL_Renderer const *r,
+					   SDL_Surface const *s)
 {
   t_texture	*t;
 

@@ -37,7 +37,7 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
   Uint8		count;
 
   count = 0;
-  if (xmlStrcmp(node->name, (const xmlChar *)"hiscores"))
+  if (xmlStrcmp(node->name, (xmlChar const *)"hiscores"))
   {
     SDL_LogError(XML_LCAT, "Wrong hiscores file");
     return (0);
@@ -70,7 +70,7 @@ static void	xml_hiscore_entries(xmlNodePtr node,
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (xmlStrcmp(node->name, (const xmlChar *)"entry"))
+      if (xmlStrcmp(node->name, (xmlChar const *)"entry"))
 	return ;
       att = node->properties;
       while (att)
@@ -96,7 +96,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *holder)
     holder->date = atoi((char *)att->children->content);
 }
 
-void	xml_hiscore_set_game_filter(const char *name)
+void	xml_hiscore_set_game_filter(char const *name)
 {
   if (!ptr_chk(name, "game filter", XML_LCAT, "xml_hiscore_set_game_filter"))
     return ;

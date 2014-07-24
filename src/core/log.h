@@ -58,6 +58,6 @@ void	log_init();
  *	@param	f The function symbol used in code as a NULL-terminated string
  *	@return 0 if the pointer is NULL, -1 otherwise
  */
-Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym);
+Uint8	ptr_chk(void const *p, char const *psym, Uint32 cat, char const *fsym);
 
 #endif /* !CORE_LOG_H_ */

@@ -15,7 +15,7 @@
 
 #include "helpers.h"
 
-SDL_Rect	rect_factory(const int x, const int y, const int w, const int h)
+SDL_Rect	rect_factory(int const x, int const y, int const w, int const h)
 {
   SDL_Rect	newrect;
 
@@ -26,7 +26,7 @@ SDL_Rect	rect_factory(const int x, const int y, const int w, const int h)
   return (newrect);
 }
 
-SDL_Point	point_factory(const int x, const int y)
+SDL_Point	point_factory(int const x, int const y)
 {
   SDL_Point	newpoint;
 
@@ -35,10 +35,10 @@ SDL_Point	point_factory(const int x, const int y)
   return (newpoint);
 }
 
-SDL_Color	color_factory(const Uint8 r,
-			      const Uint8 g,
-			      const Uint8 b,
-			      const Uint8 a)
+SDL_Color	color_factory(Uint8 const r,
+			      Uint8 const g,
+			      Uint8 const b,
+			      Uint8 const a)
 {
   SDL_Color	newcolor;
 
