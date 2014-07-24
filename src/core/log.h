@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 21 14:05:34 2014 AHAMADA Samir
-** Last update Mon Jun 30 01:18:40 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:29:09 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Log engine
  */
 
-#ifndef CORE_LOG_H
-# define CORE_LOG_H
+#ifndef CORE_LOG_H_
+# define CORE_LOG_H_
 
 # include <SDL2/SDL_error.h>
 # include <SDL2/SDL_log.h>
@@ -58,6 +58,6 @@ void	log_init();
  *	@param	f The function symbol used in code as a NULL-terminated string
  *	@return 0 if the pointer is NULL, -1 otherwise
  */
-Uint8	ptr_chk(const void *p, const char *psym, Uint32 cat, const char *fsym);
+Uint8	ptr_chk(void const *p, char const *psym, Uint32 cat, char const *fsym);
 
-#endif /* !CORE_LOG_H */
+#endif /* !CORE_LOG_H_ */

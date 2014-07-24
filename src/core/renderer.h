@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:22:47 2014 AHAMADA Samir
-** Last update Thu Jun 26 17:15:55 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:35:54 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Rendering engine
  */
 
-#ifndef CORE_RENDERER_H
-# define CORE_RENDERER_H
+#ifndef CORE_RENDERER_H_
+# define CORE_RENDERER_H_
 
 # include <SDL2/SDL_render.h>
 
@@ -38,4 +38,4 @@ SDL_Renderer	*get_renderer();
  */
 void	renderer_destroy();
 
-#endif /* !CORE_RENDERER_H */
+#endif /* !CORE_RENDERER_H_ */

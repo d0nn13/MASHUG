@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Thu Jun 26 01:26:55 2014 AHAMADA Samir
-** Last update Fri Jul  4 20:41:57 2014 AHAMADA Samir
+** Last update Tue Jul 15 12:01:34 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,12 +13,11 @@
  *	@brief	Memory handling
  */
 
-#ifndef	BASE_MEMORY_H
-# define BASE_MEMORY_H
+#ifndef	BASE_MEMORY_H_
+# define BASE_MEMORY_H_
 
 # include <stdlib.h>
 # include <SDL_stdinc.h>
-
 
 /**
  *	@brief	Allocates heap memory and increments allocation counter
@@ -43,4 +42,4 @@ void	mem_free(void *ptr);
  */
 Uint16	mem_get_nb_allocs();
 
-#endif /* !BASE_MEMORY_H */
+#endif /* !BASE_MEMORY_H_ */

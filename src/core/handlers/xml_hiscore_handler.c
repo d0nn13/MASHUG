@@ -1,11 +1,11 @@
 /*
 ** xml_hiscore_handler.c for handlers in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders/src/core/handlers
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat Jul 12 17:43:36 2014 Samir Ahamada
-** Last update Sat Jul 12 17:43:36 2014 Samir Ahamada
+** Last update Wed Jul 23 17:08:36 2014 ENNEBATI Yassine
 */
 
 /**
@@ -23,20 +23,21 @@
 
 #define GAME_NAME_LENGTH	15
 
-static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uint8 *count);
+static void	xml_hiscore_entries(xmlNodePtr node,
+				    t_hiscoreholder *container,
+				    Uint8 *count);
 static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
 static xmlChar	game[GAME_NAME_LENGTH] = "";
 
-
-Uint8	xml_hiscore_callback(xmlNodePtr node, void *container)
+Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 {
   xmlAttrPtr	att;
   xmlNodePtr	entry;
   Uint8		count;
 
   count = 0;
-  if (xmlStrcmp(node->name, (const xmlChar *)"hiscores"))
+  if (xmlStrcmp(node->name, (xmlChar const *)"hiscores"))
   {
     SDL_LogError(XML_LCAT, "Wrong hiscores file");
     return (0);
@@ -58,7 +59,9 @@ Uint8	xml_hiscore_callback(xmlNodePtr node, void *container)
   return (count);
 }
 
-static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uint8 *count)
+static void	xml_hiscore_entries(xmlNodePtr node,
+				    t_hiscoreholder *container,
+				    Uint8 *count)
 {
   xmlAttrPtr	att;
 
@@ -67,7 +70,7 @@ static void	xml_hiscore_entries(xmlNodePtr node, t_hiscoreholder *container, Uin
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (xmlStrcmp(node->name, (const xmlChar *)"entry"))
+      if (xmlStrcmp(node->name, (xmlChar const *)"entry"))
 	return ;
       att = node->properties;
       while (att)
@@ -93,7 +96,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *holder)
     holder->date = atoi((char *)att->children->content);
 }
 
-void	xml_hiscore_set_game_filter(const char *name)
+void	xml_hiscore_set_game_filter(char const *name)
 {
   if (!ptr_chk(name, "game filter", XML_LCAT, "xml_hiscore_set_game_filter"))
     return ;

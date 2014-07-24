@@ -1,11 +1,11 @@
 /*
 ** spacemenu.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:33:32 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:02:10 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -29,12 +29,12 @@ typedef enum
   START_MEN,
   SCORE_MEN,
   NB_MEN
-}		t_spaceitem;
+}      	t_spaceitem;
 
 /**
  *	Menu callback initialization
  */
-static t_mode		select[NB_MEN] =
+static t_mode  	select[NB_MEN] =
 {
   &space_loop,
   &hiscores
@@ -45,18 +45,17 @@ static t_spaceitem	item = START_MEN;
 /**
  *
  */
-static void		process_input(const SDL_Scancode *s, t_spaceitem *item);
+static void    	process_input(SDL_Scancode const *s, t_spaceitem *item);
 
 /**
  *
  */
-static void		display_menu();
+static void    	display_menu();
 
-
-void			space_menu()
+void   		space_menu()
 {
-  SDL_Event		e;
-  SDL_Scancode		s;
+  SDL_Event    	e;
+  SDL_Scancode 	s;
 
   SDL_SetEventFilter(key_filter, NULL);
   redraw_context(NULL);
@@ -76,7 +75,7 @@ void			space_menu()
   }
 }
 
-static void	process_input(const SDL_Scancode *s, t_spaceitem *item)
+static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
 {
   t_spaceitem	old_item;
 
@@ -101,12 +100,12 @@ static void	process_input(const SDL_Scancode *s, t_spaceitem *item)
   }
 }
 
-static void	display_menu()
+static void		display_menu()
 {
-  const SDL_Color	sel = {152, 128, 208, 0};
-  const SDL_Color	uns = {255, 255, 255, 0};
+  SDL_Color const	sel = {152, 128, 208, 0};
+  SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
-  
+
   orig = point_factory(187, 122);
   draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
   orig = point_factory(325, 298);

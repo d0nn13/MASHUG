@@ -18,9 +18,9 @@
 
 #include "../handlers.h"
 
-static void	silent_xml(void *, const char*, ...);
+static void	silent_xml(void *, char const *, ...);
 
-Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container)
+Uint8		xml_parse(char const *path, t_xmlcallback callback, void *container)
 {
   xmlDocPtr	doc;
   xmlNodePtr	node;
@@ -42,7 +42,7 @@ Uint8		xml_parse(const char *path, t_xmlcallback callback, void *container)
   return (callback(node, container));
 }
 
-static void	silent_xml(void *ctx, const char* msg, ...)
+static void	silent_xml(void *ctx, char const *msg, ...)
 {
   (void)ctx;
   (void)msg;

@@ -5,11 +5,10 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Mon Jul 14 13:29:01 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:00:53 2014 ENNEBATI Yassine
 */
 
-#ifndef GAMES_SPACEINVADERS_ALIEN_H
-#define GAMES_SPACEINVADERS_ALIEN_H
+#ifndef GAMES_SPACEINVADERS_ALIEN_H_
+# define GAMES_SPACEINVADERS_ALIEN_H_
 
-
-#endif /* !GAMES_SPACEINVADERS_ALIEN_H */
+#endif /* !GAMES_SPACEINVADERS_ALIEN_H_ */

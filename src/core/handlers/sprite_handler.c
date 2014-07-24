@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:13:25 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 13:33:51 2014 ENNEBATI Yassine
 */
 
 /**
@@ -21,7 +21,9 @@
 #include "../handlers.h"
 
 /* TODO (ahamad_s): Split in 2 functions(?) */
-t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *size)
+t_texture	*make_sprite(char const *file,
+			     SDL_Rect const *zone,
+			     SDL_Rect const *size)
 {
   SDL_Surface	*sprite;
   SDL_Surface	*spritesheet;
@@ -48,7 +50,7 @@ t_texture	*make_sprite(const char *file, const SDL_Rect *zone, const SDL_Rect *s
   return (out);
 }
 
-void	draw_sprite(const t_texture *s, const SDL_Rect *zone)
+void	draw_sprite(t_texture const *s, SDL_Rect const *zone)
 {
   if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite"))
     return ;
@@ -57,7 +59,7 @@ void	draw_sprite(const t_texture *s, const SDL_Rect *zone)
   SDL_LogDebug(SPR_LCAT, "Drawn sprite");
 }
 
-void		draw_sprite_raw(const t_texture *s, const SDL_Point *orig)
+void		draw_sprite_raw(t_texture const *s, SDL_Point const *orig)
 {
   SDL_Rect	rect;
 

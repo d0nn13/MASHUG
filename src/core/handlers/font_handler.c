@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Mon Apr 28 15:48:17 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:12:44 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 17:02:45 2014 ENNEBATI Yassine
 */
 
 /**
@@ -21,12 +21,14 @@
 
 #include "../handlers.h"
 
-SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Color *c)
+SDL_Surface	*get_text_surface(char const *text,
+				  TTF_Font const *f,
+				  SDL_Color const *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;
 
-  if(!ptr_chk(text, "text", FNT_LCAT, "get_text_surface") ||
+  if (!ptr_chk(text, "text", FNT_LCAT, "get_text_surface") ||
      !ptr_chk(f, "font", FNT_LCAT, "get_text_surface") ||
      !ptr_chk(c, "color", FNT_LCAT, "get_text_surface"))
     return (NULL);
@@ -37,7 +39,10 @@ SDL_Surface	*get_text_surface(const char *text, const TTF_Font *f, const SDL_Col
   return (s);
 }
 
-void	draw_text(const char *text, const SDL_Point *o, const TTF_Font *f, const SDL_Color *c)
+void		draw_text(char const *text,
+			  SDL_Point const *o,
+			  TTF_Font const *f,
+			  SDL_Color const *c)
 {
   SDL_Surface	*t;
   SDL_Surface	*s;

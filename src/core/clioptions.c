@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Jun 29 13:44:07 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:00:38 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 12:15:47 2014 ENNEBATI Yassine
 */
 
 /**
@@ -48,7 +48,7 @@ void		set_options_from_cli(int argc, char **argv)
 	SDL_LogError(OPT_LCAT, "Uncorrect value '%s' for option '%s'", optarg,
 		     get_option_key(o));
 	errno = 0;
-	continue ;
+	continue;
       }
       SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
       set_option_value(o, v);

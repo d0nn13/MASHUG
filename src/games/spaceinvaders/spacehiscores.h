@@ -1,11 +1,11 @@
 /*
 ** spacehiscores.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Mon Jul 14 16:29:12 2014 ENNEBATI Yassine
+** Last update Tue Jul 15 13:14:27 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Hi-Scores mode for space invaders game
  */
 
-#ifndef GAMES_SPACEINVADERS_SPACEHISCORES_H
-# define GAMES_SPACEINVADERS_SPACEHISCORES_H
+#ifndef GAMES_SPACEINVADERS_SPACEHISCORES_H_
+# define GAMES_SPACEINVADERS_SPACEHISCORES_H_
 
 /**
  *	Main HiScores-mode routine
@@ -31,4 +31,4 @@ Sint32	load_hiscores();
  */
 Sint32	save_hiscore();
 
-#endif /* !GAMES_SPACEINVADERS_SPACEHISCORES_H */
+#endif /* !GAMES_SPACEINVADERS_SPACEHISCORES_H_ */
