@@ -81,7 +81,9 @@ Sint32	main(int argc, char **argv)
     return (EXIT_FAILURE);
   g_launcher = &main_menu;
   while (g_launcher)
+  {
     g_launcher();
+  }
   space_destroy();
   core_destroy();
   SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());
