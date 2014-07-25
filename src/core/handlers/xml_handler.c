@@ -81,7 +81,7 @@ static void	xml_inject_dtd(char const *path, t_xml_type t)
   (void)t;
 }
 
-static Uint8		xml_validate(xmlDocPtr doc)
+static Uint8		xml_validate(xmlDocPtr const doc)
 {
   xmlValidCtxtPtr	ctxt;
   Uint8			r;
@@ -92,11 +92,11 @@ static Uint8		xml_validate(xmlDocPtr doc)
     SDL_LogError(XML_LCAT, "Couldn't validate XML file");
     return (0);
   }
-  if ((r = xmlValidateDocument(ctxt, doc)))
+  if ((r = xmlValidateDocument(ctxt, doc)) == 1)
     SDL_LogVerbose(XML_LCAT, "xml_validate: '%s' has been validated",
-		   (char *)doc->name);
+		   doc->URL, r);
   else
-    SDL_LogError(XML_LCAT, "Couldn't validate XML file");
+    SDL_LogError(XML_LCAT, "Couldn't validate XML file (%d)", r);
   free(ctxt);
   return (r);
 }
