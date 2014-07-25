@@ -35,7 +35,6 @@
 # endif
 
 # define	PIX_FMT	SDL_PIXELFORMAT_RGBA8888
-# define	SPRITE_NAME_LENGTH	16
 /**
  *	@endcond
  */
@@ -55,7 +54,7 @@ typedef	struct	s_texture
  */
 typedef struct		s_spriteholder
 {
-  char			name[SPRITE_NAME_LENGTH];
+  char const		*name;
   SDL_Rect		rect;
 }			t_spriteholder;
 

@@ -21,8 +21,6 @@
 
 #include "../handlers.h"
 
-#define GAME_NAME_LENGTH	15
-
 /**
  *	@brief	Parse entries in hiscore tree (internal)
  */
@@ -35,7 +33,7 @@ static void	xml_hiscore_entries(xmlNodePtr node,
  */
 static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h);
 
-static xmlChar	game[GAME_NAME_LENGTH] = "";
+static char const	*game = "";
 
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 {
@@ -50,7 +48,7 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (!xmlStrcmp(att->children->content, game) || !xmlStrlen(game))
+      if (!xmlStrcmp(att->children->content, (xmlChar *)game) || !strlen(game))
       {
 	entry = node->children->next;
 	xml_hiscore_entries(entry, (t_hiscoreholder *)container, &count);
@@ -93,8 +91,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
   SDL_LogVerbose(XML_LCAT, "xml_hiscores: saving value '%s' as '%s'",
 		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
-    strncpy(h->nickname, (char *)att->children->content,
-	    sizeof(h->nickname));
+    h->nickname = (char *)att->children->content;
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))
     h->score = atoi((char *)att->children->content);
   else if (!xmlStrcmp(att->name, (xmlChar *)"date"))
@@ -105,5 +102,5 @@ void	xml_hiscore_set_game_filter(char const *name)
 {
   if (!ptr_chk(name, "game filter", XML_LCAT, "xml_hiscore_set_game_filter"))
     return ;
-  strncpy((char *)game, name, GAME_NAME_LENGTH);
+  game = name;
 }

@@ -19,8 +19,16 @@
 #include "../handlers.h"
 
 static t_xml_typeholder	const	types[] = {
-  {&xml_hiscore_callback, "<!DOCTYPE hiscores SYSTEM \"dtd/hiscores.dtd\">"},
-  {&xml_spritesheet_callback, "<!DOCTYPE img SYSTEM \"../spritesheet.dtd\">"}
+  {
+    &xml_hiscore_callback,
+    "media/dtd/hiscores.dtd",
+    "<!DOCTYPE hiscores SYSTEM \"dtd/hiscores.dtd\">"
+  },
+  {
+    &xml_spritesheet_callback,
+    "media/dtd/spritesheet.dtd",
+    "<!DOCTYPE img SYSTEM \"../spritesheet.dtd\">"
+  }
 };
 
 /**
@@ -39,7 +47,7 @@ static void	xml_inject_dtd(char const *path, t_xml_type t);
  *	@brief	Validates an XML file with DTD informations
  *	@return	1 if the XML file is valid, 0 otherwise
  */
-static Uint8	xml_validate(xmlDocPtr doc);
+static Uint8	xml_validate(xmlDocPtr doc, t_xml_type t);
 
 /*
  *	@brief	libxml2 error silencing callback
@@ -60,8 +68,9 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
     SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
     return (-2);
   }
-  xml_inject_dtd(path, t);
-  if (xml_validate(doc))
+  if (xml_check_dtd(path, t))
+    xml_inject_dtd(path, t);
+  if (xml_validate(doc, t) != 1)
     return (-3);
   if (!(node = xmlDocGetRootElement(doc)))
   {
@@ -84,23 +93,30 @@ static void	xml_inject_dtd(char const *path, t_xml_type t)
   (void)t;
 }
 
-static Uint8		xml_validate(xmlDocPtr const doc)
+static Uint8		xml_validate(xmlDocPtr const doc, t_xml_type t)
 {
   xmlValidCtxtPtr	ctxt;
+  xmlDtdPtr		dtd;
   Uint8			r;
 
+  ctxt = NULL;
+  dtd = NULL;
+  r = 1;
   ctxt = xmlNewValidCtxt();
-  if (!ptr_chk(ctxt, "ctxt", XML_LCAT, "xml_validate"))
-  {
-    SDL_LogError(XML_LCAT, "Couldn't validate XML file");
-    return (0);
-  }
-  if ((r = xmlValidateDocument(ctxt, doc)) == 1)
+  dtd = xmlParseDTD(NULL, (xmlChar *)types[t].dtd_file);
+  if (!ptr_chk(ctxt, "ctxt", XML_LCAT, "xml_validate") ||
+      !ptr_chk(dtd, "dtd", XML_LCAT, "xml_validate"))
+    r = 0;
+  if (r && (r = xmlValidateDtd(ctxt, doc, dtd)) == 1)
     SDL_LogVerbose(XML_LCAT, "xml_validate: '%s' has been validated",
-		   doc->URL, r);
+		   doc->URL);
   else
-    SDL_LogError(XML_LCAT, "Couldn't validate XML file (%d)", r);
-  free(ctxt);
+    SDL_LogError(XML_LCAT, "xml_validate: couldn't validate XML file '%s'",
+		 doc->URL);
+  if (ctxt)
+    xmlFreeValidCtxt(ctxt);
+  if (dtd)
+    xmlFreeDtd(dtd);
   return (r);
 }
 

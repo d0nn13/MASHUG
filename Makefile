@@ -31,7 +31,6 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/handlers/xml_spritesheet_handler.c	\
 			$(SRCPATH)core/mashug.c					\
 			$(SRCPATH)games/mainmenu.c				\
-			$(SRCPATH)games/common/sprites.c			\
 			$(SRCPATH)games/common/fonts.c				\
 			$(SRCPATH)games/common/sfx.c				\
 			$(SRCPATH)games/common/common.c			\

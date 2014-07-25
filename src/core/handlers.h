@@ -177,15 +177,13 @@ t_spriteholder	*get_sprite(t_spritesheet const *sprites, char const *name);
 /*
 ** ==================== H I S C O R E S ====================
 */
-# define HISCORE_NICKNAME_LENGTH	16
-
 /**
  *	@brief	Hiscore holder structure
  *	@todo	Use proper date type for "date" member
  */
 typedef struct	s_hiscoreholder
 {
-  char		nickname[HISCORE_NICKNAME_LENGTH];
+  char const	*nickname;
   Uint32	score;
   Uint32	date;
 }		t_hiscoreholder;
@@ -198,7 +196,7 @@ typedef struct	s_hiscoreholder
  *
  *	@return	Number of counted elements
  */
-Uint8		xml_hiscore_callback(xmlNodePtr, void *);
+Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	Game filter setter
@@ -220,6 +218,7 @@ typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
 typedef struct	s_xml_typeholder
 {
   t_xmlcallback	call;
+  char const	*dtd_file;
   char const	*dtd_str;
 }		t_xml_typeholder;
 

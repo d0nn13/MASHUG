@@ -93,7 +93,7 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
   SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saving value '%s' as '%s'",
 		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
-    strncpy(s->name, (char *)att->children->content, sizeof(s->name));
+    s->name = (char *)att->children->content;
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))
     s->rect.x = atoi((char *)att->children->content);
   else if (!xmlStrcmp(att->name, (xmlChar *)"y"))
