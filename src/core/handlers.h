@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jul 23 17:07:27 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 12:48:41 2014 Emmanuel Atse
 */
 
 /**
@@ -98,11 +98,6 @@ void		play_sfx(t_chunk *s);
 /**
  * ==================== S P R I T E S ====================
  */
-typedef struct	s_spriteholder
-{
-  char		*name;
-  SDL_Rect	rect;
-}		t_spriteholder;
 
 /**
  *	@brief	XML Spritesheet parsing callback
@@ -125,36 +120,53 @@ Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
 Uint8	xml_animation_callback(xmlNodePtr node, void *container);
 
 /**
- *	@brief	Allocates a new scaled sprite from a sprites sheet file.
+ *	@brief	Allocates a new spritesheet wrapper from a spritesheet file.
  *
- *	@param	file The file name of the sprites sheet containing the desired sprite
- *	@param	zone The zone in the sprites sheet to take
- *	@param	size The desired sprite size
- *	@return	A pointer to a newly heap allocated texture
+ *	@param	file The file name of the sprites sheet
+ *	@return	A pointer to a newly heap allocated spritesheet
  */
-t_texture	*make_sprite(char const *file,
-			     SDL_Rect const *zone,
-			     SDL_Rect const *size);
+t_spritesheet	*make_spritesheet(const char *file);
 
 /**
- *	@brief	Draws a sprite at a given zone in the texture.
+ *	@brief	Deallocates a spritesheet
+ */
+void		free_spritesheet(t_spritesheet *ss);
+
+/**
+ *	@brief	Draws a sprite from a spritesheet to a given zone on the renderer.
  *
  *	This function scales the sprite to 'zone' dimensions.
- *	Passing NULL to 'zone' implies scaling to fit texture size
+ *	Passing NULL to 'zone' implies scaling to fit renderer size
  *
- *	@param	s The desired sprite in t_sprite enumeration
+ *	@param	ss The spritesheet from where to take the sprite
+ *	@param	s The desired sprite holder
  *	@param	zone The zone to fill with the desired sprite
  */
-void		draw_sprite(t_texture const *s, SDL_Rect const *zone);
+void		draw_sprite(t_spritesheet const *ss,
+			    t_spriteholder const *s,
+			    SDL_Rect const *zone);
 
 /**
- *	@brief	Draws a sprite at a given point in the texture without applying scaling.
+ *	@brief	Draws a sprite from a spritesheet at a given point on the renderer without applying scaling.
  *
- *	@param	s The desired sprite in t_sprite enumeration
+ *	@param	ss The spritesheet from where to take the sprite
+ *	@param	s The desired sprite holder
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
  */
-void		draw_sprite_raw(t_texture const *s, SDL_Point const *orig);
+void		draw_sprite_raw(t_spritesheet const *ss,
+				t_spriteholder const *s,
+				SDL_Point const *orig);
 
+/**
+ *	@brief Get a sprite within a spritesheet with a given name
+ *
+ *	@param spritesheet The spritesheet
+ *	@param name The name of the sprite to find
+ *
+ *	@return a pointer to the found sprite
+ *	@return NULL if not found
+ */
+t_spriteholder	*get_sprite(t_spritesheet const *sprites, char const *name);
 /*
 ** ==================== H I S C O R E S ====================
 */

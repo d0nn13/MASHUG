@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 17:02:10 2014 ENNEBATI Yassine
+** Last update Wed Jul 23 10:57:06 2014 Emmanuel Atse
 */
 
 #include <SDL2/SDL.h>
@@ -16,9 +16,9 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "../mainmenu.h"
-#include "spacecore.h"
+#include "spacespritesheet.h"
 #include "spacehiscores.h"
-
+#include "spacecore.h"
 #include "spacemenu.h"
 
 /**
@@ -105,13 +105,17 @@ static void		display_menu()
   SDL_Color const	sel = {152, 128, 208, 0};
   SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
+  SDL_Rect		rect;
+  t_spritesheet const	*ss;
+  TTF_Font const	*font;
 
-  orig = point_factory(187, 122);
-  draw_sprite_raw(get_common_sprite(TITLE_SPR), &orig);
+  ss = get_space_spritesheet();
+  font = get_common_font(ATARI24_FNT);
+  rect = rect_factory(187, 122, 420, 119);
+  draw_sprite(ss, get_sprite(ss, TITLE_SPR), &rect);
+  draw_sprite(ss, get_sprite(ss, CABINET_SPR), NULL);
   orig = point_factory(325, 298);
-  draw_text("START", &orig, get_common_font(ATARI24_FNT),
-            T_EQ(item, START_MEN, &sel, &uns));
+  draw_text("START", &orig, font, T_EQ(item, START_MEN, &sel, &uns));
   orig = point_factory(289, 369);
-  draw_text("HISCORES", &orig, get_common_font(ATARI24_FNT),
-            T_EQ(item, SCORE_MEN, &sel, &uns));
+  draw_text("HISCORES", &orig, font, T_EQ(item, SCORE_MEN, &sel, &uns));
 }

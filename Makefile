@@ -30,11 +30,11 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)core/handlers/xml_hiscore_handler.c	\
 			$(SRCPATH)core/mashug.c				\
 			$(SRCPATH)games/mainmenu.c			\
-			$(SRCPATH)games/common/sprites.c		\
 			$(SRCPATH)games/common/fonts.c			\
 			$(SRCPATH)games/common/sfx.c			\
 			$(SRCPATH)games/spaceinvaders/spacemenu.c	\
 			$(SRCPATH)games/spaceinvaders/spacehiscores.c	\
+			$(SRCPATH)games/spaceinvaders/spacespritesheet.c\
 			$(SRCPATH)games/spaceinvaders/spacecore.c
 
 OBJ		=	$(SRC:%.c=%.o)
