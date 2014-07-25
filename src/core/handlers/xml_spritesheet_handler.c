@@ -35,14 +35,11 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s);
 
-/* TODO: Uncomment DTD inject when ibra has done it */
 Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
 {
   Uint8		count;
 
   count = 0;
-/*   if (xml_spritesheet_inject_dtd()) */
-/*	return (0); */
   node = node->children ? node->children : NULL;
   while (node)
   {

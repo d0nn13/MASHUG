@@ -37,7 +37,6 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h);
 
 static xmlChar	game[GAME_NAME_LENGTH] = "";
 
-/* TODO: Uncomment DTD inject when ibra has done it */
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 {
   xmlAttrPtr	att;
@@ -45,8 +44,6 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
   Uint8		count;
 
   count = 0;
-/*   if (xml_hiscore_inject_dtd()) */
-/*	return (0); */
   node = node->children ? node->children : NULL;
   while (node)
   {
