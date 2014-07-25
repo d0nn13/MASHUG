@@ -46,7 +46,7 @@ static Uint8	xml_validate(xmlDocPtr doc);
  */
 static void	xml_silent(void *, char const *, ...);
 
-Uint8		xml_parse(char const *path, t_xml_type t, void *container)
+Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 {
   xmlDocPtr	doc;
   xmlNodePtr	node;

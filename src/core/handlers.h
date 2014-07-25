@@ -265,6 +265,6 @@ typedef enum
  *	@param	container A pointer to a container where to save parsed values or NULL
  *	@return	Number of counted elements
  */
-Uint8		xml_parse(char const *path, t_xml_type type, void *container);
+Sint8		xml_parse(char const *path, t_xml_type type, void *container);
 
 #endif /* !CORE_HANDLERS_ */
