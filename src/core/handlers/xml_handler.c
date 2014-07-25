@@ -54,16 +54,19 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
   xmlSetGenericErrorFunc(NULL, &xml_silent);
   if (!ptr_chk(path, "xml path", XML_LCAT, "xml_parse") ||
       !ptr_chk(&types[t].call, "callback", XML_LCAT, "xml_parse"))
-    return (0);
+    return (-1);
   if (!(doc = xmlParseFile(path)))
   {
     SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
-    return (0);
+    return (-2);
   }
+  xml_inject_dtd(path, t);
+  if (xml_validate(doc))
+    return (-3);
   if (!(node = xmlDocGetRootElement(doc)))
   {
     SDL_LogCritical(XML_LCAT, "Couldn't get XML root element");
-    return (0);
+    return (-4);
   }
   return (types[t].call(node, container));
 }
