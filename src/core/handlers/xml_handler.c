@@ -1,9 +1,9 @@
 /*
 ** xml_handler.c for handlers in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/SpaceInvaders/src/core/handlers
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Sat Jul 12 17:22:40 2014 Samir Ahamada
 ** Last update Sat Jul 12 17:22:40 2014 Samir Ahamada
 */
@@ -32,7 +32,7 @@ static t_xml_typeholder	const	types[] = {
 };
 
 /**
- *	@brief	Checks if the XML file contains an DTD reference 
+ *	@brief	Checks if the XML file contains an DTD reference
  *
  *	@return	Zero if the file contains a DTD reference, 1 otherwise
  */
@@ -43,16 +43,21 @@ static Uint8	xml_check_dtd(char const *path, t_xml_type t);
  */
 static void	xml_inject_dtd(char const *path, t_xml_type t);
 
-/*
+/**
  *	@brief	Validates an XML file with DTD informations
  *	@return	1 if the XML file is valid, 0 otherwise
  */
 static Uint8	xml_validate(xmlDocPtr doc, t_xml_type t);
 
-/*
+/**
  *	@brief	libxml2 error silencing callback
  */
 static void	xml_silent(void *, char const *, ...);
+
+/**
+ *	@brief	libxml2 error silencing callback
+ */
+char** file_to_tab(char const *path);
 
 Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 {
@@ -82,15 +87,44 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 
 static Uint8	xml_check_dtd(char const *path, t_xml_type t)
 {
-  (void)path;
+  char **file;
+  int i;
+  int has_doctype;
+
+  has_doctype = 0;
+
+  file = file_to_tab(path);
+  if (ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
+      return 0;
+  for (i = 0; file[i]; i++)
+      if (strstr(file[i], "DOCTYPE"))
+          has_doctype = 1;
+
+  for (i = 0; file[i]; i++)
+      free(file[i]);
+  free(file);
   (void)t;
-  return (1);
+  return has_doctype;
 }
 
 static void	xml_inject_dtd(char const *path, t_xml_type t)
 {
-  (void)path;
-  (void)t;
+  FILE * file_out;
+  char **file;
+  int nb_lines;
+
+  file = file_to_tab(path);
+  if (ptr_chk(file, "file", XML_LCAT, "xml_inject_dtd"))
+      return;
+  file_out = fopen(path, "w+");
+  nb_lines = 0;
+  fputs(file[nb_lines++], file_out);
+  fputs(types[t].dtd_str, file_out);
+
+  while (file[nb_lines])
+      fputs(file[nb_lines++], file_out);
+
+  fclose(file_out);
 }
 
 static Uint8		xml_validate(xmlDocPtr const doc, t_xml_type t)
@@ -124,4 +158,32 @@ static void	xml_silent(void *ctx, char const *msg, ...)
 {
   (void)ctx;
   (void)msg;
+}
+
+char** file_to_tab(char const *path)
+{
+    FILE *file_in;
+    static size_t len = 0;
+    static ssize_t read = 0;
+    static char *line;
+    char** file_parse;
+    int nb_lines;
+
+    nb_lines = 0;
+    if ((file_in = fopen(path, "r")) == NULL)
+        return NULL;
+    while ((read = getline(&line, &len, file_in)) != -1)
+        nb_lines++;
+    fseek(file_in, 0, SEEK_SET);
+    file_parse = malloc(sizeof(char *) * (nb_lines + 1));
+    nb_lines = 0;
+    while ((read = getline(&line, &len, file_in)) != -1)
+    {
+        file_parse[nb_lines] = malloc(sizeof(char) * (strlen(line) + 1));
+        file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
+        nb_lines++;
+    }
+    fclose(file_in);
+
+    return file_parse;
 }
