@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <libxml/parser.h>
 #include "../log.h"
 
@@ -88,7 +89,6 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
 {
   char		*err;
 
-  errno = 0;
   err = "";
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;

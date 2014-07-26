@@ -1,9 +1,9 @@
 /*
 ** xml_spritesheet_handler.c for handlers in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG/xml/src/core/handlers
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Wed Jul 16 12:45:49 2014 Samir Ahamada
 ** Last update Wed Jul 16 12:45:49 2014 Samir Ahamada
 */
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <libxml/parser.h>
 #include "../../base/memory.h"
 #include "../log.h"
@@ -90,7 +91,6 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 {
   char		*err;
 
-  errno = 0;
   err = "";
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
@@ -111,4 +111,3 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
     SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saved value '%s' as '%s'",
 		   (char *)att->children->content, (char *)att->name);
 }
-

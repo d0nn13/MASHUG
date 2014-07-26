@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jul 12 17:22:40 2014 Samir Ahamada
-** Last update Sat Jul 12 17:22:40 2014 Samir Ahamada
+** Last update Sat Jul 26 20:19:48 2014 FOFANA Ibrahim
 */
 
 /**
@@ -15,7 +15,7 @@
 
 #include <libxml/parser.h>
 #include "../log.h"
-
+#include "../../base/memory.h"
 #include "../handlers.h"
 
 static t_xml_typeholder	const	types[] = {
@@ -36,7 +36,7 @@ static t_xml_typeholder	const	types[] = {
  *
  *	@return	Zero if the file contains a DTD reference, 1 otherwise
  */
-static Uint8	xml_check_dtd(char const *path, t_xml_type t);
+static Uint8	xml_check_dtd(char const *path);
 
 /**
  *	@brief	Inject the proper DTD reference in an XML file
@@ -55,7 +55,7 @@ static Uint8	xml_validate(xmlDocPtr doc, t_xml_type t);
 static void	xml_silent(void *, char const *, ...);
 
 /**
- *	@brief	libxml2 error silencing callback
+ *	@brief parse file to tab char*
  */
 char** file_to_tab(char const *path);
 
@@ -73,7 +73,7 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
     SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
     return (-2);
   }
-  if (xml_check_dtd(path, t))
+  if (xml_check_dtd(path))
     xml_inject_dtd(path, t);
   if (xml_validate(doc, t) != 1)
     return (-3);
@@ -85,14 +85,13 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
   return (types[t].call(node, container));
 }
 
-static Uint8	xml_check_dtd(char const *path, t_xml_type t)
+static Uint8	xml_check_dtd(char const *path)
 {
   char **file;
   int i;
   int has_doctype;
 
   has_doctype = 0;
-
   file = file_to_tab(path);
   if (ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
       return 0;
@@ -101,9 +100,9 @@ static Uint8	xml_check_dtd(char const *path, t_xml_type t)
           has_doctype = 1;
 
   for (i = 0; file[i]; i++)
-      free(file[i]);
-  free(file);
-  (void)t;
+      mem_free(file[i]);
+  mem_free(file);
+
   return has_doctype;
 }
 
@@ -175,11 +174,11 @@ char** file_to_tab(char const *path)
     while ((read = getline(&line, &len, file_in)) != -1)
         nb_lines++;
     fseek(file_in, 0, SEEK_SET);
-    file_parse = malloc(sizeof(char *) * (nb_lines + 1));
+    file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
     nb_lines = 0;
     while ((read = getline(&line, &len, file_in)) != -1)
     {
-        file_parse[nb_lines] = malloc(sizeof(char) * (strlen(line) + 1));
+        file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
         file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
         nb_lines++;
     }
