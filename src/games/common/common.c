@@ -5,10 +5,9 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Fri Jul 25 16:42:25 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 15:56:59 2014 ENNEBATI Yassine
+** Last update Sat Jul 26 17:44:50 2014 ENNEBATI Yassine
 */
 
-#include "SDL2/SDL.h"
 #include "fonts.h"
 #include "sfx.h"
 
