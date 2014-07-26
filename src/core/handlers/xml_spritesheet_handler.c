@@ -44,7 +44,7 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
   while (node)
   {
     if (node->type == XML_ELEMENT_NODE &&
-	!xmlStrcmp(node->name, (xmlChar * const)"spr"))
+	!xmlStrcmp(node->name, (xmlChar *)"spr"))
       break ;
     if (!node->children)
       node = node->next;
@@ -88,19 +88,27 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s)
 {
+  char		*err;
+
+  errno = 0;
+  err = "";
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
-  SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saving value '%s' as '%s'",
-		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
     s->name = (char *)att->children->content;
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))
-    s->rect.x = atoi((char *)att->children->content);
+    s->rect.x = strtol((char *)att->children->content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"y"))
-    s->rect.y = atoi((char *)att->children->content);
+    s->rect.y = strtol((char *)att->children->content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"w"))
-    s->rect.w = atoi((char *)att->children->content);
+    s->rect.w = strtol((char *)att->children->content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"h"))
-    s->rect.h = atoi((char *)att->children->content);
+    s->rect.h = strtol((char *)att->children->content, &err, 10);
+  if (errno == EINVAL || errno == ERANGE || strlen(err))
+    SDL_LogError(XML_LCAT, "xml_spritesheet: error while saving '%s' as '%s'",
+		 (char *)att->children->content, (char *)att->name);
+  else
+    SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saved value '%s' as '%s'",
+		   (char *)att->children->content, (char *)att->name);
 }
 

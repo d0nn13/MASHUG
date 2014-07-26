@@ -86,16 +86,24 @@ static void	xml_hiscore_entries(xmlNodePtr node,
 
 static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
 {
+  char		*err;
+
+  errno = 0;
+  err = "";
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;
-  SDL_LogVerbose(XML_LCAT, "xml_hiscores: saving value '%s' as '%s'",
-		 (char *)att->children->content, (char *)att->name);
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
     h->nickname = (char *)att->children->content;
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))
-    h->score = atoi((char *)att->children->content);
+    h->score = strtol((char *)att->children->content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"date"))
-    h->date = atoi((char *)att->children->content);
+    h->date = strtol((char *)att->children->content, &err, 10);
+  if (errno == EINVAL || errno == ERANGE || strlen(err))
+    SDL_LogError(XML_LCAT, "xml_hiscores: error while saving '%s' as '%s'",
+		 (char *)att->children->content, (char *)att->name);
+  else
+    SDL_LogVerbose(XML_LCAT, "xml_hiscores: saved value '%s' as '%s'",
+		   (char *)att->children->content, (char *)att->name);
 }
 
 void	xml_hiscore_set_game_filter(char const *name)
