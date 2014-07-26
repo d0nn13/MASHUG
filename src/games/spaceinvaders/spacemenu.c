@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 17:32:47 2014 ENNEBATI Yassine
+** Last update Sat Jul 26 19:33:19 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -85,8 +85,8 @@ static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
   if (*s == SDL_SCANCODE_ESCAPE)
   {
     g_launcher = &main_menu;
-    space_destroy();
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    space_destroy();
   }
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {

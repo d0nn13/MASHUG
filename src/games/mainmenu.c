@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 17:30:37 2014 ENNEBATI Yassine
+** Last update Sat Jul 26 19:32:50 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -68,8 +68,8 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
     g_launcher = select[*item];
     if (*item == SPACE_GAME)
     {
-      space_init();
       play_sfx(get_common_sfx(BLIPOK_SFX));
+      space_init();
     }
   }
   if (*item != old_item)
