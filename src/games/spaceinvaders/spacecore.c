@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 10:46:54 2014 Emmanuel Atse
+** Last update Fri Jul 25 17:09:25 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -23,8 +23,6 @@ t_mode 	g_launcher;
 Sint32 	space_init()
 {
   load_space_spritesheet();
-  load_common_fonts();
-  load_common_sfx();
   return (0);
 }
 
@@ -72,7 +70,5 @@ void			space_loop()
 
 void	space_destroy()
 {
-  free_common_sfx();
-  free_common_fonts();
   free_space_spritesheet();
 }
