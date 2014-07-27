@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Fri Jul 25 17:09:25 2014 ENNEBATI Yassine
+** Last update Sun Jul 27 15:18:10 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -39,6 +39,7 @@ void			redraw_context(SDL_Color const *c)
   draw_sprite(ss, get_sprite(ss, CABINET_SPR), NULL);
 }
 
+/* TODO: split into two fct !!! */
 void			space_loop()
 {
   SDL_Color const	white = {255, 255, 255, 255};
@@ -53,7 +54,10 @@ void			space_loop()
   {
     if (SDL_PollEvent(&e))
       if (e.type == SDL_QUIT)
+      {
+	space_destroy();
 	g_launcher = NULL;
+      }
     if (e.type == SDL_KEYDOWN)
     {
       s = e.key.keysym.scancode;

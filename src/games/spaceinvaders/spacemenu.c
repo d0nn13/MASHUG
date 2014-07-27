@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 19:33:19 2014 ENNEBATI Yassine
+** Last update Sun Jul 27 15:13:14 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -65,7 +65,10 @@ void   		space_menu()
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
+      {
+	space_destroy();
 	g_launcher = NULL;
+      }
       if (e.type == SDL_KEYDOWN)
       {
 	s = e.key.keysym.scancode;

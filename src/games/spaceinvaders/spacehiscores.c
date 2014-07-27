@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 15:51:34 2014 ENNEBATI Yassine
+** Last update Sun Jul 27 15:17:42 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_render.h>
@@ -39,7 +39,10 @@ void			hiscores()
   {
     if (SDL_WaitEvent(&e))
       if (e.type == SDL_QUIT)
+      {
+	space_destroy();
 	g_launcher = NULL;
+      }
     if (e.type == SDL_KEYDOWN)
     {
       s = e.key.keysym.scancode;
