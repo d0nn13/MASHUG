@@ -43,13 +43,13 @@ Sint32			audio_init()
 
   if (SDL_InitSubSystem(SDL_INIT_AUDIO))
   {
-    SDL_LogError(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
+    SDL_LogCritical(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
     return (-1);
   }
   dev = SDL_OpenAudioDevice(NULL, 0, &try, &conf, 0);
   if (!dev)
   {
-    SDL_LogError(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
+    SDL_LogCritical(AUD_LCAT, "Couldn't initialize audio : %s", SDL_GetError());
     return (-1);
   }
   else
@@ -78,10 +78,10 @@ void	set_audio_buffer(t_chunk *c, t_slot s)
   if (s < SLOT_NB)
   {
     slot[s] = c;
-    SDL_LogDebug(AUD_LCAT, "Loaded slot #%d", s);
+    SDL_LogVerbose(AUD_LCAT, "Loaded slot #%d", s);
   }
   else
-    SDL_LogDebug(AUD_LCAT, "Slot requested is out of range (%d)", s);
+    SDL_LogError(AUD_LCAT, "Slot requested is out of range (%d)", s);
 }
 
 void	audio_destroy()

@@ -26,7 +26,7 @@ Sint32	graphics_init()
   if (!(bg = make_texture(get_renderer(), SDL_TEXTUREACCESS_STATIC,
 			  WIN_W, WIN_H)))
   {
-    SDL_LogError(GFX_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
+    SDL_LogCritical(GFX_LCAT, "Couldn't initialize graphics : ", SDL_GetError());
     return (-1);
   }
   SDL_LogInfo(GFX_LCAT, "Graphics initialization done");

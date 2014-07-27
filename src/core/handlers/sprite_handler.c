@@ -48,7 +48,7 @@ void		draw_sprite(t_spritesheet const *ss,
   renderer = get_renderer();
   SDL_RenderCopy(renderer, ss->tex->tex, &s->rect, zone);
   SDL_RenderPresent(renderer);
-  SDL_LogDebug(SPR_LCAT, "Drawn sprite");
+  SDL_LogVerbose(SPR_LCAT, "Drawn sprite '%s'", s->name);
 }
 
 void		draw_sprite_raw(t_spritesheet const *ss,

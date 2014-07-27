@@ -86,7 +86,7 @@ Sint32	main(int argc, char **argv)
   }
   space_destroy();
   core_destroy();
-  SDL_Log("Alloc vs Free status : %d", mem_get_nb_allocs());
+  SDL_LogDebug(APP_LCAT, "Alloc vs Free status : %d", mem_get_nb_allocs());
   atexit(SDL_Quit);
   return (EXIT_SUCCESS);
 }

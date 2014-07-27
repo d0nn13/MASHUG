@@ -64,5 +64,5 @@ void		draw_text(char const *text,
   SDL_RenderCopy(get_renderer(), get_bg()->tex, &z, &z);
   SDL_RenderPresent(get_renderer());
   SDL_FreeSurface(s);
-  SDL_LogDebug(FNT_LCAT, "Drawn text \"%s\"", text);
+  SDL_LogVerbose(FNT_LCAT, "Drawn text '%s'", text);
 }

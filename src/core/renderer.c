@@ -38,7 +38,7 @@ Sint32	renderer_init()
   }
   if (TTF_Init())
   {
-    SDL_LogError(RDR_LCAT, SDL_GetError());
+    SDL_LogCritical(RDR_LCAT, SDL_GetError());
     return (-1);
   }
   SDL_ShowWindow(get_window());
