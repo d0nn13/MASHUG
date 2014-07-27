@@ -93,7 +93,7 @@ static Uint8	xml_check_dtd(char const *path)
 
   has_doctype = 0;
   file = file_to_tab(path);
-  if (ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
+  if (!ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
     return (0);
   for (i = 0; file[i]; ++i)
     if (strstr(file[i], "DOCTYPE"))
@@ -111,7 +111,7 @@ static void	xml_inject_dtd(char const *path, t_xml_type t)
   Uint32	nb_lines;
 
   file = file_to_tab(path);
-  if (ptr_chk(file, "file", XML_LCAT, "xml_inject_dtd"))
+  if (!ptr_chk(file, "file", XML_LCAT, "xml_inject_dtd"))
     return ;
   file_out = fopen(path, "w+");
   nb_lines = 0;
