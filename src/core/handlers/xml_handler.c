@@ -57,7 +57,7 @@ static void	xml_silent(void *, char const *, ...);
 /**
  *	@brief parse file to tab char*
  */
-char** file_to_tab(char const *path);
+char		**file_to_tab(char const *path);
 
 Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 {
@@ -87,42 +87,38 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 
 static Uint8	xml_check_dtd(char const *path)
 {
-  char **file;
-  int i;
-  int has_doctype;
+  char		**file;
+  Uint32	i;
+  Uint8		has_doctype;
 
   has_doctype = 0;
   file = file_to_tab(path);
   if (ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
-      return 0;
-  for (i = 0; file[i]; i++)
-      if (strstr(file[i], "DOCTYPE"))
-          has_doctype = 1;
-
-  for (i = 0; file[i]; i++)
-      mem_free(file[i]);
+    return (0);
+  for (i = 0; file[i]; ++i)
+    if (strstr(file[i], "DOCTYPE"))
+      has_doctype = 1;
+  for (i = 0; file[i]; ++i)
+    mem_free(file[i]);
   mem_free(file);
-
-  return has_doctype;
+  return (has_doctype);
 }
 
 static void	xml_inject_dtd(char const *path, t_xml_type t)
 {
-  FILE * file_out;
-  char **file;
-  int nb_lines;
+  FILE		*file_out;
+  char		**file;
+  Uint32	nb_lines;
 
   file = file_to_tab(path);
   if (ptr_chk(file, "file", XML_LCAT, "xml_inject_dtd"))
-      return;
+    return ;
   file_out = fopen(path, "w+");
   nb_lines = 0;
   fputs(file[nb_lines++], file_out);
   fputs(types[t].dtd_str, file_out);
-
   while (file[nb_lines])
-      fputs(file[nb_lines++], file_out);
-
+    fputs(file[nb_lines++], file_out);
   fclose(file_out);
 }
 
@@ -159,30 +155,29 @@ static void	xml_silent(void *ctx, char const *msg, ...)
   (void)msg;
 }
 
-char** file_to_tab(char const *path)
+char		**file_to_tab(char const *path)
 {
-    FILE *file_in;
-    static size_t len = 0;
-    static ssize_t read = 0;
-    static char *line;
-    char** file_parse;
-    int nb_lines;
+  FILE		*file_in;
+  char		*line;
+  size_t	len;
+  Uint32	nb_lines;
+  char		**file_parse;
 
-    nb_lines = 0;
-    if ((file_in = fopen(path, "r")) == NULL)
-        return NULL;
-    while ((read = getline(&line, &len, file_in)) != -1)
-        nb_lines++;
-    fseek(file_in, 0, SEEK_SET);
-    file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
-    nb_lines = 0;
-    while ((read = getline(&line, &len, file_in)) != -1)
-    {
-        file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
-        file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
-        nb_lines++;
-    }
-    fclose(file_in);
-
-    return file_parse;
+  line = mem_alloc(sizeof(char *));
+  len = 0;
+  nb_lines = 0;
+  if ((file_in = fopen(path, "r")) == NULL)
+    return (NULL);
+  while (getline(&line, &len, file_in) != -1)
+    nb_lines++;
+  fseek(file_in, 0, SEEK_SET);
+  file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
+  for (nb_lines = 0; getline(&line, &len, file_in) != -1; ++nb_lines)
+  {
+    file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
+    file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
+  }
+  mem_free(line);
+  fclose(file_in);
+  return (file_parse);
 }
