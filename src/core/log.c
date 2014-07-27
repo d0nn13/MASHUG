@@ -64,14 +64,7 @@ void	log_init()
 #ifdef VERBOSE
   SDL_LogSetAllPriority(0);
 #else
-  SDL_LogSetPriority(AUD_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(VID_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(RDR_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(GFX_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(SPR_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(INP_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(OPT_LCAT, SDL_LOG_PRIORITY_INFO);
-  SDL_LogSetPriority(XML_LCAT, SDL_LOG_PRIORITY_INFO);
+  SDL_LogSetAllPriority(1);
 #endif
 }
 

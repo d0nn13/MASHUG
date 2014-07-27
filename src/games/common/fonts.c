@@ -23,7 +23,7 @@ void	load_common_fonts()
   common_fonts[COSMIC24_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 24);
   common_fonts[COSMIC18_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 18);
   common_fonts[PRSTARTK24_FNT] = TTF_OpenFont("media/fonts/prstartk.ttf", 24);
-  SDL_LogInfo(FNT_LCAT, "Fonts loaded.");
+  SDL_LogInfo(FNT_LCAT, "Common fonts loaded");
 }
 
 TTF_Font	*get_common_font(t_common_font t)
@@ -37,5 +37,5 @@ void		free_common_fonts()
 
   for (i = 0; i < NB_FNT; ++i)
     TTF_CloseFont(common_fonts[i]);
-  SDL_LogInfo(FNT_LCAT, "Fonts destroyed.");
+  SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }

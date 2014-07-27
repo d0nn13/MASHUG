@@ -31,12 +31,12 @@ Uint8		xml_parse(char const *path, t_xmlcallback callback, void *container)
     return (0);
   if (!(doc = xmlParseFile(path)))
   {
-    SDL_LogError(XML_LCAT, "Couldn't parse XML file");
+    SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
     return (0);
   }
   if (!(node = xmlDocGetRootElement(doc)))
   {
-    SDL_LogError(XML_LCAT, "Couldn't get XML root element");
+    SDL_LogCritical(XML_LCAT, "Couldn't get XML root element");
     return (0);
   }
   return (callback(node, container));
