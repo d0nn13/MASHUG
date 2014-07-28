@@ -20,6 +20,8 @@
 
 t_mode 	g_launcher;
 
+static void	space_process_events(SDL_Event *e);
+
 Sint32 	space_init()
 {
   load_space_spritesheet();
@@ -39,13 +41,11 @@ void			redraw_context(SDL_Color const *c)
   draw_sprite(ss, get_sprite(ss, CABINET_SPR), NULL);
 }
 
-/* TODO: split into two fct !!! */
 void			space_loop()
 {
   SDL_Color const	white = {255, 255, 255, 255};
   SDL_Point const	orig = {190, 120};
   SDL_Event		e;
-  SDL_Scancode		s;
 
   memset(&e, 0, sizeof(e));
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
@@ -53,20 +53,7 @@ void			space_loop()
   while (g_launcher == &space_loop)
   {
     if (SDL_PollEvent(&e))
-      if (e.type == SDL_QUIT)
-      {
-	space_destroy();
-	g_launcher = NULL;
-      }
-    if (e.type == SDL_KEYDOWN)
-    {
-      s = e.key.keysym.scancode;
-      if (s == SDL_SCANCODE_ESCAPE)
-      {
-	g_launcher = &space_menu;
-	play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-      }
-    }
+      space_process_events(&e);
     SDL_RenderPresent(get_renderer());
     SDL_Delay(10);
   }
@@ -76,3 +63,24 @@ void	space_destroy()
 {
   free_space_spritesheet();
 }
+
+static void	space_process_events(SDL_Event *e)
+{
+  SDL_Scancode		s;
+
+  if (e->type == SDL_QUIT)
+  {
+    space_destroy();
+    g_launcher = NULL;
+  }
+  else if (e->type == SDL_KEYDOWN)
+  {
+    s = e->key.keysym.scancode;
+    if (s == SDL_SCANCODE_ESCAPE)
+    {
+      g_launcher = &space_menu;
+      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    }
+  }
+}
+
