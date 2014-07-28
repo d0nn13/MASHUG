@@ -27,7 +27,7 @@ static t_xml_typeholder	const	types[] = {
   {
     &xml_spritesheet_callback,
     "media/dtd/spritesheet.dtd",
-    "<!DOCTYPE img SYSTEM \"../spritesheet.dtd\">\n"
+    "<!DOCTYPE img SYSTEM \"../dtd/spritesheet.dtd\">\n"
   }
 };
 
