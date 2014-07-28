@@ -22,12 +22,12 @@ static t_xml_typeholder	const	types[] = {
   {
     &xml_hiscore_callback,
     "media/dtd/hiscores.dtd",
-    "<!DOCTYPE hiscores SYSTEM \"dtd/hiscores.dtd\">"
+    "<!DOCTYPE hiscores SYSTEM \"dtd/hiscores.dtd\">\n"
   },
   {
     &xml_spritesheet_callback,
     "media/dtd/spritesheet.dtd",
-    "<!DOCTYPE img SYSTEM \"../spritesheet.dtd\">"
+    "<!DOCTYPE img SYSTEM \"../spritesheet.dtd\">\n"
   }
 };
 
