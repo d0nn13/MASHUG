@@ -32,7 +32,7 @@ void		load_common_sfx()
 		   &common_sfx[BLIPCANCEL_SFX].buf, &common_sfx[BLIPCANCEL_SFX].len))
     SDL_LogError(AUD_LCAT, SDL_GetError());
   else
-    SDL_LogInfo(AUD_LCAT, "Sounds loaded");
+    SDL_LogVerbose(AUD_LCAT, "Common sounds loaded");
   for (i = 0; i < NB_SFX; ++i)
     common_sfx[i].pos = 0;
 }
@@ -48,5 +48,5 @@ void	free_common_sfx()
 
   for (i = 0; i < NB_SFX; ++i)
     SDL_FreeWAV(common_sfx[i].buf);
-  SDL_LogInfo(AUD_LCAT, "Sounds destroyed");
+  SDL_LogVerbose(AUD_LCAT, "Common sounds destroyed");
 }

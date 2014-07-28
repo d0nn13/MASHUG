@@ -33,6 +33,7 @@ t_spritesheet	*make_spritesheet(const char *file)
   surface = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
   ss->tex = make_texture_from_surface(get_renderer(), surface);
   SDL_FreeSurface(surface);
+  SDL_LogVerbose(SPR_LCAT, "make_spritesheet: loaded file '%s'", file);
   return (ss);
 }
 
@@ -95,4 +96,5 @@ void			free_spritesheet(t_spritesheet *ss)
   mem_free(ss->sprites);
   free_texture(ss->tex);
   mem_free(ss);
+  SDL_LogVerbose(SPR_LCAT, "free_spritesheet: sprites destroyed");
 }
