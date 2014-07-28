@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 17:11:58 2014 ENNEBATI Yassine
+** Last update Sat Jul 26 19:32:50 2014 ENNEBATI Yassine
 */
 
 #include		"../base/math.h"
@@ -66,8 +66,11 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {
     g_launcher = select[*item];
-    if (*item != GALAGA_GAME)
+    if (*item == SPACE_GAME)
+    {
       play_sfx(get_common_sfx(BLIPOK_SFX));
+      space_init();
+    }
   }
   if (*item != old_item)
   {

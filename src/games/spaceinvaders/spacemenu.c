@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Wed Jul 23 10:57:06 2014 Emmanuel Atse
+** Last update Sun Jul 27 15:13:14 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -65,7 +65,10 @@ void   		space_menu()
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
+      {
+	space_destroy();
 	g_launcher = NULL;
+      }
       if (e.type == SDL_KEYDOWN)
       {
 	s = e.key.keysym.scancode;
@@ -86,6 +89,7 @@ static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
   {
     g_launcher = &main_menu;
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    space_destroy();
   }
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {
@@ -113,7 +117,6 @@ static void		display_menu()
   font = get_common_font(ATARI24_FNT);
   rect = rect_factory(187, 122, 420, 119);
   draw_sprite(ss, get_sprite(ss, TITLE_SPR), &rect);
-  draw_sprite(ss, get_sprite(ss, CABINET_SPR), NULL);
   orig = point_factory(325, 298);
   draw_text("START", &orig, font, T_EQ(item, START_MEN, &sel, &uns));
   orig = point_factory(289, 369);

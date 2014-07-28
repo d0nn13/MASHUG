@@ -14,6 +14,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include <SDL2/SDL_stdinc.h>
 
 #include "memory.h"
@@ -26,7 +27,10 @@ void	*mem_alloc(size_t size)
 
   try = malloc(size);
   if (try)
+  {
+    memset(try, 0, size);
     ++nb_allocs;
+  }
   else
   {
     fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",

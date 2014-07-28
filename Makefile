@@ -32,6 +32,7 @@ SRC		=	$(SRCPATH)base/math.c				\
 			$(SRCPATH)games/mainmenu.c			\
 			$(SRCPATH)games/common/fonts.c			\
 			$(SRCPATH)games/common/sfx.c			\
+			$(SRCPATH)games/common/common.c			\
 			$(SRCPATH)games/spaceinvaders/spacemenu.c	\
 			$(SRCPATH)games/spaceinvaders/spacehiscores.c	\
 			$(SRCPATH)games/spaceinvaders/spacespritesheet.c\
