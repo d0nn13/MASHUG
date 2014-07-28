@@ -40,6 +40,6 @@ void	mem_free(void *ptr);
  *	@return	The difference between the amount of allocations
  *		and the amount of frees as an integer
  */
-Uint16	mem_get_nb_allocs();
+Sint16	mem_get_nb_allocs();
 
 #endif /* !BASE_MEMORY_H_ */

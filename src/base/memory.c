@@ -19,7 +19,7 @@
 
 #include "memory.h"
 
-static Uint16	nb_allocs = 0;
+static Sint16	nb_allocs = 0;
 
 void	*mem_alloc(size_t size)
 {
@@ -51,7 +51,7 @@ void	mem_free(void *ptr)
   }
 }
 
-Uint16	mem_get_nb_allocs()
+Sint16	mem_get_nb_allocs()
 {
   return (nb_allocs);
 }
