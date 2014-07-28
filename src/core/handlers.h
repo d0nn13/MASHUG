@@ -98,9 +98,6 @@ void		play_sfx(t_chunk *s);
 /*
 ** ==================== S P R I T E S ====================
 */
-/**
- *	@brief	Sprite Holder
- */
 
 /**
  *	@brief	XML Spritesheet parsing callback

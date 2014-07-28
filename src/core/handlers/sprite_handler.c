@@ -20,7 +20,6 @@
 #include "../helpers.h"
 #include "../log.h"
 
-
 /**
  * TODO: Implement sprite loading from xml parsing
  */
