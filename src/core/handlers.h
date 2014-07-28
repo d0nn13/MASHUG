@@ -170,7 +170,7 @@ void		draw_sprite_raw(t_spritesheet const *ss,
  *	@return a pointer to the found sprite
  *	@return NULL if not found
  */
-t_spriteholder	*get_sprite(t_spritesheet const *sprites, char const *name);
+t_spriteholder const	*get_sprite(t_spritesheet const *sprites, char const *name);
 /*
 ** ==================== H I S C O R E S ====================
 */

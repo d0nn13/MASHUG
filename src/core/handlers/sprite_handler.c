@@ -65,7 +65,7 @@ void		draw_sprite_raw(t_spritesheet const *ss,
   draw_sprite(ss, s, &rect);
 }
 
-t_spriteholder		*get_sprite(t_spritesheet const *ss, char const *name)
+t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name)
 {
   t_spriteholder	**sprites;
 
