@@ -36,7 +36,7 @@ static t_xml_typeholder	const	types[] = {
  *
  *	@return	Zero if the file contains a DTD reference, 1 otherwise
  */
-static Uint8	xml_check_dtd(char const *path);
+static Uint8	xml_check_dtd(char const *path, t_xml_type t);
 
 /**
  *	@brief	Inject the proper DTD reference in an XML file
@@ -73,7 +73,7 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
     SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
     return (-2);
   }
-  if (xml_check_dtd(path))
+  if (!xml_check_dtd(path, t))
     xml_inject_dtd(path, t);
   if (xml_validate(doc, t) != 1)
     return (-3);
@@ -85,23 +85,28 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
   return (types[t].call(node, container));
 }
 
-static Uint8	xml_check_dtd(char const *path)
+static Uint8	xml_check_dtd(char const *path, t_xml_type t)
 {
   char		**file;
   Uint32	i;
-  Uint8		has_doctype;
+  Uint16	has_dtd;
 
-  has_doctype = 0;
+  has_dtd = 0;
   file = file_to_tab(path);
   if (!ptr_chk(file, "file", XML_LCAT, "xml_check_dtd"))
     return (0);
   for (i = 0; file[i]; ++i)
-    if (strstr(file[i], "DOCTYPE"))
-      has_doctype = 1;
+  {
+    if (strstr(file[i], types[t].dtd_str))
+    {
+      has_dtd = 1;
+      SDL_LogVerbose(XML_LCAT, "xml_dtd_check: DTD subset found");
+    }
+  }
   for (i = 0; file[i]; ++i)
     mem_free(file[i]);
   mem_free(file);
-  return (has_doctype);
+  return (has_dtd);
 }
 
 static void	xml_inject_dtd(char const *path, t_xml_type t)
@@ -120,6 +125,7 @@ static void	xml_inject_dtd(char const *path, t_xml_type t)
   while (file[nb_lines])
     fputs(file[nb_lines++], file_out);
   fclose(file_out);
+  SDL_LogVerbose(XML_LCAT, "xml_inject_dtd: DTD injection done");
 }
 
 static Uint8		xml_validate(xmlDocPtr const doc, t_xml_type t)
