@@ -13,14 +13,18 @@
  *	@brief	Options handling
  */
 
+#include "../base/math.h"
 #include "log.h"
 
 #include "options.h"
 
+/**
+ *	@brief	Default settings definition
+ */
 static t_optionholder	options[NB_OPT] = {
-  {"Log Priority", -1},
-  {"Log Category", -1},
-  {"Game Framerate", -1},
+  {"Log Priority", 3, 1, 6},
+  {"Log Category", -1, 0, 0},
+  {"Game Framerate", -1, 20, 60},
 };
 
 Sint16	get_option_value(t_options o)
@@ -34,13 +38,22 @@ Sint16	get_option_value(t_options o)
   return (options[o].value);
 }
 
-void	set_option_value(t_options o, Sint16 v)
+Uint8	set_option_value(t_options o, Sint16 v)
 {
-  if (o >= NB_OPT)
+  if (!IN_RANGE(o, 0, NB_OPT))
+  {
     SDL_LogError(OPT_LCAT,
 		 "set_option_value: option <%d> is out of boundary\n", o);
-  else
-    options[o].value = v;
+    return (0);
+  }
+  if (!IN_RANGE(v, options[o].min, options[o].max))
+  {
+    SDL_LogError(OPT_LCAT,
+		 "set_option_value: value '%d' is out of boundary", v);
+    return (0);
+  }
+  options[o].value = v;
+  return (1);
 }
 
 char	*get_option_key(t_options o)
@@ -56,9 +69,10 @@ char	*get_option_key(t_options o)
 
 void	options_debug()
 {
-  int	i;
+  Uint8	i;
 
+  SDL_LogSetPriority(OPT_LCAT, get_option_value(LOG_PRIO_OPT));
   for (i = 0; i < NB_OPT; ++i)
-    SDL_LogDebug(OPT_LCAT, "Debug: <%s> '%d'", get_option_key(i),
-		 get_option_value(i));
+    SDL_LogVerbose(OPT_LCAT, "Debug: <%s> '%d'", get_option_key(i),
+		   get_option_value(i));
 }

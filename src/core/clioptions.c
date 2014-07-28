@@ -50,8 +50,8 @@ void		set_options_from_cli(int argc, char **argv)
 	errno = 0;
 	continue;
       }
-      SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
-      set_option_value(o, v);
+      if (set_option_value(o, v))
+	SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
     }
   }
   options_debug();

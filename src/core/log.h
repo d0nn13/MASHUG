@@ -47,6 +47,11 @@ enum {
 void	log_init();
 
 /**
+ *	@brief Sets ALL (SDL + custom) category priorities
+ */
+void	log_set_all_priority(SDL_LogPriority priority);
+
+/**
  *	@brief	Checks if a pointer is NULL
  *
  *	Convinience function that checks a pointer and outputs log error

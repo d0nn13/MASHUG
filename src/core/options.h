@@ -24,6 +24,8 @@ typedef struct	s_optionholder
 {
   char		key[KEY_MAX_LEN + 1];
   Sint16	value;
+  Sint16	min;
+  Sint16	max;
 }		t_optionholder;
 
 typedef enum
@@ -38,7 +40,7 @@ void	options_init();
 
 Sint16	get_option_value(t_options o);
 
-void	set_option_value(t_options o, Sint16 v);
+Uint8	set_option_value(t_options o, Sint16 v);
 
 char	*get_option_key(t_options o);
 
