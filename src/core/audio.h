@@ -20,8 +20,6 @@
 
 /**
  *	@brief   Audio chunk declaration
- *
- *	@struct	 t_chunk
  */
 typedef struct	s_chunk
 {
