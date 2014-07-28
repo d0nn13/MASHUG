@@ -65,6 +65,7 @@ void	log_init()
   SDL_LogSetAllPriority(0);
 #else
   SDL_LogSetAllPriority(1);
+  SDL_LogSetPriority(FNT_LCAT, SDL_LOG_PRIORITY_INFO);
 #endif
 }
 
