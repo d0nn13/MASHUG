@@ -117,7 +117,6 @@ static void		display_menu()
   font = get_common_font(ATARI24_FNT);
   rect = rect_factory(187, 122, 420, 119);
   draw_sprite(ss, get_sprite(ss, TITLE_SPR), &rect);
-  draw_sprite(ss, get_sprite(ss, CABINET_SPR), NULL);
   orig = point_factory(325, 298);
   draw_text("START", &orig, font, T_EQ(item, START_MEN, &sel, &uns));
   orig = point_factory(289, 369);
