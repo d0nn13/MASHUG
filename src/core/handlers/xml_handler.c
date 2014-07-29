@@ -36,7 +36,7 @@ static t_xml_typeholder	const	types[] = {
  *
  *	@return	Zero if the file contains a DTD reference, 1 otherwise
  */
-static Uint8	xml_check_dtd(char const *path, t_xml_type t);
+static Uint8	xml_check_dtd(char const *path);
 
 /**
  *	@brief	Inject the proper DTD reference in an XML file
@@ -73,7 +73,7 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
     SDL_LogCritical(XML_LCAT, "Couldn't parse XML file");
     return (-2);
   }
-  if (!xml_check_dtd(path, t))
+  if (!xml_check_dtd(path))
     xml_inject_dtd(path, t);
   if (xml_validate(doc, t) != 1)
     return (-3);
@@ -85,7 +85,7 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
   return (types[t].call(node, container));
 }
 
-static Uint8	xml_check_dtd(char const *path, t_xml_type t)
+static Uint8	xml_check_dtd(char const *path)
 {
   char		**file;
   Uint32	i;
@@ -97,7 +97,7 @@ static Uint8	xml_check_dtd(char const *path, t_xml_type t)
     return (0);
   for (i = 0; file[i]; ++i)
   {
-    if (strstr(file[i], types[t].dtd_str))
+    if (strstr(file[i], "<!DOCTYPE "))
     {
       has_dtd = 1;
       SDL_LogVerbose(XML_LCAT, "xml_dtd_check: DTD subset found");
