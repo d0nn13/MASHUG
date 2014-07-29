@@ -13,6 +13,8 @@
  *	@brief	Convinient helping functions
  */
 
+#include "../base/memory.h"
+
 #include "helpers.h"
 
 SDL_Rect	rect_factory(int const x, int const y, int const w, int const h)
@@ -61,4 +63,40 @@ Sint32	key_filter(void *userdata, SDL_Event *event)
   	event->key.keysym.scancode != SDL_SCANCODE_KP_ENTER)
       return (0);
   return (1);
+}
+
+char		**file_to_tab(char const *path)
+{
+  FILE		*file_in;
+  char		*line;
+  size_t	len;
+  Uint32	nb_lines;
+  char		**file_parse;
+
+  line = mem_alloc(sizeof(char *));
+  len = 0;
+  nb_lines = 0;
+  if ((file_in = fopen(path, "r")) == NULL)
+    return (NULL);
+  while (getline(&line, &len, file_in) != -1)
+    nb_lines++;
+  fseek(file_in, 0, SEEK_SET);
+  file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
+  for (nb_lines = 0; getline(&line, &len, file_in) != -1; ++nb_lines)
+  {
+    file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
+    file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
+  }
+  mem_free(line);
+  fclose(file_in);
+  return (file_parse);
+}
+
+void		free_filetab(char **filetab)
+{
+  Uint16	i;
+
+  for (i = 0; filetab[i]; ++i)
+    mem_free(filetab[i]);
+  mem_free(filetab);
 }

@@ -21,7 +21,6 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/renderer.c				\
 			$(SRCPATH)core/graphics.c				\
 			$(SRCPATH)core/audio.c					\
-			$(SRCPATH)core/helpers.c				\
 			$(SRCPATH)core/handlers/graphic_handler.c		\
 			$(SRCPATH)core/handlers/sprite_handler.c		\
 			$(SRCPATH)core/handlers/font_handler.c			\
@@ -29,6 +28,9 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/handlers/xml_handler.c			\
 			$(SRCPATH)core/handlers/xml_hiscore_handler.c		\
 			$(SRCPATH)core/handlers/xml_spritesheet_handler.c	\
+			$(SRCPATH)core/helpers/factory_helpers.c		\
+			$(SRCPATH)core/helpers/input_helpers.c			\
+			$(SRCPATH)core/helpers/file_helpers.c			\
 			$(SRCPATH)core/mashug.c					\
 			$(SRCPATH)games/mainmenu.c				\
 			$(SRCPATH)games/common/fonts.c				\
@@ -36,7 +38,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/common/common.c				\
 			$(SRCPATH)games/spaceinvaders/spacemenu.c		\
 			$(SRCPATH)games/spaceinvaders/spacehiscores.c		\
-			$(SRCPATH)games/spaceinvaders/spacespritesheet.c\
+			$(SRCPATH)games/spaceinvaders/spacespritesheet.c	\
 			$(SRCPATH)games/spaceinvaders/spacecore.c
 
 OBJ		=	$(SRC:%.c=%.o)

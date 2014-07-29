@@ -14,8 +14,10 @@
  */
 
 #include <libxml/parser.h>
-#include "../log.h"
 #include "../../base/memory.h"
+#include "../log.h"
+#include "../helpers.h"
+
 #include "../handlers.h"
 
 static t_xml_typeholder	const	types[] = {
@@ -53,11 +55,6 @@ static Uint8	xml_validate(xmlDocPtr doc, t_xml_type t);
  *	@brief	libxml2 error silencing callback
  */
 static void	xml_silent(void *, char const *, ...);
-
-/**
- *	@brief parse file to tab char*
- */
-char		**file_to_tab(char const *path);
 
 Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 {
@@ -106,9 +103,7 @@ static Uint8	xml_check_dtd(char const *path)
       SDL_LogVerbose(XML_LCAT, "xml_dtd_check: DTD subset found");
     }
   }
-  for (i = 0; file[i]; ++i)
-    mem_free(file[i]);
-  mem_free(file);
+  free_filetab(file);
   return (has_dtd);
 }
 
@@ -127,6 +122,7 @@ static void	xml_inject_dtd(char const *path, t_xml_type t)
   fputs(types[t].dtd_str, file_out);
   while (file[nb_lines])
     fputs(file[nb_lines++], file_out);
+  free_filetab(file);
   fclose(file_out);
   SDL_LogVerbose(XML_LCAT, "xml_inject_dtd: DTD injection done");
 }
@@ -162,31 +158,4 @@ static void	xml_silent(void *ctx, char const *msg, ...)
 {
   (void)ctx;
   (void)msg;
-}
-
-char		**file_to_tab(char const *path)
-{
-  FILE		*file_in;
-  char		*line;
-  size_t	len;
-  Uint32	nb_lines;
-  char		**file_parse;
-
-  line = mem_alloc(sizeof(char *));
-  len = 0;
-  nb_lines = 0;
-  if ((file_in = fopen(path, "r")) == NULL)
-    return (NULL);
-  while (getline(&line, &len, file_in) != -1)
-    nb_lines++;
-  fseek(file_in, 0, SEEK_SET);
-  file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
-  for (nb_lines = 0; getline(&line, &len, file_in) != -1; ++nb_lines)
-  {
-    file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
-    file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
-  }
-  mem_free(line);
-  fclose(file_in);
-  return (file_parse);
 }
