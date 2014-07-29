@@ -180,7 +180,7 @@ t_spriteholder const	*get_sprite(t_spritesheet const *sprites, char const *name)
  */
 typedef struct	s_hiscoreholder
 {
-  char const	*nickname;
+  char		*nickname;
   Uint32	score;
   Uint32	date;
 }		t_hiscoreholder;

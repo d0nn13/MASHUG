@@ -63,6 +63,7 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
 {
   xmlDocPtr	doc;
   xmlNodePtr	node;
+  Sint8		ret;
 
   xmlSetGenericErrorFunc(NULL, &xml_silent);
   if (!ptr_chk(path, "xml path", XML_LCAT, "xml_parse") ||
@@ -82,7 +83,9 @@ Sint8		xml_parse(char const *path, t_xml_type t, void *container)
     SDL_LogCritical(XML_LCAT, "Couldn't get XML root element");
     return (-4);
   }
-  return (types[t].call(node, container));
+  ret = types[t].call(node, container);
+  xmlFreeDoc(doc);
+  return (ret);
 }
 
 static Uint8	xml_check_dtd(char const *path)

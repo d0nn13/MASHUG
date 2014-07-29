@@ -18,6 +18,7 @@
 #include <string.h>
 #include <errno.h>
 #include <libxml/parser.h>
+#include "../../base/memory.h"
 #include "../log.h"
 
 #include "../handlers.h"
@@ -95,7 +96,10 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
-    h->nickname = (char *)att->children->content;
+  {
+    h->nickname = mem_alloc((strlen(content) + 1));
+    strcpy(h->nickname, content);
+  }
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))
     h->score = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"date"))

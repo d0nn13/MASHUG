@@ -54,7 +54,7 @@ typedef	struct	s_texture
  */
 typedef struct		s_spriteholder
 {
-  char const		*name;
+  char			*name;
   SDL_Rect		rect;
 }			t_spriteholder;
 

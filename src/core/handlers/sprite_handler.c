@@ -91,7 +91,10 @@ void			free_spritesheet(t_spritesheet *ss)
     return ;
   sh = ss->sprites;
   while (*sh)
+  {
+    mem_free((*sh)->name);
     mem_free(*sh++);
+  }
   mem_free(ss->sprites);
   free_texture(ss->tex);
   mem_free(ss);

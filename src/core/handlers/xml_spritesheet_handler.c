@@ -97,7 +97,10 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
-    s->name = (char *)att->children->content;
+  {
+    s->name = mem_alloc((strlen(content) + 1));
+    strcpy(s->name, content);
+  }
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))
     s->rect.x = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"y"))
