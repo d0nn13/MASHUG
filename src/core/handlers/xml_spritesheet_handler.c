@@ -89,25 +89,27 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
 static void	xml_spritesheet_fill_container(xmlAttrPtr att,
 					       t_spriteholder *s)
 {
+  char		*content;
   char		*err;
 
+  content = (char *)att->children->content;
   err = "";
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
     s->name = (char *)att->children->content;
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))
-    s->rect.x = strtol((char *)att->children->content, &err, 10);
+    s->rect.x = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"y"))
-    s->rect.y = strtol((char *)att->children->content, &err, 10);
+    s->rect.y = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"w"))
-    s->rect.w = strtol((char *)att->children->content, &err, 10);
+    s->rect.w = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"h"))
-    s->rect.h = strtol((char *)att->children->content, &err, 10);
+    s->rect.h = strtol(content, &err, 10);
   if (errno == EINVAL || errno == ERANGE || strlen(err))
     SDL_LogError(XML_LCAT, "xml_spritesheet: error while saving '%s' as '%s'",
-		 (char *)att->children->content, (char *)att->name);
+		 content, (char *)att->name);
   else
     SDL_LogVerbose(XML_LCAT, "xml_spritesheet: saved value '%s' as '%s'",
-		   (char *)att->children->content, (char *)att->name);
+		   content, (char *)att->name);
 }
