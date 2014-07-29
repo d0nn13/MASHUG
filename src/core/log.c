@@ -61,12 +61,16 @@ static void	log_print(void *userdata,
 void	log_init()
 {
   SDL_LogSetOutputFunction(&log_print, NULL);
-#ifdef VERBOSE
-  SDL_LogSetAllPriority(0);
-#else
-  SDL_LogSetAllPriority(1);
-  SDL_LogSetPriority(FNT_LCAT, SDL_LOG_PRIORITY_INFO);
-#endif
+  SDL_LogSetPriority(OPT_LCAT, SDL_LOG_PRIORITY_DEBUG);
+}
+
+void	log_set_all_priority(SDL_LogPriority priority)
+{
+  Uint8	c;
+
+  SDL_LogSetAllPriority(priority);
+  for (c = SDL_LOG_CATEGORY_CUSTOM; c < NB_LCAT; ++c)
+    SDL_LogSetPriority(c, priority);
 }
 
 Uint8	ptr_chk(void const *p, char const *psym, Uint32 cat, char const *fsym)

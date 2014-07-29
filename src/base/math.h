@@ -18,6 +18,8 @@
 # define T_LT(a, b, c, d)	( ((a) < (b)) ? (c) : (d) )
 # define T_GT(a, b, c, d)	( ((a) > (b)) ? (c) : (d) )
 # define T_EQ(a, b, c, d)	( ((a) == (b)) ? (c) : (d) )
+# define IN_RANGE(v, a, b)	( (v) >= (a) && (v) <= (b) )
+# define IN_XRANGE(v, a, b)	( (v) > (a) && (v) < (b) )
 
 /**
  *	Centering algorithm

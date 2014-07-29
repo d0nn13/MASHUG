@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include "../base/memory.h"
 #include "version.h"
+#include "options.h"
 #include "clioptions.h"
 #include "log.h"
 #include "window.h"
@@ -53,14 +54,15 @@ static Sint32	core_init(Sint32 argc, char **argv)
   {
     SDL_LogError(0, "Couldn't initialize SDL : %s",
 		 SDL_GetError());
-    return (1);
+    return (-1);
   }
   print_versions();
   log_init();
-  SDL_Log("Engine started, welcome aboard!");
   set_options_from_cli(argc, argv);
+  log_set_all_priority(get_option_value(LOG_PRIO_OPT));
   if (window_init() || renderer_init() || graphics_init() || audio_init())
-    return (-1);
+    return (-2);
+  SDL_Log("Engine started, welcome aboard!");
   return (0);
 }
 
