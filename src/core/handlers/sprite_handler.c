@@ -30,14 +30,8 @@ t_spritesheet	*make_spritesheet(const char *file)
   SDL_Surface	*surface;
 
   ss = mem_alloc(sizeof(t_spritesheet));
-  if (!ptr_chk(ss, "spritesheet", SPR_LCAT, "make_spritesheet"))
-    return (NULL);
   surface = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
-  if (!ptr_chk(surface, "surface", SPR_LCAT, "make_spritesheet"))
-    return (NULL);
   ss->tex = make_texture_from_surface(get_renderer(), surface);
-  if (!ptr_chk(ss->tex, "tex", SPR_LCAT, "make_spritesheet"))
-    return (NULL);
   SDL_FreeSurface(surface);
   SDL_LogVerbose(SPR_LCAT, "make_spritesheet: loaded file '%s'", file);
   return (ss);
