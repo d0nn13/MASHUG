@@ -15,7 +15,7 @@
 
 #include "spacespritesheet.h"
 
-static t_spritesheet	*spacespritesheet;
+static t_spritesheet	*spacespritesheet = NULL;
 
 void			load_space_spritesheet()
 {

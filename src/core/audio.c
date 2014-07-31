@@ -37,7 +37,6 @@ static void	fill_audio_buffer(void *userdata, Uint8 *stream, int len);
 
 Sint32			audio_init()
 {
-  int			i;
   SDL_AudioSpec const	try = {
     22050, AUDIO_S16LSB, 2, 0, 1024, 0, 0, &fill_audio_buffer, NULL};
 
@@ -54,8 +53,7 @@ Sint32			audio_init()
   }
   else
   {
-    for (i = 0; i < SLOT_NB; ++i)
-      slot[i] = NULL;
+    memset(slot, 0, sizeof(slot));
     SDL_LogInfo(AUD_LCAT,
 		"Audio initialization done : %d channels @%d Hz, fmt=%d",
 		conf.channels, conf.freq, conf.format);
