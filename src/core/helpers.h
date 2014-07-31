@@ -28,5 +28,7 @@ SDL_Color	color_factory(Uint8 const r,
 			      Uint8 const b,
 			      Uint8 const a);
 Sint32		key_filter(void *userdata, SDL_Event *event);
+char		**file_to_tab(char const *path);
+void		free_filetab(char **filetab);
 
 #endif /* CORE_HELPERS_H_ */

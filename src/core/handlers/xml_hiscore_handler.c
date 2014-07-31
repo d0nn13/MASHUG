@@ -16,19 +16,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <libxml/parser.h>
+#include "../../base/memory.h"
 #include "../log.h"
 
 #include "../handlers.h"
 
-#define GAME_NAME_LENGTH	15
-
+/**
+ *	@brief	Parse entries in hiscore tree (internal)
+ */
 static void	xml_hiscore_entries(xmlNodePtr node,
-				    t_hiscoreholder *container,
+				    t_hiscoreholder *h,
 				    Uint8 *count);
-static void	xml_hiscore_fill_container(xmlAttrPtr, t_hiscoreholder *);
 
-static xmlChar	game[GAME_NAME_LENGTH] = "";
+/**
+ *	@brief	Copy entry values to container (internal)
+ */
+static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h);
+
+static char const	*game = "";
 
 Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 {
@@ -37,18 +44,13 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
   Uint8		count;
 
   count = 0;
-  if (xmlStrcmp(node->name, (xmlChar const *)"hiscores"))
-  {
-    SDL_LogError(XML_LCAT, "Wrong hiscores file");
-    return (0);
-  }
   node = node->children ? node->children : NULL;
   while (node)
   {
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (!xmlStrcmp(att->children->content, game) || !xmlStrlen(game))
+      if (!xmlStrcmp(att->children->content, (xmlChar *)game) || !strlen(game))
       {
 	entry = node->children->next;
 	xml_hiscore_entries(entry, (t_hiscoreholder *)container, &count);
@@ -56,11 +58,13 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
     }
     node = node->next;
   }
+  if (container)
+    SDL_LogVerbose(XML_LCAT, "xml_hiscores: %d elements saved", count);
   return (count);
 }
 
 static void	xml_hiscore_entries(xmlNodePtr node,
-				    t_hiscoreholder *container,
+				    t_hiscoreholder *h,
 				    Uint8 *count)
 {
   xmlAttrPtr	att;
@@ -70,13 +74,10 @@ static void	xml_hiscore_entries(xmlNodePtr node,
     if (node->type == XML_ELEMENT_NODE)
     {
       att = node->properties;
-      if (xmlStrcmp(node->name, (xmlChar const *)"entry"))
-	return ;
-      att = node->properties;
       while (att)
       {
-	if (container)
-	  xml_hiscore_fill_container(att, &container[*count]);
+	if (h)
+	  xml_hiscore_fill_container(att, &h[*count]);
 	att = att->next;
       }
       (*count)++;
@@ -85,20 +86,35 @@ static void	xml_hiscore_entries(xmlNodePtr node,
   }
 }
 
-static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *holder)
+static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
 {
+  char		*content;
+  char		*err;
+
+  content = (char *)att->children->content;
+  err = "";
+  if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
+    return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
-    strncpy(holder->nickname, (char *)att->children->content,
-	sizeof(holder->nickname));
+  {
+    h->nickname = mem_alloc((strlen(content) + 1));
+    strcpy(h->nickname, content);
+  }
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))
-    holder->score = atoi((char *)att->children->content);
+    h->score = strtol(content, &err, 10);
   else if (!xmlStrcmp(att->name, (xmlChar *)"date"))
-    holder->date = atoi((char *)att->children->content);
+    h->date = strtol(content, &err, 10);
+  if (errno == EINVAL || errno == ERANGE || strlen(err))
+    SDL_LogError(XML_LCAT, "xml_hiscores: error while saving '%s' as '%s'",
+		 content, (char *)att->name);
+  else
+    SDL_LogVerbose(XML_LCAT, "xml_hiscores: saved value '%s' as '%s'",
+		   content, (char *)att->name);
 }
 
 void	xml_hiscore_set_game_filter(char const *name)
 {
   if (!ptr_chk(name, "game filter", XML_LCAT, "xml_hiscore_set_game_filter"))
     return ;
-  strncpy((char *)game, name, GAME_NAME_LENGTH);
+  game = name;
 }

@@ -95,29 +95,33 @@ void		free_texture(t_texture *t);
  */
 void		play_sfx(t_chunk *s);
 
-/**
- * ==================== S P R I T E S ====================
- */
+/*
+** ==================== S P R I T E S ====================
+*/
 
 /**
  *	@brief	XML Spritesheet parsing callback
  *
- *	Pass a reference to this function to 'xml_parse()' function to parse a Spritesheet XML file
+ *	Pass a reference to this function to 'xml_parse()' function
+ *	to parse a Spritesheet XML file
+ *	
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
  */
-Uint8	xml_spritesheet_callback(xmlNodePtr node, void *container);
+Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	XML Animation parsing callback
  *
- *	Pass a reference to this function to 'xml_parse()' function to parse an Animation XML file
+ *	Pass a reference to this function to 'xml_parse()' function
+ *	to parse an Animation XML file
+ *	
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
  */
-Uint8	xml_animation_callback(xmlNodePtr node, void *container);
+Uint8		xml_animation_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	Allocates a new spritesheet wrapper from a spritesheet file.
@@ -166,19 +170,17 @@ void		draw_sprite_raw(t_spritesheet const *ss,
  *	@return a pointer to the found sprite
  *	@return NULL if not found
  */
-t_spriteholder	*get_sprite(t_spritesheet const *sprites, char const *name);
+t_spriteholder const	*get_sprite(t_spritesheet const *sprites, char const *name);
 /*
 ** ==================== H I S C O R E S ====================
 */
-# define HISCORE_NICKNAME_LENGTH	16
-
 /**
  *	@brief	Hiscore holder structure
  *	@todo	Use proper date type for "date" member
  */
 typedef struct	s_hiscoreholder
 {
-  char		nickname[HISCORE_NICKNAME_LENGTH];
+  char		*nickname;
   Uint32	score;
   Uint32	date;
 }		t_hiscoreholder;
@@ -191,7 +193,7 @@ typedef struct	s_hiscoreholder
  *
  *	@return	Number of counted elements
  */
-Uint8		xml_hiscore_callback(xmlNodePtr, void *);
+Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
 
 /**
  *	@brief	Game filter setter
@@ -209,6 +211,20 @@ void		xml_hiscore_set_game_filter(char const *name);
  *	@brief	XML Callback signature
  */
 typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
+
+typedef struct	s_xml_typeholder
+{
+  t_xmlcallback	call;
+  char const	*dtd_file;
+  char const	*dtd_str;
+}		t_xml_typeholder;
+
+typedef enum
+{
+  HISCORES_XML = 0,
+  SHEET_XML,
+  NB_XML
+}		t_xml_type;
 
 /**
  *	@brief	Parses or counts parsed elements in a XML file
@@ -245,6 +261,6 @@ typedef	Uint8	(*t_xmlcallback)(xmlNodePtr, void *);
  *	@param	container A pointer to a container where to save parsed values or NULL
  *	@return	Number of counted elements
  */
-Uint8		xml_parse(char const *path, t_xmlcallback callback, void *container);
+Sint8		xml_parse(char const *path, t_xml_type type, void *container);
 
 #endif /* !CORE_HANDLERS_ */

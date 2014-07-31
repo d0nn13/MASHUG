@@ -1,0 +1,13 @@
+<!ELEMENT img (definitions)>
+<!ATTLIST img name CDATA #REQUIRED>
+<!ATTLIST img w CDATA #REQUIRED>
+<!ATTLIST img h CDATA #REQUIRED>
+<!ELEMENT definitions (dir)>
+<!ELEMENT dir (spr+)>
+<!ATTLIST dir name CDATA #REQUIRED>
+<!ELEMENT spr EMPTY>
+<!ATTLIST spr name CDATA #REQUIRED>
+<!ATTLIST spr x CDATA #REQUIRED>
+<!ATTLIST spr y CDATA #REQUIRED>
+<!ATTLIST spr w CDATA #REQUIRED>
+<!ATTLIST spr h CDATA #REQUIRED>
