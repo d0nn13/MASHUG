@@ -19,7 +19,7 @@
 
 #include "handlers.h"
 
-static t_texture	*bg;
+static t_texture	*bg = NULL;
 
 Sint32	graphics_init()
 {

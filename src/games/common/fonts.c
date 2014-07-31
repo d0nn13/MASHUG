@@ -17,6 +17,7 @@ static TTF_Font	*common_fonts[NB_FNT];
 
 void	load_common_fonts()
 {
+  memset(common_fonts, 0, sizeof(common_fonts));
   common_fonts[ATARI24_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 24);
   common_fonts[ATARI18_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 18);
   common_fonts[COSMIC48_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 48);
