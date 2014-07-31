@@ -11,7 +11,6 @@
 #include "../../base/memory.h"
 #include "../../core/log.h"
 #include "../../core/handlers.h"
-#include "../common/sprites.h"
 
 #include "spacespritesheet.h"
 

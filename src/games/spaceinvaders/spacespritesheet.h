@@ -8,10 +8,17 @@
 ** Last update Wed Jul 16 13:51:22 2014 Emmanuel Atse
 */
 
-#ifndef	GAMES_SPACEINVADERS_SPRITESHEET_H_
-# define GAMES_SPACEINVADERS_SPRITESHEET_H_
+#ifndef	GAMES_SPACESPRITESHEET_H_
+# define GAMES_SPACESPRITESHEET_H_
 
 #include "../../core/graphics.h"
+
+/**
+ *	Spaceinvaders sprites names
+ */
+#define CABINET_SPR	"cabinet"
+#define TITLE_SPR	"title"
+#define NB_SPR		"nb"
 
 /**
  *	@brief	Load spaceinvaders sprite sheet
@@ -28,4 +35,4 @@ t_spritesheet const	*get_space_spritesheet();
  */
 void			free_space_spritesheet();
 
-#endif		/* !GAMES_SPACEINVADERS_SPRITESHEET_H_ */
+#endif		/* !GAMES_SPACESPRITESHEET_H_ */

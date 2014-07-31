@@ -12,13 +12,13 @@
 #include "../../base/math.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
-#include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "../mainmenu.h"
 #include "spacespritesheet.h"
 #include "spacehiscores.h"
 #include "spacecore.h"
+
 #include "spacemenu.h"
 
 /**
