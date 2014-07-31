@@ -11,11 +11,11 @@
 #include <string.h>
 #include "../../core/renderer.h"
 #include "../../core/handlers.h"
-#include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
+
 #include "spacecore.h"
 
 t_mode 	g_launcher;

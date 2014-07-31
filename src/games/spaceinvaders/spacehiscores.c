@@ -10,7 +10,6 @@
 
 #include <SDL2/SDL_render.h>
 #include "../../core/handlers.h"
-#include "../common/sprites.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spacecore.h"
