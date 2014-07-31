@@ -9,7 +9,7 @@
 */
 
 /**
- *	@file	factory_helpers.h
+ *	@file	factory_helpers.c
  *	@brief	Convinient helping factory functions
  */
 

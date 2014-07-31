@@ -9,7 +9,7 @@
 */
 
 /**
- *	@file	input_helpers.h
+ *	@file	input_helpers.c
  *	@brief	Convinient input helping functions
  */
 

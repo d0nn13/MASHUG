@@ -9,7 +9,7 @@
 */
 
 /**
- *	@file	file_helpers.h
+ *	@file	file_helpers.c
  *	@brief	Convinient file helping functions
  */
 
