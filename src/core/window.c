@@ -45,6 +45,7 @@ void	window_destroy()
 {
   SDL_DestroyWindow(window);
   SDL_QuitSubSystem(SDL_INIT_VIDEO);
+  window = NULL;
   SDL_LogInfo(VID_LCAT, "Window destroyed");
 }
 

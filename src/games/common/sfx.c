@@ -48,5 +48,6 @@ void	free_common_sfx()
 
   for (i = 0; i < NB_SFX; ++i)
     SDL_FreeWAV(common_sfx[i].buf);
+  memset(&common_sfx, 0, sizeof(common_sfx));
   SDL_LogVerbose(AUD_LCAT, "Common sounds destroyed");
 }

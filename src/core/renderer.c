@@ -59,5 +59,6 @@ void	renderer_destroy()
   TTF_Quit();
   IMG_Quit();
   SDL_DestroyRenderer(renderer);
+  renderer = NULL;
   SDL_LogInfo(RDR_LCAT, "Renderer destroyed");
 }
