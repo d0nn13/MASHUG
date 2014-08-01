@@ -28,5 +28,6 @@ t_spritesheet const	*get_common_spritesheet()
 void			free_common_spritesheet()
 {
   free_spritesheet(commonspritesheet);
+  commonspritesheet = NULL;
 }
 

@@ -39,5 +39,6 @@ t_spritesheet const	*get_space_spritesheet()
 void			free_space_spritesheet()
 {
   free_spritesheet(spacespritesheet);
+  spacespritesheet = NULL;
 }
 

@@ -38,5 +38,6 @@ void		free_common_fonts()
 
   for (i = 0; i < NB_FNT; ++i)
     TTF_CloseFont(common_fonts[i]);
+  memset(&common_fonts, 0, sizeof(common_fonts));
   SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }

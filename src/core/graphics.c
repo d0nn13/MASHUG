@@ -41,5 +41,6 @@ t_texture	*get_bg()
 void	graphics_destroy()
 {
   free_texture(bg);
+  bg = NULL;
   SDL_LogInfo(GFX_LCAT, "Graphics destroyed");
 }
