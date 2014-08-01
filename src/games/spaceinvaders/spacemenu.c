@@ -110,13 +110,11 @@ static void		display_menu()
   SDL_Color const	uns = {255, 255, 255, 0};
   SDL_Point		orig;
   SDL_Rect		rect;
-  t_spritesheet const	*ss;
   TTF_Font const	*font;
 
-  ss = get_space_spritesheet();
   font = get_common_font(ATARI24_FNT);
   rect = rect_factory(187, 122, 420, 119);
-  draw_sprite(ss, get_sprite(ss, TITLE_SPR), &rect);
+  draw_sprite(get_sprite(get_space_spritesheet(), TITLE_SPR), &rect);
   orig = point_factory(325, 298);
   draw_text("START", &orig, font, T_EQ(item, START_MEN, &sel, &uns));
   orig = point_factory(289, 369);

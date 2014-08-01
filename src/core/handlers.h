@@ -126,13 +126,16 @@ Uint8		xml_animation_callback(xmlNodePtr node, void *container);
 /**
  *	@brief	Allocates a new spritesheet wrapper from a spritesheet file.
  *
- *	@param	file The file name of the sprites sheet
+ *	@param	img The filename of the sprites sheet image
+ *	@param	xml The filename of the sprites sheet XML file
  *	@return	A pointer to a newly heap allocated spritesheet
  */
-t_spritesheet	*make_spritesheet(const char *file);
+t_spritesheet	*make_spritesheet(char const *img, char const *xml);
 
 /**
  *	@brief	Deallocates a spritesheet
+ *
+ *	@param	ss The desired spritesheet to deallocate
  */
 void		free_spritesheet(t_spritesheet *ss);
 
@@ -142,35 +145,32 @@ void		free_spritesheet(t_spritesheet *ss);
  *	This function scales the sprite to 'zone' dimensions.
  *	Passing NULL to 'zone' implies scaling to fit renderer size
  *
- *	@param	ss The spritesheet from where to take the sprite
  *	@param	s The desired sprite holder
  *	@param	zone The zone to fill with the desired sprite
  */
-void		draw_sprite(t_spritesheet const *ss,
-			    t_spriteholder const *s,
+void		draw_sprite(t_spriteholder const *s,
 			    SDL_Rect const *zone);
 
 /**
  *	@brief	Draws a sprite from a spritesheet at a given point on the renderer without applying scaling.
  *
- *	@param	ss The spritesheet from where to take the sprite
  *	@param	s The desired sprite holder
  *	@param	orig A SDL_Point that defines the x and y coordinates of the sprite to be drawn
  */
-void		draw_sprite_raw(t_spritesheet const *ss,
-				t_spriteholder const *s,
+void		draw_sprite_raw(t_spriteholder const *s,
 				SDL_Point const *orig);
 
 /**
  *	@brief Get a sprite within a spritesheet with a given name
  *
- *	@param spritesheet The spritesheet
+ *	@param ss The spritesheet
  *	@param name The name of the sprite to find
  *
  *	@return a pointer to the found sprite
  *	@return NULL if not found
  */
-t_spriteholder const	*get_sprite(t_spritesheet const *sprites, char const *name);
+t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name);
+
 /*
 ** ==================== H I S C O R E S ====================
 */

@@ -20,49 +20,50 @@
 #include "../helpers.h"
 #include "../log.h"
 
-/**
- * TODO: Implement sprite loading from xml parsing
- */
-t_spritesheet	*make_spritesheet(const char *file)
+t_spritesheet	*make_spritesheet(const char *img, const char *xml)
 {
   t_spritesheet	*ss;
   SDL_Surface	*surface;
+  Uint8		sprite_count;
 
   ss = mem_alloc(sizeof(t_spritesheet));
-  surface = IMG_Load_RW(SDL_RWFromFile(file, "rb"), 1);
+  surface = IMG_Load_RW(SDL_RWFromFile(img, "rb"), 1);
   ss->tex = make_texture_from_surface(get_renderer(), surface);
   SDL_FreeSurface(surface);
-  SDL_LogDebug(SPR_LCAT, "make_spritesheet: loaded file '%s'", file);
+  sprite_count = xml_parse(xml, SHEET_XML, NULL);
+  ss->sprites = mem_alloc(sizeof(t_spriteholder *) * (sprite_count + 1));
+  if (!ptr_chk(ss->sprites, "sprites", SPR_LCAT, "make_spritesheet"))
+    return (NULL);
+  xml_parse(xml, SHEET_XML, ss);
+  SDL_LogDebug(SPR_LCAT, "make_spritesheet: loaded '%s' with data from '%s'",
+	       img, xml);
   return (ss);
 }
 
-void		draw_sprite(t_spritesheet const *ss,
-			    t_spriteholder const *s,
+void		draw_sprite(t_spriteholder const *s,
 			    SDL_Rect const *zone)
 {
   SDL_Renderer	*renderer;
 
-  if (!ptr_chk(ss, "spritesheet", SPR_LCAT, "draw_sprite") ||
-      !ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite"))
+  if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite") ||
+      !ptr_chk(s->sheet, "s->sheet", SPR_LCAT, "draw_sprite"))
     return ;
   renderer = get_renderer();
-  SDL_RenderCopy(renderer, ss->tex->tex, &s->rect, zone);
+  SDL_RenderCopy(renderer, s->sheet->tex->tex, &s->rect, zone);
   SDL_RenderPresent(renderer);
   SDL_LogVerbose(SPR_LCAT, "Drawn sprite '%s'", s->name);
 }
 
-void		draw_sprite_raw(t_spritesheet const *ss,
-				t_spriteholder const *s,
+void		draw_sprite_raw(t_spriteholder const *s,
 				SDL_Point const *orig)
 {
   SDL_Rect	rect;
 
-  if (!ptr_chk(ss, "spritesheet", SPR_LCAT, "draw_sprite_raw") ||
-      !ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
+  if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite_raw") ||
       !ptr_chk(orig, "origin", SPR_LCAT, "draw_sprite_raw"))
     return ;
   rect = rect_factory(orig->x, orig->y, s->rect.w, s->rect.h);
-  draw_sprite(ss, s, &rect);
+  draw_sprite(s, &rect);
 }
 
 t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name)
@@ -75,11 +76,11 @@ t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name)
     return (NULL);
   sprites = ss->sprites;
   while (*sprites)
-    {
-      if (strcmp(name, (*sprites)->name) == 0)
-	return (*sprites);
-      ++sprites;
-    }
+  {
+    if (strcmp(name, (*sprites)->name) == 0)
+      return (*sprites);
+    ++sprites;
+  }
   return (NULL);
 }
 
