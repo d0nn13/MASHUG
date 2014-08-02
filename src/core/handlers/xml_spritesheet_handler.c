@@ -23,11 +23,13 @@
 
 #include "../handlers.h"
 
+/* TODO (ahamad_s): retrieve spritesheet image from XML file */
+
 /**
  *	@brief	Parse sprites in spritesheet tree (internal)
  */
 static void	xml_spritesheet_sprites(xmlNodePtr node,
-					t_spriteholder **s,
+					t_spritesheet *ss,
 					Uint8 *count);
 
 /**
@@ -53,24 +55,29 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
       node = node->children;
   }
   if(node)
-    xml_spritesheet_sprites(node, (t_spriteholder **)container, &count);
+    xml_spritesheet_sprites(node, (t_spritesheet *)container, &count);
   if (container)
     SDL_LogVerbose(XML_LCAT, "xml_spritesheet: %d elements saved", count);
   return (count);
 }
 
 static void	xml_spritesheet_sprites(xmlNodePtr node,
-					t_spriteholder **s,
+					t_spritesheet *ss,
 					Uint8 *count)
 {
-  xmlAttrPtr	att;
+  xmlAttrPtr		att;
+  t_spriteholder	**s;
 
   while (node)
   {
     if (node->type == XML_ELEMENT_NODE)
     {
-      if (s)
+      if (ss)
+      {
+	s = ss->sprites;
 	s[*count] = mem_alloc(sizeof(t_spriteholder));
+	s[*count]->sheet = ss;
+      }
       att = node->properties;
       while (att)
       {
