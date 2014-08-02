@@ -50,7 +50,6 @@ void		draw_sprite(t_spriteholder const *s,
     return ;
   renderer = get_renderer();
   SDL_RenderCopy(renderer, s->sheet->tex->tex, &s->rect, zone);
-  SDL_RenderPresent(renderer);
   SDL_LogVerbose(SPR_LCAT, "Drawn sprite '%s'", s->name);
 }
 
