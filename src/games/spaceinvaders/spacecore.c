@@ -11,14 +11,13 @@
 #include <string.h>
 #include "../../core/renderer.h"
 #include "../../core/handlers.h"
+#include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 
 #include "spacecore.h"
-
-t_mode 	g_launcher;
 
 static Uint8	space_process_events();
 
@@ -46,7 +45,7 @@ void			space_loop()
 
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
-  while (g_launcher == &space_loop)
+  while (get_launcher() == &space_loop)
   {
     if (space_process_events())
       break;
@@ -71,7 +70,7 @@ static Uint8	space_process_events()
   if (e.type == SDL_QUIT)
   {
     space_destroy();
-    g_launcher = NULL;
+    set_launcher(NULL);
     return (1);
   }
   else if (e.type == SDL_KEYDOWN)
@@ -79,7 +78,7 @@ static Uint8	space_process_events()
     s = e.key.keysym.scancode;
     if (s == SDL_SCANCODE_ESCAPE)
     {
-      g_launcher = &space_menu;
+      set_launcher(&space_menu);
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
     }
   }

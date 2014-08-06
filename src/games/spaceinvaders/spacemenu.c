@@ -12,6 +12,7 @@
 #include "../../base/math.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
+#include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "../mainmenu.h"
@@ -34,7 +35,7 @@ typedef enum
 /**
  *	Menu callback initialization
  */
-static t_mode  	select[NB_MEN] =
+static t_exec  	select[NB_MEN] =
 {
   &space_loop,
   &hiscores
@@ -60,14 +61,14 @@ void   		space_menu()
   SDL_SetEventFilter(key_filter, NULL);
   redraw_context(NULL);
   display_menu();
-  while (g_launcher == &space_menu)
+  while (get_launcher() == &space_menu)
   {
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
       {
 	space_destroy();
-	g_launcher = NULL;
+	set_launcher(NULL);
       }
       if (e.type == SDL_KEYDOWN)
       {
@@ -87,13 +88,13 @@ static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
   *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
   {
-    g_launcher = &main_menu;
+    set_launcher(&main_menu);
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
     space_destroy();
   }
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {
-    g_launcher = select[*item];
+    set_launcher(select[*item]);
     play_sfx(get_common_sfx(BLIPOK_SFX));
     redraw_context(NULL);
   }

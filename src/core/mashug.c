@@ -27,6 +27,7 @@
 #include "renderer.h"
 #include "graphics.h"
 #include "audio.h"
+#include "launcher.h"
 #include "../games/common/common.h"
 #include "../games/mainmenu.h"
 #include "../games/spaceinvaders/spacecore.h"
@@ -82,10 +83,10 @@ Sint32	main(int argc, char **argv)
   chdir("..");
   if (core_init(argc, argv) || common_init())
     return (EXIT_FAILURE);
-  g_launcher = &main_menu;
-  while (g_launcher)
+  set_launcher(&main_menu);
+  while (get_launcher())
   {
-    g_launcher();
+    get_launcher()();
   }
   common_destroy();
   core_destroy();

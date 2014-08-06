@@ -12,6 +12,7 @@
 #include		"../core/renderer.h"
 #include		"../core/handlers.h"
 #include		"../core/helpers.h"
+#include		"../core/launcher.h"
 #include		"common/fonts.h"
 #include		"common/sfx.h"
 #include		"spaceinvaders/spacemenu.h"
@@ -28,7 +29,7 @@ typedef enum
 
 static t_gameitem	item = SPACE_GAME;
 
-static t_mode		select[NB_GAME] =
+static t_exec		select[NB_GAME] =
 {
   &space_menu,
   &main_menu
@@ -62,10 +63,10 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   *item += (*s == UP && *item != SPACE_GAME) ? -1 : 0;
   *item += (*s == DN && *item != GALAGA_GAME) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
-    g_launcher = NULL;
+    set_launcher(NULL);
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {
-    g_launcher = select[*item];
+    set_launcher(select[*item]);
     if (*item == SPACE_GAME)
     {
       play_sfx(get_common_sfx(BLIPOK_SFX));
@@ -95,12 +96,12 @@ void			main_menu()
   draw_background_menu();
   SDL_SetEventFilter(key_filter, NULL);
   display_main_menu();
-  while (g_launcher == &main_menu)
+  while (get_launcher() == &main_menu)
   {
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
-	g_launcher = NULL;
+	set_launcher(NULL);
       if (e.type == SDL_KEYDOWN)
       {
 	s = e.key.keysym.scancode;

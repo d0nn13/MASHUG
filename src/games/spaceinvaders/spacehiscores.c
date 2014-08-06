@@ -10,6 +10,7 @@
 
 #include <SDL2/SDL_render.h>
 #include "../../core/handlers.h"
+#include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spacecore.h"
@@ -34,20 +35,20 @@ void			hiscores()
 
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
-  while (g_launcher == &hiscores)
+  while (get_launcher() == &hiscores)
   {
     if (SDL_WaitEvent(&e))
       if (e.type == SDL_QUIT)
       {
 	space_destroy();
-	g_launcher = NULL;
+	set_launcher(NULL);
       }
     if (e.type == SDL_KEYDOWN)
     {
       s = e.key.keysym.scancode;
       if (s == SDL_SCANCODE_ESCAPE)
       {
-	g_launcher = &space_menu;
+	set_launcher(&space_menu);
 	play_sfx(get_common_sfx(BLIPCANCEL_SFX));
       }
     }

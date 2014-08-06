@@ -17,16 +17,6 @@
 # define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
- *	@brief	Game mode callback definition
- */
-typedef void	(*t_mode)();
-
-/**
- *	@brief	Global callback
- */
-extern	t_mode	g_launcher;
-
-/**
  *	@brief	Initializes Space Invaders game (load sprites, draw UI etc...)
  *	@return	0 on success, -1 on any error
  */
