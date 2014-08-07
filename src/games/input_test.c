@@ -32,6 +32,7 @@ static void	input_test_display()
   o = point_factory(138, 640);
   draw_text("PRESS UP+FIRE TO QUIT", &o, get_common_font(5), NULL);
   o = point_factory(260, 200);
+  input_update(SDL_GetKeyboardState(NULL));
   for (i = 0; i < NB_INP; ++i)
   {
     sprintf(statestr, "%d", get_input(i)->state);
@@ -46,20 +47,23 @@ static void	input_test_display()
 void		input_test()
 {
   SDL_Event	e;
+  Uint32	ti;
+  Uint32	to;
 
   input_flush();
   while (get_launcher() == &input_test)
   {
-    if (!SDL_PollEvent(&e))
+    ti = SDL_GetTicks();
+    if (SDL_PollEvent(&e))
       if (e.type == SDL_QUIT)
 	set_launcher(NULL);
-    input_update(SDL_GetKeyboardState(NULL));
     if (get_input(UP_INP)->state && get_input(FIRE_INP)->state)
       set_launcher(&main_menu);
     input_test_display();
     SDL_RenderPresent(get_renderer());
-    input_flush();
-    SDL_Delay(16);
+    to = SDL_GetTicks() - ti;
+    if (to < 50)
+      SDL_Delay(50 - to);
   }
 }
 
