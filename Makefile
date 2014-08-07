@@ -21,6 +21,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/renderer.c				\
 			$(SRCPATH)core/graphics.c				\
 			$(SRCPATH)core/audio.c					\
+			$(SRCPATH)core/input.c					\
 			$(SRCPATH)core/launcher.c				\
 			$(SRCPATH)core/handlers/graphic_handler.c		\
 			$(SRCPATH)core/handlers/sprite_handler.c		\

@@ -10,6 +10,7 @@
 
 #include		"../base/math.h"
 #include		"../core/renderer.h"
+#include		"../core/input.h"
 #include		"../core/handlers.h"
 #include		"../core/helpers.h"
 #include		"../core/launcher.h"
@@ -90,7 +91,6 @@ void			main_menu()
   SDL_Scancode		s;
 
   draw_background_menu();
-  SDL_SetEventFilter(key_filter, NULL);
   display_main_menu();
   while (get_launcher() == &main_menu)
   {

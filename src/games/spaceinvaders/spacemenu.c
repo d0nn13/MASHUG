@@ -11,6 +11,7 @@
 #include <SDL2/SDL.h>
 #include "../../base/math.h"
 #include "../../core/renderer.h"
+#include "../../core/input.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
 #include "../../core/launcher.h"

@@ -27,6 +27,7 @@
 #include "renderer.h"
 #include "graphics.h"
 #include "audio.h"
+#include "input.h"
 #include "launcher.h"
 #include "../games/common/common.h"
 #include "../games/mainmenu.h"
@@ -63,6 +64,7 @@ static Sint32	core_init(Sint32 argc, char **argv)
   log_set_all_priority(get_option_value(LOG_PRIO_OPT));
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-2);
+  SDL_SetEventFilter(key_filter, NULL);
   SDL_Log("Engine started, welcome aboard!");
   return (0);
 }

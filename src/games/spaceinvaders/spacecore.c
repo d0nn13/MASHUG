@@ -10,6 +10,7 @@
 
 #include <string.h>
 #include "../../core/renderer.h"
+#include "../../core/input.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
