@@ -29,6 +29,7 @@ void	input_update(Uint8 const *all)
 {
   Uint8	i;
 
+  SDL_PumpEvents();
   for (i = 0; i < NB_INP; ++i)
     input[i].state = all[input[i].code];
 }
@@ -37,7 +38,7 @@ void	input_flush()
 {
   Uint8	i;
 
-  for (i = 0; i < 5; ++i)
+  for (i = 0; i < NB_INP; ++i)
     input[i].state = 0;
 }
 
