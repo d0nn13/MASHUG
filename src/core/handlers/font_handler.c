@@ -48,6 +48,9 @@ void		draw_text(char const *text,
   SDL_Surface	*s;
   SDL_Rect	z;
 
+  if (!ptr_chk(text, "text", FNT_LCAT, "draw_text") ||
+      !ptr_chk(f, "font", FNT_LCAT, "draw_text"))
+    return ;
   if (!(t = TTF_RenderUTF8_Solid((TTF_Font *)f, text, *c)))
   {
     SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
