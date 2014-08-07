@@ -62,7 +62,6 @@ void		draw_text(char const *text,
   SDL_FreeSurface(t);
   SDL_UpdateTexture(get_bg()->tex, &z, s->pixels, s->pitch);
   SDL_RenderCopy(get_renderer(), get_bg()->tex, &z, &z);
-  SDL_RenderPresent(get_renderer());
   SDL_FreeSurface(s);
   SDL_LogVerbose(FNT_LCAT, "Drawn text '%s'", text);
 }

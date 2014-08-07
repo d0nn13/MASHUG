@@ -98,6 +98,7 @@ void			main_menu()
   display_main_menu();
   while (get_launcher() == &main_menu)
   {
+    SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)

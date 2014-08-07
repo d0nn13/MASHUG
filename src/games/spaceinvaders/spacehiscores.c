@@ -9,6 +9,7 @@
 */
 
 #include <SDL2/SDL_render.h>
+#include "../../core/renderer.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
@@ -37,6 +38,7 @@ void			hiscores()
 	    &white);
   while (get_launcher() == &hiscores)
   {
+    SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
       if (e.type == SDL_QUIT)
       {

@@ -10,6 +10,7 @@
 
 #include <SDL2/SDL.h>
 #include "../../base/math.h"
+#include "../../core/renderer.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
 #include "../../core/launcher.h"
@@ -63,6 +64,7 @@ void   		space_menu()
   display_menu();
   while (get_launcher() == &space_menu)
   {
+    SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
