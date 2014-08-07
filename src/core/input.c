@@ -21,7 +21,8 @@ static t_inputholder input[NB_INP] = {
   {SDL_SCANCODE_DOWN, 0, "DOWN"},
   {SDL_SCANCODE_RIGHT, 0, "RIGHT"},
   {SDL_SCANCODE_SPACE, 0, "FIRE"},
-  {0, 0, "BUTTON2"}
+  {0, 0, "BUTTON2"},
+  {SDL_SCANCODE_I, 0, "TEST"}
 };
 
 void	input_update(Uint8 const *all)

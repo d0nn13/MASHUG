@@ -16,6 +16,7 @@
 #include		"../core/launcher.h"
 #include		"common/fonts.h"
 #include		"common/sfx.h"
+#include		"input_test.h"
 #include		"spaceinvaders/spaceinvaders.h"
 
 #include		"mainmenu.h"
@@ -64,7 +65,9 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   *item += (*s == DN && *item != GALAGA_GAME) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
     set_launcher(NULL);
-  else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
+  else if (*s == get_input(TEST_INP)->code)
+    set_launcher(&input_test);
+  else if (*s == get_input(START_INP)->code)
   {
     set_launcher(select[*item]);
     if (*item == SPACE_GAME)

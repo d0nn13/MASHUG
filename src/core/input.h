@@ -34,6 +34,7 @@ typedef	enum
   RIGHT_INP,
   FIRE_INP,
   BUTTON2_INP,
+  TEST_INP,
   NB_INP
 }		t_inputs;
 
