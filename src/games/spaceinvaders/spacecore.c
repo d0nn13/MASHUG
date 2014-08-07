@@ -47,9 +47,9 @@ void			space_loop()
 	    &white);
   while (get_launcher() == &space_loop)
   {
+    SDL_RenderPresent(get_renderer());
     if (space_process_events())
       break;
-    SDL_RenderPresent(get_renderer());
     SDL_Delay(10);
   }
 }

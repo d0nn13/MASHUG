@@ -44,7 +44,6 @@ Sint32	renderer_init()
   SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
-  SDL_RenderPresent(renderer);
   SDL_LogInfo(RDR_LCAT, "Renderer initialization done");
   return (0);
 }
