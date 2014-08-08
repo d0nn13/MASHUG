@@ -13,10 +13,6 @@
 
 #include <SDL2/SDL_events.h>
 
-/* TODO: Removes these directives when game menus are up-to-date */
-#define UP SDL_SCANCODE_UP
-#define DN SDL_SCANCODE_DOWN
-
 typedef	struct	s_inputholder
 {
   SDL_Scancode	code;

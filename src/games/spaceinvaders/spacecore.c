@@ -67,7 +67,7 @@ static Uint8	space_process_events()
   else if (e.type == SDL_KEYDOWN)
   {
     s = e.key.keysym.scancode;
-    if (s == SDL_SCANCODE_ESCAPE)
+    if (s == get_input(RETURN_INP)->code)
     {
       set_launcher(&space_menu);
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));

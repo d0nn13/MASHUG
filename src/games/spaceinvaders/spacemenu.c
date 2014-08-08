@@ -87,14 +87,14 @@ static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
   t_spaceitem	old_item;
 
   old_item = *item;
-  *item += (*s == UP && *item != START_MEN) ? -1 : 0;
-  *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
-  if (*s == SDL_SCANCODE_ESCAPE)
+  *item += (*s == get_input(UP_INP)->code && *item != START_MEN) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code && *item != SCORE_MEN) ? 1 : 0;
+  if (*s == get_input(RETURN_INP)->code)
   {
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
     set_launcher(&space_destroy);
   }
-  else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
+  else if (*s == get_input(START_INP)->code)
   {
     play_sfx(get_common_sfx(BLIPOK_SFX));
     set_launcher(select[*item]);

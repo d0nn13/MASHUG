@@ -61,9 +61,9 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   t_gameitem	old_item;
 
   old_item = *item;
-  *item += (*s == UP && *item != SPACE_GAME) ? -1 : 0;
-  *item += (*s == DN && *item != GALAGA_GAME) ? 1 : 0;
-  if (*s == SDL_SCANCODE_ESCAPE)
+  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
+  if (*s == get_input(RETURN_INP)->code)
     set_launcher(NULL);
   else if (*s == get_input(TEST_INP)->code)
     set_launcher(&input_test);
