@@ -17,25 +17,14 @@
 # define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
- *	@brief	Initializes Space Invaders game (load sprites, draw UI etc...)
- *	@return	0 on success, -1 on any error
- */
-Sint32	space_init();
-
-/**
  *	@brief	Clears screen with color 'c' and renders cabinet
  *	@param	c The color to clear the screen with
  */
-void	redraw_context(SDL_Color const *c);
+void	space_redraw_context(SDL_Color const *c);
 
 /**
  *	@brief	Main loop
  */
 void	space_loop();
-
-/**
- *	@brief	Destroys Space Invaders game (free all stuff was allocated...)
- */
-void	space_destroy();
 
 #endif /* !GAMES_SPACEINVADERS_SPACECORE_H_ */

@@ -13,7 +13,8 @@
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
-#include "spacecore.h"
+#include "spaceinvaders.h"
+#include "spacespritesheet.h"
 #include "spacemenu.h"
 
 #include "spacehiscores.h"

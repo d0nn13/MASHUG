@@ -16,10 +16,10 @@
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
-#include "../mainmenu.h"
+#include "spaceinvaders.h"
 #include "spacespritesheet.h"
-#include "spacehiscores.h"
 #include "spacecore.h"
+#include "spacehiscores.h"
 
 #include "spacemenu.h"
 
@@ -31,7 +31,7 @@ typedef enum
   START_MEN,
   SCORE_MEN,
   NB_MEN
-}      	t_spaceitem;
+}		t_spaceitem;
 
 /**
  *	Menu callback initialization
@@ -60,7 +60,7 @@ void   		space_menu()
   SDL_Scancode 	s;
 
   SDL_SetEventFilter(key_filter, NULL);
-  redraw_context(NULL);
+  space_redraw_context(NULL);
   display_menu();
   while (get_launcher() == &space_menu)
   {
@@ -90,15 +90,14 @@ static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
   *item += (*s == DN && *item != SCORE_MEN) ? 1 : 0;
   if (*s == SDL_SCANCODE_ESCAPE)
   {
-    set_launcher(&main_menu);
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-    space_destroy();
+    set_launcher(&space_destroy);
   }
   else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
   {
-    set_launcher(select[*item]);
     play_sfx(get_common_sfx(BLIPOK_SFX));
-    redraw_context(NULL);
+    set_launcher(select[*item]);
+    space_redraw_context(NULL);
   }
   if (*item != old_item)
   {
