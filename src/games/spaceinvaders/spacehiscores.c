@@ -8,7 +8,6 @@
 ** Last update Sun Jul 27 15:17:42 2014 ENNEBATI Yassine
 */
 
-#include <SDL2/SDL_render.h>
 #include "../../core/renderer.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
