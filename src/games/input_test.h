@@ -1,5 +1,5 @@
 /*
-** input_test.h for games in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG/dev/src/games
+** input_test.h for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
 ** 
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
