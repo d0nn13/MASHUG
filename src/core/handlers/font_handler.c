@@ -21,6 +21,9 @@
 
 #include "../handlers.h"
 
+static SDL_Point const	def_orig = {10, 10};
+static SDL_Color const	def_color = {255, 255, 255, 255};
+
 SDL_Surface	*get_text_surface(char const *text,
 				  TTF_Font const *f,
 				  SDL_Color const *c)
@@ -29,9 +32,9 @@ SDL_Surface	*get_text_surface(char const *text,
   SDL_Surface	*s;
 
   if (!ptr_chk(text, "text", FNT_LCAT, "get_text_surface") ||
-     !ptr_chk(f, "font", FNT_LCAT, "get_text_surface") ||
-     !ptr_chk(c, "color", FNT_LCAT, "get_text_surface"))
+      !ptr_chk(f, "font", FNT_LCAT, "get_text_surface"))
     return (NULL);
+  c = !c ? &def_color : c;
   t = TTF_RenderUTF8_Blended((TTF_Font *)f, text, *c);
   if (!(s = SDL_ConvertSurfaceFormat(t, PIX_FMT, 0)))
     SDL_LogError(FNT_LCAT, "get_text_surface: ", SDL_GetError());
@@ -48,6 +51,11 @@ void		draw_text(char const *text,
   SDL_Surface	*s;
   SDL_Rect	z;
 
+  if (!ptr_chk(text, "text", FNT_LCAT, "draw_text") ||
+      !ptr_chk(f, "font", FNT_LCAT, "draw_text"))
+    return ;
+  o = !o ? &def_orig : o;
+  c = !c ? &def_color : c;
   if (!(t = TTF_RenderUTF8_Solid((TTF_Font *)f, text, *c)))
   {
     SDL_LogError(FNT_LCAT, "draw_text: ", TTF_GetError());
