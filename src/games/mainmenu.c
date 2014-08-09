@@ -10,11 +10,13 @@
 
 #include		"../base/math.h"
 #include		"../core/renderer.h"
+#include		"../core/input.h"
 #include		"../core/handlers.h"
 #include		"../core/helpers.h"
 #include		"../core/launcher.h"
 #include		"common/fonts.h"
 #include		"common/sfx.h"
+#include		"input_test.h"
 #include		"spaceinvaders/spaceinvaders.h"
 
 #include		"mainmenu.h"
@@ -59,11 +61,13 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   t_gameitem	old_item;
 
   old_item = *item;
-  *item += (*s == UP && *item != SPACE_GAME) ? -1 : 0;
-  *item += (*s == DN && *item != GALAGA_GAME) ? 1 : 0;
-  if (*s == SDL_SCANCODE_ESCAPE)
+  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
+  if (*s == get_input(RETURN_INP)->code)
     set_launcher(NULL);
-  else if (*s == SDL_SCANCODE_RETURN || *s == SDL_SCANCODE_KP_ENTER)
+  else if (*s == get_input(TEST_INP)->code)
+    set_launcher(&input_test);
+  else if (*s == get_input(START_INP)->code)
   {
     set_launcher(select[*item]);
     if (*item == SPACE_GAME)
@@ -90,7 +94,6 @@ void			main_menu()
   SDL_Scancode		s;
 
   draw_background_menu();
-  SDL_SetEventFilter(key_filter, NULL);
   display_main_menu();
   while (get_launcher() == &main_menu)
   {

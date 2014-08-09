@@ -10,6 +10,7 @@
 
 #include <string.h>
 #include "../../core/renderer.h"
+#include "../../core/input.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
@@ -66,7 +67,7 @@ static Uint8	space_process_events()
   else if (e.type == SDL_KEYDOWN)
   {
     s = e.key.keysym.scancode;
-    if (s == SDL_SCANCODE_ESCAPE)
+    if (s == get_input(RETURN_INP)->code)
     {
       set_launcher(&space_menu);
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));

@@ -18,9 +18,6 @@
 
 # include <SDL2/SDL.h>
 
-#define UP     	SDL_SCANCODE_UP
-#define DN     	SDL_SCANCODE_DOWN
-
 SDL_Rect	rect_factory(int const x, int const y, int const w, int const h);
 SDL_Point	point_factory(int const x, int const y);
 SDL_Color	color_factory(Uint8 const r,

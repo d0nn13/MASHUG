@@ -21,6 +21,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/renderer.c				\
 			$(SRCPATH)core/graphics.c				\
 			$(SRCPATH)core/audio.c					\
+			$(SRCPATH)core/input.c					\
 			$(SRCPATH)core/launcher.c				\
 			$(SRCPATH)core/handlers/graphic_handler.c		\
 			$(SRCPATH)core/handlers/sprite_handler.c		\
@@ -34,6 +35,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/helpers/file_helpers.c			\
 			$(SRCPATH)core/mashug.c					\
 			$(SRCPATH)games/mainmenu.c				\
+			$(SRCPATH)games/input_test.c				\
 			$(SRCPATH)games/common/fonts.c				\
 			$(SRCPATH)games/common/sfx.c				\
 			$(SRCPATH)games/common/common.c				\
