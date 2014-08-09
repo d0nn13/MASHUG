@@ -8,10 +8,15 @@
 ** Last update Mon Aug 04 14:59:07 2014 Samir Ahamada
 */
 
-#ifndef CORE_INPUT_H
-# define CORE_INPUT_H
+/**
+ *	@file	input.h
+ *	@brief	Input engine
+ */
 
-#include <SDL2/SDL_events.h>
+#ifndef CORE_INPUT_H_
+# define CORE_INPUT_H_
+
+# include <SDL2/SDL_events.h>
 
 typedef	struct	s_inputholder
 {
@@ -54,4 +59,4 @@ t_inputholder	*get_input(t_inputs i);
  */
 Sint32	key_filter(void *userdata, SDL_Event *event);
 
-#endif /* CORE_INPUT_H */
+#endif /* CORE_INPUT_H_ */

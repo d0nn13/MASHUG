@@ -8,6 +8,11 @@
 ** Last update Mon Aug 04 16:46:28 2014 Samir Ahamada
 */
 
+/**
+ *	@file	input.c
+ *	@brief	Input engine
+ */
+
 #include <SDL2/SDL_events.h>
 #include "log.h"
 
