@@ -30,13 +30,13 @@ static t_inputholder input[NB_INP] = {
   {SDL_SCANCODE_I, 0, "TEST"}
 };
 
-void	input_update(Uint8 const *all)
+void	input_update()
 {
   Uint8	i;
 
   SDL_PumpEvents();
   for (i = 0; i < NB_INP; ++i)
-    input[i].state = all[input[i].code];
+    input[i].state = SDL_GetKeyboardState(NULL)[input[i].code];
 }
 
 void	input_flush()
