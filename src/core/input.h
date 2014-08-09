@@ -42,7 +42,7 @@ typedef	enum
 /**
  *	@brief	Updates internal input state
  */
-void	input_update(Uint8 const *all);
+void	input_update();
 
 /**
  *	@brief	Clears internal input state

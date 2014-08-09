@@ -32,7 +32,7 @@ static void	input_test_display()
   o = point_factory(138, 640);
   draw_text("PRESS UP+FIRE TO QUIT", &o, get_common_font(5), NULL);
   o = point_factory(260, 200);
-  input_update(SDL_GetKeyboardState(NULL));
+  input_update();
   for (i = 0; i < NB_INP; ++i)
   {
     sprintf(statestr, "%d", get_input(i)->state);
