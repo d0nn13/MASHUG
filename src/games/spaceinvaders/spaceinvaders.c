@@ -9,6 +9,7 @@
 */
 
 #include <SDL2/SDL_stdinc.h>
+#include "../../core/log.h"
 #include "../../core/launcher.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
@@ -25,6 +26,9 @@ void 	space_init()
     load_space_spritesheet();
     loaded = 1;
   }
+  else
+    SDL_LogWarn(APP_LCAT,
+		   "Tried to load an already loaded Space Invaders game");
   set_launcher(&space_menu);
 }
 
@@ -35,6 +39,9 @@ void	space_destroy()
     free_space_spritesheet();
     loaded = 0;
   }
+  else
+    SDL_LogWarn(APP_LCAT,
+		   "Tried to unload an non-loaded Space Invaders game");
   set_launcher(&main_menu);
 }
 
