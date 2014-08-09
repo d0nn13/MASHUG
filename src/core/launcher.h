@@ -8,6 +8,9 @@
 ** Last update Wed Aug 06 14:02:45 2014 Samir Ahamada
 */
 
+#ifndef CORE_LAUNCHER_H_
+# define CORE_LAUNCHER_H_
+
 /**
  *	@brief	Game mode callback definition
  */
@@ -22,3 +25,5 @@ t_exec	get_launcher();
  *	@brief	Launcher setter
  */
 void	set_launcher(t_exec x);
+
+#endif /* CORE_LAUNCHER_H_ */
