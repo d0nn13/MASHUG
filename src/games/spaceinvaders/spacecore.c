@@ -14,6 +14,7 @@
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
+#include "spaceinvaders.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 
@@ -21,13 +22,7 @@
 
 static Uint8	space_process_events();
 
-Sint32 	space_init()
-{
-  load_space_spritesheet();
-  return (0);
-}
-
-void			redraw_context(SDL_Color const *c)
+void			space_redraw_context(SDL_Color const *c)
 {
   SDL_Color const	black = {0, 0, 0, 255};
   SDL_Color		col;
@@ -52,11 +47,6 @@ void			space_loop()
       break;
     SDL_Delay(10);
   }
-}
-
-void	space_destroy()
-{
-  free_space_spritesheet();
 }
 
 static Uint8	space_process_events()

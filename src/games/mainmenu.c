@@ -15,8 +15,7 @@
 #include		"../core/launcher.h"
 #include		"common/fonts.h"
 #include		"common/sfx.h"
-#include		"spaceinvaders/spacemenu.h"
-#include		"spaceinvaders/spacecore.h"
+#include		"spaceinvaders/spaceinvaders.h"
 
 #include		"mainmenu.h"
 
@@ -31,7 +30,7 @@ static t_gameitem	item = SPACE_GAME;
 
 static t_exec		select[NB_GAME] =
 {
-  &space_menu,
+  &space_init,
   &main_menu
 };
 
@@ -68,10 +67,7 @@ static void	process_input(SDL_Scancode const *s, t_gameitem *item)
   {
     set_launcher(select[*item]);
     if (*item == SPACE_GAME)
-    {
       play_sfx(get_common_sfx(BLIPOK_SFX));
-      space_init();
-    }
   }
   if (*item != old_item)
   {
