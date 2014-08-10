@@ -21,62 +21,65 @@
 
 #include		"mainmenu.h"
 
+/**
+ *	Main menu entries enumeration
+ */
 typedef enum
 {
   SPACE_GAME,
   GALAGA_GAME,
   NB_GAME
-}	t_gameitem;
+}	t_menuentries;
 
-static t_gameitem	item = SPACE_GAME;
-
-static t_exec		select[NB_GAME] =
+/**
+ *	Space menu entries initialization
+ */
+static t_menuentry	entries[NB_GAME] =
 {
-  &space_init,
-  &main_menu
+  {
+    "Space Invaders",
+    {200, 300},
+    {152, 128, 208, 0},
+    {255, 255, 255, 0},
+    &space_init,
+    1
+  },
+  {
+    "Galaga",
+    {200, 400},
+    {152, 128, 208, 0},
+    {255, 255, 255, 0},
+    NULL,
+    0
+  } 
 };
 
-static void		display_main_menu();
+static t_menuentries	item = SPACE_GAME;
 
-static void		process_input(SDL_Scancode const *s, t_gameitem *item);
+/**
+ *
+ */
+static void	display_menu();
 
-static void		draw_background_menu();
+/**
+ *
+ */
+static void	draw_background_menu();
 
-static void		display_main_menu()
+/**
+ *
+ */
+static void	process_input(SDL_Scancode const *s, t_menuentries *item);
+
+static void	display_menu()
 {
-  SDL_Color const	sel = {152, 128, 208, 0};
-  SDL_Color const	uns = {255, 255, 255, 0};
-  SDL_Point		orig;
+  Uint8		i;
 
-  orig = point_factory(200, 300);
-  draw_text("Space Invaders", &orig, get_common_font(PRSTARTK24_FNT),
-            T_EQ(item, SPACE_GAME, &sel, &uns));
-  orig = point_factory(200, 400);
-  draw_text("Galaga", &orig, get_common_font(PRSTARTK24_FNT),
-	    T_EQ(item, GALAGA_GAME, &sel, &uns));
-}
-
-static void	process_input(SDL_Scancode const *s, t_gameitem *item)
-{
-  t_gameitem	old_item;
-
-  old_item = *item;
-  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
-  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
-  if (*s == get_input(RETURN_INP)->code)
-    set_launcher(NULL);
-  else if (*s == get_input(TEST_INP)->code)
-    set_launcher(&input_test);
-  else if (*s == get_input(START_INP)->code)
+  for (i = 0; i < NB_GAME; ++i)
   {
-    set_launcher(select[*item]);
-    if (*item == SPACE_GAME)
-      play_sfx(get_common_sfx(BLIPOK_SFX));
-  }
-  if (*item != old_item)
-  {
-    display_main_menu();
-    play_sfx(get_common_sfx(BLIPSEL_SFX));
+    draw_text(entries[i].text, &entries[i].orig,
+	      get_common_font(PRSTARTK24_FNT),
+	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
   }
 }
 
@@ -88,13 +91,38 @@ static void		draw_background_menu()
   SDL_RenderClear(get_renderer());
 }
 
+static void	process_input(SDL_Scancode const *s, t_menuentries *item)
+{
+  t_menuentries	old_item;
+
+  old_item = *item;
+  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
+  if (*s == get_input(RETURN_INP)->code)
+    set_launcher(NULL);
+  else if (*s == get_input(TEST_INP)->code)
+    set_launcher(&input_test);
+  else if (*s == get_input(START_INP)->code)
+  {
+    if (entries[*item].enabled)
+    {
+      play_sfx(get_common_sfx(BLIPOK_SFX));
+      set_launcher(entries[*item].callback);
+    }
+  }
+  if (*item != old_item)
+  {
+    display_menu();
+    play_sfx(get_common_sfx(BLIPSEL_SFX));
+  }
+}
+
 void			main_menu()
 {
   SDL_Event		e;
-  SDL_Scancode		s;
 
   draw_background_menu();
-  display_main_menu();
+  display_menu();
   while (get_launcher() == &main_menu)
   {
     SDL_RenderPresent(get_renderer());
@@ -103,10 +131,7 @@ void			main_menu()
       if (e.type == SDL_QUIT)
 	set_launcher(NULL);
       if (e.type == SDL_KEYDOWN)
-      {
-	s = e.key.keysym.scancode;
-	process_input(&s, &item);
-      }
+	process_input(&e.key.keysym.scancode, &item);
     }
   }
 }
