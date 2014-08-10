@@ -1,11 +1,11 @@
 /*
-** ship_callback.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects/ship
+** ship_callback.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
 ** 
-** Started on  Sun Aug 10 01:11:46 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 02:47:22 2014 ENNEBATI Yassine
+** Started on  Sun Aug 10 04:02:07 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:07:46 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,11 +13,9 @@
  *	@brief	Spaceinvaders ship definition
  */
 
-#ifndef GAMES_SPACEINVADERS_SHIP_CALLBACK_H_
-# define GAMES_SPACEINVADERS_SHIP_CALLBACK_H_
+#ifndef GAMES_SPACEINVADERS_OBJECT_SHIP_CALLBACK_H_
+# define GAMES_SPACEINVADERS_OBJECT_SHIP_CALLBACK_H_
 
-# include <SDL2/SDL.h>
-# include "../../../../core/graphics.h"
 # include "ship.h"
 
 /**
@@ -40,5 +38,5 @@ void	spaceship_fire();
  */
 void	spaceship_collide();
 
-#endif /* !GAMES_SPACEINVADERS_SHIP_H_ */
+#endif /* !GAMES_SPACEINVADERS_OBJECT_SHIP_CALLBACK_H_ */
 

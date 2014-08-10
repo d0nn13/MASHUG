@@ -1,11 +1,11 @@
 /*
-** ship.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects/ship
+** ship.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
 ** 
-** Started on  Sun Aug 10 01:10:35 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 02:34:35 2014 ENNEBATI Yassine
+** Started on  Sun Aug 10 04:01:44 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:08:06 2014 ENNEBATI Yassine
 */
 
 /**
@@ -13,11 +13,11 @@
  *	@brief	Space Invaders ship definition
  */
 
-#ifndef	GAMES_SPACEINVADERS_SHIP_H_
-# define GAMES_SPACEINVADERS_SHIP_H_
+#ifndef	GAMES_SPACEINVADERS_OBJECT_SHIP_H_
+# define GAMES_SPACEINVADERS_OBJECT_SHIP_H_
 
 # include <SDL2/SDL.h>
-# include "../../../../core/graphics.h"
+# include "../../../core/graphics.h"
 
 /**
  *	@brief	Spaceinvaders ship structure definition
@@ -44,4 +44,4 @@ t_spaceship	*get_spaceship();
 
 
 
-#endif /* !GAMES_SPACEINVADERS_SHIP_H_ */
+#endif /* !GAMES_SPACEINVADERS_OBJECT_SHIP_H_ */

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 02:07:11 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:00:29 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -19,7 +19,7 @@
 #include "spaceinvaders.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
-#include "objects/ship/ship_callback.h"
+#include "objects/ship_callback.h"
 
 #include "spacecore.h"
 

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Fri Aug 08 22:22:31 2014 Samir Ahamada
-** Last update Sun Aug 10 01:32:11 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 03:51:58 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_stdinc.h>
@@ -13,7 +13,7 @@
 #include "../../core/launcher.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
-#include "objects/ship/ship.h"
+#include "objects/ship.h"
 #include "../mainmenu.h"
 
 #include "spaceinvaders.h"

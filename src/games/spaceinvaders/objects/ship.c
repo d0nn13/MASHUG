@@ -1,16 +1,16 @@
 /*
-** ship.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects/ship
+** ship.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
 ** 
-** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 02:24:01 2014 ENNEBATI Yassine
+** Started on  Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
 */
 
-#include "../../../../core/handlers.h"
-#include "../../../../core/helpers.h"
-#include "../../spacespritesheet.h"
+#include "../../../core/handlers.h"
+#include "../../../core/helpers.h"
+#include "../spacespritesheet.h"
 #include "ship_callback.h"
 
 #include "ship.h"
