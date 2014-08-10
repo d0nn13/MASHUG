@@ -1,26 +1,37 @@
 /*
-** ship.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Sun Jun 15 01:01:07 2014 AHAMADA Samir
-** Last update Sun Jun 15 20:12:19 2014 AHAMADA Samir
+** ship.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects/ship
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 02:24:01 2014 ENNEBATI Yassine
 */
 
-#include "../sprite_handler.h"
+#include "../../../../core/handlers.h"
+#include "../../../../core/helpers.h"
+#include "../../spacespritesheet.h"
+#include "ship_callback.h"
+
 #include "ship.h"
 
-t_object	*make_ship(void)
+static t_spaceship	ship;
+
+void			space_init_ship()
 {
-  t_object	*ship;
-  SDL_Texture	*tex;
-  char const	*sheet = SPRITESHEET;
+  t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "ship");
 
-  ship = malloc(sizeof(t_object));
-  ship->pos = {0, 0};
-  tex = make_sprite(sheet, &(SDL_Rect){355, 1163, 104, 64}, NULL);
-  set_sprite(SHIP_SPR, tex);
-
-  return (ship);
+  ship.display = &spaceship_display;
+  ship.move = &spaceship_move;
+  ship.fire = NULL;
+  ship.collide = NULL;
+  ship.sprite = sprite;
+  ship.rect = rect_factory(350, 520, sprite->rect.w * 2, sprite->rect.h * 2);
 }
+
+t_spaceship	*get_spaceship()
+{
+  return (&ship);
+}  
+
+

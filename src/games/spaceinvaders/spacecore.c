@@ -5,11 +5,12 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sun Jul 27 15:18:10 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 02:07:11 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
 #include "../../core/renderer.h"
+#include "../../core/options.h"
 #include "../../core/input.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
@@ -18,8 +19,11 @@
 #include "spaceinvaders.h"
 #include "spacespritesheet.h"
 #include "spacemenu.h"
+#include "objects/ship/ship_callback.h"
 
 #include "spacecore.h"
+
+static t_spaceship	*ship;
 
 static Uint8	process_events()
 {
@@ -58,18 +62,27 @@ void			space_redraw_context(SDL_Color const *c)
 
 void			space_loop()
 {
-  SDL_Color const	white = {255, 255, 255, 255};
   SDL_Point const	orig = {190, 120};
 
-  space_redraw_context(NULL);
-  draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
-	    &white);
+  Uint32		ti;
+  Uint32		to;
+  Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
+
+  ship = get_spaceship();
+  draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT), NULL);
   while (get_launcher() == &space_loop)
   {
-    SDL_RenderPresent(get_renderer());
+    ti = SDL_GetTicks();
     if (process_events())
       break;
-    SDL_Delay(10);
+    space_redraw_context(NULL);
+    ship->move(ship);
+    ship->display(ship);
+    SDL_RenderPresent(get_renderer());
+    to = SDL_GetTicks() - ti;
+    SDL_LogDebug(0, "%d", to);
+    if (to < t)
+      SDL_Delay(t - to);
   }
 }
 

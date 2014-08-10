@@ -6,6 +6,10 @@
     <dir name="spaceinvaders">
       <spr name="cabinet" x="5" y="993" w="256" h="224"/>
       <spr name="title" x="17" y="8" w="588" h="166"/>
+      <spr name="ship" x="277" y="228" w="26" h="16"/>
+      <spr name="ufo" x="215" y="224" w="48" h="21"/>
+      <spr name="block0" x="316" y="213" w="44" h="32"/>
+      <spr name="block1" x="480" y="210" w="44" h="32"/>
     </dir>
   </definitions>
 </img>
