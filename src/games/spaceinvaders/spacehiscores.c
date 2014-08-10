@@ -16,6 +16,7 @@
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
 #include "spacespritesheet.h"
+#include "spacecore.h"
 #include "spacemenu.h"
 
 #include "spacehiscores.h"
@@ -31,10 +32,10 @@
 void			hiscores()
 {
   SDL_Event		e;
-  SDL_Scancode		s;
   SDL_Point const	orig = {240, 120};
   SDL_Color const	white = {255, 255, 255, 255};
 
+  space_redraw_context(NULL);
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
   while (get_launcher() == &hiscores)
@@ -48,15 +49,15 @@ void			hiscores()
       }
     if (e.type == SDL_KEYDOWN)
     {
-      s = e.key.keysym.scancode;
-      if (s == get_input(RETURN_INP)->code)
+      if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
       {
-	set_launcher(&space_menu);
 	play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+	set_launcher(&space_menu);
       }
     }
   }
 }
 
 Sint32	load_hiscores();
+
 Sint32	save_hiscores();

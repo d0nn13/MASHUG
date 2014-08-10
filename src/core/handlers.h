@@ -20,8 +20,23 @@
 # include <SDL2/SDL_stdinc.h>
 # include <SDL2/SDL_render.h>
 # include <libxml/parser.h>
+# include "launcher.h"
 # include "graphics.h"
 # include "audio.h"
+
+
+/**
+ * ==================== M E N U S ====================
+ */
+typedef struct	s_menuentry
+{
+  char const	*text;
+  SDL_Point	orig;
+  SDL_Color	sel_color;
+  SDL_Color	uns_color;
+  t_exec	callback;
+  Uint8		enabled;
+}		t_menuentry;
 
 /**
  * ==================== F O N T S ====================

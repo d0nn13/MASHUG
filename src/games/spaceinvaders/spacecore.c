@@ -21,7 +21,29 @@
 
 #include "spacecore.h"
 
-static Uint8	space_process_events();
+static Uint8	process_events()
+{
+  SDL_Event	e;
+
+  memset(&e, 0, sizeof(e));
+  if (!SDL_PollEvent(&e))
+    return (0);
+  if (e.type == SDL_QUIT)
+  {
+    space_destroy();
+    set_launcher(NULL);
+    return (1);
+  }
+  else if (e.type == SDL_KEYDOWN)
+  {
+    if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
+    {
+      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+      set_launcher(&space_menu);
+    }
+  }
+  return (0);
+}
 
 void			space_redraw_context(SDL_Color const *c)
 {
@@ -39,40 +61,15 @@ void			space_loop()
   SDL_Color const	white = {255, 255, 255, 255};
   SDL_Point const	orig = {190, 120};
 
+  space_redraw_context(NULL);
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
   while (get_launcher() == &space_loop)
   {
     SDL_RenderPresent(get_renderer());
-    if (space_process_events())
+    if (process_events())
       break;
     SDL_Delay(10);
   }
-}
-
-static Uint8	space_process_events()
-{
-  SDL_Event		e;
-  SDL_Scancode		s;
-
-  memset(&e, 0, sizeof(e));
-  if (!SDL_PollEvent(&e))
-    return (0);
-  if (e.type == SDL_QUIT)
-  {
-    space_destroy();
-    set_launcher(NULL);
-    return (1);
-  }
-  else if (e.type == SDL_KEYDOWN)
-  {
-    s = e.key.keysym.scancode;
-    if (s == get_input(RETURN_INP)->code)
-    {
-      set_launcher(&space_menu);
-      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-    }
-  }
-  return (0);
 }
 

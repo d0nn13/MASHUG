@@ -25,42 +25,93 @@
 #include "spacemenu.h"
 
 /**
- *	Menu item definition
+ *	Space menu entries enumeration
  */
 typedef enum
 {
   START_MEN,
   SCORE_MEN,
   NB_MEN
-}		t_spaceitem;
+}	t_menuentries;
 
 /**
- *	Menu callback initialization
+ *	Space menu entries initialization
  */
-static t_exec  	select[NB_MEN] =
+static t_menuentry	entries[NB_MEN] =
 {
-  &space_loop,
-  &hiscores
+  {
+    "START",
+    {325, 298},
+    {152, 128, 208, 0},
+    {255, 255, 255, 0},
+    &space_loop,
+    1
+  },
+  {
+    "HISCORES",
+    {289, 369},
+    {152, 128, 208, 0},
+    {255, 255, 255, 0},
+    &hiscores,
+    1
+  }
 };
 
-static t_spaceitem	item = START_MEN;
-
-/**
- *
- */
-static void    	process_input(SDL_Scancode const *s, t_spaceitem *item);
+static t_menuentries	item = START_MEN;
 
 /**
  *
  */
 static void    	display_menu();
 
+/**
+ *
+ */
+static void    	process_input(SDL_Scancode const *s, t_menuentries *item);
+
+static void	display_menu()
+{
+  SDL_Rect	rect;
+  Uint8		i;
+
+  rect = rect_factory(187, 122, 420, 119);
+  draw_sprite(get_sprite(get_space_spritesheet(), TITLE_SPR), &rect);
+  for (i = 0; i < NB_MEN; ++i)
+    draw_text(entries[i].text, &entries[i].orig, get_common_font(ATARI24_FNT),
+	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
+}
+
+static void	process_input(SDL_Scancode const *s, t_menuentries *item)
+{
+  t_menuentries	old_item;
+
+  old_item = *item;
+  *item += (*s == get_input(UP_INP)->code && *item != START_MEN) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code && *item != SCORE_MEN) ? 1 : 0;
+  if (*s == get_input(RETURN_INP)->code)
+  {
+    play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    set_launcher(&space_destroy);
+  }
+  else if (*s == get_input(START_INP)->code)
+  {
+    if (entries[*item].enabled)
+    {
+      play_sfx(get_common_sfx(BLIPOK_SFX));
+      set_launcher(entries[*item].callback);
+    }
+  }
+  if (*item != old_item)
+  {
+    display_menu();
+    play_sfx(get_common_sfx(BLIPSEL_SFX));
+  }
+}
+
 void   		space_menu()
 {
   SDL_Event    	e;
-  SDL_Scancode 	s;
 
-  SDL_SetEventFilter(key_filter, NULL);
   space_redraw_context(NULL);
   display_menu();
   while (get_launcher() == &space_menu)
@@ -74,52 +125,7 @@ void   		space_menu()
 	set_launcher(NULL);
       }
       if (e.type == SDL_KEYDOWN)
-      {
-	s = e.key.keysym.scancode;
-	process_input(&s, &item);
-      }
+	process_input(&e.key.keysym.scancode, &item);
     }
   }
-}
-
-static void	process_input(SDL_Scancode const *s, t_spaceitem *item)
-{
-  t_spaceitem	old_item;
-
-  old_item = *item;
-  *item += (*s == get_input(UP_INP)->code && *item != START_MEN) ? -1 : 0;
-  *item += (*s == get_input(DOWN_INP)->code && *item != SCORE_MEN) ? 1 : 0;
-  if (*s == get_input(RETURN_INP)->code)
-  {
-    play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-    set_launcher(&space_destroy);
-  }
-  else if (*s == get_input(START_INP)->code)
-  {
-    play_sfx(get_common_sfx(BLIPOK_SFX));
-    set_launcher(select[*item]);
-    space_redraw_context(NULL);
-  }
-  if (*item != old_item)
-  {
-    display_menu();
-    play_sfx(get_common_sfx(BLIPSEL_SFX));
-  }
-}
-
-static void		display_menu()
-{
-  SDL_Color const	sel = {152, 128, 208, 0};
-  SDL_Color const	uns = {255, 255, 255, 0};
-  SDL_Point		orig;
-  SDL_Rect		rect;
-  TTF_Font const	*font;
-
-  font = get_common_font(ATARI24_FNT);
-  rect = rect_factory(187, 122, 420, 119);
-  draw_sprite(get_sprite(get_space_spritesheet(), TITLE_SPR), &rect);
-  orig = point_factory(325, 298);
-  draw_text("START", &orig, font, T_EQ(item, START_MEN, &sel, &uns));
-  orig = point_factory(289, 369);
-  draw_text("HISCORES", &orig, font, T_EQ(item, SCORE_MEN, &sel, &uns));
 }
