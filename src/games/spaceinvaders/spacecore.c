@@ -80,7 +80,7 @@ void			space_loop()
     ship->display(ship);
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
-    SDL_LogDebug(0, "%d", to);
+    SDL_LogVerbose(0, "%d", to);
     if (to < t)
       SDL_Delay(t - to);
   }
