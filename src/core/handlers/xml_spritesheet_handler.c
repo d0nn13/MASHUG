@@ -81,7 +81,7 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
       att = node->properties;
       while (att)
       {
-	if (s)
+	if (ss && s)
 	  xml_spritesheet_fill_container(att, s[*count]);
 	att = att->next;
       }
