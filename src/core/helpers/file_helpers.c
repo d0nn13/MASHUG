@@ -28,11 +28,11 @@ char		**file_to_tab(char const *path)
   Uint16	nb_lines;
   char		**file_parse;
 
-  line = mem_alloc(sizeof(char *));
   len = 0;
   nb_lines = 0;
   if ((file_in = fopen(path, "r")) == NULL)
     return (NULL);
+  line = mem_alloc(sizeof(char *));
   while (getline(&line, &len, file_in) != -1)
     nb_lines++;
   fseek(file_in, 0, SEEK_SET);

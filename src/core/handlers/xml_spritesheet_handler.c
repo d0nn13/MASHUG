@@ -68,6 +68,7 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
   xmlAttrPtr		att;
   t_spriteholder	**s;
 
+  s = NULL;
   while (node)
   {
     if (node->type == XML_ELEMENT_NODE)
