@@ -40,7 +40,7 @@ Sint16	get_option_value(t_options o)
 
 Uint8	set_option_value(t_options o, Sint16 v)
 {
-  if (!IN_RANGE(o, 0, NB_OPT))
+  if (!IS_BELOW(o, NB_OPT))
   {
     SDL_LogError(OPT_LCAT,
 		 "set_option_value: option <%d> is out of boundary\n", o);

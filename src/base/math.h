@@ -20,6 +20,8 @@
 # define T_EQ(a, b, c, d)	( ((a) == (b)) ? (c) : (d) )
 # define IN_RANGE(v, a, b)	( (v) >= (a) && (v) <= (b) )
 # define IN_XRANGE(v, a, b)	( (v) > (a) && (v) < (b) )
+# define IS_BELOW(v, max)	( (v) <= (max) )
+# define IS_ABOVE(v, min)	( (v) >= (min) )
 
 /**
  *	Centering algorithm
