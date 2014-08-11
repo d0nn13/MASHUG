@@ -1,5 +1,5 @@
 /*
-** alien.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects/alien
+** alien.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -8,9 +8,9 @@
 ** Last update Sun Aug 10 02:24:01 2014 ENNEBATI Yassine
 */
 
-#include "../../../../core/handlers.h"
-#include "../../../../core/helpers.h"
-#include "../../spacespritesheet.h"
+#include "../../../core/handlers.h"
+#include "../../../core/helpers.h"
+#include "../spacespritesheet.h"
 #include "alien_callback.h"
 
 #include "alien.h"

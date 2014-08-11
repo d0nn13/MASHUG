@@ -12,7 +12,7 @@
 # define GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_
 
 # include <SDL2/SDL.h>
-# include "../../../../core/graphics.h"
+# include "../../../core/graphics.h"
 
 /**
  *	@brief	Spaceinvaders alien structure definition
