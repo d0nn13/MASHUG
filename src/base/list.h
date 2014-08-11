@@ -16,6 +16,8 @@
 #ifndef BASE_LIST_H_
 # define BASE_LIST_H_
 
+#include <SDL2/SDL_stdinc.h>
+
 typedef struct		s_singlelist
 {
   void			*data;
