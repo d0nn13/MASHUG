@@ -10,10 +10,10 @@
       <spr name="ufo" x="215" y="224" w="48" h="21"/>
       <spr name="block0" x="316" y="213" w="44" h="32"/>
       <spr name="block1" x="480" y="210" w="44" h="32"/>
-      <spr name="alien0a" x="7" y="225" w="16" h="16"/>
-      <spr name="alien0b" x="40" y="225" w="16" h="16"/>
-      <spr name="alien1a" x="74" y="225" w="22" h="16"/>
-      <spr name="alien1b" x="107" y="225" w="22" h="16"/>
+      <spr name="alien0a" x="3" y="225" w="24" h="16"/>
+      <spr name="alien0b" x="36" y="225" w="24" h="16"/>
+      <spr name="alien1a" x="73" y="225" w="24" h="16"/>
+      <spr name="alien1b" x="106" y="225" w="24" h="16"/>
       <spr name="alien2a" x="147" y="226" w="24" h="16"/>
       <spr name="alien2b" x="179" y="226" w="24" h="16"/>
     </dir>
