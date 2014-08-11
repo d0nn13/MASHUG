@@ -8,6 +8,7 @@
 ** Last update Sun Aug 10 02:24:01 2014 ENNEBATI Yassine
 */
 
+#include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
 #include "../spacespritesheet.h"
@@ -15,26 +16,52 @@
 
 #include "alien.h"
 
-static t_spacealien	aliens;
+#define NB_ALIENS	55
 
-void			space_init_alien(char const *sprite)
+static t_singlelist	*aliens;
+
+static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {
-  t_spriteholder	*sprite;
-
-  if (!ptr_chk(sprite, "sprite", APP_LCAT, "space_init_alien"))
-    return ;
-  sprite = get_sprite(get_space_spritesheet(), sprite);
-  alien.display = &spacealien_display;
-  alien.move = &spacealien_move;
-  alien.fire = NULL;
-  alien.collide = NULL;
-  alien.sprite = sprite;
-  alien.rect = rect_factory(350, 520, sprite->rect.w * 2, sprite->rect.h * 2);
+  if (index < 11)
+  {
+    sh[0] = get_sprite(get_space_spritesheet(), "alien0a");
+    sh[1] = get_sprite(get_space_spritesheet(), "alien0b");
+  }
+  else if (index < 33)
+  {
+    sh[0] = get_sprite(get_space_spritesheet(), "alien1a");
+    sh[1] = get_sprite(get_space_spritesheet(), "alien1b");
+  } 
+  else if (index < 55)
+  {
+    sh[0] = get_sprite(get_space_spritesheet(), "alien2a");
+    sh[1] = get_sprite(get_space_spritesheet(), "alien2b");
+  }
 }
 
-t_spacealien	*get_spacealien()
+void			space_init_alien()
 {
-  return (&alien);
-}  
+  t_spacealien		*alien;
+  t_singlelist		*node;
+  Uint8			i;
 
+  aliens = list_make_node();
+  node = aliens;
+  for (i = 0; i < NB_ALIENS; ++i)
+  {
+    alien = mem_alloc(sizeof(t_spacealien));
+    alien->display = &spacealien_display;
+    alien->move = &spacealien_move;
+    alien->fire = &spacealien_fire;
+    alien->collide = &spacealien_collide;
+    sprite_select(i, alien->sprite);
+    alien->rect = rect_factory(350, 520, alien->sprite[0]->rect.w * 2,
+			       alien->sprite[0]->rect.h * 2);
+    list_push(alien, &node);
+  }
+}
 
+t_singlelist	*get_spacealiens()
+{
+  return (aliens);
+}

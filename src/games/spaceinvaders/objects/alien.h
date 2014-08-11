@@ -12,6 +12,7 @@
 # define GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_
 
 # include <SDL2/SDL.h>
+# include "../../../base/list.h"
 # include "../../../core/graphics.h"
 
 /**
@@ -21,20 +22,20 @@ typedef struct		s_spacealien
 {
   void			(*display)(struct s_spacealien const *alien);
   void			(*move)(struct s_spacealien *alien);
-  void			(*fire)();
+  void			(*fire)(void *rocket);	/* TODO: change type to rocket */
   void			(*collide)();
-  t_spriteholder const	*sprite;
+  t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
 }			t_spacealien;
 
 /**
- *	@brief	Initializes Space Invaders alien
+ *	@brief	Initializes Space Invaders aliens
  */
-void	space_init_alien(char const *sprite);
+void	space_init_alien();
 
 /**
  *	@brief	Alien getter
  */
-t_spacealien	*get_spacealiens();
+t_singlelist	*get_spacealiens();
 
-#endif /* !GAMES_SPACEINVADERS_ALIEN_H_ */
+#endif /* !GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_ */
