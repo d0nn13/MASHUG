@@ -13,6 +13,9 @@
  *	@brief	Convinient file helping functions
  */
 
+#ifdef __linux__
+# define _GNU_SOURCE
+#endif
 #include "../../base/memory.h"
 
 #include "../helpers.h"
