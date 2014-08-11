@@ -21,11 +21,17 @@
 
 #include "renderer.h"
 
+#ifndef SOFT_RENDER
+# define RENDERER_FLAGS	SDL_RENDERER_ACCELERATED
+#else
+# define RENDERER_FLAGS	SDL_RENDERER_SOFTWARE
+#endif
+
 static SDL_Renderer	*renderer = NULL;
 
 Sint32	renderer_init()
 {
-  renderer = SDL_CreateRenderer(get_window(), -1, SDL_RENDERER_SOFTWARE);
+  renderer = SDL_CreateRenderer(get_window(), -1, RENDERER_FLAGS);
   if (!renderer)
   {
     SDL_LogError(RDR_LCAT, "Couldn't initialize renderer : %s", SDL_GetError());
