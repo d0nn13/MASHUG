@@ -16,8 +16,8 @@
 
 #define BLOCK_NB	4
 
-static t_spaceblock	*block;
-static char		*block_spr_names[NB_SPACE_BLOCK_SPR] = 
+static t_spaceblock	*block = NULL;
+static char		*block_spr_names[NB_SPACE_BLOCK_SPR] =
 {
   "block0",
   "block1"

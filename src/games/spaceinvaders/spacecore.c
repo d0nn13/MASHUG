@@ -25,8 +25,8 @@
 
 #include "spacecore.h"
 
-static t_spaceship	*ship;
-static t_spaceblock	*blocks;
+static t_spaceship	*ship = NULL;
+static t_spaceblock	*blocks = NULL;
 
 static Uint8	process_events()
 {

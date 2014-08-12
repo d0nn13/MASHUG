@@ -16,7 +16,7 @@
 
 #include "ship.h"
 
-static t_spaceship	*ship;
+static t_spaceship	*ship = NULL;
 
 void			spaceship_init()
 {
