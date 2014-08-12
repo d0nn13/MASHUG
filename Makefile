@@ -48,7 +48,9 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/objects/ship.c		\
 			$(SRCPATH)games/spaceinvaders/objects/ship_callback.c	\
 			$(SRCPATH)games/spaceinvaders/objects/alien.c		\
-			$(SRCPATH)games/spaceinvaders/objects/alien_callback.c
+			$(SRCPATH)games/spaceinvaders/objects/alien_callback.c	\
+			$(SRCPATH)games/spaceinvaders/objects/block.c		\
+			$(SRCPATH)games/spaceinvaders/objects/block_callback.c
 
 OBJ		=	$(SRC:%.c=%.o)
 
