@@ -20,6 +20,7 @@
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 #include "objects/ship_callback.h"
+#include "objects/alien_callback.h"
 
 #include "spacecore.h"
 
@@ -67,6 +68,8 @@ void			space_loop()
   Uint32		ti;
   Uint32		to;
   Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
+  t_spacealien		*alien;
+  Uint8			i = 0;
 
   ship = get_spaceship();
   draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT), NULL);
@@ -78,6 +81,11 @@ void			space_loop()
     space_redraw_context(NULL);
     ship->move(ship);
     ship->display(ship);
+    for (i = 0; i < 55; ++i)
+    {
+      alien = list_get(get_spacealiens(), i);
+      alien->display(alien);
+    }
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
     SDL_LogVerbose(0, "%d", to);
