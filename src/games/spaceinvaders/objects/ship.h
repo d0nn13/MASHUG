@@ -35,7 +35,12 @@ typedef struct		s_spaceship
 /**
  *	@brief	Initializes Space Invaders ship
  */
-void	space_init_ship();
+void	spaceship_init();
+
+/**
+ *	@brief	Destroys Space Invaders ship
+ */
+void	spaceship_destroy();
 
 /**
  *	@brief	Ship getter

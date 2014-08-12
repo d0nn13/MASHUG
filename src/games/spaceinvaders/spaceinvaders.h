@@ -17,11 +17,6 @@
 # define GAMES_SPACEINVADERS_SPACEINVADERS_H_
 
 /**
- *	@brief	Initializes Space Invaders objects (load ship, aliens, rockets...)
- */
-void 	space_init_objects();
-
-/**
  *	@brief	Initializes Space Invaders game (load sprites, draw UI etc...)
  */
 void 	space_init();

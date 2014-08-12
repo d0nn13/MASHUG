@@ -50,6 +50,20 @@ static Uint8	process_events()
   return (0);
 }
 
+static void	process_objects()
+{
+  t_spacealien	*alien;
+  Uint8		i;
+
+  ship->move(ship);
+  ship->display(ship);
+  for (i = 0; i < 55; ++i)
+  {
+    alien = list_get(get_spacealiens(), i);
+    alien->display(alien);
+  }
+}
+
 void			space_redraw_context(SDL_Color const *c)
 {
   SDL_Color const	black = {0, 0, 0, 255};
@@ -63,34 +77,22 @@ void			space_redraw_context(SDL_Color const *c)
 
 void			space_loop()
 {
-  SDL_Point const	orig = {190, 120};
-
   Uint32		ti;
   Uint32		to;
   Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
-  t_spacealien		*alien;
-  Uint8			i = 0;
 
   ship = get_spaceship();
-  draw_text("!!!!GAME!!!!", &orig, get_common_font(COSMIC48_FNT), NULL);
   while (get_launcher() == &space_loop)
   {
     ti = SDL_GetTicks();
+    space_redraw_context(NULL);
     if (process_events())
       break;
-    space_redraw_context(NULL);
-    ship->move(ship);
-    ship->display(ship);
-    for (i = 0; i < 55; ++i)
-    {
-      alien = list_get(get_spacealiens(), i);
-      alien->display(alien);
-    }
+    process_objects();
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
-    SDL_LogVerbose(0, "%d", to);
     if (to < t)
       SDL_Delay(t - to);
+    SDL_LogVerbose(0, "%d", to);
   }
 }
-

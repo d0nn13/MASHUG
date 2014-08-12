@@ -31,7 +31,12 @@ typedef struct		s_spacealien
 /**
  *	@brief	Initializes Space Invaders alien
  */
-void	space_init_aliens();
+void	spacealiens_init();
+
+/**
+ *	@brief	Destroys Space Invaders alien
+ */
+void	spacealiens_destroy();
 
 /**
  *	@brief	Alien getter

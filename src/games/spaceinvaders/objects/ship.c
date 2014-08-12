@@ -8,6 +8,7 @@
 ** Last update Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
 */
 
+#include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
 #include "../spacespritesheet.h"
@@ -15,23 +16,28 @@
 
 #include "ship.h"
 
-static t_spaceship	ship;
+static t_spaceship	*ship;
 
-void			space_init_ship()
+void			spaceship_init()
 {
   t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "ship");
 
-  ship.display = &spaceship_display;
-  ship.move = &spaceship_move;
-  ship.fire = NULL;
-  ship.collide = NULL;
-  ship.sprite = sprite;
-  ship.rect = rect_factory(350, 520, sprite->rect.w * 2, sprite->rect.h * 2);
+  ship = mem_alloc(sizeof(t_spaceship));
+  ship->display = &spaceship_display;
+  ship->move = &spaceship_move;
+  ship->fire = &spaceship_fire;
+  ship->collide = &spaceship_collide;
+  ship->sprite = sprite;
+  ship->rect = rect_factory(350, 520, sprite->rect.w * 2, sprite->rect.h * 2);
+}
+
+void			spaceship_destroy()
+{
+  mem_free(ship);
+  ship = NULL;
 }
 
 t_spaceship	*get_spaceship()
 {
-  return (&ship);
-}  
-
-
+  return (ship);
+}

@@ -50,7 +50,7 @@ static void	position_update(Uint8 index, SDL_Rect *rect)
   }
 }
 
-void			space_init_aliens()
+void			spacealiens_init()
 {
   t_spacealien		*alien;
   t_singlelist		*node;
@@ -76,6 +76,20 @@ void			space_init_aliens()
     else
       list_push(alien, &node);
   }
+}
+
+void	spacealiens_destroy()
+{
+  t_singlelist	*node;
+
+  node = aliens;
+  while (node)
+  {
+    mem_free(node->data);
+    node->data = NULL;
+    node = node->next;
+  }
+  list_clear(&aliens);
 }
 
 t_singlelist	*get_spacealiens()
