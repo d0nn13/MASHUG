@@ -16,6 +16,7 @@
       <spr name="alien1b" x="106" y="225" w="24" h="16"/>
       <spr name="alien2a" x="147" y="226" w="24" h="16"/>
       <spr name="alien2b" x="179" y="226" w="24" h="16"/>
+      <spr name="rocket0" x="413" y="277" w="6" h="12"/>
     </dir>
   </definitions>
 </img>
