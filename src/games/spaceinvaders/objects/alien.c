@@ -39,12 +39,25 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
   }
 }
 
-void			space_init_alien()
+static void	position_update(Uint8 index, SDL_Rect *rect)
+{
+  if (!index || (index + 1) % 11)
+    rect->x += 50;
+  else
+  {
+    rect->x = 122;
+    rect->y += 50;
+  }
+}
+
+void			space_init_aliens()
 {
   t_spacealien		*alien;
   t_singlelist		*node;
+  static SDL_Rect	rect;
   Uint8			i;
 
+  rect = rect_factory(122, 120, 0, 0); 
   aliens = list_make_node();
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
@@ -55,9 +68,13 @@ void			space_init_alien()
     alien->fire = &spacealien_fire;
     alien->collide = &spacealien_collide;
     sprite_select(i, alien->sprite);
-    alien->rect = rect_factory(350, 520, alien->sprite[0]->rect.w * 2,
+    alien->rect = rect_factory(rect.x, rect.y, alien->sprite[0]->rect.w * 2,
 			       alien->sprite[0]->rect.h * 2);
-    list_push(alien, &node);
+    position_update(i, &rect);
+    if (!i)
+      node->data = alien;
+    else
+      list_push(alien, &node);
   }
 }
 

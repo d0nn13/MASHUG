@@ -29,9 +29,9 @@ typedef struct		s_spacealien
 }			t_spacealien;
 
 /**
- *	@brief	Initializes Space Invaders aliens
+ *	@brief	Initializes Space Invaders alien
  */
-void	space_init_alien();
+void	space_init_aliens();
 
 /**
  *	@brief	Alien getter

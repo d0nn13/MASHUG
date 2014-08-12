@@ -14,6 +14,7 @@
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 #include "objects/ship.h"
+#include "objects/alien.h"
 #include "../mainmenu.h"
 
 #include "spaceinvaders.h"
@@ -23,6 +24,7 @@ static	Uint8 loaded = 0;
 void	space_init_objects()
 {
   space_init_ship();
+  space_init_aliens();
 }
 
 void 	space_init()
