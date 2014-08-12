@@ -20,12 +20,14 @@
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 #include "objects/ship_callback.h"
+#include "objects/rocket_callback.h"
 #include "objects/alien_callback.h"
 #include "objects/block_callback.h"
 
 #include "spacecore.h"
 
 static t_spaceship	*ship = NULL;
+static t_spacerocket	*rocket = NULL;
 static t_spaceblock	*blocks = NULL;
 
 static Uint8	process_events()
@@ -48,6 +50,8 @@ static Uint8	process_events()
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
       set_launcher(&space_menu);
     }
+    else if (e.key.keysym.scancode == get_input(FIRE_INP)->code)
+      ship->fire(ship, rocket);
   }
   return (0);
 }
@@ -59,6 +63,7 @@ static void	process_objects()
 
   ship->move(ship);
   ship->display(ship);
+  rocket->display(rocket);
   blocks->display(blocks);
   for (i = 0; i < 55; ++i)
   {
@@ -85,6 +90,7 @@ void			space_loop()
   Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
 
   ship = get_spaceship();
+  rocket = get_spacerocket();
   blocks = get_spaceblocks();
   while (get_launcher() == &space_loop)
   {

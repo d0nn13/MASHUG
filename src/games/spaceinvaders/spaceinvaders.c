@@ -14,6 +14,7 @@
 #include "spacespritesheet.h"
 #include "spacemenu.h"
 #include "objects/ship.h"
+#include "objects/rocket.h"
 #include "objects/alien.h"
 #include "objects/block.h"
 #include "../mainmenu.h"
@@ -25,6 +26,7 @@ static	Uint8 loaded = 0;
 static void	spaceobjects_init()
 {
   spaceship_init();
+  spacerocket_init();
   spacealiens_init();
   spaceblock_init();
 }
@@ -33,6 +35,7 @@ static void	spaceobjects_destroy()
 {
   spaceblock_destroy();
   spacealiens_destroy();
+  spacerocket_destroy();
   spaceship_destroy();
 }
 
