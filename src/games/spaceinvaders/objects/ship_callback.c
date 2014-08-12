@@ -5,18 +5,17 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:35:24 2014 ENNEBATI Yassine
 */
 
 #include "../../../core/log.h"
 #include "../../../core/input.h"
 #include "../../../core/handlers.h"
+#include "../spacecore.h"
 #include "ship.h"
 #include "rocket.h"
 
 #include "ship_callback.h"
-
-static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 
 void	spaceship_display(t_spaceship const *ship)
 {
@@ -31,11 +30,11 @@ void	       	spaceship_move(t_spaceship  *ship)
 
   input_update();
   if (get_input(LEFT_INP)->state)
-    ship->rect.x = (ship->rect.x - step >= space_bounds.x) ?
+    ship->rect.x = (ship->rect.x - step >= get_space_bounds().x) ?
       ship->rect.x - step : ship->rect.x;
   if (get_input(RIGHT_INP)->state)
-    ship->rect.x = (ship->rect.x + step <= space_bounds.x +
-		    space_bounds.w - ship->rect.w) ? ship->rect.x + step : ship->rect.x;
+    ship->rect.x = (ship->rect.x + step <= get_space_bounds().x +
+		    get_space_bounds().w - ship->rect.w) ? ship->rect.x + step : ship->rect.x;
 }
 
 void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:30:17 2014 ENNEBATI Yassine
 */
 
 #include "../../../base/list.h"
@@ -15,8 +15,6 @@
 #include "alien.h"
 
 #include "alien_callback.h"
-
-static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 
 void		spacealien_display(t_spacealien	const *alien)
 {

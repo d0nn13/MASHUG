@@ -17,6 +17,11 @@
 # define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
+ *	@brief	Space bounds getter
+ */
+SDL_Rect	get_space_bounds();
+
+/**
  *	@brief	Clears screen with color 'c' and renders cabinet
  *	@param	c The color to clear the screen with
  */

@@ -29,6 +29,7 @@
 static t_spaceship	*ship = NULL;
 static t_spacerocket	*rocket = NULL;
 static t_spaceblock	*blocks = NULL;
+static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 
 static Uint8	process_events()
 {
@@ -70,6 +71,11 @@ static void	process_objects()
     alien = list_get(get_spacealiens(), i);
     alien->display(alien);
   }
+}
+
+SDL_Rect	get_space_bounds()
+{
+  return (space_bounds);
 }
 
 void			space_redraw_context(SDL_Color const *c)
