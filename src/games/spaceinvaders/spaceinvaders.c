@@ -31,6 +31,7 @@ static void	spaceobjects_init()
 
 static void	spaceobjects_destroy()
 {
+  spaceblock_destroy();
   spacealiens_destroy();
   spaceship_destroy();
 }
