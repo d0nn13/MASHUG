@@ -21,10 +21,12 @@
 #include "spacemenu.h"
 #include "objects/ship_callback.h"
 #include "objects/alien_callback.h"
+#include "objects/block_callback.h"
 
 #include "spacecore.h"
 
 static t_spaceship	*ship;
+static t_spaceblock	*blocks;
 
 static Uint8	process_events()
 {
@@ -57,6 +59,7 @@ static void	process_objects()
 
   ship->move(ship);
   ship->display(ship);
+  blocks->display(blocks);
   for (i = 0; i < 55; ++i)
   {
     alien = list_get(get_spacealiens(), i);
@@ -82,6 +85,7 @@ void			space_loop()
   Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
 
   ship = get_spaceship();
+  blocks = get_spaceblocks();
   while (get_launcher() == &space_loop)
   {
     ti = SDL_GetTicks();

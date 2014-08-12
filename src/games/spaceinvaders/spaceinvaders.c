@@ -15,6 +15,7 @@
 #include "spacemenu.h"
 #include "objects/ship.h"
 #include "objects/alien.h"
+#include "objects/block.h"
 #include "../mainmenu.h"
 
 #include "spaceinvaders.h"
@@ -25,6 +26,7 @@ static void	spaceobjects_init()
 {
   spaceship_init();
   spacealiens_init();
+  spaceblock_init();
 }
 
 static void	spaceobjects_destroy()
