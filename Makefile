@@ -47,6 +47,8 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/spacecore.c		\
 			$(SRCPATH)games/spaceinvaders/objects/ship.c		\
 			$(SRCPATH)games/spaceinvaders/objects/ship_callback.c	\
+			$(SRCPATH)games/spaceinvaders/objects/rocket.c		\
+			$(SRCPATH)games/spaceinvaders/objects/rocket_callback.c	\
 			$(SRCPATH)games/spaceinvaders/objects/alien.c		\
 			$(SRCPATH)games/spaceinvaders/objects/alien_callback.c	\
 			$(SRCPATH)games/spaceinvaders/objects/block.c		\

@@ -1,14 +1,52 @@
 /*
-** rocket.h for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-**
-** Made by AHAMADA Samir
-** Login   <ahamad_s@etna-alternance.net>
-**
-** Started on  Fri Apr 25 22:34:15 2014 AHAMADA Samir
-** Last update Wed Jul 23 17:01:04 2014 ENNEBATI Yassine
+** rocket.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Sun Aug 10 04:01:44 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:08:06 2014 ENNEBATI Yassine
 */
 
-#ifndef GAMES_SPACEINVADERS_OBJECTS_ROCKET_H_
-# define GAMES_SPACEINVADERS_OBJECTS_ROCKET_H_
+/**
+ *	@file	rocket.h
+ *	@brief	Space Invaders rocket definition
+ */
 
-#endif /* !GAMES_SPACEINVADERS_OBJECTS_ROCKET_H_ */
+#ifndef	GAMES_SPACEINVADERS_OBJECT_ROCKET_H_
+# define GAMES_SPACEINVADERS_OBJECT_ROCKET_H_
+
+# include <SDL2/SDL.h>
+# include "../../../core/graphics.h"
+
+/**
+ *	@brief	Spaceinvaders rocket structure definition
+ */
+typedef struct		s_spacerocket
+{
+  void			(*display)(struct s_spacerocket *rocket);
+  void			(*move)(struct s_spacerocket *rocket);
+  void			(*collide)();
+  t_spriteholder const	*sprite;
+  SDL_Rect 		rect;
+  Uint8			fired;
+}			t_spacerocket;
+
+/**
+ *	@brief	Initializes Space Invaders rocket
+ */
+void	spacerocket_init();
+
+/**
+ *	@brief	Destroys Space Invaders rocket
+ */
+void	spacerocket_destroy();
+
+/**
+ *	@brief	Ship getter
+ */
+t_spacerocket	*get_spacerocket();
+
+
+
+#endif /* !GAMES_SPACEINVADERS_OBJECT_ROCKET_H_ */

@@ -1,0 +1,37 @@
+/*
+** rocket_callback.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
+** 
+** Made by ENNEBATI Yassine
+** Login   <enneba_y@etna-alternance.net>
+** 
+** Started on  Sun Aug 10 04:02:07 2014 ENNEBATI Yassine
+** Last update Sun Aug 10 04:07:46 2014 ENNEBATI Yassine
+*/
+
+/**
+ *	@file	rocket_callback.h
+ *	@brief	Spaceinvaders rocket definition
+ */
+
+#ifndef GAMES_SPACEINVADERS_OBJECT_ROCKET_CALLBACK_H_
+# define GAMES_SPACEINVADERS_OBJECT_ROCKET_CALLBACK_H_
+
+# include "rocket.h"
+
+/**
+ *	@brief	Spaceinvaders rocket display callback
+ */
+void	spacerocket_display(t_spacerocket *rocket);
+
+/**
+ *	@brief	Spaceinvaders rocket move callback
+ */
+void	spacerocket_move();
+
+/**
+ *	@brief	Spaceinvaders rocket collide callback
+ */
+void	spacerocket_collide();
+
+#endif /* !GAMES_SPACEINVADERS_OBJECT_ROCKET_CALLBACK_H_ */
+
