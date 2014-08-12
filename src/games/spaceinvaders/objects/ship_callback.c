@@ -12,6 +12,7 @@
 #include "../../../core/input.h"
 #include "../../../core/handlers.h"
 #include "ship.h"
+#include "rocket.h"
 
 #include "ship_callback.h"
 
@@ -37,13 +38,17 @@ void	       	spaceship_move(t_spaceship  *ship)
 		    space_bounds.w - ship->rect.w) ? ship->rect.x + step : ship->rect.x;
 }
 
-void	spaceship_fire()
+void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)
 {
-  
+  if (rocket->fired)
+    return ;
+  rocket->rect.x = ship->rect.x + ship->rect.w / 2;
+  rocket->rect.y = ship->rect.y;
+  rocket->fired = 1;
 }
 
 void	spaceship_collide()
 {
-  
+
 }
 

@@ -31,7 +31,7 @@ void	spaceship_move();
 /**
  *	@brief	Spaceinvaders ship fire callback
  */
-void	spaceship_fire();
+void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket);
 
 /**
  *	@brief	Spaceinvaders ship collide callback
