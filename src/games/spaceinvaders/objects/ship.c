@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 20:42:30 2014 ENNEBATI Yassine
 */
 
 #include "../../../base/memory.h"
@@ -28,7 +28,8 @@ void			spaceship_init()
   ship->fire = &spaceship_fire;
   ship->collide = &spaceship_collide;
   ship->sprite = sprite;
-  ship->rect = rect_factory(350, 520, sprite->rect.w * 2, sprite->rect.h * 2);
+  ship->rect = rect_factory(350, 520, sprite->rect.w * OBJ_RESIZE_FACTOR,
+			    sprite->rect.h * OBJ_RESIZE_FACTOR);
 }
 
 void			spaceship_destroy()
