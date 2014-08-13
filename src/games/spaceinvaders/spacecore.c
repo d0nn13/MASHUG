@@ -112,7 +112,7 @@ void			space_loop()
   }
 }
 
-SDL_Rect	get_space_bounds()
+SDL_Rect const	*get_spacebounds()
 {
-  return (space_bounds);
+  return (&space_bounds);
 }

@@ -17,13 +17,13 @@
 # define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
- *	@brief	Space bounds getter
- */
-SDL_Rect	get_space_bounds();
-
-/**
  *	@brief	Main loop
  */
 void	space_loop();
+
+/**
+ *	@brief	Space bounds getter
+ */
+SDL_Rect const	*get_spacebounds();
 
 #endif /* !GAMES_SPACEINVADERS_SPACECORE_H_ */
