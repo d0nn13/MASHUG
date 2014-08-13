@@ -51,8 +51,6 @@ static Uint8	process_events()
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
       set_launcher(&space_menu);
     }
-    else if (e.key.keysym.scancode == get_input(FIRE_INP)->code)
-      ship->fire(ship, rocket);
   }
   return (0);
 }
@@ -65,6 +63,9 @@ static void	process_objects()
   ship->move(ship);
   ship->display(ship);
   rocket->display(rocket);
+  input_update();
+  if (!rocket->fired && get_input(FIRE_INP)->state)
+    ship->fire(ship, rocket);
   blocks->display(blocks);
   for (i = 0; i < 55; ++i)
   {
