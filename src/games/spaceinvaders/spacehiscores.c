@@ -36,9 +36,9 @@ void			hiscores()
   SDL_Color const	white = {255, 255, 255, 255};
 
   renderer_clear(NULL);
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
+  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   while (get_launcher() == &hiscores)
   {
     SDL_RenderPresent(get_renderer());
