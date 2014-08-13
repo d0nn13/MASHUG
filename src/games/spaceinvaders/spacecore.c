@@ -62,16 +62,18 @@ static void	process_objects()
 
   ship->move(ship);
   ship->display(ship);
-  rocket->display(rocket);
   input_update();
   if (!rocket->fired && get_input(FIRE_INP)->state)
     ship->fire(ship, rocket);
+  ship->display(ship);
   blocks->display(blocks);
   for (i = 0; i < 55; ++i)
   {
     alien = list_get(get_spacealiens(), i);
     alien->display(alien);
   }
+  rocket->display(rocket);
+  ship->display(ship);
 }
 
 SDL_Rect	get_space_bounds()
