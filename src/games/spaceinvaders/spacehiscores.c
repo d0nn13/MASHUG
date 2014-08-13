@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Sun Jul 27 15:17:42 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:20:03 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -35,9 +35,10 @@ void			hiscores()
   SDL_Point const	orig = {240, 120};
   SDL_Color const	white = {255, 255, 255, 255};
 
-  space_redraw_context(NULL);
+  renderer_clear(NULL);
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
+  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   while (get_launcher() == &hiscores)
   {
     SDL_RenderPresent(get_renderer());

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sun Jul 27 15:13:14 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:19:52 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -112,8 +112,9 @@ void   		space_menu()
 {
   SDL_Event    	e;
 
-  space_redraw_context(NULL);
+  renderer_clear(NULL);
   display_menu();
+  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   while (get_launcher() == &space_menu)
   {
     SDL_RenderPresent(get_renderer());

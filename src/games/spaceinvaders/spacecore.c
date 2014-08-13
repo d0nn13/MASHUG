@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:00:29 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:13:09 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -101,10 +101,11 @@ void			space_loop()
   while (get_launcher() == &space_loop)
   {
     ti = SDL_GetTicks();
-    space_redraw_context(NULL);
+    renderer_clear(NULL);
     if (process_events())
       break;
     process_objects();
+    draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
     if (to < t)
