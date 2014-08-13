@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 02:24:01 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 20:41:48 2014 ENNEBATI Yassine
 */
 
 #include "../../../base/memory.h"
@@ -68,8 +68,9 @@ void			spacealiens_init()
     alien->fire = &spacealien_fire;
     alien->collide = &spacealien_collide;
     sprite_select(i, alien->sprite);
-    alien->rect = rect_factory(rect.x, rect.y, alien->sprite[0]->rect.w * 2,
-			       alien->sprite[0]->rect.h * 2);
+    alien->rect = rect_factory(rect.x, rect.y,
+			       alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
+			       alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
     position_update(i, &rect);
     if (!i)
       node->data = alien;

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 21:56:37 2014 ENNEBATI Yassine
 */
 
 #include "../../../base/memory.h"
@@ -37,8 +37,9 @@ void			spaceblock_init()
     block[b].collide = &spaceblock_collide;
     for (s = 0; s < NB_SPACE_BLOCK_SPR; ++s)
       block[b].sprite[s] = get_sprite(get_space_spritesheet(), block_spr_names[s]);
-    rect = rect_factory(rect.x, 400, block[b].sprite[0]->rect.w * 2,
-			block[b].sprite[0]->rect.h * 2); 
+    rect = rect_factory(rect.x, 400,
+			block[b].sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
+			block[b].sprite[0]->rect.h * OBJ_RESIZE_FACTOR); 
     block[b].rect = rect;
     rect.x += 132; 
   }
