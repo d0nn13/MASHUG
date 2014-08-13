@@ -41,8 +41,8 @@ void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)
 {
   if (rocket->fired)
     return ;
-  rocket->rect.x = ship->rect.x + ship->rect.w / 2;
-  rocket->rect.y = ship->rect.y;
+  rocket->rect.x = ship->rect.x + ship->rect.w / 2 - rocket->rect.w / 2;
+  rocket->rect.y = ship->rect.y - rocket->rect.h;
   rocket->fired = 1;
 }
 

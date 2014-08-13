@@ -24,10 +24,10 @@ void	spacerocket_display(t_spacerocket *rocket)
     return ;
   if (rocket->fired)
   {
-    rocket->rect.y -= step;
     if (rocket->rect.y + rocket->rect.h < 120) /* 120 = space_bounds UP */
       rocket->fired = 0;
     draw_sprite(rocket->sprite, &rocket->rect);
+    rocket->rect.y -= step;
   }
 }
 
