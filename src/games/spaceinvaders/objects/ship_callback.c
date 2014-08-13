@@ -34,7 +34,8 @@ void	       	spaceship_move(t_spaceship  *ship)
       ship->rect.x - step : ship->rect.x;
   if (get_input(RIGHT_INP)->state)
     ship->rect.x = (ship->rect.x + step <= get_space_bounds().x +
-		    get_space_bounds().w - ship->rect.w) ? ship->rect.x + step : ship->rect.x;
+		    get_space_bounds().w - ship->rect.w) ?
+      ship->rect.x + step : ship->rect.x;
 }
 
 void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)

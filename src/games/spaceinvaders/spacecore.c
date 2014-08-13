@@ -76,11 +76,6 @@ static void	process_objects()
   ship->display(ship);
 }
 
-SDL_Rect	get_space_bounds()
-{
-  return (space_bounds);
-}
-
 void			space_redraw_context(SDL_Color const *c)
 {
   SDL_Color const	black = {0, 0, 0, 255};
@@ -115,4 +110,9 @@ void			space_loop()
       SDL_Delay(t - to);
     SDL_LogVerbose(0, "%d", to);
   }
+}
+
+SDL_Rect	get_space_bounds()
+{
+  return (space_bounds);
 }
