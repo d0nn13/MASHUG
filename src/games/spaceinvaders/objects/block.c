@@ -33,7 +33,7 @@ static	t_spaceblock	*make_block(SDL_Rect *rect)
   block->collide = &spaceblock_collide;
   for (i = 0; i < NB_SPACE_BLOCK_SPR; ++i)
     block->sprite[i] = get_sprite(get_spacesprites(), block_spr_names[i]);
-  block->rect = rect_factory(rect->x, 400,
+  block->rect = rect_factory(rect->x, 480,
 			     block->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
 			     block->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
   return (block);
@@ -46,7 +46,7 @@ t_singlelist		*spaceblocks_init()
   SDL_Rect		rect;
   Uint8			i;
 
-  rect.x = 140;
+  rect.x = 190;
   blocks = list_make_node();
   node = blocks;
   for (i = 0; i < BLOCK_NB; ++i)
@@ -55,7 +55,7 @@ t_singlelist		*spaceblocks_init()
       node->data = make_block(&rect);
     else
       list_push(make_block(&rect), &node);
-    rect.x += 132;
+    rect.x += 130;
   }
   return (blocks);
 }

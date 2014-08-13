@@ -27,7 +27,7 @@ t_spaceship		*spaceship_init()
   ship->move = &spaceship_move;
   ship->fire = &spaceship_fire;
   ship->sprite = sprite;
-  ship->rect = rect_factory(350, 520, sprite->rect.w * OBJ_RESIZE_FACTOR,
+  ship->rect = rect_factory(350, 582, sprite->rect.w * OBJ_RESIZE_FACTOR,
 			    sprite->rect.h * OBJ_RESIZE_FACTOR);
   return (ship);
 }
