@@ -18,17 +18,10 @@
 
 void		spacealien_display(t_spacealien	const *alien)
 {
-  static Uint32	told = 0;
   Uint32	t;
-  static Uint8	s = 0;
-
+  
   t = SDL_GetTicks() / 1000;
-  draw_sprite(alien->sprite[s], &alien->rect);
-  if (t - told >= 1)
-  {
-    s = !s ? 1 : 0;
-    told = SDL_GetTicks() / 1000;
-  }
+  draw_sprite(alien->sprite[t % 2], &alien->rect);
 }
 
 void	spacealien_move()
@@ -42,4 +35,3 @@ void	spacealien_fire()
 void	spacealien_collide()
 {
 }
-
