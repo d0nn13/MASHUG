@@ -113,8 +113,8 @@ void   		space_menu()
   SDL_Event    	e;
 
   renderer_clear(NULL);
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   display_menu();
+  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   while (get_launcher() == &space_menu)
   {
     SDL_RenderPresent(get_renderer());
