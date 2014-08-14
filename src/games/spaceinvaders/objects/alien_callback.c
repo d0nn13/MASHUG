@@ -16,12 +16,19 @@
 
 #include "alien_callback.h"
 
-void		spacealien_display(t_spacealien	const *alien)
+void		spacealien_display(t_singlelist	*aliens)
 {
+  t_singlelist	*node;
   Uint32	t;
   
+  node = aliens;
   t = SDL_GetTicks() / 1000;
-  draw_sprite(alien->sprite[t % 2], &alien->rect);
+  while (node)
+  {
+    draw_sprite(((t_spacealien *)node->data)->sprite[t % 2],
+		&((t_spacealien *)node->data)->rect);
+    node = node->next;
+  }
 }
 
 void	spacealien_move()

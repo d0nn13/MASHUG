@@ -20,7 +20,7 @@
  */
 typedef struct		s_spacealien
 {
-  void			(*display)(struct s_spacealien const *alien);
+  void			(*display)(t_singlelist *alien);
   void			(*move)(struct s_spacealien *alien);
   void			(*fire)(void *rocket);	/* TODO: change type to rocket */
   void			(*collide)();

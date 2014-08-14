@@ -30,6 +30,7 @@ static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceship	*ship = NULL;
 static t_spacerocket	*rocket = NULL;
 static t_spaceblock	*blocks = NULL;
+static t_singlelist	*aliens = NULL;
 
 static Uint8	process_events()
 {
@@ -57,9 +58,6 @@ static Uint8	process_events()
 
 static void	process_objects()
 {
-  t_spacealien	*alien;
-  Uint8		i;
-
   ship->move(ship);
   ship->display(ship);
   input_update();
@@ -67,11 +65,7 @@ static void	process_objects()
     ship->fire(ship, rocket);
   ship->display(ship);
   blocks->display(blocks);
-  for (i = 0; i < 55; ++i)
-  {
-    alien = list_get(get_spacealiens(), i);
-    alien->display(alien);
-  }
+  ((t_spacealien *)aliens->data)->display(aliens);
   rocket->display(rocket);
   ship->display(ship);
 }
@@ -95,6 +89,7 @@ void			space_loop()
 
   ship = get_spaceship();
   rocket = get_spacerocket();
+  aliens = get_spacealiens();
   blocks = get_spaceblocks();
   while (get_launcher() == &space_loop)
   {
