@@ -94,17 +94,6 @@ static void	process_objects()
   ship->display(ship);
 }
 
-void			space_redraw_context(SDL_Color const *c)
-{
-  SDL_Color const	black = {0, 0, 0, 255};
-  SDL_Color		col;
-
-  col = !c ? black : *c;
-  SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
-  SDL_RenderClear(get_renderer());
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
-}
-
 void			space_loop()
 {
   Uint32		ti;
