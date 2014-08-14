@@ -26,10 +26,10 @@
 
 #include "spacecore.h"
 
+static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceship	*ship = NULL;
 static t_spacerocket	*rocket = NULL;
 static t_spaceblock	*blocks = NULL;
-static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 
 static Uint8	process_events()
 {

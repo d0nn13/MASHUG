@@ -91,6 +91,7 @@ void	spacealiens_destroy()
     node = node->next;
   }
   list_clear(&aliens);
+  aliens = NULL;
 }
 
 t_singlelist	*get_spacealiens()
