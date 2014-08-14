@@ -24,7 +24,6 @@ void			spacerocket_init()
 
   rocket = mem_alloc(sizeof(t_spacerocket));
   rocket->display = &spacerocket_display;
-  rocket->move = &spacerocket_move;
   rocket->collide = &spacerocket_collide;
   rocket->sprite = sprite;
   rocket->rect = rect_factory(0, 0, sprite->rect.w * OBJ_RESIZE_FACTOR,

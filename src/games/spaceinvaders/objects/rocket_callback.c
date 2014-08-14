@@ -31,11 +31,6 @@ void	spacerocket_display(t_spacerocket *rocket)
   }
 }
 
-void	spacerocket_move(t_spacerocket  *rocket)
-{
-  (void)rocket;
-}
-
 void	spacerocket_collide()
 {
 

@@ -25,7 +25,6 @@
 typedef struct		s_spacerocket
 {
   void			(*display)(struct s_spacerocket *rocket);
-  void			(*move)(struct s_spacerocket *rocket);
   void			(*collide)();
   t_spriteholder const	*sprite;
   SDL_Rect 		rect;

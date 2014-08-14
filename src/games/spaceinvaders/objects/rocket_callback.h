@@ -24,11 +24,6 @@
 void	spacerocket_display(t_spacerocket *rocket);
 
 /**
- *	@brief	Spaceinvaders rocket move callback
- */
-void	spacerocket_move();
-
-/**
  *	@brief	Spaceinvaders rocket collide callback
  */
 void	spacerocket_collide();
