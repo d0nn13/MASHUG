@@ -22,17 +22,15 @@ void	spacerocket_display(t_spacerocket *rocket)
 
   if (!ptr_chk(rocket, "rocket", APP_LCAT, "spacerocket_display"))
     return ;
+  draw_sprite(rocket->sprite, &rocket->rect);
   if (rocket->fired)
-  {
-    if (rocket->rect.y + rocket->rect.h < 120) /* 120 = space_bounds UP */
-      rocket->fired = 0;
-    draw_sprite(rocket->sprite, &rocket->rect);
     rocket->rect.y -= step;
-  }
+  else
+    rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
 }
 
-void	spacerocket_collide()
+void	spacerocket_collide(t_spacerocket *rocket)
 {
-
+  rocket->fired = 0;
 }
 

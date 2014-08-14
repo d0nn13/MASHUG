@@ -25,7 +25,7 @@
 typedef struct		s_spacerocket
 {
   void			(*display)(struct s_spacerocket *rocket);
-  void			(*collide)();
+  void			(*collide)(struct s_spacerocket *rocket);
   t_spriteholder const	*sprite;
   SDL_Rect 		rect;
   Uint8			fired;

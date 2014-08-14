@@ -26,7 +26,7 @@ void	spacerocket_display(t_spacerocket *rocket);
 /**
  *	@brief	Spaceinvaders rocket collide callback
  */
-void	spacerocket_collide();
+void	spacerocket_collide(t_spacerocket *rocket);
 
 #endif /* !GAMES_SPACEINVADERS_OBJECT_ROCKET_CALLBACK_H_ */
 
