@@ -79,6 +79,7 @@ static void	process_collisions()
     node = node->next;
   }
 }
+
 static void	process_objects()
 {
   process_collisions();
