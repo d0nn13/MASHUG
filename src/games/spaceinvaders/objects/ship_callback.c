@@ -26,7 +26,7 @@ void	spaceship_display(t_spaceship const *ship)
 
 void	       	spaceship_move(t_spaceship  *ship)
 {
-  Uint8 const  	step = 10;
+  Uint8 const  	step = 5;
 
   input_update();
   if (get_input(LEFT_INP)->state)
