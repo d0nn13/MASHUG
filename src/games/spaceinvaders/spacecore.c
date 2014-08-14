@@ -56,8 +56,32 @@ static Uint8	process_events()
   return (0);
 }
 
+static void	process_collisions()
+{
+  t_singlelist	*node;
+
+  if (!SDL_HasIntersection(&rocket->rect, &space_bounds))
+    rocket->collide(rocket);
+  node = aliens;
+  while (node)
+  {
+    if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
+					     node->data)->rect))
+      rocket->collide(rocket);
+    node = node->next;
+  }
+  node = blocks;
+  while (node)
+  {
+    if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
+					     node->data)->rect))
+      rocket->collide(rocket);
+    node = node->next;
+  }
+}
 static void	process_objects()
 {
+  process_collisions();
   ship->move(ship);
   ship->display(ship);
   input_update();
