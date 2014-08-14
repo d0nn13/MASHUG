@@ -14,14 +14,19 @@
 
 #include "block_callback.h"
 
-void	spaceblock_display(t_spaceblock const *block)
+void		spaceblock_display(t_singlelist *blocks)
 {
-  Uint8	i;
+  t_singlelist	*node;
 
-  if (!ptr_chk(block, "block object", APP_LCAT, "spaceblock_display"))
+  if (!ptr_chk(blocks, "block list", APP_LCAT, "spaceblock_display"))
     return ;
-  for (i = 0; i < 4; ++i)
-    draw_sprite(block[i].sprite[0], &block[i].rect);
+  node = blocks;
+  while (node)
+  {
+    draw_sprite(((t_spaceblock *)node->data)->sprite[0],
+		&((t_spaceblock *)node->data)->rect);
+    node = node->next;
+  }
 }
 
 void	spaceblock_collide()

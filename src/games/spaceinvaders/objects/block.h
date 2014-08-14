@@ -17,6 +17,7 @@
 # define GAMES_SPACEINVADERS_OBJECT_BLOCK_H_
 
 # include <SDL2/SDL.h>
+# include "../../../base/list.h"
 # include "../../../core/graphics.h"
 
 #define NB_SPACE_BLOCK_SPR	2
@@ -26,7 +27,7 @@
  */
 typedef struct		s_spaceblock
 {
-  void			(*display)(struct s_spaceblock const *block);
+  void			(*display)(t_singlelist *block);
   void			(*collide)();
   t_spriteholder const	*sprite[NB_SPACE_BLOCK_SPR];
   SDL_Rect 		rect;
@@ -45,7 +46,7 @@ void	spaceblock_destroy();
 /**
  *	@brief	Block getter
  */
-t_spaceblock	*get_spaceblocks();
+t_singlelist	*get_spaceblocks();
 
 
 

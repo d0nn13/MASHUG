@@ -29,8 +29,8 @@
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceship	*ship = NULL;
 static t_spacerocket	*rocket = NULL;
-static t_spaceblock	*blocks = NULL;
 static t_singlelist	*aliens = NULL;
+static t_singlelist	*blocks = NULL;
 
 static Uint8	process_events()
 {
@@ -64,7 +64,7 @@ static void	process_objects()
   if (!rocket->fired && get_input(FIRE_INP)->state)
     ship->fire(ship, rocket);
   ship->display(ship);
-  blocks->display(blocks);
+  ((t_spaceblock *)blocks->data)->display(blocks);
   ((t_spacealien *)aliens->data)->display(aliens);
   rocket->display(rocket);
   ship->display(ship);

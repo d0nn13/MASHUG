@@ -21,7 +21,7 @@
 /**
  *	@brief	Spaceinvaders block display callback
  */
-void	spaceblock_display(t_spaceblock const *block);
+void	spaceblock_display(t_singlelist *block);
 
 /**
  *	@brief	Spaceinvaders block collide callback
