@@ -92,6 +92,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
   char		*err;
 
   content = (char *)att->children->content;
+  errno = 0;
   err = "";
   if (!ptr_chk(h, "hiscoreholder", XML_LCAT, "xml_hiscore_fill_container"))
     return ;
