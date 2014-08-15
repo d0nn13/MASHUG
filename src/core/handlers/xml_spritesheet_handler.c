@@ -101,6 +101,7 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
   char		*err;
 
   content = (char *)att->children->content;
+  errno = 0;
   err = "";
   if (!ptr_chk(s, "spriteholder", XML_LCAT, "xml_spritesheet_fill_container"))
     return ;
