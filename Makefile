@@ -17,7 +17,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/log.c					\
 			$(SRCPATH)core/options.c				\
 			$(SRCPATH)core/clioptions.c				\
-			$(SRCPATH)core/video_debug.c					\
+			$(SRCPATH)core/video_debug.c				\
 			$(SRCPATH)core/window.c					\
 			$(SRCPATH)core/renderer.c				\
 			$(SRCPATH)core/graphics.c				\
@@ -44,7 +44,15 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/spacemenu.c		\
 			$(SRCPATH)games/spaceinvaders/spacehiscores.c		\
 			$(SRCPATH)games/spaceinvaders/spacespritesheet.c	\
-			$(SRCPATH)games/spaceinvaders/spacecore.c
+			$(SRCPATH)games/spaceinvaders/spacecore.c		\
+			$(SRCPATH)games/spaceinvaders/objects/ship.c		\
+			$(SRCPATH)games/spaceinvaders/objects/ship_callback.c	\
+			$(SRCPATH)games/spaceinvaders/objects/rocket.c		\
+			$(SRCPATH)games/spaceinvaders/objects/rocket_callback.c	\
+			$(SRCPATH)games/spaceinvaders/objects/alien.c		\
+			$(SRCPATH)games/spaceinvaders/objects/alien_callback.c	\
+			$(SRCPATH)games/spaceinvaders/objects/block.c		\
+			$(SRCPATH)games/spaceinvaders/objects/block_callback.c
 
 OBJ		=	$(SRC:%.c=%.o)
 

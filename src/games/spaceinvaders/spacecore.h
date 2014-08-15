@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Tue Jul 15 13:14:35 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:05:40 2014 ENNEBATI Yassine
 */
 
 /**
@@ -17,14 +17,13 @@
 # define GAMES_SPACEINVADERS_SPACECORE_H_
 
 /**
- *	@brief	Clears screen with color 'c' and renders cabinet
- *	@param	c The color to clear the screen with
- */
-void	space_redraw_context(SDL_Color const *c);
-
-/**
  *	@brief	Main loop
  */
 void	space_loop();
+
+/**
+ *	@brief	Space bounds getter
+ */
+SDL_Rect const	*get_spacebounds();
 
 #endif /* !GAMES_SPACEINVADERS_SPACECORE_H_ */

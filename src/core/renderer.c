@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 11:27:56 2014 AHAMADA Samir
-** Last update Mon Jul 14 02:10:08 2014 ENNEBATI Yassine
+** Last update Tue Aug 12 22:22:55 2014 ENNEBATI Yassine
 */
 
 /**
@@ -59,6 +59,16 @@ Sint32	renderer_init()
 SDL_Renderer	*get_renderer()
 {
   return (SDL_GetRenderer(get_window()));
+}
+
+void			renderer_clear(SDL_Color const *c)
+{
+  SDL_Color const	black = {0, 0, 0, 255};
+  SDL_Color		col;
+
+  col = !c ? black : *c;
+  SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
+  SDL_RenderClear(get_renderer());
 }
 
 void	renderer_destroy()
