@@ -75,6 +75,7 @@ static void	display_menu()
   Uint8		i;
 
   rect = rect_factory(187, 122, 420, 119);
+  renderer_clear(NULL);
   draw_sprite(get_sprite(get_space_spritesheet(), TITLE_SPR), &rect);
   for (i = 0; i < NB_MEN; ++i)
     draw_text(entries[i].text, &entries[i].orig, get_common_font(ATARI24_FNT),
@@ -112,11 +113,10 @@ void   		space_menu()
 {
   SDL_Event    	e;
 
-  renderer_clear(NULL);
-  display_menu();
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
   while (get_launcher() == &space_menu)
   {
+    display_menu();
+    draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
     SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
     {
