@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Mon Jul 14 13:26:12 2014 ENNEBATI Yassine
+** Last update Fri Aug 15 19:23:14 2014 ENNEBATI Yassine
 */
 
 /**
@@ -22,15 +22,23 @@
  *	@brief	Common fonts enumeration
  */
 typedef enum
-  {
-    ATARI24_FNT = 0,
-    ATARI18_FNT,
-    COSMIC48_FNT,
-    COSMIC24_FNT,
-    COSMIC18_FNT,
-    PRSTARTK24_FNT,
-    NB_FNT
-  } t_common_font;
+{
+  ATARI24_FNT = 0,
+  ATARI18_FNT,
+  COSMIC48_FNT,
+  COSMIC24_FNT,
+  COSMIC18_FNT,
+  PRSTARTK24_FNT,
+  NB_FNT
+}	t_common_font;
+
+typedef struct	s_font
+{
+  TTF_Font	*font;
+  char		*name;
+  char		*path;
+  int		size;
+}		t_font;
 
 /**
  *	@brief	Load game fonts in memory
