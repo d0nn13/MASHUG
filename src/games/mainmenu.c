@@ -64,31 +64,19 @@ static void	display_menu();
 /**
  *
  */
-static void	draw_background_menu();
-
-/**
- *
- */
 static void	process_input(SDL_Scancode const *s, t_menuentries *item);
 
 static void	display_menu()
 {
   Uint8		i;
 
+  renderer_clear(NULL);
   for (i = 0; i < NB_GAME; ++i)
   {
     draw_text(entries[i].text, &entries[i].orig,
 	      get_common_font(PRSTARTK24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
   }
-}
-
-static void		draw_background_menu()
-{
-  SDL_Color const	col = {0, 0, 0, 255};
-
-  SDL_SetRenderDrawColor(get_renderer(), col.r, col.g, col.b, col.a);
-  SDL_RenderClear(get_renderer());
 }
 
 static void	process_input(SDL_Scancode const *s, t_menuentries *item)
@@ -121,10 +109,9 @@ void			main_menu()
 {
   SDL_Event		e;
 
-  draw_background_menu();
-  display_menu();
   while (get_launcher() == &main_menu)
   {
+    display_menu();
     SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
     {
