@@ -22,7 +22,7 @@
  *	@brief	Default settings definition
  */
 static t_optionholder	options[NB_OPT] = {
-  {"Log Priority", 3, 1, 6},
+  {"Log Priority", 3, 0, 6},
   {"Log Category", -1, 0, 0},
   {"Game Framerate", 60, 1, 100},
 };

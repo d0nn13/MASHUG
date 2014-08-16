@@ -50,7 +50,8 @@ void		set_options_from_cli(int argc, char **argv)
 	errno = 0;
 	continue;
       }
-      if (set_option_value(o, v))
+      if (set_option_value(o, v) &&
+	  get_option_value(LOG_PRIO_OPT) <= SDL_LOG_PRIORITY_INFO)
 	SDL_LogDebug(OPT_LCAT, "[%s] <- %d\n", get_option_key(o), v);
     }
   }
