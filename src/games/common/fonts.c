@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Wed Jul  9 20:52:14 2014 ENNEBATI Yassine
+** Last update Sat Aug 16 16:25:49 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -13,31 +13,52 @@
 
 #include "fonts.h"
 
-static TTF_Font	*common_fonts[NB_FNT];
+static t_font	fonts[NB_FNT] = {
+  {NULL, "atari24", "media/fonts/atari.ttf", 24},
+  {NULL, "atari18", "media/fonts/atari.ttf", 18},
+  {NULL, "cosmic48", "media/fonts/cosmic.ttf", 48},
+  {NULL, "cosmic24", "media/fonts/cosmic.ttf", 24},
+  {NULL, "cosmic18", "media/fonts/cosmic.ttf", 18},
+  {NULL, "prstartk24", "media/fonts/prstartk.ttf", 24}
+};
 
 void	load_common_fonts()
 {
-  memset(common_fonts, 0, sizeof(common_fonts));
-  common_fonts[ATARI24_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 24);
-  common_fonts[ATARI18_FNT] = TTF_OpenFont("media/fonts/atari.ttf", 18);
-  common_fonts[COSMIC48_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 48);
-  common_fonts[COSMIC24_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 24);
-  common_fonts[COSMIC18_FNT] = TTF_OpenFont("media/fonts/cosmic.ttf", 18);
-  common_fonts[PRSTARTK24_FNT] = TTF_OpenFont("media/fonts/prstartk.ttf", 24);
-  SDL_LogInfo(FNT_LCAT, "Common fonts loaded");
+  Uint8	i;
+  Uint8	c;
+
+  for (i = 0, c = 0; i < NB_FNT; i++)
+  {
+    fonts[i].font = TTF_OpenFont(fonts[i].path, fonts[i].size);
+    if (fonts[i].font == NULL)
+      SDL_LogError(FNT_LCAT, "Couldn't load font '%s': %s", fonts[i].name,
+		   TTF_GetError());
+    else
+    {
+      SDL_LogVerbose(FNT_LCAT, "Font '%s' loaded", fonts[i].name);
+      ++c;
+    }
+  }
+  if (c == NB_FNT)
+    SDL_LogInfo(FNT_LCAT, "Common fonts successfully loaded");
 }
 
 TTF_Font	*get_common_font(t_common_font t)
 {
-  return (common_fonts[t]);
+  return (fonts[t].font);
 }
 
-void		free_common_fonts()
+void	free_common_fonts()
 {
   Uint8	i;
 
   for (i = 0; i < NB_FNT; ++i)
-    TTF_CloseFont(common_fonts[i]);
-  memset(&common_fonts, 0, sizeof(common_fonts));
+  {
+    if (fonts[i].font)
+    {
+      TTF_CloseFont(fonts[i].font);
+      fonts[i].font = NULL;
+    }
+  }
   SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }
