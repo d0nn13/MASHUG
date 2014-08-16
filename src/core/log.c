@@ -71,6 +71,8 @@ void	log_set_all_priority(SDL_LogPriority priority)
   SDL_LogSetAllPriority(priority);
   for (c = SDL_LOG_CATEGORY_CUSTOM; c < NB_LCAT; ++c)
     SDL_LogSetPriority(c, priority);
+  if (priority)
+    SDL_LogSetPriority(SDL_LOG_CATEGORY_ERROR, 7);
 }
 
 Uint8	ptr_chk(void const *p, char const *psym, Uint32 cat, char const *fsym)
