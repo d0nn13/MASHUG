@@ -24,16 +24,23 @@ static t_font	fonts[NB_FNT] = {
 
 void	load_common_fonts()
 {
-  Uint8	it;
+  Uint8	i;
+  Uint8	c;
 
-  for (it = 0; it < NB_FNT; it++)
+  for (i = 0, c = 0; i < NB_FNT; i++)
   {
-    fonts[it].font = TTF_OpenFont(fonts[it].path, fonts[it].size);
-    if (fonts[it].font == NULL)
-      SDL_LogError(FNT_LCAT, "Error on load font : %s\n", TTF_GetError());
+    fonts[i].font = TTF_OpenFont(fonts[i].path, fonts[i].size);
+    if (fonts[i].font == NULL)
+      SDL_LogError(FNT_LCAT, "Couldn't load font '%s': %s", fonts[i].name,
+		   TTF_GetError());
     else
-      SDL_LogVerbose(FNT_LCAT, "Font success load for: %s\n", fonts[it].name);
+    {
+      SDL_LogVerbose(FNT_LCAT, "Font '%s' loaded", fonts[i].name);
+      ++c;
+    }
   }
+  if (c == NB_FNT)
+    SDL_LogInfo(FNT_LCAT, "Common fonts successfully loaded");
 }
 
 TTF_Font	*get_common_font(t_common_font t)
@@ -41,14 +48,17 @@ TTF_Font	*get_common_font(t_common_font t)
   return (fonts[t].font);
 }
 
-void		free_common_fonts()
+void	free_common_fonts()
 {
   Uint8	i;
 
   for (i = 0; i < NB_FNT; ++i)
   {
-    TTF_CloseFont(fonts[i].font);
-    fonts[i].font = NULL;
+    if (fonts[i].font)
+    {
+      TTF_CloseFont(fonts[i].font);
+      fonts[i].font = NULL;
+    }
   }
   SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }
