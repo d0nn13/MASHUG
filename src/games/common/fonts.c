@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Sat Aug 16 15:35:40 2014 ENNEBATI Yassine
+** Last update Sat Aug 16 16:25:49 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -48,7 +48,7 @@ void		free_common_fonts()
   for (i = 0; i < NB_FNT; ++i)
   {
     TTF_CloseFont(fonts[i].font);
-    memset(&(fonts[i].font), 0, sizeof(fonts[i].font));
+    fonts[i].font = NULL;
   }
   SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }
