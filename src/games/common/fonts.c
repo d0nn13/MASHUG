@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Fri Aug 15 19:36:10 2014 ENNEBATI Yassine
+** Last update Sat Aug 16 15:35:40 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -22,21 +22,13 @@ static t_font	fonts[NB_FNT] = {
   {NULL, "prstartk24", "media/fonts/prstartk.ttf", 24}
 };
 
-static TTF_Font	*load_font(char *path, int size)
-{
-  TTF_Font	*f;
-
-  f = TTF_OpenFont(path, size);
-  return (f);
-}
-
 void	load_common_fonts()
 {
-  int	it;
+  Uint8	it;
 
   for (it = 0; it < NB_FNT; it++)
   {
-    fonts[it].font = load_font(fonts[it].path, fonts[it].size);
+    fonts[it].font = TTF_OpenFont(fonts[it].path, fonts[it].size);
     if (fonts[it].font == NULL)
       SDL_LogError(FNT_LCAT, "Error on load font : %s\n", TTF_GetError());
     else
@@ -54,7 +46,9 @@ void		free_common_fonts()
   Uint8	i;
 
   for (i = 0; i < NB_FNT; ++i)
+  {
     TTF_CloseFont(fonts[i].font);
-  memset(&fonts, 0, sizeof(fonts));
+    memset(&(fonts[i].font), 0, sizeof(fonts[i].font));
+  }
   SDL_LogInfo(FNT_LCAT, "Common fonts destroyed");
 }
