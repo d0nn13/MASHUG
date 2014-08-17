@@ -60,7 +60,7 @@ static void	process_collisions()
 {
   t_singlelist	*node;
 
-  if (!SDL_HasIntersection(&rocket->rect, &space_bounds))
+  if (rocket->fired && !SDL_HasIntersection(&rocket->rect, &space_bounds))
     rocket->collide(rocket);
   node = aliens;
   while (node)
