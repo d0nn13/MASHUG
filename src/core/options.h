@@ -31,7 +31,7 @@ typedef struct	s_optionholder
 typedef enum
 {
   LOG_PRIO_OPT = 0,
-  LOG_CAT_OPT,
+  VIDEO_DBG_OPT,
   FRAMERATE_OPT,
   NB_OPT
 }	t_options;

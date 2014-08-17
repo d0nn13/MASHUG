@@ -17,6 +17,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "log.h"
+#include "options.h"
 #include "window.h"
 #include "video_debug.h"
 
@@ -48,7 +49,8 @@ Sint32	renderer_init()
     SDL_LogCritical(RDR_LCAT, SDL_GetError());
     return (-1);
   }
-  renderer_debug(renderer);
+  if (get_option_value(VIDEO_DBG_OPT))	
+    renderer_debug(renderer);
   SDL_ShowWindow(get_window());
   SDL_SetRenderDrawColor(renderer, 10, 30, 10, 255);
   SDL_RenderClear(renderer);
