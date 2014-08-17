@@ -32,7 +32,7 @@ typedef enum
 {
   LOG_PRIO_OPT = 0,
   LOG_CAT_OPT,
-  GAME_FPS_OPT,
+  FRAMERATE_OPT,
   NB_OPT
 }	t_options;
 

@@ -26,7 +26,7 @@
 static struct option clioptions[NB_OPT + 1] = {
   {"log-priority", required_argument, NULL, LOG_PRIO_OPT},
   {"log-category", required_argument, NULL, LOG_CAT_OPT},
-  {"framerate", required_argument, NULL, GAME_FPS_OPT},
+  {"framerate", required_argument, NULL, FRAMERATE_OPT},
   {NULL, 0, NULL, 0}
 };
 
