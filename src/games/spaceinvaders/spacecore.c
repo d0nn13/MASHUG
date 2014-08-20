@@ -65,7 +65,7 @@ static void	process_collisions()
 static void	process_objects()
 {
   ship->move(ship);
-  input_update();
+  ((t_spacealien *)aliens->data)->move(aliens);
   if (!rocket->state == FIRED && get_input(FIRE_INP)->state)
     ship->fire(ship, rocket);
   process_collisions();
@@ -73,6 +73,8 @@ static void	process_objects()
   rocket->display(rocket);
   ((t_spaceblock *)blocks->data)->display(blocks);
   ((t_spacealien *)aliens->data)->display(aliens);
+  if (rocket->state == FIRED)
+    rocket->display(rocket);
 }
 
 void			space_loop()

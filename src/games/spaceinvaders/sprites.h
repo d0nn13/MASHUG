@@ -24,7 +24,7 @@
 # define CABINET_SPR		"cabinet"
 # define TITLE_SPR		"title"
 # define NB_SPR			"nb"
-# define OBJ_RESIZE_FACTOR	1.5
+# define OBJ_RESIZE_FACTOR	1
 
 /**
  *	@brief	Load spaceinvaders sprite sheet
