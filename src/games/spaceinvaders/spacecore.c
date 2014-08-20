@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:13:09 2014 ENNEBATI Yassine
+** Last update Wed Aug 20 16:24:40 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -51,6 +51,7 @@ static Uint8	process_events()
     {
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
       set_launcher(&space_menu);
+      return (1);
     }
   }
   return (0);
