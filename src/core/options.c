@@ -23,7 +23,7 @@
  */
 static t_optionholder	options[NB_OPT] = {
   {"Log Priority", 3, 0, 6},
-  {"Log Category", -1, 0, 0},
+  {"Video Debug", 0, 0, 1},
   {"Game Framerate", 60, 1, 100},
 };
 

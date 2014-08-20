@@ -99,7 +99,7 @@ void			space_loop()
 {
   Uint32		ti;
   Uint32		to;
-  Uint32 const		t = (1000 / get_option_value(GAME_FPS_OPT));
+  Uint32 const		t = (1000 / get_option_value(FRAMERATE_OPT));
 
   ship = get_spaceship();
   rocket = get_spacerocket();

@@ -15,6 +15,7 @@
 
 #include <SDL2/SDL.h>
 #include "log.h"
+#include "options.h"
 #include "video_debug.h"
 
 #include "window.h"
@@ -38,7 +39,8 @@ Sint32		window_init()
     SDL_LogCritical(VID_LCAT, "Couldn't initialize window : %s", SDL_GetError());
     return (-1);
   }
-  video_debug(window);
+  if (get_option_value(VIDEO_DBG_OPT))
+    video_debug(window);
   SDL_LogInfo(VID_LCAT, "Window initialization done");
   return (0);
 }
