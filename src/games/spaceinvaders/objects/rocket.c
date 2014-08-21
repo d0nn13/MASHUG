@@ -28,7 +28,7 @@ void			spacerocket_init()
   rocket->sprite = sprite;
   rocket->rect = rect_factory(0, 0, sprite->rect.w * OBJ_RESIZE_FACTOR,
 			      sprite->rect.h * OBJ_RESIZE_FACTOR);
-  rocket->fired = 0;
+  rocket->state = IDLE;
 }
 
 void			spacerocket_destroy()

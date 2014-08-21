@@ -19,6 +19,13 @@
 # include <SDL2/SDL.h>
 # include "../../../core/graphics.h"
 
+typedef enum
+{
+  IDLE = 0,
+  FIRED,
+  COLLIDED
+}		t_spacerocket_state;
+
 /**
  *	@brief	Spaceinvaders rocket structure definition
  */
@@ -28,7 +35,7 @@ typedef struct		s_spacerocket
   void			(*collide)(struct s_spacerocket *rocket);
   t_spriteholder const	*sprite;
   SDL_Rect 		rect;
-  Uint8			fired;
+  t_spacerocket_state	state;
 }			t_spacerocket;
 
 /**
