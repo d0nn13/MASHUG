@@ -59,26 +59,7 @@ static Uint8	process_events()
 
 static void	process_collisions()
 {
-  t_singlelist	*node;
-
-  if (rocket->fired && !SDL_HasIntersection(&rocket->rect, &space_bounds))
-    rocket->collide(rocket);
-  node = aliens;
-  while (node)
-  {
-    if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
-					     node->data)->rect))
-      rocket->collide(rocket);
-    node = node->next;
-  }
-  node = blocks;
-  while (node)
-  {
-    if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
-					     node->data)->rect))
-      rocket->collide(rocket);
-    node = node->next;
-  }
+  rocket->collide(rocket);
 }
 
 static void	process_objects()
@@ -87,7 +68,7 @@ static void	process_objects()
   ship->move(ship);
   ship->display(ship);
   input_update();
-  if (!rocket->fired && get_input(FIRE_INP)->state)
+  if (!rocket->state == FIRED && get_input(FIRE_INP)->state)
     ship->fire(ship, rocket);
   ship->display(ship);
   ((t_spaceblock *)blocks->data)->display(blocks);
