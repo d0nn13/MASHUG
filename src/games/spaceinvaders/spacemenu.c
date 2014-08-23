@@ -67,7 +67,7 @@ static void    	display_menu();
 /**
  *
  */
-static void    	process_input(SDL_Scancode const *s, t_menuentries *item);
+static Uint8   	process_input(SDL_Scancode const *s, t_menuentries *item);
 
 static void	display_menu()
 {
@@ -80,9 +80,10 @@ static void	display_menu()
   for (i = 0; i < NB_MEN; ++i)
     draw_text(entries[i].text, &entries[i].orig, get_common_font(ATARI24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
+  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
 }
 
-static void	process_input(SDL_Scancode const *s, t_menuentries *item)
+static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
 {
   t_menuentries	old_item;
 
@@ -106,27 +107,32 @@ static void	process_input(SDL_Scancode const *s, t_menuentries *item)
   {
     display_menu();
     play_sfx(get_common_sfx(BLIPSEL_SFX));
+    return (1);
   }
+  return (0);
 }
 
 void   		space_menu()
 {
   SDL_Event    	e;
 
+  display_menu();
+  SDL_RenderPresent(get_renderer());
   while (get_launcher() == &space_menu)
   {
-    display_menu();
-    draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
-    SDL_RenderPresent(get_renderer());
     if (SDL_WaitEvent(&e))
     {
       if (e.type == SDL_QUIT)
       {
 	space_destroy();
 	set_launcher(NULL);
+	break;
       }
       if (e.type == SDL_KEYDOWN)
-	process_input(&e.key.keysym.scancode, &item);
+	if (!process_input(&e.key.keysym.scancode, &item))
+	  continue;
+      display_menu();
+      SDL_RenderPresent(get_renderer());
     }
   }
 }
