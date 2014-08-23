@@ -31,7 +31,7 @@ static Uint8	process_events()
 {
   SDL_Event	e;
 
-  if (!SDL_PollEvent(&e))
+  if (!SDL_WaitEvent(&e))
     return (0);
   if (e.type == SDL_QUIT)
   {
@@ -70,6 +70,7 @@ static void    		display_hiscores()
   int			i;
 
   score = NULL;
+  renderer_clear(NULL);
   orig = point_factory(200, 130);
   draw_text("NAME", &orig, get_common_font(COSMIC24_FNT), &green);
   orig = point_factory(400, 130);
@@ -87,23 +88,24 @@ static void    		display_hiscores()
     orig.x -= 200;
     orig.y += 50;
   }
+  draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
 }
 
-void			spacehiscores()
+void	spacehiscores()
 {
-  renderer_clear(NULL);
-  draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
   if (!load_hiscores())
   {
     SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");
     return ;
   }
+  display_hiscores();
+  SDL_RenderPresent(get_renderer());
   while (get_launcher() == &spacehiscores)
   {
-    SDL_RenderPresent(get_renderer());
     if (process_events())
       break;
     display_hiscores();
+    SDL_RenderPresent(get_renderer());
   }
 }
 
