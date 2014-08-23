@@ -45,7 +45,7 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 
   count = 0;
   node = node->children ? node->children : NULL;
-  while (node)
+  for (; node; node = node->next)
   {
     if (node->type == XML_ELEMENT_NODE)
     {
@@ -56,7 +56,6 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container)
 	xml_hiscore_entries(entry, (t_hiscoreholder *)container, &count);
       }
     }
-    node = node->next;
   }
   if (container)
     SDL_LogVerbose(XML_LCAT, "xml_hiscores: %d elements saved", count);
@@ -69,20 +68,15 @@ static void	xml_hiscore_entries(xmlNodePtr node,
 {
   xmlAttrPtr	att;
 
-  while (node)
+  for (; node; node = node->next)
   {
     if (node->type == XML_ELEMENT_NODE)
     {
-      att = node->properties;
-      while (att)
-      {
+      for (att = node->properties; att; att = att->next)
 	if (h)
 	  xml_hiscore_fill_container(att, &h[*count]);
-	att = att->next;
-      }
       (*count)++;
     }
-    node = node->next;
   }
 }
 

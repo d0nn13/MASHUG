@@ -20,13 +20,9 @@ void		spaceblock_display(t_singlelist *blocks)
 
   if (!ptr_chk(blocks, "block list", APP_LCAT, "spaceblock_display"))
     return ;
-  node = blocks;
-  while (node)
-  {
+  for (node = blocks; node; node = node->next)
     draw_sprite(((t_spaceblock *)node->data)->sprite[0],
 		&((t_spaceblock *)node->data)->rect);
-    node = node->next;
-  }
 }
 
 void	spaceblock_collide()

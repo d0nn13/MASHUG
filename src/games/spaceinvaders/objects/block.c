@@ -57,12 +57,10 @@ void	spaceblock_destroy()
 {
   t_singlelist	*node;
 
-  node = blocks;
-  while (node)
+  for (node = blocks; node; node = node->next)
   {
     mem_free(node->data);
     node->data = NULL;
-    node = node->next;
   }
   list_clear(&blocks);
   blocks = NULL;
