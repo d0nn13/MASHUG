@@ -83,12 +83,10 @@ void	spacealiens_destroy()
 {
   t_singlelist	*node;
 
-  node = aliens;
-  while (node)
+  for (node = aliens; node; node = node->next)
   {
     mem_free(node->data);
     node->data = NULL;
-    node = node->next;
   }
   list_clear(&aliens);
   aliens = NULL;

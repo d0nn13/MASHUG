@@ -21,14 +21,10 @@ void		spacealien_display(t_singlelist	*aliens)
   t_singlelist	*node;
   Uint32	t;
   
-  node = aliens;
   t = SDL_GetTicks() / 1000;
-  while (node)
-  {
+  for (node = aliens; node; node = node->next)
     draw_sprite(((t_spacealien *)node->data)->sprite[t % 2],
 		&((t_spacealien *)node->data)->rect);
-    node = node->next;
-  }
 }
 
 void	spacealien_move()

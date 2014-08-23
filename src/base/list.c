@@ -51,13 +51,9 @@ void		*list_get(t_singlelist *root, Uint16 index)
     fprintf(stderr, "FATAL ERROR: NULL list node\n");
     return (NULL);
   }
-  read = root;
-  while (read)
-  {
+  for (read = root; read; read = read->next)
     if (read->index == index)
       return (read->data);
-    read = read->next;
-  }
   return (0);
 }
 
@@ -71,13 +67,9 @@ Uint16		my_list_size(t_singlelist *root)
     fprintf(stderr, "FATAL ERROR: NULL list node\n");
     return (0);
   }
-  read = root;
   count = 0;
-  while (read)
-  {
-    read = read->next;
+  for (read = root; read; read = read->next)
     ++count;
-  }
   return (count);
 }
 
@@ -91,12 +83,11 @@ void		list_clear(t_singlelist **root)
     fprintf(stderr, "FATAL ERROR: NULL list node\n");
     return ;
   }
-  read = *root;
-  while (read)
+  next = NULL;
+  for (read = *root; read; read = next)
   {
     next = read->next;
     mem_free(read);
-    read = next;
   }
   *root = NULL;
 }

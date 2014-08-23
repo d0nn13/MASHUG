@@ -44,15 +44,11 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container)
 
   count = 0;
   node = node->children ? node->children : NULL;
-  while (node)
+  for (; node; node = !node->children ? node->next : node->children)
   {
     if (node->type == XML_ELEMENT_NODE &&
 	!xmlStrcmp(node->name, (xmlChar *)"spr"))
       break ;
-    if (!node->children)
-      node = node->next;
-    else
-      node = node->children;
   }
   if(node)
     xml_spritesheet_sprites(node, (t_spritesheet *)container, &count);
@@ -69,7 +65,7 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
   t_spriteholder	**s;
 
   s = NULL;
-  while (node)
+  for (; node; node = node->next)
   {
     if (node->type == XML_ELEMENT_NODE)
     {
@@ -79,16 +75,11 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
 	s[*count] = mem_alloc(sizeof(t_spriteholder));
 	s[*count]->sheet = ss;
       }
-      att = node->properties;
-      while (att)
-      {
+      for (att = node->properties; att; att = att->next)
 	if (ss && s)
 	  xml_spritesheet_fill_container(att, s[*count]);
-	att = att->next;
-      }
       (*count)++;
     }
-    node = node->next;
   }
   if (s && s[*count])
     s[*count] = NULL;
