@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jul 23 12:48:41 2014 Emmanuel Atse
+** Last update Sat Aug 23 12:12:36 2014 ENNEBATI Yassine
 */
 
 /**
@@ -199,6 +199,12 @@ typedef struct	s_hiscoreholder
   Uint32	score;
   Uint32	date;
 }		t_hiscoreholder;
+
+typedef struct		s_hiscores
+{
+  t_hiscoreholder	*entries;
+  Uint8       		count;
+}			t_hiscores;
 
 /**
  *	@brief	XML Hiscore parsing callback

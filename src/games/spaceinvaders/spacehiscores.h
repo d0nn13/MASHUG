@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Tue Jul 15 13:14:27 2014 ENNEBATI Yassine
+** Last update Sat Aug 23 12:33:06 2014 ENNEBATI Yassine
 */
 
 /**
@@ -19,16 +19,11 @@
 /**
  *	Main HiScores-mode routine
  */
-void	hiscores();
-
-/**
- *	Load HiScores from system
- */
-Sint32	load_hiscores();
+void	spacehiscores();
 
 /**
  *	Save HiScores to system
  */
-Sint32	save_hiscore();
+Uint8	save_spacehiscores();
 
 #endif /* !GAMES_SPACEINVADERS_SPACEHISCORES_H_ */
