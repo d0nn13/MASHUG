@@ -274,8 +274,8 @@ typedef enum
  *	@param	path The path to the XML file
  *	@param	callback The XML parsing callback
  *	@param	container A pointer to a container where to save parsed values or NULL
- *	@return	Number of counted elements
+ *	@return	Negative error code or number of counted elements if succeeded
  */
-Sint8		xml_parse(char const *path, t_xml_type type, void *container);
+Sint32		xml_parse(char const *path, t_xml_type type, void *container);
 
 #endif /* !CORE_HANDLERS_ */
