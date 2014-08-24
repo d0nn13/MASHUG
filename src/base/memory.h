@@ -24,7 +24,7 @@
  *
  *	@param	size The size of heap memory to allocate
  */
-void	*mem_alloc(size_t size);
+void	*mem_alloc(size_t count, size_t size);
 
 /**
  *	@brief	Frees allocated heap memory and decrements allocation counter

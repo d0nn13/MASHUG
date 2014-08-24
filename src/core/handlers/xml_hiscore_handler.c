@@ -92,7 +92,7 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
     return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"nickname"))
   {
-    h->nickname = mem_alloc((strlen(content) + 1));
+    h->nickname = mem_alloc(1, (strlen(content) + 1));
     strcpy(h->nickname, content);
   }
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))

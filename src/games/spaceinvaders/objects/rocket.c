@@ -22,7 +22,7 @@ void			spacerocket_init()
 {
   t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "rocket0");
 
-  rocket = mem_alloc(sizeof(t_spacerocket));
+  rocket = mem_alloc(1, sizeof(t_spacerocket));
   rocket->display = &spacerocket_display;
   rocket->collide = &spacerocket_collide;
   rocket->sprite = sprite;

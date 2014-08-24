@@ -36,7 +36,7 @@ void			spaceblock_init()
   node = blocks;
   for (b = 0; b < BLOCK_NB; ++b)
   {
-    block = mem_alloc(sizeof(t_spaceblock));
+    block = mem_alloc(1, sizeof(t_spaceblock));
     block->display = &spaceblock_display;
     block->collide = &spaceblock_collide;
     for (s = 0; s < NB_SPACE_BLOCK_SPR; ++s)
