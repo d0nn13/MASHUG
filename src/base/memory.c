@@ -21,20 +21,16 @@
 
 static Sint16	nb_allocs = 0;
 
-void	*mem_alloc(size_t size)
+void	*mem_alloc(size_t count, size_t size)
 {
   void	*try;
 
-  try = malloc(size);
-  if (try)
-  {
-    memset(try, 0, size);
+  if ((try = calloc(count, size)))
     ++nb_allocs;
-  }
   else
   {
-    fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d bytes)\n",
-	    (Uint32)size);
+    fprintf(stderr, "FATAL ERROR : Couldn't allocate heap memory (%d x %d B)\n",
+	    (Uint32)count, (Uint32)size);
     exit(EXIT_FAILURE);
   }
   return (try);

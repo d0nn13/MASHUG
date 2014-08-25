@@ -22,7 +22,7 @@ void			spaceship_init()
 {
   t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "ship");
 
-  ship = mem_alloc(sizeof(t_spaceship));
+  ship = mem_alloc(1, sizeof(t_spaceship));
   ship->display = &spaceship_display;
   ship->move = &spaceship_move;
   ship->fire = &spaceship_fire;

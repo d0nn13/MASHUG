@@ -32,14 +32,14 @@ char		**file_to_tab(char const *path)
   nb_lines = 0;
   if ((file_in = fopen(path, "r")) == NULL)
     return (NULL);
-  line = mem_alloc(sizeof(char *));
+  line = mem_alloc(1, sizeof(char *));
   while (getline(&line, &len, file_in) != -1)
     nb_lines++;
   fseek(file_in, 0, SEEK_SET);
-  file_parse = mem_alloc(sizeof(char *) * (nb_lines + 1));
+  file_parse = mem_alloc(nb_lines + 1, sizeof(char *));
   for (nb_lines = 0; getline(&line, &len, file_in) != -1; ++nb_lines)
   {
-    file_parse[nb_lines] = mem_alloc(sizeof(char) * (strlen(line) + 1));
+    file_parse[nb_lines] = mem_alloc(strlen(line) + 1, sizeof(char));
     file_parse[nb_lines] = strcpy(file_parse[nb_lines], line);
   }
   mem_free(line);

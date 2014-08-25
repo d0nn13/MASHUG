@@ -72,7 +72,7 @@ static void	xml_spritesheet_sprites(xmlNodePtr node,
       if (ss)
       {
 	s = ss->sprites;
-	s[*count] = mem_alloc(sizeof(t_spriteholder));
+	s[*count] = mem_alloc(1, sizeof(t_spriteholder));
 	s[*count]->sheet = ss;
       }
       for (att = node->properties; att; att = att->next)
@@ -98,7 +98,7 @@ static void	xml_spritesheet_fill_container(xmlAttrPtr att,
     return ;
   if (!xmlStrcmp(att->name, (xmlChar *)"name"))
   {
-    s->name = mem_alloc((strlen(content) + 1));
+    s->name = mem_alloc(1, (strlen(content) + 1));
     strcpy(s->name, content);
   }
   else if (!xmlStrcmp(att->name, (xmlChar *)"x"))

@@ -25,7 +25,7 @@ t_texture	*make_texture(SDL_Renderer const *r, Sint32 a, Sint32 w, Sint32 h)
 
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture"))
     return (NULL);
-  t = mem_alloc(sizeof(t_texture));
+  t = mem_alloc(1, sizeof(t_texture));
   if (!(t->tex = SDL_CreateTexture((SDL_Renderer *)r, PIX_FMT, a, w, h)))
   {
     SDL_LogError(GFX_LCAT, "make_texture: ", SDL_GetError());
@@ -45,7 +45,7 @@ t_texture	*make_texture_from_surface(SDL_Renderer const *r,
   if (!ptr_chk(r, "renderer", GFX_LCAT, "make_texture") ||
       !ptr_chk(s, "surface", GFX_LCAT, "make_texture"))
     return (NULL);
-  t = mem_alloc(sizeof(t_texture));
+  t = mem_alloc(1, sizeof(t_texture));
   if (!(t->tex = SDL_CreateTextureFromSurface((SDL_Renderer *)r,
 					      (SDL_Surface *)s)))
   {

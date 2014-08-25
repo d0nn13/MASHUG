@@ -22,7 +22,7 @@ t_singlelist	*list_make_node()
 {
   t_singlelist	*node;
 
-  node = mem_alloc(sizeof(t_singlelist));
+  node = mem_alloc(1, sizeof(t_singlelist));
   node->data = NULL;
   node->next = NULL;
   node->index = 0;

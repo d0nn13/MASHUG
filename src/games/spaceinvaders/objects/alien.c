@@ -62,7 +62,7 @@ void			spacealiens_init()
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
   {
-    alien = mem_alloc(sizeof(t_spacealien));
+    alien = mem_alloc(1, sizeof(t_spacealien));
     alien->display = &spacealien_display;
     alien->move = &spacealien_move;
     alien->fire = &spacealien_fire;

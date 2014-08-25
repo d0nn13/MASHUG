@@ -26,12 +26,12 @@ t_spritesheet	*make_spritesheet(const char *img, const char *xml)
   SDL_Surface	*surface;
   Uint8		sprite_count;
 
-  ss = mem_alloc(sizeof(t_spritesheet));
+  ss = mem_alloc(1, sizeof(t_spritesheet));
   surface = IMG_Load_RW(SDL_RWFromFile(img, "rb"), 1);
   ss->tex = make_texture_from_surface(get_renderer(), surface);
   SDL_FreeSurface(surface);
   sprite_count = xml_parse(xml, SHEET_XML, NULL);
-  ss->sprites = mem_alloc(sizeof(t_spriteholder *) * (sprite_count + 1));
+  ss->sprites = mem_alloc(sprite_count + 1, sizeof(t_spriteholder *));
   if (!ptr_chk(ss->sprites, "sprites", SPR_LCAT, "make_spritesheet"))
     return (NULL);
   xml_parse(xml, SHEET_XML, ss);
