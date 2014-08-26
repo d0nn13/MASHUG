@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 19:32:50 2014 ENNEBATI Yassine
+** Last update Tue Aug 26 21:29:34 2014 FOFANA Ibrahim
 */
 
 #include		"../base/math.h"
@@ -26,8 +26,10 @@
  */
 typedef enum
 {
+  LIMIT_INF_GAME = -1,
   SPACE_GAME,
   GALAGA_GAME,
+  RTYPE_GAME,
   NB_GAME
 }	t_menuentries;
 
@@ -51,7 +53,15 @@ static t_menuentry	entries[NB_GAME] =
     {255, 255, 255, 0},
     NULL,
     0
-  } 
+  },
+  {
+    "Rtype",
+    {200, 500},
+    {152, 128, 208, 0},
+    {255, 255, 255, 0},
+    NULL,
+    0
+  }
 };
 
 static t_menuentries	item = SPACE_GAME;
@@ -81,11 +91,10 @@ static void	display_menu()
 
 static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
 {
-  t_menuentries	old_item;
-
-  old_item = *item;
-  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
-  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
+  *item += (*s == get_input(UP_INP)->code) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code) ? 1 : 0;
+  *item = (*item == NB_GAME) ? 0 : *item;
+  *item = (*item == LIMIT_INF_GAME) ? NB_GAME - 1 : *item;
   if (*s == get_input(RETURN_INP)->code)
     set_launcher(NULL);
   else if (*s == get_input(TEST_INP)->code)
@@ -98,13 +107,12 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
       set_launcher(entries[*item].callback);
     }
   }
-  if (*item != old_item)
-  {
-    display_menu();
-    play_sfx(get_common_sfx(BLIPSEL_SFX));
-    return (1);
-  }
-  return (0);
+  else if (*s != get_input(UP_INP)->code && *s != get_input(DOWN_INP)->code)
+    return (0);
+
+  display_menu();
+  play_sfx(get_common_sfx(BLIPSEL_SFX));
+  return (1);
 }
 
 void			main_menu()
