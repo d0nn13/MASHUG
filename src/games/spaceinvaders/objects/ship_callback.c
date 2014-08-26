@@ -24,18 +24,15 @@ void	spaceship_display(t_spaceship const *ship)
   draw_sprite(ship->sprite, &ship->rect);
 }
 
-void	       	spaceship_move(t_spaceship  *ship)
+void	       	spaceship_move(t_spaceship *ship)
 {
   Uint8 const  	step = 5;
 
   input_update();
   if (get_input(LEFT_INP)->state)
-    ship->rect.x = (ship->rect.x - step >= get_spacebounds()->x) ?
-      ship->rect.x - step : ship->rect.x;
+    ship->rect.x -= step;
   if (get_input(RIGHT_INP)->state)
-    ship->rect.x = (ship->rect.x + step <= get_spacebounds()->x +
-		    get_spacebounds()->w - ship->rect.w) ?
-      ship->rect.x + step : ship->rect.x;
+    ship->rect.x += step;
 }
 
 void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)
@@ -45,8 +42,11 @@ void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)
   rocket->state = FIRED;
 }
 
-void	spaceship_collide()
+void	spaceship_collide(t_spaceship *ship)
 {
-
+  if (ship->rect.x < get_spacebounds()->x)
+    ship->rect.x = get_spacebounds()->x;
+  if (ship->rect.x + ship->rect.w > get_spacebounds()->w + get_spacebounds()->w)
+    ship->rect.x = get_spacebounds()->x + get_spacebounds()->w - ship->rect.w;
 }
 

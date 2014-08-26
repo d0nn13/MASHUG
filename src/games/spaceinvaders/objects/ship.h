@@ -28,7 +28,7 @@ typedef struct		s_spaceship
   void			(*display)(struct s_spaceship const *ship);
   void			(*move)(struct s_spaceship *ship);
   void			(*fire)(struct s_spaceship const *ship, t_spacerocket *rocket);
-  void			(*collide)();
+  void			(*collide)(struct s_spaceship *ship);
   t_spriteholder const	*sprite;
   SDL_Rect 		rect;
 }			t_spaceship;
