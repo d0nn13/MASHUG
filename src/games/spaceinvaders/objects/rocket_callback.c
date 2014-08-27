@@ -52,7 +52,7 @@ void			spacerocket_display(t_spacerocket *rocket)
     display_impact(rocket);
     rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
     rocket->state = IDLE;
-  }  
+  }
   else
     rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
 }
