@@ -41,7 +41,7 @@ void			spacerocket_display(t_spacerocket *rocket)
   {
     draw_sprite(rocket->sprite, &rocket->rect);
     rocket->rect.y -= step;
-    if (!SDL_HasIntersection(&rocket->rect, get_spacebounds()))
+    if (rocket->rect.y + rocket->rect.h < get_spacebounds()->y)
     {
       rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
       rocket->state = IDLE;
