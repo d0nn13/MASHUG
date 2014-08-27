@@ -44,9 +44,3 @@ void	spaceship_fire(t_spaceship const *ship, t_spacerocket *rocket)
   rocket->rect.y = ship->rect.y - rocket->rect.h;
   rocket->state = FIRED;
 }
-
-void	spaceship_collide()
-{
-
-}
-
