@@ -46,7 +46,7 @@ void	spaceship_collide(t_spaceship *ship)
 {
   if (ship->rect.x < get_spacebounds()->x)
     ship->rect.x = get_spacebounds()->x;
-  if (ship->rect.x + ship->rect.w > get_spacebounds()->w + get_spacebounds()->w)
+  if (ship->rect.x + ship->rect.w > get_spacebounds()->x + get_spacebounds()->w)
     ship->rect.x = get_spacebounds()->x + get_spacebounds()->w - ship->rect.w;
 }
 
