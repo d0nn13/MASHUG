@@ -59,7 +59,6 @@ static Uint8	process_events()
 
 static void	process_collisions()
 {
-  ship->collide(ship);
   rocket->collide(rocket);
 }
 
