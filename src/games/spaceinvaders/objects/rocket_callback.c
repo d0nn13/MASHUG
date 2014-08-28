@@ -63,20 +63,12 @@ void			spacerocket_collide(t_spacerocket *rocket)
 
   if (rocket->state != FIRED)
     return ;
-  node = get_spacealiens();
-  while (node)
-  {
+  for (node = get_spacealiens(); node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
-    node = node->next;
-  }
-  node = get_spaceblocks();
-  while (node)
-  {
+  for (node = get_spaceblocks(); node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
-    node = node->next;
-  }
 }
