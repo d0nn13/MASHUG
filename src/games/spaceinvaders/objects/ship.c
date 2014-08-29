@@ -26,7 +26,6 @@ void			spaceship_init()
   ship->display = &spaceship_display;
   ship->move = &spaceship_move;
   ship->fire = &spaceship_fire;
-  ship->collide = &spaceship_collide;
   ship->sprite = sprite;
   ship->rect = rect_factory(350, 520, sprite->rect.w * OBJ_RESIZE_FACTOR,
 			    sprite->rect.h * OBJ_RESIZE_FACTOR);

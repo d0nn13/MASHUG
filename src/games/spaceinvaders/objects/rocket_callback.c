@@ -41,7 +41,7 @@ void			spacerocket_display(t_spacerocket *rocket)
   {
     draw_sprite(rocket->sprite, &rocket->rect);
     rocket->rect.y -= step;
-    if (!SDL_HasIntersection(&rocket->rect, get_spacebounds()))
+    if (rocket->rect.y + rocket->rect.h < get_spacebounds()->y)
     {
       rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
       rocket->state = IDLE;
@@ -52,7 +52,7 @@ void			spacerocket_display(t_spacerocket *rocket)
     display_impact(rocket);
     rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
     rocket->state = IDLE;
-  }  
+  }
   else
     rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
 }
@@ -63,20 +63,12 @@ void			spacerocket_collide(t_spacerocket *rocket)
 
   if (rocket->state != FIRED)
     return ;
-  node = get_spacealiens();
-  while (node)
-  {
+  for (node = get_spacealiens(); node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
-    node = node->next;
-  }
-  node = get_spaceblocks();
-  while (node)
-  {
+  for (node = get_spaceblocks(); node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
-    node = node->next;
-  }
 }

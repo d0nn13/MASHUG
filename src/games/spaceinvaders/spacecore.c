@@ -64,17 +64,15 @@ static void	process_collisions()
 
 static void	process_objects()
 {
-  process_collisions();
   ship->move(ship);
-  ship->display(ship);
   input_update();
   if (!rocket->state == FIRED && get_input(FIRE_INP)->state)
     ship->fire(ship, rocket);
+  process_collisions();
   ship->display(ship);
+  rocket->display(rocket);
   ((t_spaceblock *)blocks->data)->display(blocks);
   ((t_spacealien *)aliens->data)->display(aliens);
-  rocket->display(rocket);
-  ship->display(ship);
 }
 
 void			space_loop()
