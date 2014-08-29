@@ -28,11 +28,16 @@ typedef struct	s_optionholder
   Sint16	max;
 }		t_optionholder;
 
+/**
+ * FRAMERATE_OPT: Number of buffer rendering in one second
+ * GAMESPEED_OPT: Number of game processings in one second
+ */
 typedef enum
 {
   LOG_PRIO_OPT = 0,
   VIDEO_DBG_OPT,
   FRAMERATE_OPT,
+  GAMESPEED_OPT,
   NB_OPT
 }	t_options;
 

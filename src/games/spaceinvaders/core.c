@@ -47,24 +47,28 @@ void	spacecore_destroy()
 
 void			space_loop()
 {
-  Uint32		ti;
-  Uint32		to;
-  Uint32 const		t = (1000 / get_option_value(FRAMERATE_OPT));
+  Uint32		t_old;
+  Uint32 const		tf = (1000 / get_option_value(FRAMERATE_OPT));
+  Uint32 const		tp = (1000 / get_option_value(GAMESPEED_OPT));
+  Uint32		t;
 
   while (get_launcher() == &space_loop)
   {
-    ti = SDL_GetTicks();
     renderer_clear(NULL);
     display_hud();
     if (space_process_events())
       break;
     space_process_objects(&objects);
     draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
+    t = SDL_GetTicks();
+    if (t - t_old < tf)
+    {
+      SDL_Delay(tp);
+      continue;
+    }
     SDL_RenderPresent(get_renderer());
-    to = SDL_GetTicks() - ti;
-    if (to < t)
-      SDL_Delay(t - to);
-    SDL_LogVerbose(0, "%d", to);
+    t_old = t;
+    /* SDL_LogVerbose(0, "%d", to); */
   }
 }
 
