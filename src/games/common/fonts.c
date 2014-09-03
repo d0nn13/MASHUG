@@ -19,7 +19,9 @@ static t_font	fonts[NB_FNT] = {
   {NULL, "cosmic48", "media/fonts/cosmic.ttf", 48},
   {NULL, "cosmic24", "media/fonts/cosmic.ttf", 24},
   {NULL, "cosmic18", "media/fonts/cosmic.ttf", 18},
-  {NULL, "prstartk24", "media/fonts/prstartk.ttf", 24}
+  {NULL, "prstartk24", "media/fonts/prstartk.ttf", 24},
+  {NULL, "prstartk28", "media/fonts/prstartk.ttf", 28},
+  {NULL, "prstartk18", "media/fonts/prstartk.ttf", 18}
 };
 
 void	load_common_fonts()

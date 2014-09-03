@@ -29,7 +29,6 @@ typedef enum
   LIMIT_INF_GAME = -1,
   SPACE_GAME,
   GALAGA_GAME,
-  RTYPE_GAME,
   NB_GAME
 }	t_menuentries;
 
@@ -40,7 +39,7 @@ static t_menuentry	entries[NB_GAME] =
 {
   {
     "Space Invaders",
-    {200, 300},
+    {200, 400},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     &space_init,
@@ -48,15 +47,7 @@ static t_menuentry	entries[NB_GAME] =
   },
   {
     "Galaga",
-    {200, 400},
-    {152, 128, 208, 0},
-    {255, 255, 255, 0},
-    NULL,
-    0
-  },
-  {
-    "Rtype",
-    {200, 500},
+    {280, 500},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     NULL,
@@ -79,8 +70,15 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item);
 static void	display_menu()
 {
   Uint8		i;
+SDL_Point orig;
+
+orig = point_factory(300, 100);
 
   renderer_clear(NULL);
+  draw_text("MASHUG", &orig, get_common_font(PRSTARTK28_FNT), NULL);
+  orig = point_factory(100, 180);
+  draw_text("Multiple Arcade Shoot'em Up Game", &orig, get_common_font(PRSTARTK18_FNT), NULL);
+
   for (i = 0; i < NB_GAME; ++i)
   {
     draw_text(entries[i].text, &entries[i].orig,
