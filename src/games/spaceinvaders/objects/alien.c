@@ -5,13 +5,13 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 20:41:48 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:56:56 2014 Emmanuel Atse
 */
 
 #include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacespritesheet.h"
+#include "../spacesprites.h"
 #include "alien_callback.h"
 
 #include "alien.h"
@@ -24,18 +24,18 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {
   if (index < 11)
   {
-    sh[0] = get_sprite(get_space_spritesheet(), "alien0a");
-    sh[1] = get_sprite(get_space_spritesheet(), "alien0b");
+    sh[0] = get_sprite(get_space_sprites(), "alien0a");
+    sh[1] = get_sprite(get_space_sprites(), "alien0b");
   }
   else if (index < 33)
   {
-    sh[0] = get_sprite(get_space_spritesheet(), "alien1a");
-    sh[1] = get_sprite(get_space_spritesheet(), "alien1b");
+    sh[0] = get_sprite(get_space_sprites(), "alien1a");
+    sh[1] = get_sprite(get_space_sprites(), "alien1b");
   } 
   else if (index < 55)
   {
-    sh[0] = get_sprite(get_space_spritesheet(), "alien2a");
-    sh[1] = get_sprite(get_space_spritesheet(), "alien2b");
+    sh[0] = get_sprite(get_space_sprites(), "alien2a");
+    sh[1] = get_sprite(get_space_sprites(), "alien2b");
   }
 }
 
@@ -57,7 +57,7 @@ void			spacealiens_init()
   static SDL_Rect	rect;
   Uint8			i;
 
-  rect = rect_factory(122, 120, 0, 0); 
+  rect = rect_factory(122, 120, 0, 0);
   aliens = list_make_node();
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)

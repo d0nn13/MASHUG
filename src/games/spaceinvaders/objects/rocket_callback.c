@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:56:00 2014 Emmanuel Atse
 */
 
 #include "../../../base/list.h"
@@ -13,7 +13,7 @@
 #include "../../../core/input.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacespritesheet.h"
+#include "../spacesprites.h"
 #include "../spacecore.h"
 #include "rocket.h"
 #include "alien.h"
@@ -23,7 +23,7 @@
 
 static void		display_impact(t_spacerocket const *rocket)
 {
-  t_spriteholder const	*spr = get_sprite(get_space_spritesheet(), "impact0");
+  t_spriteholder const	*spr = get_sprite(get_space_sprites(), "impact0");
   SDL_Rect		impact;
 
   impact = rect_factory(rocket->rect.x - spr->rect.w / 2 + rocket->rect.w / 2,
