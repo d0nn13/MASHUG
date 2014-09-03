@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:20:03 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:55:21 2014 Emmanuel Atse
 */
 
 #include "../../core/renderer.h"
@@ -15,7 +15,7 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacespritesheet.h"
+#include "spacesprites.h"
 #include "spacecore.h"
 #include "spacemenu.h"
 
@@ -38,7 +38,7 @@ void			hiscores()
   renderer_clear(NULL);
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
+  draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
   while (get_launcher() == &hiscores)
   {
     SDL_RenderPresent(get_renderer());

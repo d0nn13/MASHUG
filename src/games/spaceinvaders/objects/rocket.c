@@ -5,13 +5,13 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 20:42:46 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:55:50 2014 Emmanuel Atse
 */
 
 #include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacespritesheet.h"
+#include "../spacesprites.h"
 #include "rocket_callback.h"
 
 #include "rocket.h"
@@ -20,7 +20,7 @@ static t_spacerocket	*rocket = NULL;
 
 void			spacerocket_init()
 {
-  t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "rocket0");
+  t_spriteholder const	*sprite = get_sprite(get_space_sprites(), "rocket0");
 
   rocket = mem_alloc(1, sizeof(t_spacerocket));
   rocket->display = &spacerocket_display;

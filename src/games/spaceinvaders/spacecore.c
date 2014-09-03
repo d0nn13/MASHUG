@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Wed Aug 20 16:24:40 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:55:33 2014 Emmanuel Atse
 */
 
 #include <string.h>
@@ -17,7 +17,7 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacespritesheet.h"
+#include "spacesprites.h"
 #include "spacemenu.h"
 #include "objects/ship_callback.h"
 #include "objects/rocket_callback.h"
@@ -92,7 +92,7 @@ void			space_loop()
     if (process_events())
       break;
     process_objects();
-    draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
+    draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
     if (to < t)

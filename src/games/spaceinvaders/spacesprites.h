@@ -5,7 +5,7 @@
 ** Login   <atse_e@etna-alternance.net>
 ** 
 ** Started on  Wed Jul 16 13:43:59 2014 Emmanuel Atse
-** Last update Tue Aug 12 21:02:52 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:53:35 2014 Emmanuel Atse
 */
 
 #ifndef	GAMES_SPACESPRITESHEET_H_
@@ -24,16 +24,16 @@
 /**
  *	@brief	Load spaceinvaders sprite sheet
  */
-void			load_space_spritesheet();
+void			load_space_sprites();
 
 /**
  *	@brief	Sprite sheet getter
  */
-t_spritesheet const	*get_space_spritesheet();
+t_spritesheet const	*get_space_sprites();
 
 /**
  *	@brief	Destroys spaceinvaders spritesheet
  */
-void			free_space_spritesheet();
+void			free_space_sprites();
 
 #endif		/* !GAMES_SPACESPRITESHEET_H_ */

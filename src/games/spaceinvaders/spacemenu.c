@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:19:52 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:55:11 2014 Emmanuel Atse
 */
 
 #include <SDL2/SDL.h>
@@ -18,7 +18,7 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacespritesheet.h"
+#include "spacesprites.h"
 #include "spacecore.h"
 #include "spacehiscores.h"
 
@@ -76,11 +76,11 @@ static void	display_menu()
 
   rect = rect_factory(187, 122, 420, 119);
   renderer_clear(NULL);
-  draw_sprite(get_sprite(get_space_spritesheet(), TITLE_SPR), &rect);
+  draw_sprite(get_sprite(get_space_sprites(), TITLE_SPR), &rect);
   for (i = 0; i < NB_MEN; ++i)
     draw_text(entries[i].text, &entries[i].orig, get_common_font(ATARI24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
-  draw_sprite(get_sprite(get_space_spritesheet(), CABINET_SPR), NULL);
+  draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
 }
 
 static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)

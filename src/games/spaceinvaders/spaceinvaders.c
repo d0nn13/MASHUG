@@ -5,13 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Fri Aug 08 22:22:31 2014 Samir Ahamada
-** Last update Sun Aug 10 03:51:58 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:53:58 2014 Emmanuel Atse
 */
 
 #include <SDL2/SDL_stdinc.h>
 #include "../../core/log.h"
 #include "../../core/launcher.h"
-#include "spacespritesheet.h"
+#include "spacesprites.h"
 #include "spacemenu.h"
 #include "objects/ship.h"
 #include "objects/rocket.h"
@@ -43,7 +43,7 @@ void 	space_init()
 {
   if (!loaded)
   {
-    load_space_spritesheet();
+    load_space_sprites();
     spaceobjects_init();
     loaded = 1;
   }
@@ -58,7 +58,7 @@ void	space_destroy()
   if (loaded)
   {
     spaceobjects_destroy();
-    free_space_spritesheet();
+    free_space_sprites();
     loaded = 0;
   }
   else

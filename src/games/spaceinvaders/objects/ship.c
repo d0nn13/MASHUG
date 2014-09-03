@@ -5,13 +5,13 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:01:54 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 20:42:30 2014 ENNEBATI Yassine
+** Last update Wed Sep  3 14:56:17 2014 Emmanuel Atse
 */
 
 #include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacespritesheet.h"
+#include "../spacesprites.h"
 #include "ship_callback.h"
 
 #include "ship.h"
@@ -20,7 +20,7 @@ static t_spaceship	*ship = NULL;
 
 void			spaceship_init()
 {
-  t_spriteholder const	*sprite = get_sprite(get_space_spritesheet(), "ship");
+  t_spriteholder const	*sprite = get_sprite(get_space_sprites(), "ship");
 
   ship = mem_alloc(1, sizeof(t_spaceship));
   ship->display = &spaceship_display;
