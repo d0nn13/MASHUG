@@ -25,7 +25,7 @@
 
 static Uint8			display_impact(t_spacerocket const *rocket)
 {
-  t_spriteholder const * const	spr = get_sprite(get_space_sprites(), "impact0");
+  t_spriteholder const * const	spr = get_sprite(get_spacesprites(), "impact0");
   SDL_Rect			impact;
   static Uint8			persist = IMPACT_PERSIST;
 

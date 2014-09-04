@@ -24,18 +24,18 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {
   if (index < 11)
   {
-    sh[0] = get_sprite(get_space_sprites(), "alien0a");
-    sh[1] = get_sprite(get_space_sprites(), "alien0b");
+    sh[0] = get_sprite(get_spacesprites(), "alien0a");
+    sh[1] = get_sprite(get_spacesprites(), "alien0b");
   }
   else if (index < 33)
   {
-    sh[0] = get_sprite(get_space_sprites(), "alien1a");
-    sh[1] = get_sprite(get_space_sprites(), "alien1b");
-  } 
+    sh[0] = get_sprite(get_spacesprites(), "alien1a");
+    sh[1] = get_sprite(get_spacesprites(), "alien1b");
+  }
   else if (index < 55)
   {
-    sh[0] = get_sprite(get_space_sprites(), "alien2a");
-    sh[1] = get_sprite(get_space_sprites(), "alien2b");
+    sh[0] = get_sprite(get_spacesprites(), "alien2a");
+    sh[1] = get_sprite(get_spacesprites(), "alien2b");
   }
 }
 
