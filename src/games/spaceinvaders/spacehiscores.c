@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Sat Aug 23 12:33:13 2014 ENNEBATI Yassine
+** Last update Thu Sep  4 21:13:15 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -26,6 +26,7 @@
 #include "spacehiscores.h"
 
 static t_hiscores	hiscores;
+static Uint8		pos;
 
 static Uint8	process_events()
 {
@@ -49,7 +50,7 @@ static Uint8	process_events()
     }
   }
   return (0);
-} 
+}
 
 static Uint8   	load_hiscores()
 {
@@ -62,37 +63,50 @@ static Uint8   	load_hiscores()
   return (1);
 }
 
-static void    		display_hiscores()
+static void		draw_hiscores_entries(SDL_Point orig, Uint8 const i)
 {
-  SDL_Color const	green = {0, 255, 0, 255};
-  SDL_Point		orig;
+  SDL_Color const	white = {255, 255, 255, 0};
   char			*score;
-  int			i;
 
   score = NULL;
+  orig.x += 80;
+  draw_text(hiscores.entries[i].nickname, &orig,
+	    get_common_font(COSMIC18_FNT), &white);
+  orig.x += 200;
+    score = mem_alloc(1, 32);
+  sprintf(score, "%u", hiscores.entries[i].score);
+  draw_text(score, &orig, get_common_font(COSMIC18_FNT), &white);
+  mem_free(score);
+}
+
+static void    		display_hiscores()
+{
+  SDL_Color const	yellow = {0, 255, 0, 0};
+  SDL_Color const	green = {255, 0, 0, 0};
+  SDL_Point		orig;
+  char			*position;
+  Uint8			i;
+
   renderer_clear(NULL);
-  orig = point_factory(200, 130);
-  draw_text("NAME", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(400, 130);
-  draw_text("SCORE", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(200, 170);
+  orig = point_factory(280, 130);
+  draw_text("THE BEST 10", &orig, get_common_font(COSMIC24_FNT), &green);
+  orig = point_factory(170, 170);
   for (i = 0; i < hiscores.count; ++i)
   {
-    draw_text(hiscores.entries[i].nickname, &orig,
-	      get_common_font(COSMIC24_FNT), &green);
-    orig.x += 200;
-    score = mem_alloc(1, 32);
-    sprintf(score, "%u", hiscores.entries[i].score);
-    draw_text(score, &orig, get_common_font(COSMIC24_FNT), &green);
-    mem_free(score);
-    orig.x -= 200;
-    orig.y += 50;
+    position = mem_alloc(1, 32);
+    sprintf(position, "%d", pos);
+    draw_text(position, &orig, get_common_font(COSMIC18_FNT), &yellow);
+    mem_free(position);
+    draw_hiscores_entries(orig, i);
+    orig.y += 40;
+    pos++;
   }
   draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
 }
 
-void	spacehiscores()
+void   	spacehiscores()
 {
+  pos = 1;
   if (!load_hiscores())
   {
     SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");
@@ -102,6 +116,7 @@ void	spacehiscores()
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &spacehiscores)
   {
+    pos = 1;
     if (process_events())
       break;
     display_hiscores();
