@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Thu Sep  4 21:13:15 2014 ENNEBATI Yassine
+** Last update Thu Sep  4 22:05:45 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -28,6 +28,15 @@
 static t_hiscores	hiscores;
 static Uint8		pos;
 
+static void	destroy_hiscores()
+{
+  Uint8		i;
+
+  for (i = 0; i < hiscores.count; ++i)
+    mem_free(hiscores.entries[i].nickname);
+  mem_free(hiscores.entries);
+}
+
 static Uint8	process_events()
 {
   SDL_Event	e;
@@ -36,6 +45,7 @@ static Uint8	process_events()
     return (0);
   if (e.type == SDL_QUIT)
   {
+    destroy_hiscores();
     space_destroy();
     set_launcher(NULL);
     return (1);
@@ -45,6 +55,7 @@ static Uint8	process_events()
     if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
     {
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+      destroy_hiscores();
       set_launcher(&space_menu);
       return (1);
     }
