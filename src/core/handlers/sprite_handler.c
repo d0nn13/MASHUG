@@ -34,8 +34,6 @@ t_spritesheet	*make_spritesheet(const char *img, const char *xml)
   SDL_FreeSurface(surface);
   sprite_count = xml_parse(xml, SHEET_XML, NULL);
   ss->sprites = mem_alloc(sprite_count + 1, sizeof(t_spriteholder *));
-  if (!ptr_chk(ss->sprites, "sprites", SPR_LCAT, "make_spritesheet"))
-    return (NULL);
   xml_parse(xml, SHEET_XML, ss);
   SDL_LogDebug(SPR_LCAT, "make_spritesheet: loaded '%s' with data from '%s'",
 	       img, xml);
