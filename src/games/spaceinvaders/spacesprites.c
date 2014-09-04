@@ -16,10 +16,18 @@
 
 static t_spritesheet	*spacespritesheet = NULL;
 
+/* TODO: use a return value instead of exiting here */
 void			load_space_sprites()
 {
   spacespritesheet = make_spritesheet("media/gfx/sprites_sheet_alpha.png",
 				      "media/gfx/sprites_sheet_alpha.sprites");
+  if (!spacespritesheet ||
+      !spacespritesheet->tex ||
+      !spacespritesheet->sprites)
+  {
+    SDL_LogCritical(SPR_LCAT, "Unable to load sprites !!! Exiting");
+    exit(EXIT_FAILURE);
+  }
 }
 
 t_spritesheet const	*get_space_sprites()

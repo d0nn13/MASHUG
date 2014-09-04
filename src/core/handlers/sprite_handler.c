@@ -26,8 +26,10 @@ t_spritesheet	*make_spritesheet(const char *img, const char *xml)
   SDL_Surface	*surface;
   Uint8		sprite_count;
 
-  ss = mem_alloc(1, sizeof(t_spritesheet));
   surface = IMG_Load_RW(SDL_RWFromFile(img, "rb"), 1);
+  if (!ptr_chk(surface, "surface", SPR_LCAT, "make_spritesheet"))
+      return (NULL);
+  ss = mem_alloc(1, sizeof(t_spritesheet));
   ss->tex = make_texture_from_surface(get_renderer(), surface);
   SDL_FreeSurface(surface);
   sprite_count = xml_parse(xml, SHEET_XML, NULL);
