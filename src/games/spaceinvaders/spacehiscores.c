@@ -25,17 +25,6 @@
 
 #include "spacehiscores.h"
 
-static t_hiscores	hiscores;
-static Uint8		pos;
-
-static void	destroy_hiscores()
-{
-  Uint8		i;
-
-  for (i = 0; i < hiscores.count; ++i)
-    mem_free(hiscores.entries[i].nickname);
-  mem_free(hiscores.entries);
-}
 
 static Uint8	process_events()
 {
@@ -45,7 +34,6 @@ static Uint8	process_events()
     return (0);
   if (e.type == SDL_QUIT)
   {
-    destroy_hiscores();
     space_destroy();
     set_launcher(NULL);
     return (1);
@@ -55,7 +43,6 @@ static Uint8	process_events()
     if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
     {
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-      destroy_hiscores();
       set_launcher(&space_menu);
       return (1);
     }
@@ -63,76 +50,74 @@ static Uint8	process_events()
   return (0);
 }
 
-static Uint8   	load_hiscores()
+static Uint8   	load_hiscores(t_hiscores *hiscores)
 {
   xml_hiscore_set_game_filter("spaceinvaders");
-  hiscores.count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
-  if (!hiscores.count)
+  hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
+  if (!hiscores->count)
     return (0);
-  hiscores.entries = mem_alloc(hiscores.count, sizeof(t_hiscoreholder)); 
-  xml_parse("media/hiscores.xml", HISCORES_XML, hiscores.entries);
+  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder)); 
+  xml_parse("media/hiscores.xml", HISCORES_XML, hiscores->entries);
   return (1);
 }
 
-static void		draw_hiscores_entries(SDL_Point orig, Uint8 const i)
+static void		draw_hiscores_entries(SDL_Point orig, t_hiscoreholder entry)
 {
   SDL_Color const	white = {255, 255, 255, 0};
-  char			*score;
+  char			score[6];
 
-  score = NULL;
+  memset(score, 0, sizeof(score));
   orig.x += 80;
-  draw_text(hiscores.entries[i].nickname, &orig,
+  draw_text(entry.nickname, &orig,
 	    get_common_font(COSMIC18_FNT), &white);
   orig.x += 200;
-    score = mem_alloc(1, 32);
-  sprintf(score, "%u", hiscores.entries[i].score);
+  sprintf(score, "%u", entry.score);
   draw_text(score, &orig, get_common_font(COSMIC18_FNT), &white);
-  mem_free(score);
 }
 
-static void    		display_hiscores()
+static void    		display_hiscores(t_hiscores hiscores)
 {
   SDL_Color const	yellow = {0, 255, 0, 0};
   SDL_Color const	green = {255, 0, 0, 0};
   SDL_Point		orig;
-  char			*position;
+  char			position[3];
   Uint8			i;
 
+  memset(position, 0, sizeof(position));
   renderer_clear(NULL);
-  orig = point_factory(280, 130);
-  draw_text("THE BEST 10", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(170, 170);
-  for (i = 0; i < hiscores.count; ++i)
+  orig = point_factory(330, 130);
+  draw_text("TOP 10", &orig, get_common_font(COSMIC24_FNT), &green);
+  orig = point_factory(220, 170);
+  for (i = 1; i < hiscores.count; ++i)
   {
-    position = mem_alloc(1, 32);
-    sprintf(position, "%d", pos);
+    sprintf(position, "%d", i);
     draw_text(position, &orig, get_common_font(COSMIC18_FNT), &yellow);
-    mem_free(position);
-    draw_hiscores_entries(orig, i);
+    draw_hiscores_entries(orig, hiscores.entries[i - 1]);
     orig.y += 40;
-    pos++;
   }
   draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
 }
 
-void   	spacehiscores()
+void		spacehiscores()
 {
-  pos = 1;
-  if (!load_hiscores())
+  t_hiscores	hiscores;
+  Uint8		i;
+
+  if (!load_hiscores(&hiscores))
   {
     SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");
     return ;
   }
-  display_hiscores();
+  display_hiscores(hiscores);
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &spacehiscores)
-  {
-    pos = 1;
     if (process_events())
+    {
+      for (i = 0; i < hiscores.count; ++i)
+	mem_free(hiscores.entries[i].nickname);
+      mem_free(hiscores.entries);
       break;
-    display_hiscores();
-    SDL_RenderPresent(get_renderer());
-  }
+    }
 }
 
 Uint8	save_spacehiscores();
