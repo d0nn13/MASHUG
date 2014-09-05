@@ -95,16 +95,15 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
     set_launcher(&input_test);
   else if (*s == get_input(START_INP)->code)
   {
-    if (entries[*item].enabled)
-    {
-      play_sfx(get_common_sfx(BLIPOK_SFX));
-      set_launcher(entries[*item].callback);
-    }
+    if (!entries[*item].enabled)
+      return (0);
+    play_sfx(get_common_sfx(BLIPOK_SFX));
+    set_launcher(entries[*item].callback);
   }
   else if (*s != get_input(UP_INP)->code && *s != get_input(DOWN_INP)->code)
     return (0);
-  display_menu();
-  play_sfx(get_common_sfx(BLIPSEL_SFX));
+  else
+    play_sfx(get_common_sfx(BLIPSEL_SFX));
   return (1);
 }
 
