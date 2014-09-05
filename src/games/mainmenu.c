@@ -70,21 +70,17 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item);
 static void	display_menu()
 {
   Uint8		i;
-SDL_Point orig;
+  SDL_Point	orig;
 
-orig = point_factory(300, 100);
-
+  orig = point_factory(300, 100);
   renderer_clear(NULL);
   draw_text("MASHUG", &orig, get_common_font(PRSTARTK28_FNT), NULL);
   orig = point_factory(100, 180);
   draw_text("Multiple Arcade Shoot'em Up Game", &orig, get_common_font(PRSTARTK18_FNT), NULL);
-
   for (i = 0; i < NB_GAME; ++i)
-  {
     draw_text(entries[i].text, &entries[i].orig,
 	      get_common_font(PRSTARTK24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
-  }
 }
 
 static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
@@ -107,7 +103,6 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
   }
   else if (*s != get_input(UP_INP)->code && *s != get_input(DOWN_INP)->code)
     return (0);
-
   display_menu();
   play_sfx(get_common_sfx(BLIPSEL_SFX));
   return (1);
