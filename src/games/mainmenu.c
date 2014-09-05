@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Sat Jul 26 19:32:50 2014 ENNEBATI Yassine
+** Last update Tue Aug 26 21:29:34 2014 FOFANA Ibrahim
 */
 
 #include		"../base/math.h"
@@ -26,6 +26,7 @@
  */
 typedef enum
 {
+  LIMIT_INF_GAME = -1,
   SPACE_GAME,
   GALAGA_GAME,
   NB_GAME
@@ -38,7 +39,7 @@ static t_menuentry	entries[NB_GAME] =
 {
   {
     "Space Invaders",
-    {200, 300},
+    {200, 400},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     &space_init,
@@ -46,12 +47,12 @@ static t_menuentry	entries[NB_GAME] =
   },
   {
     "Galaga",
-    {200, 400},
+    {280, 500},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     NULL,
     0
-  } 
+  }
 };
 
 static t_menuentries	item = SPACE_GAME;
@@ -69,42 +70,41 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item);
 static void	display_menu()
 {
   Uint8		i;
+  SDL_Point	orig;
 
+  orig = point_factory(300, 100);
   renderer_clear(NULL);
+  draw_text("MASHUG", &orig, get_common_font(PRSTARTK28_FNT), NULL);
+  orig = point_factory(100, 180);
+  draw_text("Multiple Arcade Shoot'em Up Game", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   for (i = 0; i < NB_GAME; ++i)
-  {
     draw_text(entries[i].text, &entries[i].orig,
 	      get_common_font(PRSTARTK24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
-  }
 }
 
 static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
 {
-  t_menuentries	old_item;
-
-  old_item = *item;
-  *item += (*s == get_input(UP_INP)->code && *item != SPACE_GAME) ? -1 : 0;
-  *item += (*s == get_input(DOWN_INP)->code && *item != GALAGA_GAME) ? 1 : 0;
+  *item += (*s == get_input(UP_INP)->code) ? -1 : 0;
+  *item += (*s == get_input(DOWN_INP)->code) ? 1 : 0;
+  *item = (*item == NB_GAME) ? 0 : *item;
+  *item = (*item == LIMIT_INF_GAME) ? NB_GAME - 1 : *item;
   if (*s == get_input(RETURN_INP)->code)
     set_launcher(NULL);
   else if (*s == get_input(TEST_INP)->code)
     set_launcher(&input_test);
   else if (*s == get_input(START_INP)->code)
   {
-    if (entries[*item].enabled)
-    {
-      play_sfx(get_common_sfx(BLIPOK_SFX));
-      set_launcher(entries[*item].callback);
-    }
+    if (!entries[*item].enabled)
+      return (0);
+    play_sfx(get_common_sfx(BLIPOK_SFX));
+    set_launcher(entries[*item].callback);
   }
-  if (*item != old_item)
-  {
-    display_menu();
+  else if (*s != get_input(UP_INP)->code && *s != get_input(DOWN_INP)->code)
+    return (0);
+  else
     play_sfx(get_common_sfx(BLIPSEL_SFX));
-    return (1);
-  }
-  return (0);
+  return (1);
 }
 
 void			main_menu()

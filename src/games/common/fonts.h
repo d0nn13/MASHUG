@@ -29,6 +29,8 @@ typedef enum
   COSMIC24_FNT,
   COSMIC18_FNT,
   PRSTARTK24_FNT,
+  PRSTARTK28_FNT,
+  PRSTARTK18_FNT,
   NB_FNT
 }	t_common_font;
 
