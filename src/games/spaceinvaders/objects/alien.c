@@ -18,7 +18,7 @@
 
 #define NB_ALIENS	55
 
-static t_singlelist	*aliens = NULL;
+static t_singlelist *aliens = NULL;
 
 static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {

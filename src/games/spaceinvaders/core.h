@@ -16,6 +16,19 @@
 #ifndef GAMES_SPACEINVADERS_CORE_H_
 # define GAMES_SPACEINVADERS_CORE_H_
 
+#include "objects/ship.h"
+#include "objects/rocket.h"
+#include "objects/alien.h"
+#include "objects/block.h"
+
+typedef struct	s_spaceobjects
+{
+  t_spaceship	*ship;
+  t_spacerocket	*rocket;
+  t_singlelist	*aliens;
+  t_singlelist	*blocks;
+}		t_spaceobjects;
+
 /**
  *	@brief	Main loop
  */
