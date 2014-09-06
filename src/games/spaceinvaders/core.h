@@ -1,5 +1,5 @@
 /*
-** spacecore.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
+** core.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
 **
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -9,12 +9,12 @@
 */
 
 /**
- *	@file	spacecore.h
+ *	@file	core.h
  *	@brief	Space Invaders Game!!
  */
 
-#ifndef GAMES_SPACEINVADERS_SPACECORE_H_
-# define GAMES_SPACEINVADERS_SPACECORE_H_
+#ifndef GAMES_SPACEINVADERS_CORE_H_
+# define GAMES_SPACEINVADERS_CORE_H_
 
 /**
  *	@brief	Main loop
@@ -26,4 +26,4 @@ void	space_loop();
  */
 SDL_Rect const	*get_spacebounds();
 
-#endif /* !GAMES_SPACEINVADERS_SPACECORE_H_ */
+#endif /* !GAMES_SPACEINVADERS_CORE_H_ */

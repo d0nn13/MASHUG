@@ -12,7 +12,7 @@
 #include "../../core/log.h"
 #include "../../core/handlers.h"
 
-#include "spacesprites.h"
+#include "sprites.h"
 
 static t_spritesheet	*spacespritesheet = NULL;
 

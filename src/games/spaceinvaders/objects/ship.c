@@ -11,7 +11,7 @@
 #include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacesprites.h"
+#include "../sprites.h"
 #include "ship_callback.h"
 
 #include "ship.h"

@@ -1,5 +1,5 @@
 /*
-** spacecore.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
+** core.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
 **
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -17,14 +17,14 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacesprites.h"
-#include "spacemenu.h"
+#include "sprites.h"
+#include "menu.h"
 #include "objects/ship_callback.h"
 #include "objects/rocket_callback.h"
 #include "objects/alien_callback.h"
 #include "objects/block_callback.h"
 
-#include "spacecore.h"
+#include "core.h"
 
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceship	*ship = NULL;

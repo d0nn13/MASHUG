@@ -9,7 +9,7 @@
 */
 
 #include "../../base/memory.h"
-#include "spacecontext.h"
+#include "context.h"
 
 #define NB_SPACE_LIVES 3
 

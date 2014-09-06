@@ -18,11 +18,11 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacesprites.h"
-#include "spacecore.h"
-#include "spacehiscores.h"
+#include "sprites.h"
+#include "core.h"
+#include "hiscores.h"
 
-#include "spacemenu.h"
+#include "menu.h"
 
 /**
  *	Space menu entries enumeration

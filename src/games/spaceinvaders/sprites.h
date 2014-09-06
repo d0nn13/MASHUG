@@ -1,5 +1,5 @@
 /*
-** spacespritesheet.h for MASHUG in 
+** sprites.h for MASHUG in 
 ** 
 ** Made by Emmanuel Atse
 ** Login   <atse_e@etna-alternance.net>
@@ -8,8 +8,8 @@
 ** Last update Wed Sep  3 14:53:35 2014 Emmanuel Atse
 */
 
-#ifndef	GAMES_SPACESPRITESHEET_H_
-# define GAMES_SPACESPRITESHEET_H_
+#ifndef	GAMES_SPACEINVADERS_SPRITES_H_
+# define GAMES_SPACEINVADERS_SPRITES_H_
 
 # include "../../core/graphics.h"
 
@@ -36,4 +36,4 @@ t_spritesheet const	*get_spacesprites();
  */
 void			spacesprites_destroy();
 
-#endif		/* !GAMES_SPACESPRITESHEET_H_ */
+#endif		/* !GAMES_SPACEINVADERS_SPRITES_H_ */

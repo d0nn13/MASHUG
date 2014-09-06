@@ -1,5 +1,5 @@
 /*
-** spacecontext.h for MASHUG in /Users/ibrahimfofana/Documents/RenduSVN/1/mashug
+** context.h for MASHUG in /Users/ibrahimfofana/Documents/RenduSVN/1/mashug
 **
 ** Made by FOFANA Ibrahim
 ** Login   <fofana_i@etna-alternance.net>
@@ -9,12 +9,12 @@
 */
 
 /**
- *	@file	spacecontext.h
+ *	@file	context.h
  *	@brief	SpaceInvaders game context (Lives, score)
  */
 
-#ifndef SPACECONTEXT_H_
-# define SPACECONTEXT_H_
+#ifndef GAME_SPACEINVADERS_CONTEXT_H_
+# define GAME_SPACEINVADERS_CONTEXT_H_
 
 #include <SDL2/SDL_stdinc.h>
 
@@ -42,4 +42,4 @@ void	spacecontext_destroy();
  */
 t_spacecontext	*get_spacecontext();
 
-#endif /* !SPACECONTEXT_H_ */
+#endif /* !GAME_SPACEINVADERS_CONTEXT_H_ */

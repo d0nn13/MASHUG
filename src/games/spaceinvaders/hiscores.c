@@ -1,5 +1,5 @@
 /*
-** spacehiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** hiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
 **
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -19,11 +19,11 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacesprites.h"
-#include "spacecore.h"
-#include "spacemenu.h"
+#include "sprites.h"
+#include "core.h"
+#include "menu.h"
 
-#include "spacehiscores.h"
+#include "hiscores.h"
 
 
 static Uint8	process_events()

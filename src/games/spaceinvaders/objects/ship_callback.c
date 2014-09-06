@@ -11,7 +11,7 @@
 #include "../../../core/log.h"
 #include "../../../core/input.h"
 #include "../../../core/handlers.h"
-#include "../spacecore.h"
+#include "../core.h"
 #include "ship.h"
 #include "rocket.h"
 
