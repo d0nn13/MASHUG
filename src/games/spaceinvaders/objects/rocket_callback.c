@@ -21,14 +21,23 @@
 
 #include "rocket_callback.h"
 
-static void		display_impact(t_spacerocket const *rocket)
+#define IMPACT_PERSIST	7
+
+static Uint8			display_impact(t_spacerocket const *rocket)
 {
-  t_spriteholder const	*spr = get_sprite(get_space_sprites(), "impact0");
-  SDL_Rect		impact;
+  t_spriteholder const * const	spr = get_sprite(get_space_sprites(), "impact0");
+  SDL_Rect			impact;
+  static Uint8			persist = IMPACT_PERSIST;
 
   impact = rect_factory(rocket->rect.x - spr->rect.w / 2 + rocket->rect.w / 2,
 			rocket->rect.y, spr->rect.w, spr->rect.h);
-  draw_sprite(spr, &impact);
+  if (persist--)
+  {
+    draw_sprite(spr, &impact);
+    return (1);
+  }
+  persist = IMPACT_PERSIST;
+  return (0);
 }
 
 void			spacerocket_display(t_spacerocket *rocket)
@@ -49,8 +58,7 @@ void			spacerocket_display(t_spacerocket *rocket)
   }
   else if (rocket->state == COLLIDED)
   {
-    display_impact(rocket);
-    rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
+    if (!display_impact(rocket))
     rocket->state = IDLE;
   }
   else
