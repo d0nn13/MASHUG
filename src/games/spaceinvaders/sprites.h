@@ -1,12 +1,17 @@
 /*
-** sprites.h for MASHUG in 
-** 
+** sprites.h for MASHUG in
+**
 ** Made by Emmanuel Atse
 ** Login   <atse_e@etna-alternance.net>
-** 
+**
 ** Started on  Wed Jul 16 13:43:59 2014 Emmanuel Atse
-** Last update Wed Sep  3 14:53:35 2014 Emmanuel Atse
+** Last update Sat Sep  6 17:32:42 2014 ENNEBATI Yassine
 */
+
+/**
+ *	@file	sprites.h
+ *	@brief	Space Invaders sprites initializer
+ */
 
 #ifndef	GAMES_SPACEINVADERS_SPRITES_H_
 # define GAMES_SPACEINVADERS_SPRITES_H_
