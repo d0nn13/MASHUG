@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:05:40 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:16:35 2014 ENNEBATI Yassine
 */
 
 /**
@@ -16,7 +16,7 @@
 #ifndef GAMES_SPACEINVADERS_CORE_PROCESS_H_
 # define GAMES_SPACEINVADERS_CORE_PROCESS_H_
 
-#include "core.h"
+# include "core.h"
 
 /**
  *	@brief	Space Invaders Events processing

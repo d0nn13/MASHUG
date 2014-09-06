@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:05:40 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:15:54 2014 ENNEBATI Yassine
 */
 
 /**
@@ -16,10 +16,10 @@
 #ifndef GAMES_SPACEINVADERS_CORE_H_
 # define GAMES_SPACEINVADERS_CORE_H_
 
-#include "objects/ship.h"
-#include "objects/rocket.h"
-#include "objects/alien.h"
-#include "objects/block.h"
+# include "objects/ship.h"
+# include "objects/rocket.h"
+# include "objects/alien.h"
+# include "objects/block.h"
 
 typedef struct	s_spaceobjects
 {

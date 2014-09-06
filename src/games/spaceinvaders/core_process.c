@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Wed Sep  3 14:55:33 2014 Emmanuel Atse
+** Last update Sat Sep  6 17:16:48 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -66,4 +66,3 @@ void	space_process_objects(t_spaceobjects *o)
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
   ((t_spacealien *)o->aliens->data)->display(o->aliens);
 }
-

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Thu Sep  4 22:05:45 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:17:36 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -24,7 +24,6 @@
 #include "menu.h"
 
 #include "hiscores.h"
-
 
 static Uint8	process_events()
 {
@@ -56,7 +55,7 @@ static Uint8   	load_hiscores(t_hiscores *hiscores)
   hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
   if (!hiscores->count)
     return (0);
-  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder)); 
+  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder));
   xml_parse("media/hiscores.xml", HISCORES_XML, hiscores->entries);
   return (1);
 }

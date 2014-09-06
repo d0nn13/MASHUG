@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:39:02 2014 FOFANA Ibrahim
-** Last update Fri Sep  5 15:51:31 2014 FOFANA Ibrahim
+** Last update Sat Sep  6 17:16:16 2014 ENNEBATI Yassine
 */
 
 /**
@@ -16,7 +16,7 @@
 #ifndef GAME_SPACEINVADERS_CONTEXT_H_
 # define GAME_SPACEINVADERS_CONTEXT_H_
 
-#include <SDL2/SDL_stdinc.h>
+# include <SDL2/SDL_stdinc.h>
 
 /**
  *	@brief Spaceinvaders context structure definition
