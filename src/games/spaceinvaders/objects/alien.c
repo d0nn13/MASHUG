@@ -38,23 +38,27 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
   }
 }
 
-static void	position_update(Uint8 index, SDL_Rect *rect)
+static t_spacealien	*make_alien(SDL_Rect const *rect, Uint8 const *i)
 {
-  if (!index || (index + 1) % 11)
-    rect->x += 50;
-  else
-  {
-    rect->x = 122;
-    rect->y += 50;
-  }
+  t_spacealien		*alien;
+
+  alien = mem_alloc(1, sizeof(t_spacealien));
+  alien->display = &spacealien_display;
+  alien->move = &spacealien_move;
+  alien->fire = &spacealien_fire;
+  alien->collide = &spacealien_collide;
+  sprite_select(*i, alien->sprite);
+  alien->rect = rect_factory(rect->x, rect->y,
+			     alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
+			     alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
+  return (alien);
 }
 
 t_singlelist		*spacealiens_init()
 {
   t_singlelist		*aliens;
-  t_spacealien		*alien;
   t_singlelist		*node;
-  static SDL_Rect	rect;
+  SDL_Rect		rect;
   Uint8			i;
 
   rect = rect_factory(122, 120, 0, 0);
@@ -62,20 +66,17 @@ t_singlelist		*spacealiens_init()
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
   {
-    alien = mem_alloc(1, sizeof(t_spacealien));
-    alien->display = &spacealien_display;
-    alien->move = &spacealien_move;
-    alien->fire = &spacealien_fire;
-    alien->collide = &spacealien_collide;
-    sprite_select(i, alien->sprite);
-    alien->rect = rect_factory(rect.x, rect.y,
-			       alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
-			       alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
-    position_update(i, &rect);
     if (!i)
-      node->data = alien;
+      node->data = make_alien(&rect, &i);
     else
-      list_push(alien, &node);
+      list_push(make_alien(&rect, &i), &node);
+    if (!i || (i + 1) % 11)
+      rect.x += 50;
+    else
+    {
+      rect.x = 122;
+      rect.y += 50;
+    }
   }
   return (aliens);
 }
