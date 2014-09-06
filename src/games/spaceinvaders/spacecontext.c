@@ -8,7 +8,7 @@
 ** Last update Fri Sep  5 15:11:23 2014 FOFANA Ibrahim
 */
 
-#include "context.h"
+#include "spacecontext.h"
 
 #define NB_SPACE_LIVES 3
 
