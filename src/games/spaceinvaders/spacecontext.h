@@ -16,6 +16,8 @@
 #ifndef CONTEXT_H__
 # define CONTEXT_H__
 
+#include <SDL2/SDL_stdinc.h>
+
 /**
  * @brief Spaceinvaders context structure definition
  */
