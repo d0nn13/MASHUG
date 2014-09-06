@@ -45,6 +45,11 @@ void	spacecore_destroy();
 void	space_loop();
 
 /**
+ *	@brief	Space objects getter
+ */
+t_spaceobjects	*get_spaceobjects();
+
+/**
  *	@brief	Space bounds getter
  */
 SDL_Rect const	*get_spacebounds();

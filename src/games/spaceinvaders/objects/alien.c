@@ -9,6 +9,7 @@
 */
 
 #include "../../../base/memory.h"
+#include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
 #include "../sprites.h"
@@ -17,8 +18,6 @@
 #include "alien.h"
 
 #define NB_ALIENS	55
-
-static t_singlelist *aliens = NULL;
 
 static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {
@@ -50,8 +49,9 @@ static void	position_update(Uint8 index, SDL_Rect *rect)
   }
 }
 
-void			spacealiens_init()
+t_singlelist		*spacealiens_init()
 {
+  t_singlelist		*aliens;
   t_spacealien		*alien;
   t_singlelist		*node;
   static SDL_Rect	rect;
@@ -77,22 +77,19 @@ void			spacealiens_init()
     else
       list_push(alien, &node);
   }
+  return (aliens);
 }
 
-void	spacealiens_destroy()
+void	spacealiens_destroy(t_singlelist **aliens)
 {
   t_singlelist	*node;
 
-  for (node = aliens; node; node = node->next)
+  if (!ptr_chk(*aliens, "aliens", APP_LCAT, "spacealiens_destroy"))
+    return ;
+  for (node = *aliens; node; node = node->next)
   {
     mem_free(node->data);
     node->data = NULL;
   }
-  list_clear(&aliens);
-  aliens = NULL;
-}
-
-t_singlelist	*get_spacealiens()
-{
-  return (aliens);
+  list_clear(aliens);
 }

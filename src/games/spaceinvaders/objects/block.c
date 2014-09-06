@@ -1,5 +1,5 @@
 /*
-** block->c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
+** block.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -9,6 +9,7 @@
 */
 
 #include "../../../base/memory.h"
+#include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
 #include "../sprites.h"
@@ -16,15 +17,15 @@
 
 #define BLOCK_NB	4
 
-static t_singlelist	*blocks = NULL;
 static char		*block_spr_names[NB_SPACE_BLOCK_SPR] =
 {
   "block0",
   "block1"
 };
 
-void			spaceblock_init()
+t_singlelist		*spaceblocks_init()
 {
+  t_singlelist		*blocks;
   t_spaceblock		*block;
   t_singlelist		*node;
   SDL_Rect		rect;
@@ -51,22 +52,19 @@ void			spaceblock_init()
     else
       list_push(block, &node);
   }
+  return (blocks);
 }
 
-void	spaceblock_destroy()
+void	spaceblocks_destroy(t_singlelist **blocks)
 {
   t_singlelist	*node;
 
-  for (node = blocks; node; node = node->next)
+  if (!ptr_chk(*blocks, "blocks", APP_LCAT, "spaceblocks_destroy"))
+    return ;
+  for (node = *blocks; node; node = node->next)
   {
     mem_free(node->data);
     node->data = NULL;
   }
-  list_clear(&blocks);
-  blocks = NULL;
-}
-
-t_singlelist	*get_spaceblocks()
-{
-  return (blocks);
+  list_clear(blocks);
 }

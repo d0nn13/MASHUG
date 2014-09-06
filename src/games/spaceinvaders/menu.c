@@ -44,7 +44,7 @@ static t_menuentry	entries[NB_MEN] =
     {325, 298},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
-    &space_loop,
+    &spacecore_init,
     1
   },
   {

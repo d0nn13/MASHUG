@@ -27,7 +27,7 @@
  */
 typedef struct		s_spaceblock
 {
-  void			(*display)(t_singlelist *block);
+  void			(*display)(t_singlelist *blocks);
   void			(*collide)();
   t_spriteholder const	*sprite[NB_SPACE_BLOCK_SPR];
   SDL_Rect 		rect;
@@ -36,20 +36,11 @@ typedef struct		s_spaceblock
 /**
  *	@brief	Initializes Space Invaders block
  */
-void	spaceblock_init();
+t_singlelist	*spaceblocks_init();
 
 /**
  *	@brief	Destroys Space Invaders block
  */
-void	spaceblock_destroy();
-
-/**
- *	@brief	Block getter
- */
-t_singlelist	*get_spaceblocks();
-
-
-
-
+void	spaceblocks_destroy(t_singlelist **blocks);
 
 #endif /* !GAMES_SPACEINVADERS_OBJECT_BLOCK_H_ */

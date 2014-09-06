@@ -28,11 +28,19 @@ static void	display_hud()
 
 void	spacecore_init()
 {
+  objects.ship = spaceship_init();
+  objects.rocket = spacerocket_init();
+  objects.blocks = spaceblocks_init();
+  objects.aliens = spacealiens_init();
   set_launcher(&space_loop);
 }
 
 void	spacecore_destroy()
 {
+  spacealiens_destroy(&objects.aliens);
+  spaceblocks_destroy(&objects.blocks);
+  spacerocket_destroy(&objects.rocket);
+  spaceship_destroy(&objects.ship);
 }
 
 void			space_loop()
@@ -41,10 +49,6 @@ void			space_loop()
   Uint32		to;
   Uint32 const		t = (1000 / get_option_value(FRAMERATE_OPT));
 
-  objects.ship = get_spaceship();
-  objects.rocket = get_spacerocket();
-  objects.aliens = get_spacealiens();
-  objects.blocks = get_spaceblocks();
   while (get_launcher() == &space_loop)
   {
     ti = SDL_GetTicks();
@@ -60,6 +64,11 @@ void			space_loop()
       SDL_Delay(t - to);
     SDL_LogVerbose(0, "%d", to);
   }
+}
+
+t_spaceobjects	*get_spaceobjects()
+{
+  return (&objects);
 }
 
 SDL_Rect const	*get_spacebounds()

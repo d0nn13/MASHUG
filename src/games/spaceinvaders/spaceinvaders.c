@@ -24,23 +24,6 @@
 
 static	Uint8 loaded = 0;
 
-static Uint8	spaceobjects_init()
-{
-  spaceship_init();
-  spacerocket_init();
-  spacealiens_init();
-  spaceblock_init();
-  return (0);
-}
-
-static void	spaceobjects_destroy()
-{
-  spaceblock_destroy();
-  spacealiens_destroy();
-  spacerocket_destroy();
-  spaceship_destroy();
-}
-
 void 	space_init()
 {
   if (loaded)
@@ -48,8 +31,7 @@ void 	space_init()
 		"Tried to load an already loaded Space Invaders game");
   else
   {
-    if (spacesprites_init() || spacecontext_init() ||
-        spaceobjects_init())
+    if (spacesprites_init())
     {
       SDL_LogCritical(APP_LCAT, "Space Invaders initialisation failed");
       set_launcher(&main_menu);
@@ -65,11 +47,9 @@ void	space_destroy()
 {
   if (!loaded)
     SDL_LogWarn(APP_LCAT,
-		"Tried to unload an non-loaded Space Invaders game");
+		"Tried to unload a non-loaded Space Invaders game");
   else
   {
-    spaceobjects_destroy();
-    spacecontext_destroy();
     spacesprites_destroy();
     loaded = 0;
   }
