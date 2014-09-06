@@ -30,7 +30,7 @@ typedef struct	s_spacecontext
 /**
  *	@brief Initializes Space Invaders context
  */
-void	spacecontext_init();
+Uint8	spacecontext_init();
 
 /**
  *	@brief Destroys Space Invaders context

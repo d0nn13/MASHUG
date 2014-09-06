@@ -15,11 +15,12 @@
 
 static t_spacecontext *spacecontext = NULL;
 
-void spacecontext_init()
+Uint8 spacecontext_init()
 {
   spacecontext = mem_alloc(1, sizeof(t_spacecontext));
   spacecontext->lives = NB_SPACE_LIVES;
   spacecontext->score = 0;
+  return (0);
 }
 
 void spacecontext_destroy()
