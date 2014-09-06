@@ -23,34 +23,39 @@ static char		*block_spr_names[NB_SPACE_BLOCK_SPR] =
   "block1"
 };
 
+static	t_spaceblock	*make_block(SDL_Rect *rect)
+{
+  t_spaceblock		*block;
+  Uint8			i;
+
+  block = mem_alloc(1, sizeof(t_spaceblock));
+  block->display = &spaceblock_display;
+  block->collide = &spaceblock_collide;
+  for (i = 0; i < NB_SPACE_BLOCK_SPR; ++i)
+    block->sprite[i] = get_sprite(get_spacesprites(), block_spr_names[i]);
+  block->rect = rect_factory(rect->x, 400,
+			     block->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
+			     block->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
+  return (block);
+}
+
 t_singlelist		*spaceblocks_init()
 {
   t_singlelist		*blocks;
-  t_spaceblock		*block;
   t_singlelist		*node;
   SDL_Rect		rect;
-  Uint8			b;
-  Uint8			s;
+  Uint8			i;
 
   rect.x = 140;
   blocks = list_make_node();
   node = blocks;
-  for (b = 0; b < BLOCK_NB; ++b)
+  for (i = 0; i < BLOCK_NB; ++i)
   {
-    block = mem_alloc(1, sizeof(t_spaceblock));
-    block->display = &spaceblock_display;
-    block->collide = &spaceblock_collide;
-    for (s = 0; s < NB_SPACE_BLOCK_SPR; ++s)
-      block->sprite[s] = get_sprite(get_spacesprites(), block_spr_names[s]);
-    rect = rect_factory(rect.x, 400,
-			block->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
-			block->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
-    block->rect = rect;
-    rect.x += 132;
-    if (!b)
-      node->data = block;
+    if (!i)
+      node->data = make_block(&rect);
     else
-      list_push(block, &node);
+      list_push(make_block(&rect), &node);
+    rect.x += 132;
   }
   return (blocks);
 }
