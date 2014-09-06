@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Wed Sep  3 14:55:11 2014 Emmanuel Atse
+** Last update Sat Aug 23 12:29:11 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -52,7 +52,7 @@ static t_menuentry	entries[NB_MEN] =
     {289, 369},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
-    &hiscores,
+    &spacehiscores,
     1
   }
 };

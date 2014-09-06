@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Jul 23 12:48:41 2014 Emmanuel Atse
+** Last update Sat Aug 23 12:12:36 2014 ENNEBATI Yassine
 */
 
 /**
@@ -200,6 +200,12 @@ typedef struct	s_hiscoreholder
   Uint32	date;
 }		t_hiscoreholder;
 
+typedef struct		s_hiscores
+{
+  t_hiscoreholder	*entries;
+  Uint8       		count;
+}			t_hiscores;
+
 /**
  *	@brief	XML Hiscore parsing callback
  *
@@ -274,8 +280,8 @@ typedef enum
  *	@param	path The path to the XML file
  *	@param	callback The XML parsing callback
  *	@param	container A pointer to a container where to save parsed values or NULL
- *	@return	Number of counted elements
+ *	@return	Negative error code or number of counted elements if succeeded
  */
-Sint8		xml_parse(char const *path, t_xml_type type, void *container);
+Sint32		xml_parse(char const *path, t_xml_type type, void *container);
 
 #endif /* !CORE_HANDLERS_ */

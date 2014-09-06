@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sat Jul 12 17:22:40 2014 Samir Ahamada
-** Last update Sat Jul 26 20:19:48 2014 FOFANA Ibrahim
+** Last update Sat Aug 23 12:10:58 2014 ENNEBATI Yassine
 */
 
 /**
@@ -56,11 +56,11 @@ static Uint8	xml_validate(xmlDocPtr doc, t_xml_type t);
  */
 static void	xml_silent(void *, char const *, ...);
 
-Sint8		xml_parse(char const *path, t_xml_type t, void *container)
+Sint32		xml_parse(char const *path, t_xml_type t, void *container)
 {
   xmlDocPtr	doc;
   xmlNodePtr	node;
-  Sint8		ret;
+  Sint32       	ret;
 
   xmlSetGenericErrorFunc(NULL, &xml_silent);
   if (!ptr_chk(path, "xml path", XML_LCAT, "xml_parse") ||
