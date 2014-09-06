@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Aug 04 16:46:28 2014 Samir Ahamada
-** Last update Mon Aug 04 16:46:28 2014 Samir Ahamada
+** Last update Sat Sep  6 13:22:33 2014 ENNEBATI Yassine
 */
 
 /**
@@ -27,7 +27,8 @@ static t_inputholder input[NB_INP] = {
   {SDL_SCANCODE_RIGHT, 0, "RIGHT"},
   {SDL_SCANCODE_SPACE, 0, "FIRE"},
   {0, 0, "BUTTON2"},
-  {SDL_SCANCODE_I, 0, "TEST"}
+  {SDL_SCANCODE_I, 0, "TEST"},
+  {SDL_SCANCODE_G, 0, "GAMEOVER_TEST"}
 };
 
 void	input_update()

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 ** 
 ** Started on  Mon Aug 04 14:59:07 2014 Samir Ahamada
-** Last update Mon Aug 04 14:59:07 2014 Samir Ahamada
+** Last update Sat Sep  6 13:22:26 2014 ENNEBATI Yassine
 */
 
 /**
@@ -36,6 +36,7 @@ typedef	enum
   FIRE_INP,
   BUTTON2_INP,
   TEST_INP,
+  GAMEOVER_TEST_INP,
   NB_INP
 }		t_inputs;
 

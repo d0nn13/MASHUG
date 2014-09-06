@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sat Aug 23 12:29:11 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 13:22:51 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -21,8 +21,10 @@
 #include "sprites.h"
 #include "core.h"
 #include "hiscores.h"
+#include "spacegameover.h"
 
 #include "menu.h"
+
 
 /**
  *	Space menu entries enumeration
@@ -102,6 +104,10 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
       play_sfx(get_common_sfx(BLIPOK_SFX));
       set_launcher(entries[*item].callback);
     }
+  }
+  else if (*s == get_input(GAMEOVER_TEST_INP)->code)
+  {
+    set_launcher(&space_gameover);
   }
   if (*item != old_item)
   {
