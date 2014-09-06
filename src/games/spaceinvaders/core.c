@@ -26,11 +26,9 @@ static void	display_hud()
 {
 }
 
-Uint8	spacecore_init()
+void	spacecore_init()
 {
   set_launcher(&space_loop);
-
-  return (0);
 }
 
 void	spacecore_destroy()

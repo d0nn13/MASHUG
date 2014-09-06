@@ -32,7 +32,7 @@ typedef struct	s_spaceobjects
 /**
  *	@brief	Initialises object instances
  */
-Uint8	spacecore_init();
+void	spacecore_init();
 
 /**
  *	@brief	Destroys object instances
