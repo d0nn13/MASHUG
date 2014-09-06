@@ -11,13 +11,14 @@
 #include <SDL2/SDL_stdinc.h>
 #include "../../core/log.h"
 #include "../../core/launcher.h"
-#include "spacesprites.h"
+#include "../mainmenu.h"
 #include "spacemenu.h"
+#include "spacesprites.h"
+#include "spacecontext.h"
 #include "objects/ship.h"
 #include "objects/rocket.h"
 #include "objects/alien.h"
 #include "objects/block.h"
-#include "../mainmenu.h"
 
 #include "spaceinvaders.h"
 
@@ -47,7 +48,8 @@ void 	space_init()
 		"Tried to load an already loaded Space Invaders game");
   else
   {
-    if (spacesprites_init() || spaceobjects_init())
+    if (spacesprites_init() || spacecontext_init() ||
+        spaceobjects_init())
     {
       SDL_LogCritical(APP_LCAT, "Space Invaders initialisation failed");
       set_launcher(&main_menu);
@@ -67,6 +69,7 @@ void	space_destroy()
   else
   {
     spaceobjects_destroy();
+    spacecontext_destroy();
     spacesprites_destroy();
     loaded = 0;
   }
