@@ -24,16 +24,16 @@
 /**
  *	@brief	Load spaceinvaders sprite sheet
  */
-void			load_space_sprites();
+Uint8			spacesprites_init();
 
 /**
  *	@brief	Sprite sheet getter
  */
-t_spritesheet const	*get_space_sprites();
+t_spritesheet const	*get_spacesprites();
 
 /**
  *	@brief	Destroys spaceinvaders spritesheet
  */
-void			free_space_sprites();
+void			spacesprites_destroy();
 
 #endif		/* !GAMES_SPACESPRITESHEET_H_ */

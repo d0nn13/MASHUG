@@ -92,7 +92,7 @@ void			space_loop()
     if (process_events())
       break;
     process_objects();
-    draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
+    draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
     SDL_RenderPresent(get_renderer());
     to = SDL_GetTicks() - ti;
     if (to < t)

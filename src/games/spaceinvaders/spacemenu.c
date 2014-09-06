@@ -76,11 +76,11 @@ static void	display_menu()
 
   rect = rect_factory(187, 122, 420, 119);
   renderer_clear(NULL);
-  draw_sprite(get_sprite(get_space_sprites(), TITLE_SPR), &rect);
+  draw_sprite(get_sprite(get_spacesprites(), TITLE_SPR), &rect);
   for (i = 0; i < NB_MEN; ++i)
     draw_text(entries[i].text, &entries[i].orig, get_common_font(ATARI24_FNT),
 	      item == i ? &entries[i].sel_color : &entries[i].uns_color);
-  draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
+  draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
 }
 
 static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)

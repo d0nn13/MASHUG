@@ -16,18 +16,25 @@
 
 static t_spritesheet	*spacespritesheet = NULL;
 
-void			load_space_sprites()
+Uint8			spacesprites_init()
 {
   spacespritesheet = make_spritesheet("media/gfx/sprites_sheet_alpha.png",
 				      "media/gfx/sprites_sheet_alpha.sprites");
+  if (!spacespritesheet || !spacespritesheet->tex ||
+      !spacespritesheet->sprites)
+  {
+    SDL_LogCritical(SPR_LCAT, "Unable to load Space Invaders sprites");
+    return (1);
+  }
+  return (0);
 }
 
-t_spritesheet const	*get_space_sprites()
+t_spritesheet const	*get_spacesprites()
 {
   return (spacespritesheet);
 }
 
-void			free_space_sprites()
+void			spacesprites_destroy()
 {
   free_spritesheet(spacespritesheet);
   spacespritesheet = NULL;

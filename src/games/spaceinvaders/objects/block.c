@@ -40,7 +40,7 @@ void			spaceblock_init()
     block->display = &spaceblock_display;
     block->collide = &spaceblock_collide;
     for (s = 0; s < NB_SPACE_BLOCK_SPR; ++s)
-      block->sprite[s] = get_sprite(get_space_sprites(), block_spr_names[s]);
+      block->sprite[s] = get_sprite(get_spacesprites(), block_spr_names[s]);
     rect = rect_factory(rect.x, 400,
 			block->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
 			block->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);

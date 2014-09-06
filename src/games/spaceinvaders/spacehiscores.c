@@ -38,7 +38,7 @@ void			hiscores()
   renderer_clear(NULL);
   draw_text("HISCORES", &orig, get_common_font(COSMIC48_FNT),
 	    &white);
-  draw_sprite(get_sprite(get_space_sprites(), CABINET_SPR), NULL);
+  draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
   while (get_launcher() == &hiscores)
   {
     SDL_RenderPresent(get_renderer());

@@ -20,7 +20,7 @@ static t_spacerocket	*rocket = NULL;
 
 void			spacerocket_init()
 {
-  t_spriteholder const	*sprite = get_sprite(get_space_sprites(), "rocket0");
+  t_spriteholder const	*sprite = get_sprite(get_spacesprites(), "rocket0");
 
   rocket = mem_alloc(1, sizeof(t_spacerocket));
   rocket->display = &spacerocket_display;

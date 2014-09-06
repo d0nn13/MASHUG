@@ -20,7 +20,7 @@ static t_spaceship	*ship = NULL;
 
 void			spaceship_init()
 {
-  t_spriteholder const	*sprite = get_sprite(get_space_sprites(), "ship");
+  t_spriteholder const	*sprite = get_sprite(get_spacesprites(), "ship");
 
   ship = mem_alloc(1, sizeof(t_spaceship));
   ship->display = &spaceship_display;
