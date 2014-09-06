@@ -1,11 +1,11 @@
 /*
-** spacehiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** hiscores.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
 **
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Thu Sep  4 22:05:45 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:17:36 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -19,12 +19,11 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacesprites.h"
-#include "spacecore.h"
-#include "spacemenu.h"
+#include "sprites.h"
+#include "core.h"
+#include "menu.h"
 
-#include "spacehiscores.h"
-
+#include "hiscores.h"
 
 static Uint8	process_events()
 {
@@ -56,7 +55,7 @@ static Uint8   	load_hiscores(t_hiscores *hiscores)
   hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
   if (!hiscores->count)
     return (0);
-  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder)); 
+  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder));
   xml_parse("media/hiscores.xml", HISCORES_XML, hiscores->entries);
   return (1);
 }

@@ -1,18 +1,18 @@
 /*
 ** spacespritesheet.c for spaceinvaders in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Tue Jul 29 00:12:24 2014 Samir Ahamada
-** Last update Wed Sep  3 14:59:05 2014 Emmanuel Atse
+** Last update Sat Sep  6 17:31:55 2014 ENNEBATI Yassine
 */
 
 #include "../../base/memory.h"
 #include "../../core/log.h"
 #include "../../core/handlers.h"
 
-#include "spacesprites.h"
+#include "sprites.h"
 
 static t_spritesheet	*spacespritesheet = NULL;
 
@@ -39,4 +39,3 @@ void			spacesprites_destroy()
   free_spritesheet(spacespritesheet);
   spacespritesheet = NULL;
 }
-

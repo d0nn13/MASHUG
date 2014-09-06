@@ -1,5 +1,5 @@
 /*
-** spacemenu.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** menu.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
@@ -9,7 +9,7 @@
 */
 
 /**
- *	@file	spacemenu.h
+ *	@file	menu.h
  *	@brief	Main menu for space invaders game
  */
 

@@ -9,17 +9,18 @@
 */
 
 #include "../../../base/memory.h"
+#include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacesprites.h"
+#include "../sprites.h"
 #include "rocket_callback.h"
 
 #include "rocket.h"
 
-static t_spacerocket	*rocket = NULL;
 
-void			spacerocket_init()
+t_spacerocket		*spacerocket_init()
 {
+  t_spacerocket		*rocket;
   t_spriteholder const	*sprite = get_sprite(get_spacesprites(), "rocket0");
 
   rocket = mem_alloc(1, sizeof(t_spacerocket));
@@ -29,15 +30,13 @@ void			spacerocket_init()
   rocket->rect = rect_factory(0, 0, sprite->rect.w * OBJ_RESIZE_FACTOR,
 			      sprite->rect.h * OBJ_RESIZE_FACTOR);
   rocket->state = IDLE;
-}
-
-void			spacerocket_destroy()
-{
-  mem_free(rocket);
-  rocket = NULL;
-}
-
-t_spacerocket	*get_spacerocket()
-{
   return (rocket);
+}
+
+void	spacerocket_destroy(t_spacerocket **rocket)
+{
+  if (!ptr_chk(*rocket, "rocket", APP_LCAT, "spacerocket_destroy"))
+    return ;
+  mem_free(*rocket);
+  rocket = NULL;
 }

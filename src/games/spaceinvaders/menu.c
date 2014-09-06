@@ -18,11 +18,11 @@
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
-#include "spacesprites.h"
-#include "spacecore.h"
-#include "spacehiscores.h"
+#include "sprites.h"
+#include "core.h"
+#include "hiscores.h"
 
-#include "spacemenu.h"
+#include "menu.h"
 
 /**
  *	Space menu entries enumeration
@@ -44,7 +44,7 @@ static t_menuentry	entries[NB_MEN] =
     {325, 298},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
-    &space_loop,
+    &spacecore_init,
     1
   },
   {

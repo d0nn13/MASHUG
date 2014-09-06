@@ -9,17 +9,17 @@
 */
 
 #include "../../../base/memory.h"
+#include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacesprites.h"
+#include "../sprites.h"
 #include "ship_callback.h"
 
 #include "ship.h"
 
-static t_spaceship	*ship = NULL;
-
-void			spaceship_init()
+t_spaceship		*spaceship_init()
 {
+  t_spaceship		*ship;
   t_spriteholder const	*sprite = get_sprite(get_spacesprites(), "ship");
 
   ship = mem_alloc(1, sizeof(t_spaceship));
@@ -29,15 +29,13 @@ void			spaceship_init()
   ship->sprite = sprite;
   ship->rect = rect_factory(350, 520, sprite->rect.w * OBJ_RESIZE_FACTOR,
 			    sprite->rect.h * OBJ_RESIZE_FACTOR);
-}
-
-void			spaceship_destroy()
-{
-  mem_free(ship);
-  ship = NULL;
-}
-
-t_spaceship	*get_spaceship()
-{
   return (ship);
+}
+
+void			spaceship_destroy(t_spaceship **ship)
+{
+  if (!ptr_chk(*ship, "ship", APP_LCAT, "spaceship_destroy"))
+    return ;
+  mem_free(*ship);
+  ship = NULL;
 }

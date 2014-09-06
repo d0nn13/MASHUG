@@ -31,7 +31,6 @@
 #include "launcher.h"
 #include "../games/common/common.h"
 #include "../games/mainmenu.h"
-#include "../games/spaceinvaders/spacecore.h"
 
 /**
  *	@brief	Initializes all engine modules

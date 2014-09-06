@@ -1,11 +1,11 @@
 /*
 ** rocket_callback.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders/objects
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Sun Aug 10 04:02:07 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:07:46 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:29:49 2014 ENNEBATI Yassine
 */
 
 /**
@@ -29,4 +29,3 @@ void	spacerocket_display(t_spacerocket *rocket);
 void	spacerocket_collide(t_spacerocket *rocket);
 
 #endif /* !GAMES_SPACEINVADERS_OBJECT_ROCKET_CALLBACK_H_ */
-

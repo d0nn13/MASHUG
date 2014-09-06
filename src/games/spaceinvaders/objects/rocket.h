@@ -41,18 +41,11 @@ typedef struct		s_spacerocket
 /**
  *	@brief	Initializes Space Invaders rocket
  */
-void	spacerocket_init();
+t_spacerocket	*spacerocket_init();
 
 /**
  *	@brief	Destroys Space Invaders rocket
  */
-void	spacerocket_destroy();
-
-/**
- *	@brief	Ship getter
- */
-t_spacerocket	*get_spacerocket();
-
-
+void	spacerocket_destroy(t_spacerocket **rocket);
 
 #endif /* !GAMES_SPACEINVADERS_OBJECT_ROCKET_H_ */

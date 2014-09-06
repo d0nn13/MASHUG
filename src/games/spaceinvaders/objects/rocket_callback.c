@@ -13,8 +13,8 @@
 #include "../../../core/input.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacesprites.h"
-#include "../spacecore.h"
+#include "../sprites.h"
+#include "../core.h"
 #include "rocket.h"
 #include "alien.h"
 #include "block.h"
@@ -71,11 +71,11 @@ void			spacerocket_collide(t_spacerocket *rocket)
 
   if (rocket->state != FIRED)
     return ;
-  for (node = get_spacealiens(); node; node = node->next)
+  for (node = get_spaceobjects()->aliens; node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
-  for (node = get_spaceblocks(); node; node = node->next)
+  for (node = get_spaceobjects()->blocks; node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
 					     node->data)->rect))
       rocket->state = COLLIDED;

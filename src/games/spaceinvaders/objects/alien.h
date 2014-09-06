@@ -5,8 +5,13 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Wed Jul 23 17:00:53 2014 ENNEBATI Yassine
+** Last update Sat Sep  6 17:29:04 2014 ENNEBATI Yassine
 */
+
+/**
+ *	@file	alien.h
+ *	@brief	Space Invaders alien definition
+ */
 
 #ifndef GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_
 # define GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_
@@ -31,16 +36,11 @@ typedef struct		s_spacealien
 /**
  *	@brief	Initializes Space Invaders alien
  */
-void	spacealiens_init();
+t_singlelist		*spacealiens_init();
 
 /**
  *	@brief	Destroys Space Invaders alien
  */
-void	spacealiens_destroy();
-
-/**
- *	@brief	Alien getter
- */
-t_singlelist	*get_spacealiens();
+void	spacealiens_destroy(t_singlelist **aliens);
 
 #endif /* !GAMES_SPACEINVADERS_OBJECTS_ALIEN_H_ */

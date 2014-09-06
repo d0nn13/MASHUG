@@ -9,16 +9,15 @@
 */
 
 #include "../../../base/memory.h"
+#include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
-#include "../spacesprites.h"
+#include "../sprites.h"
 #include "alien_callback.h"
 
 #include "alien.h"
 
 #define NB_ALIENS	55
-
-static t_singlelist	*aliens = NULL;
 
 static void	sprite_select(Uint8 index, t_spriteholder const **sh)
 {
@@ -39,22 +38,27 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
   }
 }
 
-static void	position_update(Uint8 index, SDL_Rect *rect)
-{
-  if (!index || (index + 1) % 11)
-    rect->x += 50;
-  else
-  {
-    rect->x = 122;
-    rect->y += 50;
-  }
-}
-
-void			spacealiens_init()
+static t_spacealien	*make_alien(SDL_Rect const *rect, Uint8 const *i)
 {
   t_spacealien		*alien;
+
+  alien = mem_alloc(1, sizeof(t_spacealien));
+  alien->display = &spacealien_display;
+  alien->move = &spacealien_move;
+  alien->fire = &spacealien_fire;
+  alien->collide = &spacealien_collide;
+  sprite_select(*i, alien->sprite);
+  alien->rect = rect_factory(rect->x, rect->y,
+			     alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
+			     alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
+  return (alien);
+}
+
+t_singlelist		*spacealiens_init()
+{
+  t_singlelist		*aliens;
   t_singlelist		*node;
-  static SDL_Rect	rect;
+  SDL_Rect		rect;
   Uint8			i;
 
   rect = rect_factory(122, 120, 0, 0);
@@ -62,37 +66,31 @@ void			spacealiens_init()
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
   {
-    alien = mem_alloc(1, sizeof(t_spacealien));
-    alien->display = &spacealien_display;
-    alien->move = &spacealien_move;
-    alien->fire = &spacealien_fire;
-    alien->collide = &spacealien_collide;
-    sprite_select(i, alien->sprite);
-    alien->rect = rect_factory(rect.x, rect.y,
-			       alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
-			       alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
-    position_update(i, &rect);
     if (!i)
-      node->data = alien;
+      node->data = make_alien(&rect, &i);
     else
-      list_push(alien, &node);
+      list_push(make_alien(&rect, &i), &node);
+    if (!i || (i + 1) % 11)
+      rect.x += 50;
+    else
+    {
+      rect.x = 122;
+      rect.y += 50;
+    }
   }
+  return (aliens);
 }
 
-void	spacealiens_destroy()
+void	spacealiens_destroy(t_singlelist **aliens)
 {
   t_singlelist	*node;
 
-  for (node = aliens; node; node = node->next)
+  if (!ptr_chk(*aliens, "aliens", APP_LCAT, "spacealiens_destroy"))
+    return ;
+  for (node = *aliens; node; node = node->next)
   {
     mem_free(node->data);
     node->data = NULL;
   }
-  list_clear(&aliens);
-  aliens = NULL;
-}
-
-t_singlelist	*get_spacealiens()
-{
-  return (aliens);
+  list_clear(aliens);
 }
