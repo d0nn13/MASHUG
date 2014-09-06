@@ -22,6 +22,21 @@
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceobjects	objects;
 
+static void	display_hud()
+{
+}
+
+Uint8	spacecore_init()
+{
+  set_launcher(&space_loop);
+
+  return (0);
+}
+
+void	spacecore_destroy()
+{
+}
+
 void			space_loop()
 {
   Uint32		ti;
@@ -36,6 +51,7 @@ void			space_loop()
   {
     ti = SDL_GetTicks();
     renderer_clear(NULL);
+    display_hud();
     if (space_process_events())
       break;
     space_process_objects(&objects);

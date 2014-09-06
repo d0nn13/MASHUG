@@ -36,6 +36,7 @@ Uint8		space_process_events()
     return (0);
   if (e.type == SDL_QUIT)
   {
+    spacecore_destroy();
     space_destroy();
     set_launcher(NULL);
     return (1);
@@ -45,6 +46,7 @@ Uint8		space_process_events()
     if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
     {
       play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+      spacecore_destroy();
       set_launcher(&space_menu);
       return (1);
     }

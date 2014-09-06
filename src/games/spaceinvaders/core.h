@@ -30,6 +30,16 @@ typedef struct	s_spaceobjects
 }		t_spaceobjects;
 
 /**
+ *	@brief	Initialises object instances
+ */
+Uint8	spacecore_init();
+
+/**
+ *	@brief	Destroys object instances
+ */
+void	spacecore_destroy();
+
+/**
  *	@brief	Main loop
  */
 void	space_loop();
