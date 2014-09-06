@@ -1,5 +1,5 @@
 /*
-** context.c for MASHUG in /Users/ibrahimfofana/Documents/RenduSVN/1/devc/spaceinvaders
+** spacecontext.c for MASHUG in /Users/ibrahimfofana/Documents/RenduSVN/1/devc/spaceinvaders
 **
 ** Made by FOFANA Ibrahim
 ** Login   <fofana_i@etna-alternance.net>
