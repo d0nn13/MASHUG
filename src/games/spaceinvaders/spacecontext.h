@@ -21,11 +21,11 @@
 /**
  * @brief Spaceinvaders context structure definition
  */
-typedef struct s_spacecontext
+typedef struct	s_spacecontext
 {
-  Uint8 score;
-  Uint8 lives;
-} t_spacecontext;
+  Uint8		score;
+  Uint8		lives;
+}		t_spacecontext;
 
 /**
  * @brief Initializes Space Invaders context
