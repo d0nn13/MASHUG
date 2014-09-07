@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 12:10:35 2014 FOFANA Ibrahim
-** Last update Sun Sep  7 15:48:54 2014 FOFANA Ibrahim
+** Last update Sun Sep  7 16:42:02 2014 FOFANA Ibrahim
 */
 
 #include "ufo.h"
@@ -15,6 +15,7 @@
 #include "../../../core/helpers.h"
 #include "../../../core/log.h"
 #include "../sprites.h"
+#include "../core.h"
 
 t_spaceufo	*spaceufo_init()
 {
@@ -25,8 +26,11 @@ t_spaceufo	*spaceufo_init()
   ufo->display = &spaceufo_display;
   ufo->move = &spaceufo_move;
   ufo->sprite = sprite;
-  ufo->rect = rect_factory(350, 520, sprite->rect.w * OBJ_RESIZE_FACTOR,
+  ufo->rect = rect_factory(get_spacebounds()->x + (get_spacebounds()->w / 2),
+			   get_spacebounds()->y + (get_spacebounds()->h / 8),
+			   sprite->rect.w * OBJ_RESIZE_FACTOR,
 			   sprite->rect.h * OBJ_RESIZE_FACTOR);
+  ufo->direction = UFO_RIGHT;
   return (ufo);
 }
 

@@ -5,19 +5,31 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 15:14:45 2014 FOFANA Ibrahim
-** Last update Sun Sep  7 15:49:40 2014 FOFANA Ibrahim
+** Last update Sun Sep  7 16:54:55 2014 FOFANA Ibrahim
 */
 
 #include "ufo_callback.h"
 #include "../../../core/handlers.h"
+#include "../core.h"
 
 void	spaceufo_display(t_spaceufo *ufo)
 {
     draw_sprite(ufo->sprite, &ufo->rect);
 }
 
-void	spaceufo_move()
+void	spaceufo_move(t_spaceufo *ufo)
 {
+  if (ufo->direction == UFO_NONE)
+    return ;
+  if (ufo->rect.x + ufo->rect.w > get_spacebounds()->x + get_spacebounds()->w)
+    ufo->direction = UFO_LEFT;
+  if (ufo->rect.x < get_spacebounds()->x)
+    ufo->direction = UFO_RIGHT;
+
+  if (ufo->direction == UFO_RIGHT)
+    ufo->rect.x += UFO_INC;
+  else if (ufo->direction == UFO_LEFT)
+    ufo->rect.x -= UFO_INC;
 }
 
 void	spaceufo_collide()

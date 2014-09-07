@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 15:15:04 2014 FOFANA Ibrahim
-** Last update Sun Sep  7 15:51:03 2014 FOFANA Ibrahim
+** Last update Sun Sep  7 16:54:07 2014 FOFANA Ibrahim
 */
 
 /**
@@ -26,7 +26,7 @@ void	spaceufo_display(t_spaceufo *ufo);
 /**
  *	@brief	Spaceinvaders ufo move callback
  */
-void	spaceufo_move();
+void	spaceufo_move(t_spaceufo *ufo);
 
 /**
  *	@brief	Spaceinvaders ufo collide callback

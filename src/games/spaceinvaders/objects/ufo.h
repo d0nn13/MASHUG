@@ -5,20 +5,26 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 12:11:14 2014 FOFANA Ibrahim
-** Last update Sun Sep  7 15:49:19 2014 FOFANA Ibrahim
+** Last update Sun Sep  7 16:47:00 2014 FOFANA Ibrahim
 */
-
-#ifndef GAMES_SPACEINVADERS_OBJECTS_UFO_H__
-# define GAMES_SPACEINVADERS_OBJECTS_UFO_H__
-
-
-# include <SDL2/SDL.h>
-# include "../../../core/graphics.h"
 
 /**
  *	@file ufo.h
  *	@brief	Spaceinvaders ufo structure definition
  */
+
+#ifndef GAMES_SPACEINVADERS_OBJECTS_UFO_H__
+# define GAMES_SPACEINVADERS_OBJECTS_UFO_H__
+
+# include <SDL2/SDL.h>
+# include "../../../core/graphics.h"
+
+# define UFO_INC 1
+typedef enum {
+  UFO_NONE,
+  UFO_LEFT,
+  UFO_RIGHT
+} t_ufo_direction;
 
 typedef struct s_spaceufo
 {
@@ -27,6 +33,7 @@ typedef struct s_spaceufo
   void(*collide)();
   t_spriteholder const *sprite;
   SDL_Rect rect;
+  t_ufo_direction direction;
 } t_spaceufo;
 
 /**
