@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Wed Sep  3 14:55:33 2014 Emmanuel Atse
+** Last update Sun Sep  7 16:11:30 2014 FOFANA Ibrahim
 */
 
 #include "../../core/renderer.h"
@@ -32,11 +32,13 @@ void	spacecore_init()
   objects.rocket = spacerocket_init();
   objects.blocks = spaceblocks_init();
   objects.aliens = spacealiens_init();
+  objects.ufo = spaceufo_init();
   set_launcher(&space_loop);
 }
 
 void	spacecore_destroy()
 {
+  spaceufo_destroy(&objects.ufo);
   spacealiens_destroy(&objects.aliens);
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);

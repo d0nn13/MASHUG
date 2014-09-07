@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 17:15:54 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 16:10:19 2014 FOFANA Ibrahim
 */
 
 /**
@@ -20,6 +20,7 @@
 # include "objects/rocket.h"
 # include "objects/alien.h"
 # include "objects/block.h"
+# include "objects/ufo.h"
 
 typedef struct	s_spaceobjects
 {
@@ -27,6 +28,7 @@ typedef struct	s_spaceobjects
   t_spacerocket	*rocket;
   t_singlelist	*aliens;
   t_singlelist	*blocks;
+  t_spaceufo	*ufo;
 }		t_spaceobjects;
 
 /**
