@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 13:22:51 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 18:56:41 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -21,7 +21,7 @@
 #include "sprites.h"
 #include "core.h"
 #include "hiscores.h"
-#include "spacegameover.h"
+#include "gameover.h"
 
 #include "menu.h"
 

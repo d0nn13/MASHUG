@@ -1,11 +1,11 @@
 /*
-** spacegameover.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
+** gameover.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
 ** 
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
 ** 
-** Started on  Sat Sep  6 12:32:02 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 13:21:02 2014 ENNEBATI Yassine
+** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 18:58:26 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -17,7 +17,7 @@
 #include "../common/sfx.h"
 #include "menu.h"
 
-#include "spacegameover.h"
+#include "gameover.h"
 
 static Uint8	process_events()
 {
