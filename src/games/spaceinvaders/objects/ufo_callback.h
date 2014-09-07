@@ -21,16 +21,11 @@
 /**
  *	@brief	Spaceinvaders ufo display callback
  */
-void	spaceufo_display(t_spaceufo *ufo);
+void	spaceufo_display(t_spaceufo const *ufo);
 
 /**
  *	@brief	Spaceinvaders ufo move callback
  */
 void	spaceufo_move(t_spaceufo *ufo);
-
-/**
- *	@brief	Spaceinvaders ufo collide callback
- */
-void	spaceufo_collide();
 
 #endif /* !GAMES_SPACEINVADERS_OBJECTS_UFO_CALLBACK_H__ */

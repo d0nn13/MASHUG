@@ -8,19 +8,20 @@
 ** Last update Sun Sep  7 16:42:02 2014 FOFANA Ibrahim
 */
 
-#include "ufo.h"
-#include "ufo_callback.h"
 #include "../../../base/memory.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
 #include "../../../core/log.h"
 #include "../sprites.h"
 #include "../core.h"
+#include "ufo_callback.h"
 
-t_spaceufo	*spaceufo_init()
+#include "ufo.h"
+
+t_spaceufo		*spaceufo_init()
 {
-  t_spaceufo	*ufo;
-  t_spriteholder const *sprite = get_sprite(get_spacesprites(), "ufo");
+  t_spaceufo		*ufo;
+  t_spriteholder const	*sprite = get_sprite(get_spacesprites(), "ufo");
 
   ufo = mem_alloc(1, sizeof(t_spaceufo));
   ufo->display = &spaceufo_display;
@@ -34,10 +35,10 @@ t_spaceufo	*spaceufo_init()
   return (ufo);
 }
 
-void	spaceufo_destroy(t_spaceufo *ufo)
+void	spaceufo_destroy(t_spaceufo **ufo)
 {
-  if (!ptr_chk(ufo, "ufo", APP_LCAT, "ufo_destroy"))
+  if (!ptr_chk(*ufo, "ufo", APP_LCAT, "spaceufo_destroy"))
     return ;
-  mem_free(ufo);
-  ufo = NULL;
+  mem_free(*ufo);
+  *ufo = NULL;
 }

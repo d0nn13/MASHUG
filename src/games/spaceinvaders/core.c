@@ -38,11 +38,11 @@ void	spacecore_init()
 
 void	spacecore_destroy()
 {
+  spaceufo_destroy(&objects.ufo);
   spacealiens_destroy(&objects.aliens);
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);
   spaceship_destroy(&objects.ship);
-  spaceufo_destroy(objects.ufo);
 }
 
 void			space_loop()

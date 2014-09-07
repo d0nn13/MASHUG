@@ -19,22 +19,21 @@
 # include <SDL2/SDL.h>
 # include "../../../core/graphics.h"
 
-# define UFO_INC 1
-typedef enum {
-  UFO_NONE,
+typedef enum
+{
+  UFO_NONE = 0,
   UFO_LEFT,
   UFO_RIGHT
-} t_ufo_direction;
+}		t_ufo_direction;
 
-typedef struct s_spaceufo
+typedef struct		s_spaceufo
 {
-  void(*display)(struct s_spaceufo *ufo);
-  void(*move)(struct s_spaceufo *ufo);
-  void(*collide)();
-  t_spriteholder const *sprite;
-  SDL_Rect rect;
-  t_ufo_direction direction;
-} t_spaceufo;
+  void			(*display)(struct s_spaceufo const *ufo);
+  void			(*move)(struct s_spaceufo *ufo);
+  t_spriteholder const	*sprite;
+  SDL_Rect		rect;
+  t_ufo_direction	direction;
+}			t_spaceufo;
 
 /**
  *	@brief	Initializes Space Invaders ufo
@@ -44,7 +43,7 @@ t_spaceufo	*spaceufo_init();
 /**
  *	@brief	Destroys Space Invaders ufo
  */
-void	spaceufo_destroy(t_spaceufo *ufo);
+void	spaceufo_destroy(t_spaceufo **ufo);
 
 
 #endif /* !GAMES_SPACEINVADERS_OBJECTS_UFO_H__ */
