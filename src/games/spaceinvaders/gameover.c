@@ -66,8 +66,8 @@ static void		display_name()
   orig.y = 150;
   for (i = 0; i < NB_LETTER; ++i)
   {
-    draw_text(&(name[i].letter), &orig, get_common_font(COSMIC24_FNT),
-	      idx == i ? &(name[i].sel_color) : &(name[i].uns_color));
+    draw_text(&name[i].letter, &orig, get_common_font(COSMIC24_FNT),
+	      idx == i ? &(name[i].sel_color) : &name[i].uns_color);
     orig.x += 18;
   }
 }
