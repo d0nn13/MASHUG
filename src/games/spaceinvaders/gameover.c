@@ -45,6 +45,10 @@ static Uint8	process_events()
       idx += idx + 1 < NB_LETTER ? 1 : 0;
     if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
       idx -= idx > 0 ? 1 : 0;
+    if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
+      name[idx].letter += name[idx].letter < 'Z' ? 1 : 0;
+    if (e.key.keysym.scancode == get_input(UP_INP)->code)
+      name[idx].letter -= name[idx].letter > 'A' ? 1 : 0;
   }
   return (0);
 }
