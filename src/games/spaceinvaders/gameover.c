@@ -9,8 +9,8 @@
 */
 
 #include "../../core/renderer.h"
-#include "../../core/helpers.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 #include "../../core/launcher.h"
 #include "../../core/input.h"
 #include "../common/fonts.h"
