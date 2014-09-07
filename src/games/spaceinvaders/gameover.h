@@ -16,6 +16,15 @@
 #ifndef GAMES_SPACEINVADERS_GAMEOVER_H_
 # define GAMES_SPACEINVADERS_GAMEOVER_H_
 
+# define	NB_LETTER 5
+
+typedef struct	s_letter
+{
+  char		letter;
+  SDL_Color	sel_color;
+  SDL_Color	uns_color;
+}		t_letter;
+
 void	space_gameover();
 
 #endif /* !GAMES_SPACEINVADERS_GAMEOVER_H_ */

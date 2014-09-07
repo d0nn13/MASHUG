@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 18:58:26 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 19:21:54 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -18,6 +18,35 @@
 #include "menu.h"
 
 #include "gameover.h"
+
+static t_letter		name[NB_LETTER] = 
+{
+  {
+    'A',
+    {152, 128, 208, 0},
+    {255, 255, 255, 0}
+  },
+  {
+    'B',
+    {152, 128, 208, 0},
+    {255, 255, 255, 0}
+  },
+  {
+    'C',
+    {152, 128, 208, 0},
+    {255, 255, 255, 0}
+  },
+  {
+    'D',
+    {152, 128, 208, 0},
+    {255, 255, 255, 0}
+  },
+  {
+    'E',
+    {152, 128, 208, 0},
+    {255, 255, 255, 0}
+  }
+};
 
 static Uint8	process_events()
 {
@@ -42,6 +71,21 @@ static Uint8	process_events()
   return (0);
 }
 
+static void		display_name()
+{
+  SDL_Point		orig;
+  Uint8			i;
+
+  i = 0;
+  orig = point_factory(330, 150);
+  for (i = 0; i < NB_LETTER; ++i)
+  {
+    draw_text(&(name[i].letter), &orig, get_common_font(COSMIC24_FNT),
+	      &(name[i].uns_color));
+    orig.x += 18;
+  }
+}
+
 void			space_gameover()
 {
   SDL_Point		orig;
@@ -50,6 +94,7 @@ void			space_gameover()
   orig = point_factory(330, 130);
   renderer_clear(NULL);
   draw_text("GAME OVER", &orig, get_common_font(COSMIC24_FNT), &red);
+  display_name();
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &space_gameover)
   {
