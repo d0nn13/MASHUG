@@ -57,6 +57,7 @@ Uint8		space_process_events()
 void	space_process_objects(t_spaceobjects *o)
 {
   o->ship->move(o->ship);
+  o->ufo->move(o->ufo);
   input_update();
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
@@ -65,4 +66,5 @@ void	space_process_objects(t_spaceobjects *o)
   o->rocket->display(o->rocket);
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
   ((t_spacealien *)o->aliens->data)->display(o->aliens);
+  o->ufo->display(o->ufo);
 }
