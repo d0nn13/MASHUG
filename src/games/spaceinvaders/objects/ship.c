@@ -37,5 +37,5 @@ void			spaceship_destroy(t_spaceship **ship)
   if (!ptr_chk(*ship, "ship", APP_LCAT, "spaceship_destroy"))
     return ;
   mem_free(*ship);
-  ship = NULL;
+  *ship = NULL;
 }

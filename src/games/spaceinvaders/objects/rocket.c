@@ -38,5 +38,5 @@ void	spacerocket_destroy(t_spacerocket **rocket)
   if (!ptr_chk(*rocket, "rocket", APP_LCAT, "spacerocket_destroy"))
     return ;
   mem_free(*rocket);
-  rocket = NULL;
+  *rocket = NULL;
 }
