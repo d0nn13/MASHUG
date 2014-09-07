@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 19:43:00 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 19:53:47 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -20,34 +20,7 @@
 #include "gameover.h"
 
 static Uint8	idx;
-static t_letter		name[NB_LETTER] = 
-{
-  {
-    'A',
-    {152, 128, 208, 0},
-    {255, 255, 255, 0}
-  },
-  {
-    'B',
-    {152, 128, 208, 0},
-    {255, 255, 255, 0}
-  },
-  {
-    'C',
-    {152, 128, 208, 0},
-    {255, 255, 255, 0}
-  },
-  {
-    'D',
-    {152, 128, 208, 0},
-    {255, 255, 255, 0}
-  },
-  {
-    'E',
-    {152, 128, 208, 0},
-    {255, 255, 255, 0}
-  }
-};
+static t_letter	name[NB_LETTER];
 
 static Uint8	process_events()
 {
@@ -95,12 +68,26 @@ static void		display_name()
   }
 }
 
+static void		name_init()
+{
+  SDL_Color const	white = {152, 128, 208, 0};
+  SDL_Color const	purple = {255, 255, 255, 0};
+  Uint8			i;
+
+  for (i = 0; i < NB_LETTER; ++i)
+  {
+    name[i].letter = 'A';
+    name[i].sel_color = white;
+    name[i].uns_color = purple;
+  }
+}
+
 void			space_gameover()
 {
 
 
   idx = 0;
-
+  name_init();
   display_name();
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &space_gameover)
