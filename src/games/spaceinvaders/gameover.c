@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 19:21:54 2014 ENNEBATI Yassine
+** Last update Sun Sep  7 19:43:00 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -19,6 +19,7 @@
 
 #include "gameover.h"
 
+static Uint8	idx;
 static t_letter		name[NB_LETTER] = 
 {
   {
@@ -67,6 +68,10 @@ static Uint8	process_events()
       set_launcher(&space_menu);
       return (1);
     }
+    if (e.key.keysym.scancode == get_input(RIGHT_INP)->code)
+      idx += idx + 1 < NB_LETTER ? 1 : 0;
+    if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
+      idx -= idx > 0 ? 1 : 0;
   }
   return (0);
 }
@@ -74,31 +79,35 @@ static Uint8	process_events()
 static void		display_name()
 {
   SDL_Point		orig;
+  SDL_Color const	red = {255, 0, 0, 0};
   Uint8			i;
 
+  renderer_clear(NULL);
   i = 0;
-  orig = point_factory(330, 150);
+  orig = point_factory(330, 130);
+  draw_text("GAME OVER", &orig, get_common_font(COSMIC24_FNT), &red);
+  orig.y = 150;
   for (i = 0; i < NB_LETTER; ++i)
   {
     draw_text(&(name[i].letter), &orig, get_common_font(COSMIC24_FNT),
-	      &(name[i].uns_color));
+	      idx == i ? &(name[i].sel_color) : &(name[i].uns_color));
     orig.x += 18;
   }
 }
 
 void			space_gameover()
 {
-  SDL_Point		orig;
-  SDL_Color const	red = {255, 0, 0, 0};
 
-  orig = point_factory(330, 130);
-  renderer_clear(NULL);
-  draw_text("GAME OVER", &orig, get_common_font(COSMIC24_FNT), &red);
+
+  idx = 0;
+
   display_name();
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &space_gameover)
   {
     if (process_events())
       break;
+    display_name();
+  SDL_RenderPresent(get_renderer());
   }
 }
