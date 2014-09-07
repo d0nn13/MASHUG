@@ -15,10 +15,6 @@
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
 #include "menu.h"
-#include "objects/ship_callback.h"
-#include "objects/rocket_callback.h"
-#include "objects/alien_callback.h"
-#include "objects/block_callback.h"
 
 #include "core_process.h"
 
