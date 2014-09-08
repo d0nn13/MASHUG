@@ -27,11 +27,11 @@ static void	input_test_display()
   char		statestr[] = "  ";
 
   SDL_RenderClear(get_renderer());
-  o = point_factory(192, 10);
+  o = point_factory(232, 30);
   draw_text("INPUT TEST MODE", &o, get_common_font(5), NULL);
-  o = point_factory(138, 640);
+  o = point_factory(178, 690);
   draw_text("PRESS UP+FIRE TO QUIT", &o, get_common_font(5), NULL);
-  o = point_factory(260, 200);
+  o = point_factory(300, 220);
   input_update();
   for (i = 0; i < NB_INP; ++i)
   {
