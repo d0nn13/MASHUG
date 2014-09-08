@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <libgen.h>
 #include <stdlib.h>
+#include <time.h>
 #include "../base/memory.h"
 #include "version.h"
 #include "options.h"
@@ -64,6 +65,7 @@ static Sint32	core_init(Sint32 argc, char **argv)
   if (window_init() || renderer_init() || graphics_init() || audio_init())
     return (-2);
   SDL_SetEventFilter(key_filter, NULL);
+  srand(time(NULL));
   SDL_Log("Engine started, welcome aboard!");
   return (0);
 }
