@@ -197,7 +197,6 @@ typedef struct	s_hiscoreholder
 {
   char		*nickname;
   Uint32	score;
-  Uint32	date;
 }		t_hiscoreholder;
 
 typedef struct		s_hiscores

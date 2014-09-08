@@ -4,4 +4,3 @@
 <!ELEMENT entry EMPTY>
 <!ATTLIST entry nickname CDATA #REQUIRED>
 <!ATTLIST entry score CDATA #REQUIRED>
-<!ATTLIST entry date CDATA #REQUIRED>
