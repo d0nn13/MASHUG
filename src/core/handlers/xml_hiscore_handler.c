@@ -97,8 +97,6 @@ static void	xml_hiscore_fill_container(xmlAttrPtr att, t_hiscoreholder *h)
   }
   else if (!xmlStrcmp(att->name, (xmlChar *)"score"))
     h->score = strtol(content, &err, 10);
-  else if (!xmlStrcmp(att->name, (xmlChar *)"date"))
-    h->date = strtol(content, &err, 10);
   if (errno == EINVAL || errno == ERANGE || strlen(err))
     SDL_LogError(XML_LCAT, "xml_hiscores: error while saving '%s' as '%s'",
 		 content, (char *)att->name);
