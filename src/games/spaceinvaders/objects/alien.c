@@ -63,7 +63,7 @@ t_singlelist		*spacealiens_init()
   SDL_Rect		rect;
   Uint8			i;
 
-  rect = rect_factory(190, 180, 0, 0); 
+  rect = rect_factory(190, 230, 0, 0); 
   aliens = list_make_node();
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
