@@ -17,7 +17,7 @@
 #define UFO_VEL			1
 #define UFO_MAX_X		(get_spacebounds()->x + get_spacebounds()->w + 100)
 #define UFO_MIN_X		(get_spacebounds()->x - 100)
-#define UFO_ELAPSED_TIME	(40000 + rand() % 40000)
+#define UFO_ELAPSED_TIME	((Uint32)(40000 + rand() % 40000))
 
 static void	spaceufo_appear(t_spaceufo *ufo);
 
