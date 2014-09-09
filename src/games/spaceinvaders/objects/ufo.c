@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 12:10:35 2014 FOFANA Ibrahim
-** Last update Mon Sep  8 17:57:00 2014 FOFANA Ibrahim
+** Last update Tue Sep  9 17:31:16 2014 FOFANA Ibrahim
 */
 
 #include "../../../base/memory.h"
@@ -35,7 +35,7 @@ t_spaceufo		*spaceufo_init()
   return (ufo);
 }
 
-void	spaceufo_destroy(t_spaceufo **ufo)
+void spaceufo_destroy(t_spaceufo **ufo)
 {
   if (!ptr_chk(*ufo, "ufo", APP_LCAT, "spaceufo_destroy"))
     return ;
