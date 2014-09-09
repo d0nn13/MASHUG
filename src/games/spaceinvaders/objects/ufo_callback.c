@@ -8,12 +8,11 @@
 ** Last update Tue Sep  9 17:28:32 2014 FOFANA Ibrahim
 */
 
+#include <stdlib.h>
 #include "../../../core/handlers.h"
 #include "../core.h"
 
 #include "ufo_callback.h"
-
-#include <stdlib.h>
 
 #define UFO_VEL			1
 #define UFO_MAX_X		(get_spacebounds()->x + get_spacebounds()->w + 100)
