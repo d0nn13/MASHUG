@@ -21,8 +21,6 @@
 
 static void	spaceufo_appear(t_spaceufo *ufo);
 
-static Uint32	ti = 0;
-
 void	spaceufo_display(t_spaceufo const *ufo)
 {
   if (ufo->direction != UFO_NONE)
@@ -45,6 +43,7 @@ void	spaceufo_move(t_spaceufo *ufo)
 
 static void	spaceufo_appear(t_spaceufo *ufo)
 {
+  static Uint32	ti = 0;
   Uint32	to;
 
   to = SDL_GetTicks();
