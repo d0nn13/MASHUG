@@ -81,7 +81,7 @@ t_singlelist		*spacealiens_init()
   return (aliens);
 }
 
-void	spacealiens_destroy(t_singlelist **aliens)
+void		spacealiens_destroy(t_singlelist **aliens)
 {
   t_singlelist	*node;
 
