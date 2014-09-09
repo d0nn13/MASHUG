@@ -23,13 +23,13 @@ static void	spaceufo_appear(t_spaceufo *ufo);
 
 static Uint32	ti = 0;
 
-void spaceufo_display(t_spaceufo const *ufo)
+void	spaceufo_display(t_spaceufo const *ufo)
 {
   if (ufo->direction != UFO_NONE)
     draw_sprite(ufo->sprite, &ufo->rect);
 }
 
-void spaceufo_move(t_spaceufo *ufo)
+void	spaceufo_move(t_spaceufo *ufo)
 {
   if (ufo->direction == UFO_NONE)
     spaceufo_appear(ufo);

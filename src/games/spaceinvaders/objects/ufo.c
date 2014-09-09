@@ -35,7 +35,7 @@ t_spaceufo		*spaceufo_init()
   return (ufo);
 }
 
-void spaceufo_destroy(t_spaceufo **ufo)
+void	spaceufo_destroy(t_spaceufo **ufo)
 {
   if (!ptr_chk(*ufo, "ufo", APP_LCAT, "spaceufo_destroy"))
     return ;
