@@ -102,7 +102,7 @@ void			space_gameover()
   {
     if (process_events(name, &idx))
       break;
-  SDL_RenderPresent(get_renderer());
     display_name(name, idx);
+    SDL_RenderPresent(get_renderer());
   }
 }
