@@ -15,6 +15,7 @@
 #include "../../core/input.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
+#include "spaceinvaders.h"
 #include "menu.h"
 
 #include "gameover.h"
@@ -23,6 +24,7 @@ static Uint8	idx;
 static t_letter	name[NB_LETTER];
 
 static Uint8	process_events()
+/* >25 lines */
 {
   SDL_Event	e;
 
@@ -30,6 +32,7 @@ static Uint8	process_events()
     return (0);
   if (e.type == SDL_QUIT)
   {
+    space_destroy();
     set_launcher(NULL);
     return (1);
   }
@@ -57,16 +60,19 @@ static void		display_name()
 {
   SDL_Point		orig;
   SDL_Color const	red = {255, 0, 0, 0};
+  char			buf[2];
   Uint8			i;
 
   renderer_clear(NULL);
+  memset(buf, 0, 2);
   i = 0;
   orig = point_factory(330, 130);
   draw_text("GAME OVER", &orig, get_common_font(COSMIC24_FNT), &red);
   orig.y = 150;
   for (i = 0; i < NB_LETTER; ++i)
   {
-    draw_text(&name[i].letter, &orig, get_common_font(COSMIC24_FNT),
+    buf[0] = name[i].letter;
+    draw_text(buf, &orig, get_common_font(COSMIC24_FNT),
 	      idx == i ? &(name[i].sel_color) : &name[i].uns_color);
     orig.x += 18;
   }
