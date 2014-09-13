@@ -20,11 +20,8 @@
 
 #include "gameover.h"
 
-static Uint8	idx;
-static t_letter	name[NB_LETTER];
-
-static Uint8	process_events()
 /* >25 lines */
+static Uint8	process_events(t_letter *name, Uint8 *idx)
 {
   SDL_Event	e;
 
@@ -45,18 +42,18 @@ static Uint8	process_events()
       return (1);
     }
     if (e.key.keysym.scancode == get_input(RIGHT_INP)->code)
-      idx += idx + 1 < NB_LETTER ? 1 : 0;
+      *idx += *idx + 1 < NB_LETTER ? 1 : 0;
     if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
-      idx -= idx > 0 ? 1 : 0;
+      *idx -= *idx > 0 ? 1 : 0;
     if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
-      name[idx].letter += name[idx].letter < 'Z' ? 1 : 0;
+      name[*idx].letter += name[*idx].letter < 'Z' ? 1 : -25;
     if (e.key.keysym.scancode == get_input(UP_INP)->code)
-      name[idx].letter -= name[idx].letter > 'A' ? 1 : 0;
+      name[*idx].letter -= name[*idx].letter > 'A' ? 1 : -25;
   }
   return (0);
 }
 
-static void		display_name()
+static void		display_name(t_letter *name, Uint8 idx)
 {
   SDL_Point		orig;
   SDL_Color const	red = {255, 0, 0, 0};
@@ -78,7 +75,7 @@ static void		display_name()
   }
 }
 
-static void		name_init()
+static void		name_init(t_letter *name)
 {
   SDL_Color const	white = {152, 128, 208, 0};
   SDL_Color const	purple = {255, 255, 255, 0};
@@ -94,17 +91,18 @@ static void		name_init()
 
 void			space_gameover()
 {
-
+  t_letter		name[NB_LETTER];
+  Uint8			idx;
 
   idx = 0;
-  name_init();
-  display_name();
+  name_init(name);
+  display_name(name, idx);
   SDL_RenderPresent(get_renderer());
   while (get_launcher() == &space_gameover)
   {
-    if (process_events())
+    if (process_events(name, &idx))
       break;
-    display_name();
   SDL_RenderPresent(get_renderer());
+    display_name(name, idx);
   }
 }
