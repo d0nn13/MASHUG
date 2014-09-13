@@ -20,7 +20,7 @@
 #include "../helpers.h"
 #include "../log.h"
 
-t_spritesheet	*make_spritesheet(const char *img, const char *xml)
+t_spritesheet	*make_spritesheet(char const *img, char const *xml)
 {
   t_spritesheet	*ss;
   SDL_Surface	*surface;
