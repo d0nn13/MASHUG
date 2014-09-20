@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 19:15:58 2014 FOFANA Ibrahim
+** Last update Sat Sep 20 19:56:51 2014 FOFANA Ibrahim
 */
 
 #include "../../core/renderer.h"
@@ -31,15 +31,18 @@ static t_spaceobjects	objects;
 
 static void	display_hud()
 {
-  SDL_Point	orig;
-  SDL_Rect	ship_lives;
-  char		str[20];
-  int		nb_lives;
+  SDL_Color const	green = {0, 255, 0, 0};
+  SDL_Point		orig;
+  SDL_Rect		ship_lives;
+  char			str[20];
+  int			nb_lives;
 
-  sprintf(str, "Score %d", get_spacecontext()->score);
-  orig = point_factory(space_bounds.x + 10, space_bounds.y - 8);
-  draw_text(str, &orig, get_common_font(PRSTARTK18_FNT), NULL);
-  orig = point_factory(space_bounds.x + 350, orig.y);
+  orig = point_factory(space_bounds.x + 10, space_bounds.y + 20);
+  draw_text("Score", &orig, get_common_font(PRSTARTK18_FNT), NULL);
+  orig.x += 100;
+  sprintf(str, "%d", get_spacecontext()->score);
+  draw_text(str, &orig, get_common_font(PRSTARTK18_FNT), &green);
+  orig = point_factory(space_bounds.x + 350, space_bounds.y + 20);
   draw_text("Lives", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   ship_lives = rect_factory(orig.x + 100, orig.y,
 			    objects.ship->rect.w, objects.ship->rect.h);
