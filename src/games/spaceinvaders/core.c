@@ -46,7 +46,7 @@ static void	display_hud()
   for (nb_lives = 1; nb_lives <= get_spacecontext()->lives; ++nb_lives)
   {
     draw_sprite(objects.ship->sprite, &ship_lives);
-    if (nb_lives % 4 == 0)
+    if (!(nb_lives % 4))
     {
       ship_lives.y = orig.y + objects.ship->rect.h + 100;
       ship_lives.x = orig.x + 10;
