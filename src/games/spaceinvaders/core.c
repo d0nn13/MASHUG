@@ -5,16 +5,18 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 16:11:30 2014 FOFANA Ibrahim
+** Last update Sat Sep 20 19:15:58 2014 FOFANA Ibrahim
 */
 
 #include "../../core/renderer.h"
 #include "../../core/options.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 #include "../../core/launcher.h"
 #include "../common/fonts.h"
 #include "sprites.h"
 #include "menu.h"
+#include "context.h"
 #include "core_process.h"
 
 #include "core.h"
@@ -29,10 +31,34 @@ static t_spaceobjects	objects;
 
 static void	display_hud()
 {
+  SDL_Point	orig;
+  SDL_Rect	ship_lives;
+  char		str[20];
+  int		nb_lives;
+
+  sprintf(str, "Score %d", get_spacecontext()->score);
+  orig = point_factory(space_bounds.x + 10, space_bounds.y + 20);
+  draw_text(str, &orig, get_common_font(PRSTARTK18_FNT), NULL);
+  orig = point_factory(space_bounds.x + 350, space_bounds.y + 20);
+  draw_text("Lives", &orig, get_common_font(PRSTARTK18_FNT), NULL);
+  ship_lives = rect_factory(orig.x + 100, orig.y,
+			    objects.ship->rect.w, objects.ship->rect.h);
+  for (nb_lives = 1; nb_lives <= get_spacecontext()->lives; ++nb_lives)
+  {
+    draw_sprite(objects.ship->sprite, &ship_lives);
+    if (nb_lives % 4 == 0)
+    {
+      ship_lives.y = orig.y + objects.ship->rect.h + 100;
+      ship_lives.x = orig.x + 10;
+    }
+    else
+      ship_lives.x += objects.ship->rect.w + 10;
+  }
 }
 
 void	spacecore_init()
 {
+  spacecontext_init();
   objects.ship = spaceship_init();
   objects.rocket = spacerocket_init();
   objects.blocks = spaceblocks_init();
@@ -48,6 +74,7 @@ void	spacecore_destroy()
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);
   spaceship_destroy(&objects.ship);
+  spacecontext_destroy();
 }
 
 void			space_loop()
