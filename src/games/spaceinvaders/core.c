@@ -5,17 +5,18 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 16:11:30 2014 FOFANA Ibrahim
+** Last update Sat Sep 20 21:12:18 2014 FOFANA Ibrahim
 */
 
 #include "../../core/renderer.h"
 #include "../../core/options.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
-#include "../common/fonts.h"
 #include "sprites.h"
 #include "menu.h"
+#include "context.h"
 #include "core_process.h"
+#include "hud.h"
 
 #include "core.h"
 
@@ -27,12 +28,9 @@
 static SDL_Rect	const	space_bounds = {139, 147, 567, 499};
 static t_spaceobjects	objects;
 
-static void	display_hud()
-{
-}
-
 void	spacecore_init()
 {
+  spacecontext_init();
   objects.ship = spaceship_init();
   objects.rocket = spacerocket_init();
   objects.blocks = spaceblocks_init();
@@ -48,6 +46,7 @@ void	spacecore_destroy()
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);
   spaceship_destroy(&objects.ship);
+  spacecontext_destroy();
 }
 
 void			space_loop()
