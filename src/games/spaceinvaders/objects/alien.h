@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Sat Sep  6 17:29:04 2014 ENNEBATI Yassine
+** Last update Sun Sep 21 19:51:38 2014 FOFANA Ibrahim
 */
 
 /**
@@ -32,6 +32,7 @@ typedef struct		s_spacealien
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
   Sint8			direction;
+  Sint32		score_gain;
 }			t_spacealien;
 
 /**
