@@ -8,6 +8,7 @@
 ** Last update Mon Sep 22 23:55:26 2014 ENNEBATI Yassine
 */
 
+#include <assert.h>
 #include <SDL2/SDL_ttf.h>
 #include "../../core/log.h"
 
@@ -42,6 +43,7 @@ void	load_common_fonts()
       SDL_LogVerbose(FNT_LCAT, "Font '%s' loaded", fonts[i].name);
       ++c;
     }
+    assert(fonts[i].font);
   }
   if (c == NB_FNT)
     SDL_LogInfo(FNT_LCAT, "Common fonts successfully loaded");
