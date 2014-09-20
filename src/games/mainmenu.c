@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Wed Jul  9 12:30:53 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 18:21:59 2014 FOFANA Ibrahim
+** Last update Tue Aug 26 21:29:34 2014 FOFANA Ibrahim
 */
 
 #include		"../base/math.h"
@@ -72,10 +72,10 @@ static void	display_menu()
   Uint8		i;
   SDL_Point	orig;
 
-  orig = point_factory(330, 100);
+  orig = point_factory(340, 100);
   renderer_clear(NULL);
   draw_text("MASHUG", &orig, get_common_font(PRSTARTK28_FNT), NULL);
-  orig = point_factory(130, 180);
+  orig = point_factory(140, 180);
   draw_text("Multiple Arcade Shoot'em Up Game", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   for (i = 0; i < NB_GAME; ++i)
     draw_text(entries[i].text, &entries[i].orig,
