@@ -19,7 +19,9 @@
 
 #include "core.h"
 
-#define PROCESS_PERIOD_MS	5
+#ifndef PROCESS_PERIOD_MS
+# define PROCESS_PERIOD_MS	5
+#endif
 #define RENDER_PERIOD_MS	((Uint8)(1000 / get_option_value(FRAMERATE_OPT)))
 
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
