@@ -37,7 +37,6 @@ typedef enum
   LOG_PRIO_OPT = 0,
   VIDEO_DBG_OPT,
   FRAMERATE_OPT,
-  GAMESPEED_OPT,
   NB_OPT
 }	t_options;
 

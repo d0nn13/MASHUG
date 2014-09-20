@@ -27,7 +27,6 @@ static struct option clioptions[NB_OPT + 1] = {
   {"log-priority", required_argument, NULL, LOG_PRIO_OPT},
   {"video-debug", no_argument, NULL, VIDEO_DBG_OPT},
   {"framerate", required_argument, NULL, FRAMERATE_OPT},
-  {"gamespeed", required_argument, NULL, GAMESPEED_OPT},
   {NULL, 0, NULL, 0}
 };
 
