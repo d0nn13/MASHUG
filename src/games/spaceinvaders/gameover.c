@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 19:53:47 2014 ENNEBATI Yassine
+** Last update Sat Sep 20 22:38:37 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -19,6 +19,36 @@
 #include "menu.h"
 
 #include "gameover.h"
+
+#include "../../core/log.h"
+
+#define	UP	1
+#define	DOWN	2
+#define	BUFF_SIZE 37
+#define	NB_LETTER 5
+
+static char const	letters[BUFF_SIZE] = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+static void	change_letter(t_letter *name, Uint8 idx, Uint8 state)
+{
+  Sint8		i;
+
+  i = 0;
+  while (letters[i] != name[idx].letter)
+    i++;
+  if (state == DOWN)
+  {
+    if (i + 1 == BUFF_SIZE)
+      i = -1;
+    name[idx].letter = letters[++i];
+  }
+  else
+  {
+    if (i == 0)
+      i = BUFF_SIZE;
+    name[idx].letter = letters[--i];
+  }
+}
 
 /* >25 lines */
 static Uint8	process_events(t_letter *name, Uint8 *idx)
@@ -45,10 +75,10 @@ static Uint8	process_events(t_letter *name, Uint8 *idx)
       *idx += *idx + 1 < NB_LETTER ? 1 : 0;
     if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
       *idx -= *idx > 0 ? 1 : 0;
-    if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
-      name[*idx].letter += name[*idx].letter < 'Z' ? 1 : -25;
     if (e.key.keysym.scancode == get_input(UP_INP)->code)
-      name[*idx].letter -= name[*idx].letter > 'A' ? 1 : -25;
+      change_letter(name, *idx, UP);
+    if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
+      change_letter(name, *idx, DOWN);
   }
   return (0);
 }
