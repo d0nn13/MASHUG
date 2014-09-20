@@ -19,7 +19,8 @@
 
 #include "core.h"
 
-#define PROCESS_PERIOD_MS 5
+#define PROCESS_PERIOD_MS	5
+#define RENDER_PERIOD_MS	((Uint8)(1000 / get_option_value(FRAMERATE_OPT)))
 
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceobjects	objects;
@@ -50,7 +51,6 @@ void	spacecore_destroy()
 void			space_loop()
 {
   Uint32		t_old;
-  Uint32 const		tf = (1000 / get_option_value(FRAMERATE_OPT));
 
   t_old = 0;
   while (get_launcher() == &space_loop)
@@ -62,7 +62,7 @@ void			space_loop()
     space_process_objects(&objects);
     draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
     SDL_Delay(PROCESS_PERIOD_MS);
-    if (SDL_GetTicks() - t_old < tf)
+    if (SDL_GetTicks() - t_old < RENDER_PERIOD_MS)
       continue;
     SDL_RenderPresent(get_renderer());
     t_old = SDL_GetTicks();
