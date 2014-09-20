@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:06:00 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 18:56:41 2014 ENNEBATI Yassine
+** Last update Sun Sep 21 16:31:01 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL.h>
@@ -25,7 +25,6 @@
 
 #include "menu.h"
 
-
 /**
  *	Space menu entries enumeration
  */
@@ -43,7 +42,7 @@ static t_menuentry	entries[NB_MEN] =
 {
   {
     "START",
-    {355, 428},
+    {345, 350},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     &spacecore_init,
@@ -51,7 +50,7 @@ static t_menuentry	entries[NB_MEN] =
   },
   {
     "HISCORES",
-    {319, 499},
+    {310, 421},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     &spacehiscores,
@@ -76,7 +75,7 @@ static void	display_menu()
   SDL_Rect	rect;
   Uint8		i;
 
-  rect = rect_factory(217, 142, 420, 119);
+  rect = rect_factory(210, 142, 420, 119);
   renderer_clear(NULL);
   draw_sprite(get_sprite(get_spacesprites(), TITLE_SPR), &rect);
   for (i = 0; i < NB_MEN; ++i)
