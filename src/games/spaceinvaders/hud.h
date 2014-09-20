@@ -13,5 +13,4 @@
 
 void	display_hud();
 
-
 #endif /* !HUD_H__ */

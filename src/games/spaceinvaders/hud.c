@@ -14,6 +14,8 @@
 #include "core.h"
 #include "context.h"
 
+#include "hud.h"
+
 static void	display_score();
 static void	display_lives();
 
