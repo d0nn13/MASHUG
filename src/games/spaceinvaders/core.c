@@ -24,7 +24,7 @@
 #endif
 #define RENDER_PERIOD_MS	((Uint8)(1000 / get_option_value(FRAMERATE_OPT)))
 
-static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
+static SDL_Rect	const	space_bounds = {139, 147, 567, 499};
 static t_spaceobjects	objects;
 
 static void	display_hud()
