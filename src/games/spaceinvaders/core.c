@@ -37,12 +37,12 @@ static void	display_hud()
   char			str[20];
   int			nb_lives;
 
-  orig = point_factory(space_bounds.x + 10, space_bounds.y + 20);
+  orig = point_factory(space_bounds.x + 10, space_bounds.y - 8);
   draw_text("Score", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   orig.x += 100;
   sprintf(str, "%d", get_spacecontext()->score);
   draw_text(str, &orig, get_common_font(PRSTARTK18_FNT), &green);
-  orig = point_factory(space_bounds.x + 350, space_bounds.y + 20);
+  orig = point_factory(space_bounds.x + 320, orig.y);
   draw_text("Lives", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   ship_lives = rect_factory(orig.x + 100, orig.y,
 			    objects.ship->rect.w, objects.ship->rect.h);
@@ -51,8 +51,8 @@ static void	display_hud()
     draw_sprite(objects.ship->sprite, &ship_lives);
     if (!(nb_lives % 4))
     {
-      ship_lives.y = orig.y + objects.ship->rect.h + 100;
-      ship_lives.x = orig.x + 10;
+      ship_lives.y = orig.y + objects.ship->rect.h + 2;
+      ship_lives.x = orig.x + 100;
     }
     else
       ship_lives.x += objects.ship->rect.w + 10;
