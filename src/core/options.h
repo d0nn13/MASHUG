@@ -29,8 +29,7 @@ typedef struct	s_optionholder
 }		t_optionholder;
 
 /**
- * FRAMERATE_OPT: Number of buffer rendering in one second
- * GAMESPEED_OPT: Number of game processings in one second
+ * FRAMERATE_OPT: Buffer rendering frequency (FPS)
  */
 typedef enum
 {
