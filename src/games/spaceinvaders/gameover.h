@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:37 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 18:58:53 2014 ENNEBATI Yassine
+** Last update Sat Sep 20 23:23:29 2014 ENNEBATI Yassine
 */
 
 /**
@@ -24,6 +24,8 @@ typedef struct	s_letter
   SDL_Color	sel_color;
   SDL_Color	uns_color;
 }		t_letter;
+
+Uint8  	gameover_process_events(t_letter *name, Uint8 *idx);
 
 void	space_gameover();
 

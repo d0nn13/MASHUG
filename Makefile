@@ -50,6 +50,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/core_process.c		\
 			$(SRCPATH)games/spaceinvaders/context.c			\
 			$(SRCPATH)games/spaceinvaders/gameover.c		\
+			$(SRCPATH)games/spaceinvaders/gameover_process.c	\
 			$(SRCPATH)games/spaceinvaders/objects/ship.c		\
 			$(SRCPATH)games/spaceinvaders/objects/ship_callback.c	\
 			$(SRCPATH)games/spaceinvaders/objects/rocket.c		\
