@@ -37,9 +37,9 @@ static void	display_hud()
   int		nb_lives;
 
   sprintf(str, "Score %d", get_spacecontext()->score);
-  orig = point_factory(space_bounds.x + 10, space_bounds.y + 20);
+  orig = point_factory(space_bounds.x + 10, space_bounds.y - 8);
   draw_text(str, &orig, get_common_font(PRSTARTK18_FNT), NULL);
-  orig = point_factory(space_bounds.x + 350, space_bounds.y + 20);
+  orig = point_factory(space_bounds.x + 350, orig.y);
   draw_text("Lives", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   ship_lives = rect_factory(orig.x + 100, orig.y,
 			    objects.ship->rect.w, objects.ship->rect.h);
