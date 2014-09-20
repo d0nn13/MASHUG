@@ -8,9 +8,9 @@
 ** Last update Sat Sep 20 20:29:55 2014 FOFANA Ibrahim
 */
 
-#ifndef HUD_H__
-# define HUD_H__
+#ifndef GAMES_SPACEINVADERS_HUD_H_
+# define GAMES_SPACEINVADERS_HUD_H_
 
 void	display_hud();
 
-#endif /* !HUD_H__ */
+#endif /* !GAMES_SPACEINVADERS_HUD_H_ */
