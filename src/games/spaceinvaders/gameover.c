@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 22:38:37 2014 ENNEBATI Yassine
+** Last update Sat Sep 20 23:07:29 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -50,7 +50,25 @@ static void	change_letter(t_letter *name, Uint8 idx, Uint8 state)
   }
 }
 
-/* >25 lines */
+static Uint8	process_input(SDL_Event e, t_letter *name, Uint8 *idx)
+{
+  if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
+  {
+    play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    set_launcher(&space_menu);
+    return (1);
+  }
+  if (e.key.keysym.scancode == get_input(RIGHT_INP)->code)
+    *idx += *idx + 1 < NB_LETTER ? 1 : 0;
+  if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
+    *idx -= *idx > 0 ? 1 : 0;
+  if (e.key.keysym.scancode == get_input(UP_INP)->code)
+    change_letter(name, *idx, UP);
+  if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
+    change_letter(name, *idx, DOWN);
+  return (0);
+}
+
 static Uint8	process_events(t_letter *name, Uint8 *idx)
 {
   SDL_Event	e;
@@ -64,22 +82,7 @@ static Uint8	process_events(t_letter *name, Uint8 *idx)
     return (1);
   }
   if (e.type == SDL_KEYDOWN)
-  {
-    if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
-    {
-      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
-      set_launcher(&space_menu);
-      return (1);
-    }
-    if (e.key.keysym.scancode == get_input(RIGHT_INP)->code)
-      *idx += *idx + 1 < NB_LETTER ? 1 : 0;
-    if (e.key.keysym.scancode == get_input(LEFT_INP)->code)
-      *idx -= *idx > 0 ? 1 : 0;
-    if (e.key.keysym.scancode == get_input(UP_INP)->code)
-      change_letter(name, *idx, UP);
-    if (e.key.keysym.scancode == get_input(DOWN_INP)->code)
-      change_letter(name, *idx, DOWN);
-  }
+    return (process_input(e, name, idx));
   return (0);
 }
 
