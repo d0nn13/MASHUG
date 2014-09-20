@@ -28,6 +28,9 @@ typedef struct	s_optionholder
   Sint16	max;
 }		t_optionholder;
 
+/**
+ * FRAMERATE_OPT: Buffer rendering frequency (FPS)
+ */
 typedef enum
 {
   LOG_PRIO_OPT = 0,

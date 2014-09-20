@@ -19,6 +19,11 @@
 
 #include "core.h"
 
+#ifndef PROCESS_PERIOD_MS
+# define PROCESS_PERIOD_MS	5
+#endif
+#define RENDER_PERIOD_MS	((Uint8)(1000 / get_option_value(FRAMERATE_OPT)))
+
 static SDL_Rect	const	space_bounds = {141, 120, 486, 432};
 static t_spaceobjects	objects;
 
@@ -47,24 +52,22 @@ void	spacecore_destroy()
 
 void			space_loop()
 {
-  Uint32		ti;
-  Uint32		to;
-  Uint32 const		t = (1000 / get_option_value(FRAMERATE_OPT));
+  Uint32		t_old;
 
+  t_old = 0;
   while (get_launcher() == &space_loop)
   {
-    ti = SDL_GetTicks();
     renderer_clear(NULL);
     display_hud();
     if (space_process_events())
       break;
     space_process_objects(&objects);
     draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
+    SDL_Delay(PROCESS_PERIOD_MS);
+    if (SDL_GetTicks() - t_old < RENDER_PERIOD_MS)
+      continue;
     SDL_RenderPresent(get_renderer());
-    to = SDL_GetTicks() - ti;
-    if (to < t)
-      SDL_Delay(t - to);
-    SDL_LogVerbose(0, "%d", to);
+    t_old = SDL_GetTicks();
   }
 }
 

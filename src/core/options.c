@@ -24,7 +24,7 @@
 static t_optionholder	options[NB_OPT] = {
   {"Log Priority", 3, 0, 6},
   {"Video Debug", 0, 0, 1},
-  {"Game Framerate", 60, 1, 100},
+  {"Game Framerate", 60, 1, 100}
 };
 
 Sint16	get_option_value(t_options o)

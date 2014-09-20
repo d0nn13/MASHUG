@@ -42,14 +42,14 @@ static Uint8			display_impact(t_spacerocket const *rocket)
 
 void			spacerocket_display(t_spacerocket *rocket)
 {
-  Uint8 const		step = 8;
+  Uint8 const		vel = 2;
 
   if (!ptr_chk(rocket, "rocket", APP_LCAT, "spacerocket_display"))
     return ;
   if (rocket->state == FIRED)
   {
     draw_sprite(rocket->sprite, &rocket->rect);
-    rocket->rect.y -= step;
+    rocket->rect.y -= vel;
     if (rocket->rect.y + rocket->rect.h < get_spacebounds()->y)
     {
       rocket->rect = rect_factory(0, 0, rocket->rect.w, rocket->rect.h);
