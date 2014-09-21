@@ -31,6 +31,7 @@ t_spaceufo		*spaceufo_init()
 			   get_spacebounds()->y + (get_spacebounds()->h / 8),
 			   sprite->rect.w * OBJ_RESIZE_FACTOR,
 			   sprite->rect.h * OBJ_RESIZE_FACTOR);
+  ufo->score_gain = 50;
   ufo->direction = UFO_NONE;
   return (ufo);
 }

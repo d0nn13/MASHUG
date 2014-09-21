@@ -53,6 +53,7 @@ static t_spacealien	*make_alien(SDL_Rect *rect, Uint8 const *i)
 			     alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
 			     alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
   *rect = rect_factory(rect->x, rect->y, alien->rect.w, alien->rect.h);
+  alien->score_gain = 10;
   return (alien);
 }
 
