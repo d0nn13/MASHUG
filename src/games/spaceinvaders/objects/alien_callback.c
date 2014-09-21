@@ -46,11 +46,11 @@ void		spacealien_move(t_singlelist *aliens)
   {
     dir = -dir;
     for (node = aliens; node; node = node->next)
-      ALIEN_CAST(node)->rect.y += ALIEN_CAST(node)->rect.h;
+      ALIEN_CAST(node)->rect.y += ALIEN_CAST(node)->rect.h / 2 + ALIEN_PAD;
   }
   else
     for (node = aliens; node; node = node->next)
-      ALIEN_CAST(node)->rect.x += ALIEN_CAST(node)->rect.w * dir;
+      ALIEN_CAST(node)->rect.x += (ALIEN_CAST(node)->rect.w + ALIEN_PAD) * dir;
   old_t = SDL_GetTicks();
 }
 
