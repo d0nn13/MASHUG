@@ -34,7 +34,6 @@ typedef struct		s_spacealien
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
   Uint8			score_gain;
-  Sint8			direction;
 }			t_spacealien;
 
 /**

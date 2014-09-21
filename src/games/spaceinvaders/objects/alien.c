@@ -46,7 +46,6 @@ static t_spacealien	*make_alien(SDL_Rect *rect, Uint8 const *i)
   t_spacealien		*alien;
 
   alien = mem_alloc(1, sizeof(t_spacealien));
-  alien->direction = 1;
   alien->display = &spacealien_display;
   alien->move = &spacealien_move;
   alien->fire = &spacealien_fire;
