@@ -26,7 +26,7 @@ void	spacealien_display(t_singlelist *aliens);
 /**
  *	@brief	Spaceinvaders alien move callback
  */
-void	spacealien_move();
+void	spacealien_move(t_singlelist *aliens);
 
 /**
  *	@brief	Spaceinvaders alien fire callback

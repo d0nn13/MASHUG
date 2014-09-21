@@ -21,11 +21,11 @@
 /**
  *	Window weight size
  */
-# define WIN_W	768
+# define WIN_W	845
  /**
  *	Window height size
  */
-# define WIN_H	672
+# define WIN_H	739
 
 /**
  *	@brief	Initializes Window SubSystem

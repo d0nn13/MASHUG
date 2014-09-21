@@ -38,11 +38,12 @@ static void	sprite_select(Uint8 index, t_spriteholder const **sh)
   }
 }
 
-static t_spacealien	*make_alien(SDL_Rect const *rect, Uint8 const *i)
+static t_spacealien	*make_alien(SDL_Rect *rect, Uint8 const *i)
 {
   t_spacealien		*alien;
 
   alien = mem_alloc(1, sizeof(t_spacealien));
+  alien->direction = 1;
   alien->display = &spacealien_display;
   alien->move = &spacealien_move;
   alien->fire = &spacealien_fire;
@@ -51,6 +52,7 @@ static t_spacealien	*make_alien(SDL_Rect const *rect, Uint8 const *i)
   alien->rect = rect_factory(rect->x, rect->y,
 			     alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
 			     alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
+  *rect = rect_factory(rect->x, rect->y, alien->rect.w, alien->rect.h);
   return (alien);
 }
 
@@ -61,7 +63,7 @@ t_singlelist		*spacealiens_init()
   SDL_Rect		rect;
   Uint8			i;
 
-  rect = rect_factory(122, 120, 0, 0);
+  rect = rect_factory(190, 230, 0, 0); 
   aliens = list_make_node();
   node = aliens;
   for (i = 0; i < NB_ALIENS; ++i)
@@ -71,11 +73,11 @@ t_singlelist		*spacealiens_init()
     else
       list_push(make_alien(&rect, &i), &node);
     if (!i || (i + 1) % 11)
-      rect.x += 50;
+      rect.x += rect.w + 10;
     else
     {
-      rect.x = 122;
-      rect.y += 50;
+      rect.x = 190;
+      rect.y += rect.h + 10;
     }
   }
   return (aliens);

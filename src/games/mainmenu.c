@@ -39,7 +39,7 @@ static t_menuentry	entries[NB_GAME] =
 {
   {
     "Space Invaders",
-    {200, 400},
+    {240, 400},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     &space_init,
@@ -47,7 +47,7 @@ static t_menuentry	entries[NB_GAME] =
   },
   {
     "Galaga",
-    {280, 500},
+    {320, 500},
     {152, 128, 208, 0},
     {255, 255, 255, 0},
     NULL,
@@ -72,10 +72,10 @@ static void	display_menu()
   Uint8		i;
   SDL_Point	orig;
 
-  orig = point_factory(300, 100);
+  orig = point_factory(340, 100);
   renderer_clear(NULL);
   draw_text("MASHUG", &orig, get_common_font(PRSTARTK28_FNT), NULL);
-  orig = point_factory(100, 180);
+  orig = point_factory(140, 180);
   draw_text("Multiple Arcade Shoot'em Up Game", &orig, get_common_font(PRSTARTK18_FNT), NULL);
   for (i = 0; i < NB_GAME; ++i)
     draw_text(entries[i].text, &entries[i].orig,

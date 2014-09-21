@@ -26,11 +26,12 @@
 typedef struct		s_spacealien
 {
   void			(*display)(t_singlelist *alien);
-  void			(*move)(struct s_spacealien *alien);
+  void			(*move)(t_singlelist *alien);
   void			(*fire)(void *rocket);	/* TODO: change type to rocket */
   void			(*collide)();
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
+  Sint8			direction;
 }			t_spacealien;
 
 /**

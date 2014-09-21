@@ -84,9 +84,9 @@ static void    		display_hiscores(t_hiscores hiscores)
 
   memset(position, 0, sizeof(position));
   renderer_clear(NULL);
-  orig = point_factory(330, 130);
+  orig = point_factory(365, 160);
   draw_text("TOP 10", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(220, 170);
+  orig = point_factory(255, 220);
   for (i = 1; i < hiscores.count; ++i)
   {
     sprintf(position, "%d", i);

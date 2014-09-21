@@ -54,6 +54,7 @@ void	space_process_objects(t_spaceobjects *o)
 {
   o->ship->move(o->ship);
   o->ufo->move(o->ufo);
+  ((t_spacealien *)o->aliens->data)->move(o->aliens);
   input_update();
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
