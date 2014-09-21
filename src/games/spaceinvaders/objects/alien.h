@@ -20,6 +20,7 @@
 # include "../../../base/list.h"
 # include "../../../core/graphics.h"
 
+#define ALIEN_PAD	10
 #define ALIEN_CAST(n)	((t_spacealien *)n->data)
 
 /**

@@ -75,11 +75,11 @@ t_singlelist		*spacealiens_init()
     else
       list_push(make_alien(&rect, &i), &node);
     if (!i || (i + 1) % 11)
-      rect.x += rect.w + 10;
+      rect.x += rect.w + ALIEN_PAD;
     else
     {
       rect.x = 190;
-      rect.y += rect.h + 10;
+      rect.y += rect.h + ALIEN_PAD;
     }
   }
   return (aliens);
