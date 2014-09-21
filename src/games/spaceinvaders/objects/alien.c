@@ -19,22 +19,25 @@
 
 #define NB_ALIENS	55
 
-static void	sprite_select(Uint8 index, t_spriteholder const **sh)
+static void	specs_select(Uint8 index, t_spacealien * const alien)
 {
   if (index < 11)
   {
-    sh[0] = get_sprite(get_spacesprites(), "alien0a");
-    sh[1] = get_sprite(get_spacesprites(), "alien0b");
+    alien->sprite[0] = get_sprite(get_spacesprites(), "alien0a");
+    alien->sprite[1] = get_sprite(get_spacesprites(), "alien0b");
+    alien->score_gain = 30;
   }
   else if (index < 33)
   {
-    sh[0] = get_sprite(get_spacesprites(), "alien1a");
-    sh[1] = get_sprite(get_spacesprites(), "alien1b");
+    alien->sprite[0] = get_sprite(get_spacesprites(), "alien1a");
+    alien->sprite[1] = get_sprite(get_spacesprites(), "alien1b");
+    alien->score_gain = 20;
   }
   else if (index < 55)
   {
-    sh[0] = get_sprite(get_spacesprites(), "alien2a");
-    sh[1] = get_sprite(get_spacesprites(), "alien2b");
+    alien->sprite[0] = get_sprite(get_spacesprites(), "alien2a");
+    alien->sprite[1] = get_sprite(get_spacesprites(), "alien2b");
+    alien->score_gain = 10;
   }
 }
 
@@ -48,12 +51,11 @@ static t_spacealien	*make_alien(SDL_Rect *rect, Uint8 const *i)
   alien->move = &spacealien_move;
   alien->fire = &spacealien_fire;
   alien->collide = &spacealien_collide;
-  sprite_select(*i, alien->sprite);
+  specs_select(*i, alien);
   alien->rect = rect_factory(rect->x, rect->y,
 			     alien->sprite[0]->rect.w * OBJ_RESIZE_FACTOR,
 			     alien->sprite[0]->rect.h * OBJ_RESIZE_FACTOR);
   *rect = rect_factory(rect->x, rect->y, alien->rect.w, alien->rect.h);
-  alien->score_gain = 10;
   return (alien);
 }
 
