@@ -20,6 +20,8 @@
 # include "../../../base/list.h"
 # include "../../../core/graphics.h"
 
+#define ALIEN_CAST(n)	((t_spacealien *)n->data)
+
 /**
  *	@brief	Spaceinvaders alien structure definition
  */

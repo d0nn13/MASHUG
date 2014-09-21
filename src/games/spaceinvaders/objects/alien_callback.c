@@ -24,8 +24,7 @@ void		spacealien_display(t_singlelist	*aliens)
   
   t = SDL_GetTicks() / 1000;
   for (node = aliens; node; node = node->next)
-    draw_sprite(((t_spacealien *)node->data)->sprite[t % 2],
-		&((t_spacealien *)node->data)->rect);
+    draw_sprite(ALIEN_CAST(node)->sprite[t % 2], &ALIEN_CAST(node)->rect);
 }
 
 void		spacealien_move(t_singlelist *aliens)
