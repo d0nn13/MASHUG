@@ -32,7 +32,7 @@ typedef struct		s_spaceufo
   void			(*move)(struct s_spaceufo *ufo);
   t_spriteholder const	*sprite;
   SDL_Rect		rect;
-  Sint32		score_gain;
+  Uint16		score_gain;
   Sint32		alive;
   t_ufo_direction	direction;
 }			t_spaceufo;
