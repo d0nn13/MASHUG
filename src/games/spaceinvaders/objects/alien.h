@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Mon Sep 22 15:25:56 2014 FOFANA Ibrahim
+** Last update Sun Sep 21 19:51:38 2014 FOFANA Ibrahim
 */
 
 /**
@@ -30,7 +30,8 @@ typedef struct		s_spacealien
   void			(*fire)(void *rocket);	/* TODO: change type to rocket */
   void			(*collide)();
   t_spriteholder const	*sprite[2];
-  SDL_Rect		rect;
+  SDL_Rect 		rect;
+  Sint8			direction;
   Sint32		score_gain;
 }			t_spacealien;
 
