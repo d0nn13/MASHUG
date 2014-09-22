@@ -33,7 +33,7 @@ typedef struct		s_spaceufo
   t_spriteholder const	*sprite;
   SDL_Rect		rect;
   Uint16		score_gain;
-  Sint32		alive;
+  Uint8			alive;
   t_ufo_direction	direction;
 }			t_spaceufo;
 
