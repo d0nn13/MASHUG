@@ -20,6 +20,9 @@
 # include "../../../base/list.h"
 # include "../../../core/graphics.h"
 
+#define ALIEN_PAD	10
+#define ALIEN_CAST(n)	((t_spacealien *)n->data)
+
 /**
  *	@brief	Spaceinvaders alien structure definition
  */
@@ -32,7 +35,6 @@ typedef struct		s_spacealien
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
   Uint8			score_gain;
-  Sint8			direction;
 }			t_spacealien;
 
 /**

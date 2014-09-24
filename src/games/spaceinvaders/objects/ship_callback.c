@@ -30,11 +30,11 @@ void	       	spaceship_move(t_spaceship  *ship)
 
   input_update();
   if (get_input(LEFT_INP)->state)
-    ship->rect.x = (ship->rect.x - vel >= get_spacebounds()->x) ?
+    ship->rect.x = (ship->rect.x - vel >= get_spacebounds()->x + 10) ?
       ship->rect.x - vel : ship->rect.x;
   if (get_input(RIGHT_INP)->state)
     ship->rect.x = (ship->rect.x + vel <= get_spacebounds()->x +
-		    get_spacebounds()->w - ship->rect.w) ?
+		    get_spacebounds()->w - ship->rect.w - 10) ?
       ship->rect.x + vel : ship->rect.x;
 }
 

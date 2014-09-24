@@ -24,42 +24,34 @@ void		spacealien_display(t_singlelist	*aliens)
   
   t = SDL_GetTicks() / 1000;
   for (node = aliens; node; node = node->next)
-    draw_sprite(((t_spacealien *)node->data)->sprite[t % 2],
-		&((t_spacealien *)node->data)->rect);
+    draw_sprite(ALIEN_CAST(node)->sprite[t % 2], &ALIEN_CAST(node)->rect);
 }
 
 void		spacealien_move(t_singlelist *aliens)
 {
+  static Sint8	dir = 1;
   static Uint32	old_t = 0;
   t_singlelist	*node;
-  t_spacealien	*alien;
-  Uint32	t;
-  Uint8		col;
+  t_spacealien	*last_alien;
   
-  t = SDL_GetTicks();
-  if (t - old_t < 1000)
+  if (SDL_GetTicks() - old_t < 1000)
     return ;
-  node = aliens;
-  col = 0;
-  while (node)
+  for (node = aliens; node->next; node = node->next)
+    ;
+  last_alien = ALIEN_CAST(node);
+  if ((dir < 0 && (ALIEN_CAST(aliens)->rect.x - ALIEN_CAST(aliens)->rect.w <=
+		   get_spacebounds()->x)) ||
+      (dir > 0 && (last_alien->rect.x + 2 * last_alien->rect.w >=
+		   get_spacebounds()->x + get_spacebounds()->w)))
   {
-    alien = (t_spacealien *)node->data;
-    alien->rect.x += alien->rect.w * alien->direction;
-    if (!SDL_HasIntersection(&alien->rect, get_spacebounds()))
-      col = 1;
-    node = node->next;
+    dir = -dir;
+    for (node = aliens; node; node = node->next)
+      ALIEN_CAST(node)->rect.y += ALIEN_CAST(node)->rect.h / 2 + ALIEN_PAD;
   }
-  node = aliens;
-  if (col)
-    while (node)
-    {
-      alien = (t_spacealien *)node->data;
-      alien->direction = -alien->direction;
-      alien->rect.x += alien->rect.w * alien->direction;
-      alien->rect.y += alien->rect.h;
-      node = node->next;
-    }
-  old_t = t;
+  else
+    for (node = aliens; node; node = node->next)
+      ALIEN_CAST(node)->rect.x += (ALIEN_CAST(node)->rect.w + ALIEN_PAD) * dir;
+  old_t = SDL_GetTicks();
 }
 
 void	spacealien_fire()
