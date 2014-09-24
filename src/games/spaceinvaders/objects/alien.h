@@ -30,7 +30,7 @@ typedef struct		s_spacealien
 {
   void			(*display)(t_singlelist *alien);
   void			(*move)(t_singlelist *alien);
-  void			(*fire)(void *rocket);	/* TODO: change type to rocket */
+  void			(*fire)(t_singlelist *rocket);
   void			(*collide)();
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;

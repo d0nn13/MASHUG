@@ -54,7 +54,7 @@ void		spacealien_move(t_singlelist *aliens)
   old_t = SDL_GetTicks();
 }
 
-void	spacealien_fire()
+void		spacealien_fire(t_singlelist *aliens)
 {
 }
 
