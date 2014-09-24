@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 19:39:39 2014 FOFANA Ibrahim
-** Last update Wed Sep 24 20:49:25 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 00:01:03 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -106,7 +106,7 @@ static Uint8	insert_entry(t_hiscores *hiscores, t_hiscoreholder entry)
   rank_entry = i;
   for (i = hiscores->count - 2; i >= 0 && i > rank_entry; i--)
   {
-   hiscores->entries[i].nickname = hiscores->entries[i - 1].nickname;
+    hiscores->entries[i].nickname = hiscores->entries[i - 1].nickname;
     hiscores->entries[i].score = hiscores->entries[i - 1].score;
   }
   hiscores->entries[rank_entry].nickname = entry.nickname;
