@@ -23,7 +23,7 @@ static void	spaceufo_appear(t_spaceufo *ufo);
 
 void	spaceufo_display(t_spaceufo const *ufo)
 {
-  if (ufo->direction != UFO_NONE && ufo->alive)
+  if (ufo->direction != UFO_NONE)
     draw_sprite(ufo->sprite, &ufo->rect);
 }
 
@@ -50,7 +50,6 @@ static void	spaceufo_appear(t_spaceufo *ufo)
   if ((to - ti) > UFO_ELAPSED_TIME)
   {
     ti = SDL_GetTicks();
-    ufo->alive = 1;
     if (rand() % 2)
     {
       ufo->direction = UFO_RIGHT;

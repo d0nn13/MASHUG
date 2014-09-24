@@ -32,7 +32,6 @@ t_spaceufo		*spaceufo_init()
 			   sprite->rect.w * OBJ_RESIZE_FACTOR,
 			   sprite->rect.h * OBJ_RESIZE_FACTOR);
   ufo->score_gain = 50;
-  ufo->alive = 1;
   ufo->direction = UFO_NONE;
   return (ufo);
 }
