@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 19:39:39 2014 FOFANA Ibrahim
-** Last update Thu Sep 25 00:02:00 2014 ENNEBATI Yassine
+** Last update Thu Sep 25 00:01:03 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -97,7 +97,7 @@ static Uint8	sort_entries(t_hiscores *hiscores)
 
 static Uint8	insert_entry(t_hiscores *hiscores, t_hiscoreholder entry)
 {
-  Sint8	i;
+  Uint8	i;
   Uint8	rank_entry;
 
   for (i = 0; i < hiscores->count; i++)
