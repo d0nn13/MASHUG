@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 12:11:14 2014 FOFANA Ibrahim
-** Last update Sun Sep  7 16:47:00 2014 FOFANA Ibrahim
+** Last update Sun Sep 21 20:02:04 2014 FOFANA Ibrahim
 */
 
 /**
@@ -32,6 +32,7 @@ typedef struct		s_spaceufo
   void			(*move)(struct s_spaceufo *ufo);
   t_spriteholder const	*sprite;
   SDL_Rect		rect;
+  Uint16		score_gain;
   t_ufo_direction	direction;
 }			t_spaceufo;
 
