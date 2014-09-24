@@ -31,6 +31,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/handlers/sound_handler.c			\
 			$(SRCPATH)core/handlers/xml_handler.c			\
 			$(SRCPATH)core/handlers/xml_hiscore_handler.c		\
+			$(SRCPATH)core/handlers/xml_hiscore_writer.c		\
 			$(SRCPATH)core/handlers/xml_spritesheet_handler.c	\
 			$(SRCPATH)core/helpers/factory_helpers.c		\
 			$(SRCPATH)core/helpers/input_helpers.c			\
