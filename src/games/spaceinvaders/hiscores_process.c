@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 08:56:11 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 12:03:00 2014 FOFANA Ibrahim
 */
 
 #include <stdio.h>
@@ -92,6 +92,7 @@ void		spacehiscores()
   t_hiscores	hiscores;
   Uint8		i;
 
+  set_current_game("spaceinvaders");
   if (!load_hiscores(&hiscores))
   {
     SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");

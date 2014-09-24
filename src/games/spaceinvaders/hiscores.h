@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 10:45:44 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 11:53:55 2014 FOFANA Ibrahim
 */
 
 /**
@@ -27,5 +27,10 @@ Uint8	load_hiscores(t_hiscores *hiscores);
  *	Save HiScores to system
  */
 Uint8	save_spacehiscores(t_hiscoreholder entry);
+
+/**
+ *	Set the game name to load his hiscores
+ */
+Uint8	set_current_game(char *game_name);
 
 #endif /* !GAMES_SPACEINVADERS_HISCORES_H_ */

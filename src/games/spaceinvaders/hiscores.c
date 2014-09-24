@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 10:54:51 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 12:18:00 2014 FOFANA Ibrahim
 */
 
 #include "../../base/memory.h"
@@ -17,10 +17,11 @@
 
 static Uint8	sort_entries(t_hiscores hiscores);
 static Uint8	insert_entry(t_hiscores hiscores, t_hiscoreholder entry);
+static char	*current_game;
 
 Uint8	load_hiscores(t_hiscores *hiscores)
 {
-  xml_hiscore_set_game_filter("spaceinvaders");
+  xml_hiscore_set_game_filter(current_game);
   hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
   if (!hiscores->count)
     return (0);
@@ -82,4 +83,11 @@ static Uint8	insert_entry(t_hiscores hiscores, t_hiscoreholder entry)
   hiscores.entries[rank_entry].score = entry.score;
 
   return (1);
+}
+
+Uint8	set_current_game(char *game_name)
+{
+  current_game = game_name;
+
+ return (1);
 }
