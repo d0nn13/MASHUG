@@ -5,89 +5,104 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 12:18:00 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 17:43:09 2014 FOFANA Ibrahim
 */
 
+#include <stdio.h>
 #include "../../base/memory.h"
 #include "../../core/log.h"
+#include "../../core/renderer.h"
+#include "../../core/input.h"
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
+#include "../../core/launcher.h"
+#include "../../core/helpers/hiscores_io.h"
+#include "../common/fonts.h"
+#include "../common/sfx.h"
+#include "spaceinvaders.h"
+#include "sprites.h"
+#include "core.h"
+#include "menu.h"
 
 #include "hiscores.h"
 
-static Uint8	sort_entries(t_hiscores hiscores);
-static Uint8	insert_entry(t_hiscores hiscores, t_hiscoreholder entry);
-static char	*current_game;
 
-Uint8	load_hiscores(t_hiscores *hiscores)
+static Uint8	process_events()
 {
-  xml_hiscore_set_game_filter(current_game);
-  hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
-  if (!hiscores->count)
-    return (0);
-  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder));
-  xml_parse("media/hiscores.xml", HISCORES_XML, hiscores->entries);
-  sort_entries(*hiscores);
+  SDL_Event	e;
 
-  return (1);
+  if (!SDL_WaitEvent(&e))
+    return (0);
+  if (e.type == SDL_QUIT)
+  {
+    space_destroy();
+    set_launcher(NULL);
+    return (1);
+  }
+  if (e.type == SDL_KEYDOWN)
+  {
+    if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
+    {
+      play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+      set_launcher(&space_menu);
+      return (1);
+    }
+  }
+  return (0);
 }
 
-Uint8	save_spacehiscores(t_hiscoreholder entry)
+static void		draw_hiscores_entries(SDL_Point orig, t_hiscoreholder entry)
+{
+  SDL_Color const	white = {255, 255, 255, 0};
+  char			score[6];
+
+  memset(score, 0, sizeof(score));
+  orig.x += 80;
+  draw_text(entry.nickname, &orig,
+	    get_common_font(COSMIC18_FNT), &white);
+  orig.x += 200;
+  sprintf(score, "%u", entry.score);
+  draw_text(score, &orig, get_common_font(COSMIC18_FNT), &white);
+}
+
+static void		display_hiscores(t_hiscores hiscores)
+{
+  SDL_Color const	yellow = {0, 255, 0, 0};
+  SDL_Color const	green = {255, 0, 0, 0};
+  SDL_Point		orig;
+  char			position[3];
+  Uint8			i;
+
+  memset(position, 0, sizeof(position));
+  renderer_clear(NULL);
+  orig = point_factory(365, 160);
+  draw_text("TOP 10", &orig, get_common_font(COSMIC24_FNT), &green);
+  orig = point_factory(255, 220);
+  for (i = 1; i < hiscores.count; ++i)
+  {
+    sprintf(position, "%d", i);
+    draw_text(position, &orig, get_common_font(COSMIC18_FNT), &yellow);
+    draw_hiscores_entries(orig, hiscores.entries[i - 1]);
+    orig.y += 40;
+  }
+  draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
+}
+
+void		spacehiscores()
 {
   t_hiscores	hiscores;
 
-  load_hiscores(&hiscores);
-  insert_entry(hiscores, entry);
-
-  return (1);
-}
-
-static Uint8	sort_entries(t_hiscores hiscores)
-{
-  Uint8			i;
-  Uint8			j;
-  t_hiscoreholder	tmp;
-
-  for (i = 0; i < hiscores.count; i++)
-    for (j = i + 1; j < hiscores.count; j++)
-    {
-      if (hiscores.entries[i].score < hiscores.entries[j].score)
-      {
-	tmp.score = hiscores.entries[i].score;
-	tmp.nickname = hiscores.entries[i].nickname;
-	hiscores.entries[i].score = hiscores.entries[j].score;
-	hiscores.entries[i].nickname = hiscores.entries[j].nickname;
-	hiscores.entries[j].score = tmp.score;
-	hiscores.entries[j].nickname = tmp.nickname;
-      }
-    }
-
-  return (1);
-}
-
-static Uint8	insert_entry(t_hiscores hiscores, t_hiscoreholder entry)
-{
-  Uint8	i;
-  Uint8	rank_entry;
-
-  for (i = 0; i < hiscores.count; i++)
-    if (hiscores.entries[i].score < entry.score)
-      break;
-  rank_entry = i;
-  for (i = hiscores.count - 2; i >= 0 && i > rank_entry; i--)
+  if (!load_hiscores(&hiscores, "spaceinvaders"))
   {
-    hiscores.entries[i].nickname = hiscores.entries[i - 1].nickname;
-    hiscores.entries[i].score = hiscores.entries[i - 1].score;
+    SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");
+    return ;
   }
-  hiscores.entries[rank_entry].nickname = entry.nickname;
-  hiscores.entries[rank_entry].score = entry.score;
-
-  return (1);
-}
-
-Uint8	set_current_game(char *game_name)
-{
-  current_game = game_name;
-
- return (1);
+  display_hiscores(hiscores);
+  SDL_RenderPresent(get_renderer());
+  while (get_launcher() == &spacehiscores)
+    if (process_events())
+    {
+      free_hiscores(&hiscores);
+      break;
+    }
 }

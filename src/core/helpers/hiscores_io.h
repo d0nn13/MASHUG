@@ -5,20 +5,30 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 08:48:04 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 17:42:08 2014 FOFANA Ibrahim
 */
 
 /**
  *	@file	hiscores.h
- *	@brief	Displaying hiscores for space invaders game
+ *	@brief	Hi-Scores mode for space invaders game
  */
 
 #ifndef GAMES_SPACEINVADERS_HISCORES_H_
 # define GAMES_SPACEINVADERS_HISCORES_H_
 
 /**
- *	Main HiScores-mode routine
+ *	Load HiScores
  */
-void	spacehiscores();
+Uint8	load_hiscores(t_hiscores *hiscores, char *current_game);
+
+/**
+ *	Save HiScores to system
+ */
+Uint8	save_hiscores(t_hiscoreholder entry, char *current_game);
+
+/**
+ *	Free HiScores
+ */
+void	free_hiscores(t_hiscores *hiscores);
 
 #endif /* !GAMES_SPACEINVADERS_HISCORES_H_ */

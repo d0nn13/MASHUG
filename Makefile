@@ -35,6 +35,7 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/helpers/factory_helpers.c		\
 			$(SRCPATH)core/helpers/input_helpers.c			\
 			$(SRCPATH)core/helpers/file_helpers.c			\
+			$(SRCPATH)core/helpers/hiscores_io.c			\
 			$(SRCPATH)core/mashug.c					\
 			$(SRCPATH)games/mainmenu.c				\
 			$(SRCPATH)games/input_test.c				\
@@ -44,7 +45,6 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/spaceinvaders.c		\
 			$(SRCPATH)games/spaceinvaders/menu.c			\
 			$(SRCPATH)games/spaceinvaders/hiscores.c		\
-			$(SRCPATH)games/spaceinvaders/hiscores_process.c	\
 			$(SRCPATH)games/spaceinvaders/sprites.c			\
 			$(SRCPATH)games/spaceinvaders/core.c			\
 			$(SRCPATH)games/spaceinvaders/hud.c			\
