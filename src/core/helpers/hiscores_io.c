@@ -104,7 +104,7 @@ static Uint8	insert_entry(t_hiscores *hiscores, t_hiscoreholder entry)
     if (hiscores->entries[i].score < entry.score)
       break;
   rank_entry = i;
-  for (i = hiscores->count - 2; i >= 0 && i > rank_entry; i--)
+  for (i = hiscores->count - 2; i > rank_entry; i--)
   {
     hiscores->entries[i].nickname = hiscores->entries[i - 1].nickname;
     hiscores->entries[i].score = hiscores->entries[i - 1].score;
