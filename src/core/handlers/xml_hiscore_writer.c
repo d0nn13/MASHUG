@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 14:49:09 2014 FOFANA Ibrahim
-** Last update Wed Sep 24 21:12:51 2014 FOFANA Ibrahim
+** Last update Wed Sep 24 23:45:27 2014 ENNEBATI Yassine
 */
 
 /**
@@ -37,12 +37,11 @@ Uint8	hiscores_rewrite(t_hiscores *hiscores, Uint8 nb_games)
 {
   xmlDocPtr	doc;
   xmlNodePtr	root_node;
-  xmlDtdPtr	dtd;
 
   doc = xmlNewDoc(CAST("1.0"));
   root_node = xmlNewNode(NULL, CAST("hiscores"));
   xmlDocSetRootElement(doc, root_node);
-  dtd = xmlCreateIntSubset(doc, CAST("hiscores"), NULL, CAST(DTD));
+  xmlCreateIntSubset(doc, CAST("hiscores"), NULL, CAST(DTD));
   insert_body_game(root_node, hiscores, nb_games);
   xmlSaveFormatFileEnc("media/hiscores.xml", doc, "UTF-8", 1);
   xmlFreeDoc(doc);
