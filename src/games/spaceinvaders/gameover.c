@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Tue Sep 23 00:11:07 2014 ENNEBATI Yassine
+** Last update Wed Sep 24 23:14:40 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -30,14 +30,19 @@ static void		display_header()
   SDL_Color const	white = {255, 255, 255, 255};
   SDL_Color const	red = {255, 0, 0, 0};
 
-  orig = point_factory(250, 130);
+  orig = point_factory(265, 130);
   draw_text("GAME OVER", &orig, get_common_font(COSMIC48_FNT), &red);
+  orig.x = 255;
   orig.y = 230;
   draw_text("UP and DOWN to change character",
 	    &orig, get_common_font(ATARI12_FNT), &white);
-  orig.x = 240;
+  orig.x = 245;
   orig.y = 250;
   draw_text("LEFT and RIGHT to move the cursor",
+	    &orig, get_common_font(ATARI12_FNT), &white);
+  orig.x = 235;
+  orig.y = 550;
+  draw_text("Please ENTER to submit your hiscore",
 	    &orig, get_common_font(ATARI12_FNT), &white);
 }
 
@@ -51,9 +56,7 @@ static void		display_name(t_letter *name, Uint8 idx)
   memset(buf, 0, 2);
   i = 0;
   display_header();
-  orig = point_factory(320, 400);
-  orig.x = 320;
-  orig.y = 400;
+  orig = point_factory(345, 400);
   for (i = 0; i < NB_LETTER; ++i)
   {
     buf[0] = name[i].letter;
