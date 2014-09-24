@@ -1,13 +1,14 @@
 /*
 ** gameover_process.c for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug/src/games/spaceinvaders
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Sat Sep 20 23:13:09 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 23:30:57 2014 ENNEBATI Yassine
+** Last update Wed Sep 24 23:39:47 2014 ENNEBATI Yassine
 */
 
+#include "../../base/memory.h"
 #include "../../core/handlers.h"
 #include "../../core/input.h"
 #include "../common/sfx.h"
@@ -43,6 +44,20 @@ static void	change_letter(t_letter *name, Uint8 idx, Uint8 state)
   }
 }
 
+static void		submit_name(t_letter *name)
+{
+  t_hiscoreholder	entry;
+  Uint8			i;
+
+  entry.nickname = mem_alloc(NB_LETTER + 1, 1);
+  for (i = 0; i < NB_LETTER; ++i)
+    entry.nickname[i] = name[i].letter;
+  entry.score = 123456789;
+  /* save_hiscores(entry, "spaceinvaders"); */
+  mem_free(entry.nickname);
+  set_launcher(&space_menu);
+}
+
 static Uint8	process_input(SDL_Event e, t_letter *name, Uint8 *idx)
 {
   if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
@@ -50,6 +65,11 @@ static Uint8	process_input(SDL_Event e, t_letter *name, Uint8 *idx)
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
     set_launcher(&space_menu);
     return (1);
+  }
+  if (e.key.keysym.scancode == get_input(START_INP)->code)
+  {
+    play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    submit_name(name);
   }
   if (e.key.keysym.scancode == get_input(RIGHT_INP)->code)
     *idx += *idx + 1 < NB_LETTER ? 1 : 0;
