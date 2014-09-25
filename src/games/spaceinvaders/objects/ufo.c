@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 12:10:35 2014 FOFANA Ibrahim
-** Last update Thu Sep 25 14:45:04 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 20:55:13 2014 FOFANA Ibrahim
 */
 
 #include "../../../base/memory.h"
@@ -31,8 +31,8 @@ t_spaceufo		*spaceufo_init()
 			   get_spacebounds()->y + (get_spacebounds()->h / 8),
 			   sprite->rect.w * OBJ_RESIZE_FACTOR,
 			   sprite->rect.h * OBJ_RESIZE_FACTOR);
+  ufo->score_gain = 0;
   ufo->direction = UFO_NONE;
-
   return (ufo);
 }
 
