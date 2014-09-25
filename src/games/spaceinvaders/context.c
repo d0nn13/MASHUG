@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:34:38 2014 FOFANA Ibrahim
-** Last update Fri Sep 26 03:31:15 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:33:49 2014 FOFANA Ibrahim
 */
 
 #include "../../base/memory.h"
@@ -37,7 +37,7 @@ t_spacecontext	*get_spacecontext()
 
 void	spacecontext_increase_life_process()
 {
-  static Sint32 last_score = 0;
+  static Uint32 last_score = 0;
 
   if ((spacecontext->score - last_score) == 1500)
   {
