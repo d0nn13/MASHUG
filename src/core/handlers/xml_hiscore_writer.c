@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 14:49:09 2014 FOFANA Ibrahim
-** Last update Wed Sep 24 23:45:27 2014 ENNEBATI Yassine
+** Last update Thu Sep 25 14:07:35 2014 FOFANA Ibrahim
 */
 
 /**
@@ -27,11 +27,7 @@
 #define DTD	"dtd/hiscores.dtd"
 #define CAST(n)	((xmlChar *)n)
 
-static void	insert_body_game(
-    xmlNodePtr root_node,
-    t_hiscores *hiscores,
-    Uint8 nb_games
-);
+static void	insert_body_game(xmlNodePtr root_node, t_hiscores *hiscores, Uint8 nb_games);
 
 Uint8	hiscores_rewrite(t_hiscores *hiscores, Uint8 nb_games)
 {
@@ -50,11 +46,7 @@ Uint8	hiscores_rewrite(t_hiscores *hiscores, Uint8 nb_games)
   return (1);
 }
 
-static void	insert_body_game(
-  xmlNodePtr root_node,
-  t_hiscores *h,
-  Uint8 nb_games
-  )
+static void	insert_body_game(xmlNodePtr root_node, t_hiscores *hiscores, Uint8 nb_games)
 {
   int		i;
   int		j;

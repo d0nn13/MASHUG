@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 17:43:09 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 14:09:07 2014 FOFANA Ibrahim
 */
 
 #include <stdio.h>
@@ -25,7 +25,6 @@
 #include "menu.h"
 
 #include "hiscores.h"
-
 
 static Uint8	process_events()
 {

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 17:42:08 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 14:08:21 2014 FOFANA Ibrahim
 */
 
 /**
@@ -13,8 +13,8 @@
  *	@brief	Hi-Scores mode for space invaders game
  */
 
-#ifndef GAMES_SPACEINVADERS_HISCORES_H_
-# define GAMES_SPACEINVADERS_HISCORES_H_
+#ifndef GAMES_SPACEINVADERS_HISCORES_IO_H_
+# define GAMES_SPACEINVADERS_HISCORES_IO_H_
 
 /**
  *	Load HiScores
