@@ -67,6 +67,8 @@ void			spacerocket_display(t_spacerocket *rocket)
 
 void			spacerocket_collide(t_spacerocket *rocket)
 {
+  (void)rocket;
+#if 0
   t_singlelist const    *node;
 
   if (rocket->state != FIRED)
@@ -81,4 +83,5 @@ void			spacerocket_collide(t_spacerocket *rocket)
       rocket->state = COLLIDED;
   if (SDL_HasIntersection(&rocket->rect, &get_spaceobjects()->ufo->rect))
       rocket->state = COLLIDED;
+#endif
 }

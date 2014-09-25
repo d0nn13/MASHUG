@@ -12,8 +12,11 @@
 #include "../../core/input.h"
 #include "../../core/launcher.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
+#include "objects/alien.h"
+#include "objects/alien_callback.h"
 #include "menu.h"
 
 #include "core_process.h"
@@ -54,14 +57,15 @@ void	space_process_objects(t_spaceobjects *o)
 {
   o->ship->move(o->ship);
   o->ufo->move(o->ufo);
-  ((t_spacealien *)o->aliens->data)->move(o->aliens);
+  o->aliens->move(o->aliens);
   input_update();
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
-  process_collisions(o);
+  o->aliens->fire(o->aliens, NULL);
+  /* process_collisions(o); */
   o->ship->display(o->ship);
   o->rocket->display(o->rocket);
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
-  ((t_spacealien *)o->aliens->data)->display(o->aliens);
+  o->aliens->display(o->aliens);
   o->ufo->display(o->ufo);
 }

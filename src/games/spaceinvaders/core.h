@@ -26,7 +26,8 @@ typedef struct	s_spaceobjects
 {
   t_spaceship	*ship;
   t_spacerocket	*rocket;
-  t_singlelist	*aliens;
+  t_spacealiens	*aliens;
+  t_spacerocket alien_rockets[5];
   t_singlelist	*blocks;
   t_spaceufo	*ufo;
 }		t_spaceobjects;
