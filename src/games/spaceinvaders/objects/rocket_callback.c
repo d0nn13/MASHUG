@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 00:20:25 2014 Emmanuel Atse
+** Last update Fri Sep 26 03:36:45 2014 Emmanuel Atse
 */
 
 #include "../../../base/list.h"
@@ -79,8 +79,6 @@ void			spacerocket_collide(t_spacerocket *rocket)
 	  rocket->state = COLLIDED;
 	  return ;
 	}
-      else
-	SDL_Log("no. %i %i %i %i, %i %i", (ALIEN_CAST(node))->rect.x, (ALIEN_CAST(node))->rect.y, (ALIEN_CAST(node))->rect.w, (ALIEN_CAST(node))->rect.h, rocket->rect.x, rocket->rect.y);
   for (node = get_spaceobjects()->blocks; node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
 					     node->data)->rect))
