@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 17:04:59 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 00:20:25 2014 Emmanuel Atse
 */
 
 #include "../../../base/list.h"
@@ -67,21 +67,24 @@ void			spacerocket_display(t_spacerocket *rocket)
 
 void			spacerocket_collide(t_spacerocket *rocket)
 {
-  (void)rocket;
-#if 0
+  int			i;
   t_singlelist const    *node;
 
   if (rocket->state != FIRED)
     return ;
-  for (node = get_spaceobjects()->aliens; node; node = node->next)
-    if (SDL_HasIntersection(&rocket->rect, &((t_spacealien *)
-					     node->data)->rect))
-      rocket->state = COLLIDED;
+  for (i = 0; i < NB_ALIENS_COL; ++i)
+    for (node = get_spaceobjects()->aliens->columns[i]; node; node = node->next)
+      if (SDL_HasIntersection(&rocket->rect, &(ALIEN_CAST(node))->rect))
+	{
+	  rocket->state = COLLIDED;
+	  return ;
+	}
+      else
+	SDL_Log("no. %i %i %i %i, %i %i", (ALIEN_CAST(node))->rect.x, (ALIEN_CAST(node))->rect.y, (ALIEN_CAST(node))->rect.w, (ALIEN_CAST(node))->rect.h, rocket->rect.x, rocket->rect.y);
   for (node = get_spaceobjects()->blocks; node; node = node->next)
     if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
 					     node->data)->rect))
       rocket->state = COLLIDED;
   if (SDL_HasIntersection(&rocket->rect, &get_spaceobjects()->ufo->rect))
-      rocket->state = COLLIDED;
-#endif
+    rocket->state = COLLIDED;
 }

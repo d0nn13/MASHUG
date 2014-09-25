@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
-** Last update Wed Sep  3 14:56:56 2014 Emmanuel Atse
+** Last update Thu Sep 25 23:48:10 2014 Emmanuel Atse
 */
 
 #include "../../../base/memory.h"
@@ -69,7 +69,7 @@ static t_singlelist	*make_column(SDL_Rect *rect)
 
 t_spacealiens		*spacealiens_init()
 {
-  t_spacealiens		*aliens;	
+  t_spacealiens		*aliens;
   SDL_Rect		rect;
   Uint8			i;
 

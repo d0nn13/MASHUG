@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Tue Aug 12 22:30:17 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 00:20:42 2014 Emmanuel Atse
 */
 
 #include "../../../base/list.h"
@@ -39,7 +39,7 @@ void		spacealien_display(t_spacealiens *aliens)
   Uint32	t;
 
   t = SDL_GetTicks() / 1000;
-  for (i = 0; i < 11; ++i)
+  for (i = 0; i < NB_ALIENS_COL; ++i)
     if (!aliens->columns[i])
       continue;
     else
@@ -59,18 +59,18 @@ void		spacealien_move(t_spacealiens *aliens)
   get_range(aliens, &range);
   if ((aliens->direction < 0 && (range.x - range.w <= get_spacebounds()->x)) ||
       (aliens->direction > 0 && (range.y + 2 * range.w >= get_spacebounds()->x
-				 + get_spacebounds()->w)))
+  				 + get_spacebounds()->w)))
   {
     aliens->direction = -aliens->direction;
     for (i = 0; aliens->columns[i]; ++i)
       for (node = aliens->columns[i]; node; node = node->next)
-	ALIEN_CAST(node)->rect.y += ALIEN_CAST(node)->rect.h / 2 + ALIEN_PAD;
+  	ALIEN_CAST(node)->rect.y += ALIEN_CAST(node)->rect.h / 2 + ALIEN_PAD;
   }
   else
     for (i = 0; aliens->columns[i]; ++i)
       for (node = aliens->columns[i]; node; node = node->next)
-	ALIEN_CAST(node)->rect.x += (ALIEN_CAST(node)->rect.w) *
-	  aliens->direction;
+  	ALIEN_CAST(node)->rect.x += (ALIEN_CAST(node)->rect.w) *
+  	  aliens->direction;
   old_t = SDL_GetTicks();
 }
 

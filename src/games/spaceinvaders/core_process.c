@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 17:16:48 2014 ENNEBATI Yassine
+** Last update Thu Sep 25 23:57:41 2014 Emmanuel Atse
 */
 
 #include <string.h>
@@ -62,7 +62,7 @@ void	space_process_objects(t_spaceobjects *o)
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
   o->aliens->fire(o->aliens, NULL);
-  /* process_collisions(o); */
+  process_collisions(o);
   o->ship->display(o->ship);
   o->rocket->display(o->rocket);
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
