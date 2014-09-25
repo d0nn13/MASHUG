@@ -79,6 +79,7 @@ void		spacealien_fire(t_spacealiens *aliens, t_spacerocket *rocket)
   static Uint32	old_t = 0;
   SDL_Rect	*rect;
   Uint8		i;
+  Uint8		j;
 
   if (!ptr_chk(aliens, "aliens", APP_LCAT, "spacealien_fire"))
     return ;
@@ -87,7 +88,13 @@ void		spacealien_fire(t_spacealiens *aliens, t_spacerocket *rocket)
   i = rand() % NB_ALIENS_COL;
   if (!aliens->columns[i]->data)
     return ;
-
+  for (j = 0; j < 4; ++j)
+    if (rocket[j].state == IDLE)
+      break;
+  if (j >= 4)
+    return ;
+  rocket[j].rect = rect_factory(ALIEN_CAST(aliens->column[i])->rect.x, ALIEN_CAST(aliens->column[i])->rect.y);
+  rocket[j].state == FIRED;
   old_t = SDL_GetTicks();
 }
 
