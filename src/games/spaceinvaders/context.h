@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:39:02 2014 FOFANA Ibrahim
-** Last update Fri Sep 26 03:01:40 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:31:38 2014 FOFANA Ibrahim
 */
 
 /**
@@ -23,7 +23,7 @@
  */
 typedef struct	s_spacecontext
 {
-  Uint8		score;
+  Sint32	score;
   Uint8		lives;
   Uint8		wave;
 }		t_spacecontext;
@@ -42,5 +42,10 @@ void	spacecontext_destroy();
  *	@brief spacecontext getter
  */
 t_spacecontext	*get_spacecontext();
+
+/**
+ *	@brief Increase spacecontext life when the score reach a 1500 multiple
+ */
+void    spacecontext_increase_life_process();
 
 #endif /* !GAME_SPACEINVADERS_CONTEXT_H_ */
