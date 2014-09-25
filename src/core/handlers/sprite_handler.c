@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 15:29:34 2014 AHAMADA Samir
-** Last update Wed Jul 23 12:51:23 2014 Emmanuel Atse
+** Last update Thu Sep 25 23:06:08 2014 Emmanuel Atse
 */
 
 /**
@@ -30,6 +30,22 @@ void		draw_sprite(t_spriteholder const *s,
     return ;
   renderer = get_renderer();
   SDL_RenderCopy(renderer, s->sheet->tex->tex, &s->rect, zone);
+  SDL_LogVerbose(SPR_LCAT, "Drawn sprite '%s'", s->name);
+}
+
+void		draw_sprite_ex(t_spriteholder const *s,
+			       SDL_Rect const *zone,
+			       double angle,
+			       SDL_RendererFlip flip)
+{
+  SDL_Renderer	*renderer;
+
+  if (!ptr_chk(s, "sprite", SPR_LCAT, "draw_sprite") ||
+      !ptr_chk(s->sheet, "s->sheet", SPR_LCAT, "draw_sprite"))
+    return ;
+  renderer = get_renderer();
+  SDL_RenderCopyEx(renderer, s->sheet->tex->tex, &s->rect, zone,
+		   angle, NULL, flip);
   SDL_LogVerbose(SPR_LCAT, "Drawn sprite '%s'", s->name);
 }
 
