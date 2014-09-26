@@ -31,7 +31,7 @@ static t_spaceobjects	objects;
 
 void	spacecore_init()
 {
-  int	i;
+  Uint8	i;
 
   spacecontext_init();
   objects.ship = spaceship_init();
@@ -46,15 +46,15 @@ void	spacecore_init()
 
 void	spacecore_destroy()
 {
-  int	i;
+  Uint8	i;
 
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    spacerocket_destroy(&objects.alien_rockets[i]);
   spaceufo_destroy(&objects.ufo);
   spacealiens_destroy(&objects.aliens);
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);
   spaceship_destroy(&objects.ship);
-  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
-    spacerocket_destroy(&objects.alien_rockets[i]);
   spacecontext_destroy();
 }
 

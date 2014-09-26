@@ -23,7 +23,7 @@
 
 static void	process_collisions(t_spaceobjects *o)
 {
-  int		i;
+  Uint8		i;
 
   o->rocket->collide(o->rocket);
   for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
@@ -59,7 +59,7 @@ Uint8		space_process_events()
 
 void	space_process_objects(t_spaceobjects *o)
 {
-  int	i;
+  Uint8	i;
 
   o->ship->move(o->ship);
   o->ufo->move(o->ufo);

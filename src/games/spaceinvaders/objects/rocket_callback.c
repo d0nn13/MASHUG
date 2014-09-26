@@ -67,7 +67,7 @@ void			spacerocket_display(t_spacerocket *rocket)
 
 void			spacerocket_collide(t_spacerocket *rocket)
 {
-  int			i;
+  Uint8			i;
   t_singlelist const    *node;
 
   if (rocket->state != FIRED)
