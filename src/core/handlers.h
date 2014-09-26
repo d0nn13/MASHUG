@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Sat Aug 23 12:12:36 2014 ENNEBATI Yassine
+** Last update Thu Sep 25 23:08:54 2014 Emmanuel Atse
 */
 
 /**
@@ -165,6 +165,23 @@ void		free_spritesheet(t_spritesheet *ss);
  */
 void		draw_sprite(t_spriteholder const *s,
 			    SDL_Rect const *zone);
+
+/**
+ *	@brief	Draws a sprite from a spritesheet to a given zone on the renderer.
+ *		with some extra parameters to the rendering
+ *
+ *	This function scales the sprite to 'zone' dimensions.
+ *	Passing NULL to 'zone' implies scaling to fit renderer size
+ *
+ *	@param	s The desired sprite holder
+ *	@param	zone The zone to fill with the desired sprite
+ *	@param	angle an angle in degrees that indicates the rotation
+ *	@param	flip a SDL_RendererFlip value stating which flipping actions should be performed on the texture
+ */
+void		draw_sprite_ex(t_spriteholder const *s,
+			       SDL_Rect const *zone,
+			       double angle,
+			       SDL_RendererFlip flip);
 
 /**
  *	@brief	Draws a sprite from a spritesheet at a given point on the renderer without applying scaling.

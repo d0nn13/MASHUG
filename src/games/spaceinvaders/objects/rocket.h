@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:01:44 2014 ENNEBATI Yassine
-** Last update Sun Aug 10 04:08:06 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 02:39:41 2014 Emmanuel Atse
 */
 
 /**
@@ -31,8 +31,8 @@ typedef enum
  */
 typedef struct		s_spacerocket
 {
-  void			(*display)(struct s_spacerocket *rocket);
-  void			(*collide)(struct s_spacerocket *rocket);
+  void			(*display)();
+  void			(*collide)();
   t_spriteholder const	*sprite;
   SDL_Rect 		rect;
   t_spacerocket_state	state;

@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:32 2014 ENNEBATI Yassine
-** Last update Sun Sep  7 16:10:19 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:03:29 2014 Emmanuel Atse
 */
 
 /**
@@ -22,11 +22,14 @@
 # include "objects/block.h"
 # include "objects/ufo.h"
 
+# define NB_ALIENS_ROCKETS 5
+
 typedef struct	s_spaceobjects
 {
   t_spaceship	*ship;
   t_spacerocket	*rocket;
-  t_singlelist	*aliens;
+  t_spacealiens	*aliens;
+  t_spacerocket *alien_rockets[NB_ALIENS_ROCKETS];
   t_singlelist	*blocks;
   t_spaceufo	*ufo;
 }		t_spaceobjects;
