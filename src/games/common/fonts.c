@@ -42,6 +42,7 @@ void	load_common_fonts()
       SDL_LogVerbose(FNT_LCAT, "Font '%s' loaded", fonts[i].name);
       ++c;
     }
+    SDL_assert(fonts[i].font);
   }
   if (c == NB_FNT)
     SDL_LogInfo(FNT_LCAT, "Common fonts successfully loaded");

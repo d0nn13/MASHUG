@@ -51,12 +51,12 @@ t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name)
     return (NULL);
   sprites = ss->sprites;
   while (*sprites)
-  {
-    if (strcmp(name, (*sprites)->name) == 0)
-      return (*sprites);
-    ++sprites;
-  }
-  return (NULL);
+    if (!strcmp(name, (*sprites)->name))
+      break;
+    else
+      ++sprites;
+  SDL_assert(*sprites);
+  return (*sprites);
 }
 
 void			free_spritesheet(t_spritesheet *ss)
