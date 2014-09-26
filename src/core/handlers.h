@@ -213,7 +213,7 @@ t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name);
 typedef struct	s_hiscoreholder
 {
   char		*nickname;
-  Uint32	score;
+  Uint16	score;
 }		t_hiscoreholder;
 
 typedef struct		s_hiscores
