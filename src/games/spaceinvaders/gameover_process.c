@@ -14,6 +14,7 @@
 #include "../../core/input.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
+#include "core.h"
 #include "menu.h"
 #include "context.h"
 
@@ -59,6 +60,7 @@ static void		submit_name(t_letter *name)
   entry->score = get_spacecontext()->score;
   save_hiscores(entry, "spaceinvaders");
   mem_free(entry);
+  spacecore_destroy();
   set_launcher(&space_menu);
 }
 
@@ -67,6 +69,7 @@ static Uint8	process_input(SDL_Event e, t_letter *name, Uint8 *idx)
   if (e.key.keysym.scancode == get_input(RETURN_INP)->code)
   {
     play_sfx(get_common_sfx(BLIPCANCEL_SFX));
+    spacecore_destroy();
     set_launcher(&space_menu);
     return (1);
   }
