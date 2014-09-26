@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:34:38 2014 FOFANA Ibrahim
-** Last update Fri Sep  5 15:11:23 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:02:14 2014 ENNEBATI Yassine
 */
 
 #include "../../base/memory.h"
@@ -18,8 +18,9 @@ static t_spacecontext *spacecontext = NULL;
 Uint8 spacecontext_init()
 {
   spacecontext = mem_alloc(1, sizeof(t_spacecontext));
-  spacecontext->lives = NB_SPACE_LIVES;
   spacecontext->score = 0;
+  spacecontext->lives = NB_SPACE_LIVES;
+  spacecontext->wave = 0;
   return (0);
 }
 

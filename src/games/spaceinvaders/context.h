@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:39:02 2014 FOFANA Ibrahim
-** Last update Sat Sep  6 17:16:16 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:01:40 2014 ENNEBATI Yassine
 */
 
 /**
@@ -25,6 +25,7 @@ typedef struct	s_spacecontext
 {
   Uint8		score;
   Uint8		lives;
+  Uint8		wave;
 }		t_spacecontext;
 
 /**
