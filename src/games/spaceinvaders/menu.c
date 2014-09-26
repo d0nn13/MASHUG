@@ -21,7 +21,6 @@
 #include "sprites.h"
 #include "core.h"
 #include "hiscores.h"
-#include "gameover.h"
 
 #include "menu.h"
 
@@ -103,10 +102,6 @@ static Uint8	process_input(SDL_Scancode const *s, t_menuentries *item)
       play_sfx(get_common_sfx(BLIPOK_SFX));
       set_launcher(entries[*item].callback);
     }
-  }
-  else if (*s == get_input(GAMEOVER_TEST_INP)->code)
-  {
-    set_launcher(&space_gameover);
   }
   if (*item != old_item)
   {
