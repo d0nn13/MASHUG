@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sat Sep 20 23:13:09 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 03:24:21 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:47:13 2014 ENNEBATI Yassine
 */
 
 #include "../../base/memory.h"
@@ -57,7 +57,6 @@ static void		submit_name(t_letter *name)
     nickname[i] = name[i].letter;
   entry->nickname = (char *)nickname;
   entry->score = get_spacecontext()->score;
-  SDL_Log("%d", entry->score);
   save_hiscores(entry, "spaceinvaders");
   mem_free(entry);
   set_launcher(&space_menu);
