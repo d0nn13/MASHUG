@@ -5,7 +5,7 @@
 ** Login   <atse_e@etna-alternance.net>
 ** 
 ** Started on  Fri Sep 26 02:02:39 2014 Emmanuel Atse
-** Last update Fri Sep 26 03:08:02 2014 Emmanuel Atse
+** Last update Fri Sep 26 03:22:48 2014 Emmanuel Atse
 */
 
 #include <SDL2/SDL.h>
@@ -68,6 +68,20 @@ void	spacealienrocket_display(t_spacerocket *rocket, int index)
 
 void	spacealienrocket_collide(t_spacerocket *rocket, int index)
 {
-  (void)rocket;
+  t_spaceship		*ship;
+  t_singlelist const    *node;
+
   (void)index;
+  if (rocket->state != FIRED)
+    return ;
+  ship = get_spaceobjects()->ship;
+  if (SDL_HasIntersection(&rocket->rect, &ship->rect))
+    {
+      rocket->state = COLLIDED;
+      return ;
+    }
+  for (node = get_spaceobjects()->blocks; node; node = node->next)
+    if (SDL_HasIntersection(&rocket->rect, &((t_spaceblock *)
+					     node->data)->rect))
+      rocket->state = COLLIDED;
 }
