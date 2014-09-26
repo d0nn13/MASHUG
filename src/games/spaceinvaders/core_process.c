@@ -5,22 +5,29 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 17:16:48 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 02:39:39 2014 Emmanuel Atse
 */
 
 #include <string.h>
 #include "../../core/input.h"
 #include "../../core/launcher.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
+#include "objects/alien.h"
+#include "objects/alien_callback.h"
 #include "menu.h"
 
 #include "core_process.h"
 
 static void	process_collisions(t_spaceobjects *o)
 {
+  Uint8		i;
+
   o->rocket->collide(o->rocket);
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    o->alien_rockets[i]->collide(o->alien_rockets[i], i);
 }
 
 Uint8		space_process_events()
@@ -52,16 +59,21 @@ Uint8		space_process_events()
 
 void	space_process_objects(t_spaceobjects *o)
 {
+  Uint8	i;
+
   o->ship->move(o->ship);
   o->ufo->move(o->ufo);
-  ((t_spacealien *)o->aliens->data)->move(o->aliens);
+  o->aliens->move(o->aliens);
   input_update();
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
+  o->aliens->fire(o->aliens, o->alien_rockets);
   process_collisions(o);
   o->ship->display(o->ship);
   o->rocket->display(o->rocket);
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    o->alien_rockets[i]->display(o->alien_rockets[i], i);
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
-  ((t_spacealien *)o->aliens->data)->display(o->aliens);
+  o->aliens->display(o->aliens);
   o->ufo->display(o->ufo);
 }
