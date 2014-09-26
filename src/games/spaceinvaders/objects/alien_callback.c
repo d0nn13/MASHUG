@@ -83,7 +83,7 @@ void		spacealien_fire(t_spacealiens *aliens, t_spacerocket **rocket)
 
   if (!ptr_chk(aliens, "aliens", APP_LCAT, "spacealien_fire"))
     return ;
-  if (SDL_GetTicks() - old_t < (rand() % 9500) + 1500)
+  if (SDL_GetTicks() - old_t < ((Uint32)rand() % 9500) + 1500)
     return ;
   i = rand() % NB_ALIENS_COL;
   if (!aliens->columns[i]->data)
