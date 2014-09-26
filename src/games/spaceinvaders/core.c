@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 21:12:18 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 16:09:08 2014 FOFANA Ibrahim
 */
 
 #include "../../core/renderer.h"
@@ -61,6 +61,7 @@ void			space_loop()
     if (space_process_events())
       break;
     space_process_objects(&objects);
+    spacecontext_increase_life_process();
     draw_sprite(get_sprite(get_spacesprites(), CABINET_SPR), NULL);
     SDL_Delay(PROCESS_PERIOD_MS);
     if (SDL_GetTicks() - t_old < RENDER_PERIOD_MS)
