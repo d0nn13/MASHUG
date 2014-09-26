@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:21:54 2014 AHAMADA Samir
-** Last update Sat Aug 16 16:25:49 2014 ENNEBATI Yassine
+** Last update Mon Sep 22 23:55:26 2014 ENNEBATI Yassine
 */
 
 #include <SDL2/SDL_ttf.h>
@@ -16,7 +16,9 @@
 static t_font	fonts[NB_FNT] = {
   {NULL, "atari24", "media/fonts/atari.ttf", 24},
   {NULL, "atari18", "media/fonts/atari.ttf", 18},
+  {NULL, "atari18", "media/fonts/atari.ttf", 12},
   {NULL, "cosmic48", "media/fonts/cosmic.ttf", 48},
+  {NULL, "cosmic48", "media/fonts/cosmic.ttf", 42},
   {NULL, "cosmic24", "media/fonts/cosmic.ttf", 24},
   {NULL, "cosmic18", "media/fonts/cosmic.ttf", 18},
   {NULL, "prstartk24", "media/fonts/prstartk.ttf", 24},

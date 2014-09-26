@@ -1,11 +1,11 @@
 /*
 ** input.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Aug 04 16:46:28 2014 Samir Ahamada
-** Last update Mon Aug 04 16:46:28 2014 Samir Ahamada
+** Last update Fri Sep 26 03:57:09 2014 ENNEBATI Yassine
 */
 
 /**
@@ -27,7 +27,8 @@ static t_inputholder input[NB_INP] = {
   {SDL_SCANCODE_RIGHT, 0, "RIGHT"},
   {SDL_SCANCODE_SPACE, 0, "FIRE"},
   {0, 0, "BUTTON2"},
-  {SDL_SCANCODE_I, 0, "TEST"}
+  {SDL_SCANCODE_I, 0, "TEST"},
+  {SDL_SCANCODE_G, 0, "GAMEOVER_TEST"}
 };
 
 void	input_update()
@@ -59,4 +60,3 @@ Sint32	key_filter(void *userdata, SDL_Event *event)
     return (0);
   return (1);
 }
-

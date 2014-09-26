@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Sat Sep  6 17:17:36 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:33:48 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -16,6 +16,7 @@
 #include "../../core/handlers.h"
 #include "../../core/helpers.h"
 #include "../../core/launcher.h"
+#include "../../core/helpers/hiscores_io.h"
 #include "../common/fonts.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
@@ -49,17 +50,6 @@ static Uint8	process_events()
   return (0);
 }
 
-static Uint8   	load_hiscores(t_hiscores *hiscores)
-{
-  xml_hiscore_set_game_filter("spaceinvaders");
-  hiscores->count = xml_parse("media/hiscores.xml", HISCORES_XML, NULL);
-  if (!hiscores->count)
-    return (0);
-  hiscores->entries = mem_alloc(hiscores->count, sizeof(t_hiscoreholder));
-  xml_parse("media/hiscores.xml", HISCORES_XML, hiscores->entries);
-  return (1);
-}
-
 static void		draw_hiscores_entries(SDL_Point orig, t_hiscoreholder entry)
 {
   SDL_Color const	white = {255, 255, 255, 0};
@@ -74,7 +64,7 @@ static void		draw_hiscores_entries(SDL_Point orig, t_hiscoreholder entry)
   draw_text(score, &orig, get_common_font(COSMIC18_FNT), &white);
 }
 
-static void    		display_hiscores(t_hiscores hiscores)
+static void		display_hiscores(t_hiscores hiscores)
 {
   SDL_Color const	yellow = {0, 255, 0, 0};
   SDL_Color const	green = {255, 0, 0, 0};
@@ -84,13 +74,16 @@ static void    		display_hiscores(t_hiscores hiscores)
 
   memset(position, 0, sizeof(position));
   renderer_clear(NULL);
-  orig = point_factory(365, 160);
+  orig = point_factory(365, 140);
   draw_text("TOP 10", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(255, 220);
-  for (i = 1; i < hiscores.count; ++i)
+  orig = point_factory(255, 200);
+  for (i = 1; i <= hiscores.count; ++i)
   {
+    if (i == hiscores.count)
+      orig.x = 245;
     sprintf(position, "%d", i);
     draw_text(position, &orig, get_common_font(COSMIC18_FNT), &yellow);
+    orig.x = 255;
     draw_hiscores_entries(orig, hiscores.entries[i - 1]);
     orig.y += 40;
   }
@@ -100,9 +93,8 @@ static void    		display_hiscores(t_hiscores hiscores)
 void		spacehiscores()
 {
   t_hiscores	hiscores;
-  Uint8		i;
 
-  if (!load_hiscores(&hiscores))
+  if (!load_hiscores(&hiscores, "spaceinvaders"))
   {
     SDL_LogDebug(APP_LCAT, "Couldn't load Space Invaders hiscores");
     return ;
@@ -112,11 +104,7 @@ void		spacehiscores()
   while (get_launcher() == &spacehiscores)
     if (process_events())
     {
-      for (i = 0; i < hiscores.count; ++i)
-	mem_free(hiscores.entries[i].nickname);
-      mem_free(hiscores.entries);
+      free_hiscores(&hiscores);
       break;
     }
 }
-
-Uint8	save_spacehiscores();

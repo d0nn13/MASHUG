@@ -32,10 +32,12 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)core/handlers/sound_handler.c			\
 			$(SRCPATH)core/handlers/xml_handler.c			\
 			$(SRCPATH)core/handlers/xml_hiscore_handler.c		\
+			$(SRCPATH)core/handlers/xml_hiscore_writer.c		\
 			$(SRCPATH)core/handlers/xml_spritesheet_handler.c	\
 			$(SRCPATH)core/helpers/factory_helpers.c		\
 			$(SRCPATH)core/helpers/input_helpers.c			\
 			$(SRCPATH)core/helpers/file_helpers.c			\
+			$(SRCPATH)core/helpers/hiscores_io.c			\
 			$(SRCPATH)core/mashug.c					\
 			$(SRCPATH)games/mainmenu.c				\
 			$(SRCPATH)games/input_test.c				\
@@ -50,6 +52,8 @@ SRC		=	$(SRCPATH)base/math.c					\
 			$(SRCPATH)games/spaceinvaders/hud.c			\
 			$(SRCPATH)games/spaceinvaders/core_process.c		\
 			$(SRCPATH)games/spaceinvaders/context.c			\
+			$(SRCPATH)games/spaceinvaders/gameover.c		\
+			$(SRCPATH)games/spaceinvaders/gameover_process.c	\
 			$(SRCPATH)games/spaceinvaders/objects/ship.c		\
 			$(SRCPATH)games/spaceinvaders/objects/ship_callback.c	\
 			$(SRCPATH)games/spaceinvaders/objects/rocket.c		\

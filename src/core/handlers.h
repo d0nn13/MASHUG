@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Thu Sep 25 23:08:54 2014 Emmanuel Atse
+** Last update Fri Sep 26 05:57:17 2014 ENNEBATI Yassine
 */
 
 /**
@@ -23,7 +23,6 @@
 # include "launcher.h"
 # include "graphics.h"
 # include "audio.h"
-
 
 /**
  * ==================== M E N U S ====================
@@ -119,7 +118,7 @@ void		play_sfx(t_chunk *s);
  *
  *	Pass a reference to this function to 'xml_parse()' function
  *	to parse a Spritesheet XML file
- *	
+ *
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
@@ -131,7 +130,7 @@ Uint8		xml_spritesheet_callback(xmlNodePtr node, void *container);
  *
  *	Pass a reference to this function to 'xml_parse()' function
  *	to parse an Animation XML file
- *	
+ *
  *	You should NOT call this function yourself!
  *
  *	@return	Number of counted elements
@@ -213,13 +212,14 @@ t_spriteholder const	*get_sprite(t_spritesheet const *ss, char const *name);
 typedef struct	s_hiscoreholder
 {
   char		*nickname;
-  Uint32	score;
+  Uint16	score;
 }		t_hiscoreholder;
 
 typedef struct		s_hiscores
 {
   t_hiscoreholder	*entries;
   Uint8       		count;
+  char			*game_name;
 }			t_hiscores;
 
 /**
@@ -240,6 +240,17 @@ Uint8		xml_hiscore_callback(xmlNodePtr node, void *container);
  *	@param	name Name of the 'game' XML element to filter
  */
 void		xml_hiscore_set_game_filter(char const *name);
+
+/**
+ *	@brief	Rewrite hiscores XML files
+ *
+ *	Use this functions to save all hiscores
+ *
+ *	@param	all_hiscores contains a singlelist with hiscores for each games
+ *
+ *	@return 1
+ */
+Uint8		hiscores_rewrite(t_hiscores *all_hiscores, Uint8 nb_games);
 
 /*
 ** ==================== X M L ====================

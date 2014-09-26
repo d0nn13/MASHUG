@@ -15,6 +15,7 @@
 #include "../../core/helpers.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
+#include "gameover.h"
 #include "objects/alien.h"
 #include "objects/alien_callback.h"
 #include "menu.h"
@@ -52,6 +53,10 @@ Uint8		space_process_events()
       spacecore_destroy();
       set_launcher(&space_menu);
       return (1);
+    }
+    else if (e.key.keysym.scancode == get_input(GAMEOVER_TEST_INP)->code)
+    {
+      set_launcher(&space_gameover);
     }
   }
   return (0);

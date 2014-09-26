@@ -32,6 +32,8 @@ void	spacecontext_destroy()
 
 t_spacecontext	*get_spacecontext()
 {
+  spacecontext->score = spacecontext->score > 0xffff ? 0xffff :
+    spacecontext->score;
   return (spacecontext);
 }
 

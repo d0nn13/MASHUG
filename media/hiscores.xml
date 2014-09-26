@@ -2,25 +2,25 @@
 <!DOCTYPE hiscores SYSTEM "dtd/hiscores.dtd">
 <hiscores>
   <game name="spaceinvaders">
-    <entry nickname="manu" score="5230"/>
-    <entry nickname="donnie" score="4830"/>
-    <entry nickname="ibrah" score="7410"/>
-    <entry nickname="donnie" score="4830"/>
-    <entry nickname="ibrah" score="7410"/>
-    <entry nickname="manu" score="5230"/>
-    <entry nickname="donnie" score="4830"/>
-    <entry nickname="ibrah" score="7410"/>
-    <entry nickname="donnie" score="4830"/>
-    <entry nickname="ibrah" score="7410"/>
+    <entry nickname="manu" score="3000"/>
+    <entry nickname="donnie" score="2000"/>
+    <entry nickname="ibrah" score="1000"/>
+    <entry nickname="donnie" score="500"/>
+    <entry nickname="ibrah" score="400"/>
+    <entry nickname="manu" score="300"/>
+    <entry nickname="donnie" score="200"/>
+    <entry nickname="ibrah" score="100"/>
+    <entry nickname="donnie" score="50"/>
+    <entry nickname="hitch" score="42"/>
   </game>
   <game name="galaga">
-    <entry nickname="nbat" score="6600"/>
-    <entry nickname="manu" score="5230"/>
-    <entry nickname="donnie" score="4830"/>
+    <entry nickname="nbat" score="3000"/>
+    <entry nickname="manu" score="1000"/>
+    <entry nickname="donnie" score="500"/>
   </game>
   <game name="rtype">
-    <entry nickname="ibrah" score="7410"/>
-    <entry nickname="nbat" score="6600"/>
-    <entry nickname="manu" score="5230"/>
+    <entry nickname="ibrah" score="3000"/>
+    <entry nickname="nbat" score="1000"/>
+    <entry nickname="manu" score="500"/>
   </game>
 </hiscores>

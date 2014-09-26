@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Sun Apr 27 23:03:46 2014 AHAMADA Samir
-** Last update Fri Aug 15 19:23:14 2014 ENNEBATI Yassine
+** Last update Mon Sep 22 23:56:43 2014 ENNEBATI Yassine
 */
 
 /**
@@ -25,7 +25,9 @@ typedef enum
 {
   ATARI24_FNT = 0,
   ATARI18_FNT,
+  ATARI12_FNT,
   COSMIC48_FNT,
+  COSMIC42_FNT,
   COSMIC24_FNT,
   COSMIC18_FNT,
   PRSTARTK24_FNT,
