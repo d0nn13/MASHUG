@@ -5,15 +5,14 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 19:39:39 2014 FOFANA Ibrahim
-** Last update Fri Sep 26 03:04:44 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:56:31 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
+#include "../../base/list.h"
 #include "../../base/memory.h"
-#include "../log.h"
 #include "../handlers.h"
 #include "../helpers.h"
-#include "../../base/list.h"
 
 #include "hiscores_io.h"
 

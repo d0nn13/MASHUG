@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:13 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 08:48:04 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 04:01:35 2014 ENNEBATI Yassine
 */
 
 /**
@@ -17,7 +17,7 @@
 # define GAMES_SPACEINVADERS_HISCORES_H_
 
 /**
- *	Main HiScores-mode routine
+ *	@brief	Main HiScores-mode routine
  */
 void	spacehiscores();
 

@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Wed Sep 24 18:51:26 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:51:45 2014 ENNEBATI Yassine
 */
 
 /**
@@ -24,7 +24,6 @@
 # include "launcher.h"
 # include "graphics.h"
 # include "audio.h"
-
 
 /**
  * ==================== M E N U S ====================

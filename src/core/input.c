@@ -1,11 +1,11 @@
 /*
 ** input.c for MASHUG in /Users/ahamad_s/dev/ETNA/Projets/TCM-DEVC/MASHUG
-** 
+**
 ** Made by Samir Ahamada
 ** Login   <ahamad_s@etna-alternance.net>
-** 
+**
 ** Started on  Mon Aug 04 16:46:28 2014 Samir Ahamada
-** Last update Sat Sep  6 13:22:33 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:57:09 2014 ENNEBATI Yassine
 */
 
 /**
@@ -60,4 +60,3 @@ Sint32	key_filter(void *userdata, SDL_Event *event)
     return (0);
   return (1);
 }
-

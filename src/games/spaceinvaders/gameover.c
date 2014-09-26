@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 23:14:40 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:58:03 2014 ENNEBATI Yassine
 */
 
 #include "../../core/renderer.h"
@@ -19,8 +19,6 @@
 #include "menu.h"
 
 #include "gameover.h"
-
-#include "../../core/log.h"
 
 #define	NB_LETTER 5
 

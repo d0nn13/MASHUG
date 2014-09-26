@@ -1,11 +1,11 @@
 /*
 ** gameover.h for MASHUG in /Users/Yassine/Code/ETNA/projet/c/mashug
-** 
+**
 ** Made by ENNEBATI Yassine
 ** Login   <enneba_y@etna-alternance.net>
-** 
+**
 ** Started on  Sun Sep  7 18:58:37 2014 ENNEBATI Yassine
-** Last update Sat Sep 20 23:23:29 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:58:47 2014 ENNEBATI Yassine
 */
 
 /**
