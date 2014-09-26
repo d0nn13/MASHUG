@@ -5,9 +5,10 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 00:20:42 2014 Emmanuel Atse
+** Last update Fri Sep 26 03:09:17 2014 Emmanuel Atse
 */
 
+#include "../../../core/helpers.h"
 #include "../../../base/list.h"
 #include "../../../core/log.h"
 #include "../../../core/input.h"
@@ -74,27 +75,30 @@ void		spacealien_move(t_spacealiens *aliens)
   old_t = SDL_GetTicks();
 }
 
-void		spacealien_fire(t_spacealiens *aliens, t_spacerocket *rocket)
+void		spacealien_fire(t_spacealiens *aliens, t_spacerocket **rocket)
 {
   static Uint32	old_t = 0;
-  SDL_Rect	*rect;
   Uint8		i;
   Uint8		j;
 
   if (!ptr_chk(aliens, "aliens", APP_LCAT, "spacealien_fire"))
     return ;
-  if (SDL_GetTicks() - old_t < 500)
+  if (SDL_GetTicks() - old_t < (rand() % 9500) + 1500)
     return ;
   i = rand() % NB_ALIENS_COL;
   if (!aliens->columns[i]->data)
     return ;
-  for (j = 0; j < 4; ++j)
-    if (rocket[j].state == IDLE)
+  for (j = 0; j < NB_ALIENS_ROCKETS; ++j)
+    if (rocket[j]->state == IDLE)
       break;
-  if (j >= 4)
+  if (j >= NB_ALIENS_ROCKETS)
     return ;
-  rocket[j].rect = rect_factory(ALIEN_CAST(aliens->column[i])->rect.x, ALIEN_CAST(aliens->column[i])->rect.y);
-  rocket[j].state == FIRED;
+  rocket[j]->rect = rect_factory(ALIEN_CAST(aliens->columns[i])->rect.x +
+				 ALIEN_CAST(aliens->columns[i])->rect.w / 2,
+				 ALIEN_CAST(aliens->columns[i])->rect.y,
+				 rocket[j]->rect.w,
+				 rocket[j]->rect.h);
+  rocket[j]->state = FIRED;
   old_t = SDL_GetTicks();
 }
 

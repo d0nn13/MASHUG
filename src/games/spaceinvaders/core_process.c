@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Thu Sep 25 23:57:41 2014 Emmanuel Atse
+** Last update Fri Sep 26 02:39:39 2014 Emmanuel Atse
 */
 
 #include <string.h>
@@ -23,7 +23,11 @@
 
 static void	process_collisions(t_spaceobjects *o)
 {
+  int		i;
+
   o->rocket->collide(o->rocket);
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    o->alien_rockets[i]->collide(o->alien_rockets[i], i);
 }
 
 Uint8		space_process_events()
@@ -55,16 +59,20 @@ Uint8		space_process_events()
 
 void	space_process_objects(t_spaceobjects *o)
 {
+  int	i;
+
   o->ship->move(o->ship);
   o->ufo->move(o->ufo);
   o->aliens->move(o->aliens);
   input_update();
   if (!o->rocket->state == FIRED && get_input(FIRE_INP)->state)
     o->ship->fire(o->ship, o->rocket);
-  o->aliens->fire(o->aliens, NULL);
+  o->aliens->fire(o->aliens, o->alien_rockets);
   process_collisions(o);
   o->ship->display(o->ship);
   o->rocket->display(o->rocket);
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    o->alien_rockets[i]->display(o->alien_rockets[i], i);
   ((t_spaceblock *)o->blocks->data)->display(o->blocks);
   o->aliens->display(o->aliens);
   o->ufo->display(o->ufo);

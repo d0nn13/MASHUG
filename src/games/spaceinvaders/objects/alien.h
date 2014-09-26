@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Sun Sep 21 19:51:38 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 01:44:46 2014 Emmanuel Atse
 */
 
 /**
@@ -45,7 +45,8 @@ typedef struct		s_spacealiens
   t_singlelist		*columns[NB_ALIENS_COL + 1];
   void			(*display)(struct s_spacealiens *aliens);
   void			(*move)(struct s_spacealiens *aliens);
-  void			(*fire)(struct s_spacealiens *aliens, t_spacerocket *rocket);
+  void			(*fire)(struct s_spacealiens *aliens,
+				t_spacerocket **rocket);
   void			(*update_rect)(struct s_spacealiens *aliens);
   Sint8			direction;
 }			t_spacealiens;

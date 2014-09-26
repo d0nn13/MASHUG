@@ -5,13 +5,14 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Thu Sep 25 16:09:08 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:48:03 2014 Emmanuel Atse
 */
 
 #include "../../core/renderer.h"
 #include "../../core/options.h"
 #include "../../core/handlers.h"
 #include "../../core/launcher.h"
+#include "objects/alienrocket.h"
 #include "sprites.h"
 #include "menu.h"
 #include "context.h"
@@ -30,22 +31,30 @@ static t_spaceobjects	objects;
 
 void	spacecore_init()
 {
+  int	i;
+
   spacecontext_init();
   objects.ship = spaceship_init();
   objects.rocket = spacerocket_init();
   objects.blocks = spaceblocks_init();
   objects.aliens = spacealiens_init();
   objects.ufo = spaceufo_init();
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    objects.alien_rockets[i] = spacealienrocket_init();
   set_launcher(&space_loop);
 }
 
 void	spacecore_destroy()
 {
+  int	i;
+
   spaceufo_destroy(&objects.ufo);
   spacealiens_destroy(&objects.aliens);
   spaceblocks_destroy(&objects.blocks);
   spacerocket_destroy(&objects.rocket);
   spaceship_destroy(&objects.ship);
+  for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
+    spacerocket_destroy(&objects.alien_rockets[i]);
   spacecontext_destroy();
 }
 
