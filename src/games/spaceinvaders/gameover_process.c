@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sat Sep 20 23:13:09 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 00:31:12 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 03:24:21 2014 FOFANA Ibrahim
 */
 
 #include "../../base/memory.h"
@@ -15,6 +15,7 @@
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
 #include "menu.h"
+#include "context.h"
 
 #include "gameover.h"
 
@@ -49,15 +50,16 @@ static void		submit_name(t_letter *name)
 {
   t_hiscoreholder	*entry;
   Uint8			i;
+  char			nickname[NB_LETTER];
 
   entry = mem_alloc(1, sizeof(t_hiscoreholder));
-  entry->nickname = mem_alloc(NB_LETTER + 1, 1);
-  memset(entry->nickname, 0, NB_LETTER + 1);
   for (i = 0; i < NB_LETTER; ++i)
-    entry->nickname[i] = name[i].letter;
-  entry->score = 123456789;
+    nickname[i] = name[i].letter;
+  entry->nickname = (char *)nickname;
+  entry->score = get_spacecontext()->score;
+  SDL_Log("%d", entry->score);
   save_hiscores(entry, "spaceinvaders");
-  mem_free(entry->nickname);
+  mem_free(entry);
   set_launcher(&space_menu);
 }
 
