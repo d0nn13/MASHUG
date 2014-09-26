@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Tue Jun 24 22:56:13 2014 AHAMADA Samir
-** Last update Fri Sep 26 03:51:45 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 05:57:17 2014 ENNEBATI Yassine
 */
 
 /**
@@ -20,7 +20,6 @@
 # include <SDL2/SDL_stdinc.h>
 # include <SDL2/SDL_render.h>
 # include <libxml/parser.h>
-# include "../base/list.h"
 # include "launcher.h"
 # include "graphics.h"
 # include "audio.h"
