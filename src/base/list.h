@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Wed Jun 25 19:03:19 2014 AHAMADA Samir
-** Last update Tue Jul 15 11:48:46 2014 ENNEBATI Yassine
+** Last update Thu Sep 25 23:21:50 2014 Emmanuel Atse
 */
 
 /**
@@ -40,6 +40,17 @@ t_singlelist	*list_make_node();
  *	@param	tail The address of the pointer to the last node of a singly-linked list
  */
 void		list_push(void *data, t_singlelist **tail);
+
+/**
+ *	@brief	Remove a node of a singly-linked list
+ *
+ *	This function delete the node from memory, but not his data.
+ *
+ *	@param	node A pointer to the node to remove
+ *	@param	root The address of the pointer to the root node
+ *		of a singly-linked list
+ */
+void		list_pop(t_singlelist *node, t_singlelist **root);
 
 /**
  *	@brief	Get a pointer to a specific node in a singly-linked list
