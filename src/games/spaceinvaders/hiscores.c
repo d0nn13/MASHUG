@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:28:26 2014 ENNEBATI Yassine
-** Last update Thu Sep 25 14:09:07 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 03:33:48 2014 ENNEBATI Yassine
 */
 
 #include <stdio.h>
@@ -74,13 +74,16 @@ static void		display_hiscores(t_hiscores hiscores)
 
   memset(position, 0, sizeof(position));
   renderer_clear(NULL);
-  orig = point_factory(365, 160);
+  orig = point_factory(365, 140);
   draw_text("TOP 10", &orig, get_common_font(COSMIC24_FNT), &green);
-  orig = point_factory(255, 220);
-  for (i = 1; i < hiscores.count; ++i)
+  orig = point_factory(255, 200);
+  for (i = 1; i <= hiscores.count; ++i)
   {
+    if (i == hiscores.count)
+      orig.x = 245;
     sprintf(position, "%d", i);
     draw_text(position, &orig, get_common_font(COSMIC18_FNT), &yellow);
+    orig.x = 255;
     draw_hiscores_entries(orig, hiscores.entries[i - 1]);
     orig.y += 40;
   }
