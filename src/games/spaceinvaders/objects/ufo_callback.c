@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 15:14:45 2014 FOFANA Ibrahim
-** Last update Tue Sep  9 17:28:32 2014 FOFANA Ibrahim
+** Last update Thu Sep 25 14:50:05 2014 FOFANA Ibrahim
 */
 
 #include <stdlib.h>
@@ -49,6 +49,7 @@ static void	spaceufo_appear(t_spaceufo *ufo)
   to = SDL_GetTicks();
   if ((to - ti) > UFO_ELAPSED_TIME)
   {
+    ufo->score_gain = ((rand() % 6) * 50);
     ti = SDL_GetTicks();
     if (rand() % 2)
     {
