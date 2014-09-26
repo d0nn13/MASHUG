@@ -15,6 +15,7 @@
 #include "../../../core/helpers.h"
 #include "../sprites.h"
 #include "../core.h"
+#include "../context.h"
 #include "rocket.h"
 #include "alien.h"
 #include "block.h"
@@ -77,6 +78,7 @@ void			spacerocket_collide(t_spacerocket *rocket)
       if (SDL_HasIntersection(&rocket->rect, &(ALIEN_CAST(node))->rect))
 	{
 	  rocket->state = COLLIDED;
+	  get_spacecontext()->score += ALIEN_CAST(node)->score_gain;
 	  return ;
 	}
   for (node = get_spaceobjects()->blocks; node; node = node->next)
