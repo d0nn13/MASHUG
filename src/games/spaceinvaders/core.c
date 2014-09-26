@@ -16,6 +16,7 @@
 #include "sprites.h"
 #include "menu.h"
 #include "context.h"
+#include "gameover.h"
 #include "core_process.h"
 #include "hud.h"
 
@@ -76,6 +77,8 @@ void			space_loop()
     if (SDL_GetTicks() - t_old < RENDER_PERIOD_MS)
       continue;
     SDL_RenderPresent(get_renderer());
+    if (!get_spacecontext()->lives)
+      set_launcher(&space_gameover);
     t_old = SDL_GetTicks();
   }
 }

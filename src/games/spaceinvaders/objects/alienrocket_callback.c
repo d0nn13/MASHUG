@@ -15,6 +15,8 @@
 #include "../../../core/log.h"
 #include "../../../core/handlers.h"
 #include "../../../core/helpers.h"
+#include "../context.h"
+
 #include "alienrocket_callback.h"
 
 #define IMPACT_PERSIST	7
@@ -78,6 +80,7 @@ void	spacealienrocket_collide(t_spacerocket *rocket, int index)
   if (SDL_HasIntersection(&rocket->rect, &ship->rect))
     {
       rocket->state = COLLIDED;
+      --get_spacecontext()->lives;
       return ;
     }
   for (node = get_spaceobjects()->blocks; node; node = node->next)
