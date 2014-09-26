@@ -5,11 +5,12 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sat Sep 20 23:13:09 2014 ENNEBATI Yassine
-** Last update Wed Sep 24 23:39:47 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 00:31:12 2014 ENNEBATI Yassine
 */
 
 #include "../../base/memory.h"
 #include "../../core/handlers.h"
+#include "../../core/helpers/hiscores_io.h"
 #include "../../core/input.h"
 #include "../common/sfx.h"
 #include "spaceinvaders.h"
@@ -46,15 +47,17 @@ static void	change_letter(t_letter *name, Uint8 idx, Uint8 state)
 
 static void		submit_name(t_letter *name)
 {
-  t_hiscoreholder	entry;
+  t_hiscoreholder	*entry;
   Uint8			i;
 
-  entry.nickname = mem_alloc(NB_LETTER + 1, 1);
+  entry = mem_alloc(1, sizeof(t_hiscoreholder));
+  entry->nickname = mem_alloc(NB_LETTER + 1, 1);
+  memset(entry->nickname, 0, NB_LETTER + 1);
   for (i = 0; i < NB_LETTER; ++i)
-    entry.nickname[i] = name[i].letter;
-  entry.score = 123456789;
-  /* save_hiscores(entry, "spaceinvaders"); */
-  mem_free(entry.nickname);
+    entry->nickname[i] = name[i].letter;
+  entry->score = 123456789;
+  save_hiscores(entry, "spaceinvaders");
+  mem_free(entry->nickname);
   set_launcher(&space_menu);
 }
 

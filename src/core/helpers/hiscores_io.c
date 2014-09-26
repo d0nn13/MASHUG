@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Wed Sep 24 19:39:39 2014 FOFANA Ibrahim
-** Last update Thu Sep 25 20:30:25 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 00:57:58 2014 ENNEBATI Yassine
 */
 
 #include <string.h>
@@ -101,12 +101,14 @@ static Uint8	insert_entry(t_hiscores *hiscores, t_hiscoreholder *entry)
     if (hiscores->entries[i].score < entry->score)
       break;
   rank_entry = i;
-  for (i = hiscores->count - 2; i > rank_entry; i--)
+  mem_free(hiscores->entries[hiscores->count - 1].nickname);
+  for (i = hiscores->count - 1; i > rank_entry; i--)
   {
     hiscores->entries[i].nickname = hiscores->entries[i - 1].nickname;
     hiscores->entries[i].score = hiscores->entries[i - 1].score;
   }
-  hiscores->entries[rank_entry].nickname = entry->nickname;
+  hiscores->entries[rank_entry].nickname = mem_alloc(1, strlen(entry->nickname));
+  strcpy(hiscores->entries[rank_entry].nickname, entry->nickname);
   hiscores->entries[rank_entry].score = entry->score;
   return (1);
 }
