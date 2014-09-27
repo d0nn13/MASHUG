@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 04:02:17 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 03:36:45 2014 Emmanuel Atse
+** Last update Fri Sep 26 10:27:32 2014 Emmanuel Atse
 */
 
 #include "../../../base/list.h"
@@ -69,7 +69,7 @@ void			spacerocket_display(t_spacerocket *rocket)
 void			spacerocket_collide(t_spacerocket *rocket)
 {
   Uint8			i;
-  t_singlelist const    *node;
+  t_singlelist		*node;
 
   if (rocket->state != FIRED)
     return ;
@@ -78,7 +78,8 @@ void			spacerocket_collide(t_spacerocket *rocket)
       if (SDL_HasIntersection(&rocket->rect, &(ALIEN_CAST(node))->rect))
 	{
 	  rocket->state = COLLIDED;
-	  get_spacecontext()->score += ALIEN_CAST(node)->score_gain;
+	  ALIEN_CAST(node)->collide(node,
+				    &get_spaceobjects()->aliens->columns[i]);
 	  return ;
 	}
   for (node = get_spaceobjects()->blocks; node; node = node->next)

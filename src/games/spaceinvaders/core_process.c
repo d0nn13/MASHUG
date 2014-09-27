@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Mon Jul 14 16:11:17 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 02:39:39 2014 Emmanuel Atse
+** Last update Fri Sep 26 11:05:06 2014 Emmanuel Atse
 */
 
 #include <string.h>
@@ -19,16 +19,31 @@
 #include "objects/alien.h"
 #include "objects/alien_callback.h"
 #include "menu.h"
+#include "context.h"
 
 #include "core_process.h"
 
 static void	process_collisions(t_spaceobjects *o)
 {
   Uint8		i;
+  int		has_aliens;
 
   o->rocket->collide(o->rocket);
   for (i = 0; i < NB_ALIENS_ROCKETS; ++i)
     o->alien_rockets[i]->collide(o->alien_rockets[i], i);
+  has_aliens = 0;
+  for (i = 0; i < NB_ALIENS_COL; ++i)
+    if (o->aliens->columns[i])
+      {
+	has_aliens = 1;
+	break ;
+      }
+  if (!has_aliens)
+    {
+      ++get_spacecontext()->wave;
+      spacealiens_destroy(&o->aliens);
+      o->aliens = spacealiens_init();
+    }
 }
 
 Uint8		space_process_events()

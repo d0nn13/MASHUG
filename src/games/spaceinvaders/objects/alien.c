@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 ** 
 ** Started on  Sun Aug 10 01:10:42 2014 ENNEBATI Yassine
-** Last update Thu Sep 25 23:48:10 2014 Emmanuel Atse
+** Last update Fri Sep 26 10:47:52 2014 Emmanuel Atse
 */
 
 #include "../../../base/memory.h"
@@ -102,7 +102,8 @@ void		spacealiens_destroy(t_spacealiens **aliens)
       continue ;
     for (node = (*aliens)->columns[i]; node; node = node->next)
     {
-      mem_free(node->data);
+      if (node->data)
+	mem_free(node->data);
       node->data = NULL;
     }
     list_clear(&(*aliens)->columns[i]);

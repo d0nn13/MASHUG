@@ -5,7 +5,7 @@
 ** Login   <atse_e@etna-alternance.net>
 ** 
 ** Started on  Fri Sep 26 02:02:39 2014 Emmanuel Atse
-** Last update Fri Sep 26 03:22:48 2014 Emmanuel Atse
+** Last update Fri Sep 26 11:02:44 2014 Emmanuel Atse
 */
 
 #include <SDL2/SDL.h>
@@ -51,7 +51,7 @@ void	spacealienrocket_display(t_spacerocket *rocket, int index)
   if (rocket->state == FIRED)
   {
     draw_sprite_ex(rocket->sprite, &rocket->rect, 0, SDL_FLIP_VERTICAL);
-    rocket->rect.y += vel;
+    rocket->rect.y += vel * get_spacecontext()->level;
     if (rocket->rect.y + rocket->rect.h >
 	get_spacebounds()->h + get_spacebounds()->y)
     {
