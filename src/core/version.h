@@ -21,7 +21,7 @@
  */
 # define SI_MAJOR	0
 # define SI_MINOR	2
-# define SI_PATCH	0
+# define SI_PATCH	1
 /**
  *	@endcond
  */
