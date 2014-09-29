@@ -31,8 +31,8 @@ static void	get_range(t_spacealiens *aliens, SDL_Rect *range)
     return ;
   range->x = ALIEN_CAST(aliens->columns[i])->rect.x;
   range->w = ALIEN_CAST(aliens->columns[i])->rect.w;
-  for (i = NB_ALIENS_COL - 1; i >= 0 &&
-	 (!aliens->columns[i] || !aliens->columns[i]->data); --i)
+  for (i = NB_ALIENS_COL - 1; !aliens->columns[i] ||
+       !aliens->columns[i]->data; --i)
     ;
   range->y = ALIEN_CAST(aliens->columns[i])->rect.x;
 }
