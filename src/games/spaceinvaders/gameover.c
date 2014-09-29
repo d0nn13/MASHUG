@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sun Sep  7 18:58:23 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 03:58:03 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 10:49:42 2014 Emmanuel Atse
 */
 
 #include "../../core/renderer.h"
@@ -92,6 +92,7 @@ void			space_gameover()
     if (gameover_process_events(name, &idx))
       break;
     display_name(name, idx);
-    SDL_RenderPresent(get_renderer());
+    if (get_renderer())
+      SDL_RenderPresent(get_renderer());
   }
 }

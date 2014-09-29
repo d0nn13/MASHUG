@@ -5,7 +5,7 @@
 ** Login   <ahamad_s@etna-alternance.net>
 **
 ** Started on  Fri Apr 25 22:30:46 2014 AHAMADA Samir
-** Last update Fri Sep 26 01:44:46 2014 Emmanuel Atse
+** Last update Fri Sep 26 10:26:19 2014 Emmanuel Atse
 */
 
 /**
@@ -31,7 +31,7 @@
  */
 typedef struct		s_spacealien
 {
-  void			(*collide)();
+  void			(*collide)(t_singlelist *, t_singlelist **);
   t_spriteholder const	*sprite[2];
   SDL_Rect 		rect;
   Uint8			score_gain;

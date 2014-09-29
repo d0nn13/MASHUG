@@ -5,7 +5,7 @@
 ** Login   <fofana_i@etna-alternance.net>
 **
 ** Started on  Fri Sep  5 13:34:38 2014 FOFANA Ibrahim
-** Last update Fri Sep 26 03:33:49 2014 FOFANA Ibrahim
+** Last update Fri Sep 26 11:00:56 2014 Emmanuel Atse
 */
 
 #include "../../base/memory.h"
@@ -21,6 +21,7 @@ Uint8	spacecontext_init()
   spacecontext->score = 0;
   spacecontext->lives = NB_SPACE_LIVES;
   spacecontext->wave = 0;
+  spacecontext->level = 1.f;
   return (0);
 }
 
@@ -45,6 +46,6 @@ void	spacecontext_increase_life_process()
   {
     last_score = spacecontext->score;
     if (spacecontext->lives < 9)
-      spacecontext->lives++;
+      ++spacecontext->lives;
   }
 }

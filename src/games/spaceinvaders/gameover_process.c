@@ -5,7 +5,7 @@
 ** Login   <enneba_y@etna-alternance.net>
 **
 ** Started on  Sat Sep 20 23:13:09 2014 ENNEBATI Yassine
-** Last update Fri Sep 26 03:47:13 2014 ENNEBATI Yassine
+** Last update Fri Sep 26 11:10:13 2014 Emmanuel Atse
 */
 
 #include "../../base/memory.h"
@@ -51,11 +51,12 @@ static void		submit_name(t_letter *name)
 {
   t_hiscoreholder	*entry;
   Uint8			i;
-  char			nickname[NB_LETTER];
+  char			nickname[NB_LETTER + 1];
 
   entry = mem_alloc(1, sizeof(t_hiscoreholder));
   for (i = 0; i < NB_LETTER; ++i)
     nickname[i] = name[i].letter;
+  nickname[i] = 0;
   entry->nickname = (char *)nickname;
   entry->score = get_spacecontext()->score;
   save_hiscores(entry, "spaceinvaders");
