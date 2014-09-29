@@ -26,7 +26,7 @@
 static void	process_collisions(t_spaceobjects *o)
 {
   Uint8		i;
-  int		has_aliens;
+  Uint8		has_aliens;
 
   o->rocket->collide(o->rocket);
   for (i = 0; i < NB_ALIENS_ROCKETS; ++i)

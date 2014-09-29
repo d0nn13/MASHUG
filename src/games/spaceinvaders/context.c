@@ -46,6 +46,6 @@ void	spacecontext_increase_life_process()
   {
     last_score = spacecontext->score;
     if (spacecontext->lives < 9)
-      spacecontext->lives++;
+      ++spacecontext->lives;
   }
 }
