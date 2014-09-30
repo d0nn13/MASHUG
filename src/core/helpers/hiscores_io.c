@@ -8,6 +8,10 @@
 ** Last update Fri Sep 26 03:56:31 2014 ENNEBATI Yassine
 */
 
+#ifdef __linux__
+# define _GNU_SOURCE
+#endif
+#include "../../base/memory.h"
 #include <string.h>
 #include "../../base/list.h"
 #include "../../base/memory.h"
