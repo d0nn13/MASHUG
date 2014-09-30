@@ -9,15 +9,13 @@
 */
 
 #include	"memory.h"
+
 #include	"list.h"
 
 static void	update_index(t_singlelist *node)
 {
-  while (node)
-    {
-      --node->index;
-      node = node->next;
-    }
+  for (; node; node = node->next)
+    --node->index;
 }
 
 void		list_pop(t_singlelist *node, t_singlelist **root)

@@ -44,7 +44,7 @@ void		list_push(void *data, t_singlelist **tail);
 /**
  *	@brief	Remove a node of a singly-linked list
  *
- *	This function delete the node from memory, but not his data.
+ *	This function deletes the node from memory, but not its data.
  *
  *	@param	node A pointer to the node to remove
  *	@param	root The address of the pointer to the root node
