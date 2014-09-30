@@ -24,6 +24,7 @@ static void	get_range(t_spacealiens *aliens, SDL_Rect *range)
 {
   Uint8		i;
 
+  memset(range, 0, sizeof(SDL_Rect));
   for (i = 0; i < NB_ALIENS_COL &&
 	 (!aliens->columns[i] || !aliens->columns[i]->data); ++i)
     ;
