@@ -82,8 +82,8 @@ static Sint32	core_destroy()
 
 Sint32	main(int argc, char **argv)
 {
-  chdir(dirname(*argv));
-  chdir("..");
+  if (chdir(dirname(*argv)) || chdir(".."))
+    fprintf(stderr, "FATAL ERROR : 'chdir' failed\n");
   if (core_init(argc, argv) || common_init())
     return (EXIT_FAILURE);
   set_launcher(&main_menu);
